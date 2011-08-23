@@ -1,0 +1,48 @@
+\[\033[01;00m\] blanco
+\[\033[01;01m\] blanco negrita
+\[\033[01;02m\] blanco negrita
+\[\033[01;03m\] blanco negrita
+\[\033[01;04m\] subrayado
+\[\033[01;05m\] negrita parpadea :D
+\[\033[01;06m\] negrita
+\[\033[01;07m\] resaltado
+\[\033[01;08m\] negrita
+\[\033[01;09m\] negrita
+\[\033[01;10m\] negrita
+\[\033[01;11m\] negrita
+\[\033[01;12m\] negrita
+\[\033[01;13m\] negrita
+\[\033[01;14m\] negrita
+\[\033[01;15m\] negrita
+\[\033[01;16m\] negrita
+\[\033[01;17m\] negrita
+\[\033[01;18m\] negrita
+\[\033[01;19m\] negrita
+\[\033[01;20m\] negrita
+\[\033[01;21m\] negrita
+\[\033[01;22m\] normal
+\[\033[01;23m\] negrita
+\[\033[01;24m\] negrita
+\[\033[01;25m\] negrita
+\[\033[01;26m\] negrita
+\[\033[01;27m\] negrita
+\[\033[01;28m\] negrita
+\[\033[01;29m\] negrita
+\[\033[01;30m\] gris
+\[\033[01;31m\] rojo
+\[\033[01;32m\] verde
+\[\033[01;33m\] amarillo
+\[\033[01;34m\] azul marino
+\[\033[01;35m\] lila
+\[\033[01;36m\] azul cielo
+\[\033[01;37m\] blanco
+\[\033[01;38m\] negrita
+\[\033[01;39m\] negrita
+\[\033[01;40m\] negrita
+\[\033[01;41m\] negrita sobre rojo
+\[\033[01;42m\] negrita sobre verde
+\[\033[01;43m\] negrita sobre naranja
+\[\033[01;44m\] negrita sobre 
+\[\033[01;45m\] negrita sobre rojo
+\[\033[01;46m\] negrita sobre rojo
+\[\033[01;47m\] negrita sobre rojo

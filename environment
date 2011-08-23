@@ -1,0 +1,37 @@
+# Environment variables for the shell and X
+
+# Language
+export LANG="es_ES.UTF-8"
+export LC_COLLATE="C"
+
+# Pretty common unix programs
+export EDITOR=vim
+export MANWIDTH=80
+#export CDPATH=.:/usr/share/doc
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# rsync
+export RSYNC_RSH=ssh
+
+# Debian
+export DEBEMAIL="suy@badopi.org"
+export DEBFULLNAME="Alejandro Exojo Piqueras"
+export DEBSIGN_KEYID=0x0B8B0BC2
+
+# Other
+KDE_NO_IPV6=true
+
+#if [ -d ~/local/bin ] ; then
+#    PATH=~/local/bin:"${PATH}"
+#fi
+#
+#if [ -d ~/local/man ] ; then
+#    MANPATH=~/local/man:"${MANPATH}"
+#fi
+#
