@@ -8,7 +8,7 @@
 " Use the mouse for selection of text, and position the cursor
 "set mouse=a
 
-" Don't leave two spaces (foo.  Bar) when joining lines
+" Don't leave two spaces between two sentences (foo.  Bar) when joining lines
 set nojoinspaces
 
 " Enable modelines
@@ -18,12 +18,18 @@ set modeline
 set showcmd
 
 " Source .vimrc automatically when it changes, but seems it is problematic
-" if has("autocmd")
-" 	autocmd bufwritepost .vimrc source $MYVIMRC
-" endif
+if has("autocmd")
+	autocmd! bufwritepost .vimrc source $MYVIMRC
+endif
 
 " Use specific plugins and indentation of the filetype
 filetype plugin indent on
+
+" Use visualbell instead of the system beep
+set visualbell
+
+" Allow hidden buffers without that many prompts, but caution when using ':q!'
+set hidden
 
 
 "  _   _ _       _     _ _       _     _   _
@@ -63,7 +69,14 @@ set smartcase
 "set incsearch
 
 " Highlight search results
-set hls
+set hlsearch
+
+" Use global matching by default in regexes (override adding a /g back)
+set gdefault
+
+" Remap the search keys to use the more compatible regular expressions
+nnoremap / /\v
+vnoremap / /\v
 
 
 "  _____                          _   _   _
@@ -76,17 +89,17 @@ set hls
 " textwidth: break line when maximum line length is reached (use 0 to disable)
 "set tw=80
 
-" wrapmargin: similar to textwidth, but based on the columns number
-"set wm=80
+" wrapmargin: breaks line when only n columns are left. Ignored if tw is set
+"set wm=5
 
 " linebreak: display long lines as if it were broken, but don't insert EOL
-"set lbr
+set lbr
 
 " breakat: which caracter can cause a break
 "set brk
 
-" showbreak: show this string when displaying a broken line
-"set sbr=--->
+" showbreak: show this string at the beggining of a broken line
+set sbr=…
 
 " columns
 "set co=85
@@ -99,11 +112,16 @@ set hls
 "   |_|\__,_|_.__/|___/
 "
 
-" tabstop: change how many spaces _looks_ a tab
+" tabstop: Set how many spaces _looks_ a tab.
 set ts=4
 
 " shiftwidth: Number of spaces to use for each step of (auto)indent.
+" Usually you set it to the tabstop, unless you want to mix spaces and tabs.
 set sw=4
+
+" softtabstop: Makes the backspace more consistent with the tab in insert mode
+" if you set the shiftwidth and the softtabstop the same value
+set sts=4
 
 " Changes tabs with spaces (*beware* when you edit Makefiles)
 "set expandtab
@@ -124,10 +142,16 @@ set smartindent
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
-set listchars=tab:»-,trail:·,extends:>,precedes:<,
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,
 
 " Get rid of the automatic folding in debian changelogs of vim 7
 set nofoldenable
+
+" Use a colored column to mark the 85th column
+set colorcolumn=85
+
+" Always show the status bar
+set laststatus=2
 
 
 "  _  __                 _
@@ -137,14 +161,53 @@ set nofoldenable
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
+" Change the 'leader' key to something more easy to press
+let mapleader = ","
+
+" Try to be smart: if accidentally you press 'jj' or 'kk' in insert mode, you
+" will be brought back to normal mode. Is also easier to press than <ESC>.
+inoremap jj <ESC>
+inoremap kk <ESC>
+"inoremap ll <ESC> " Unfortunately, this are used in practice
+"inoremap hk <ESC>
+
+" Make window management a little bit more easy:
+" map all the C-W <foobar> to <leader>w<foobar>
+map <leader>ws <C-w>s
+map <leader>wv <C-w>v
+map <leader>wn <C-w>n
+map <leader>wq <C-w>q
+map <leader>wo <C-w>o
+map <leader>wp <C-w>p
+map <leader>wj <C-w>j
+map <leader>wk <C-w>k
+
+" Make the tab do something a little bit more useful in normal mode
+nnoremap <tab> %
+vnoremap <tab> %
+
 " Press the space key (which is easier to press) to colon
 nmap <space> :
 
-" Map the backspace to delete, like in insert mode
-"nmap <BS> x
+" Change the single quote and the grave to be the opposite of each other
+nnoremap ' `
+nnoremap ` '
 
 " Map the CTRL-F (unused in insert mode) to the omnicompletion one
 imap <C-f> <C-x><C-o>
+
+" Easily toggle invisible characters (listchars). This is very important for:
+" - Copying with the mouse to another application (if you don't disable them,
+"   will be added to the clipboard, which doesn't make sense).
+" - Making linebreak work, because is a documented limitation that doesn't
+"   work with :set list. :-(
+nmap <leader>l :set list!<CR>
+
+" Easily hide the highlighting of the search
+nmap <leader>h :nohlsearch<CR>
+
+" Toggle paste on/off when you want to copy in insert mode (e.g. from other app)
+map <leader>p :set invpaste<CR>
 
 
 "   ____                      _      _   _
@@ -162,7 +225,7 @@ set completeopt=menuone,longest,preview
 
 "" Note: This should be unnecessary with the supertab plugin, but...
 " Insert <Tab> or use omni completion if the cursor is after a keyword character
-function MyTabOrComplete()
+function! MyTabOrComplete()
 let col = col('.')-1
 if !col || getline('.')[col-1] !~ '\k'
 	return "\<tab>"
@@ -181,5 +244,16 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 " endif
 " endfunction
 " inoremap <Tab> <C-R>=CleverTab()<CR>
+
+
+"  ____  _             _
+" |  _ \| |_   _  __ _(_)_ __  ___
+" | |_) | | | | |/ _` | | '_ \/ __|
+" |  __/| | |_| | (_| | | | | \__ \
+" |_|   |_|\__,_|\__, |_|_| |_|___/
+"                |___/
+
+" Initialize the pathogen plugin
+call pathogen#infect()
 
 
