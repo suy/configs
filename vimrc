@@ -17,9 +17,10 @@ set modeline
 " Show commands as you type them
 set showcmd
 
-" Source .vimrc automatically when it changes, but seems it is problematic
+" Source .vimrc automatically when it changes
 if has("autocmd")
 	autocmd! bufwritepost .vimrc source $MYVIMRC
+	autocmd! bufwritepost _vimrc source $MYVIMRC
 endif
 
 " Use specific plugins and indentation of the filetype
@@ -30,6 +31,50 @@ set visualbell
 
 " Allow hidden buffers without that many prompts, but caution when using ':q!'
 set hidden
+
+" scrolloff: Make the text scroll some lines before the cursor reaches the border
+set so=5
+
+" Automatically cd into the directory that the file is in
+set autochdir
+
+
+"
+"    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
+"   / _ \ | '_ \| '_ \ / _ \/ _` | '__/ _` | '_ \ / __/ _ \
+"  / ___ \| |_) | |_) |  __/ (_| | | | (_| | | | | (_|  __/
+" /_/   \_\ .__/| .__/ \___|\__,_|_|  \__,_|_| |_|\___\___|
+"         |_|   |_|
+
+" number: show line number
+"set nu
+
+" Show some chars to denote clearly where there is a tab or trailing space
+set list
+set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,
+
+" Get rid of the automatic folding in debian changelogs of vim 7
+set nofoldenable
+
+" Use a colored column to mark the 85th column
+set colorcolumn=85
+
+" Always show the status bar
+set laststatus=2
+
+" Set some things depending on the OS and the presence of a GUI
+if has("gui_running")
+	if has("win32")
+		set guifont=Consolas:h9:cANSI
+		colorscheme desert
+		set columns=9999 lines=99999 " Sort of maximize window on startup
+		set guioptions-=T " Get rid of toolbar
+		set guioptions-=r " Get rid of scrollbars"
+	endif
+else
+	colorscheme elflord
+	set background=dark
+endif
 
 
 "  _   _ _       _     _ _       _     _   _
@@ -44,9 +89,6 @@ syntax on
 
 " Force a specific type of sintax highlighting
 "set syntax=php
-
-" Use better colors for a dark background console
-set background=dark
 
 " Highlight the opening bracket/parentheses when the closing one is written
 set showmatch
@@ -130,30 +172,6 @@ set sts=4
 set smartindent
 
 
-"
-"    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
-"   / _ \ | '_ \| '_ \ / _ \/ _` | '__/ _` | '_ \ / __/ _ \
-"  / ___ \| |_) | |_) |  __/ (_| | | | (_| | | | | (_|  __/
-" /_/   \_\ .__/| .__/ \___|\__,_|_|  \__,_|_| |_|\___\___|
-"         |_|   |_|
-
-" number: show line number
-"set nu
-
-" Show some chars to denote clearly where there is a tab or trailing space
-set list
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,
-
-" Get rid of the automatic folding in debian changelogs of vim 7
-set nofoldenable
-
-" Use a colored column to mark the 85th column
-set colorcolumn=85
-
-" Always show the status bar
-set laststatus=2
-
-
 "  _  __                 _
 " | |/ /___ _   _    ___| |__   __ _ _ __   __ _  ___  ___
 " | ' // _ \ | | |  / __| '_ \ / _` | '_ \ / _` |/ _ \/ __|
@@ -169,7 +187,7 @@ let mapleader = ","
 inoremap jj <ESC>
 inoremap kk <ESC>
 "inoremap ll <ESC> " Unfortunately, this are used in practice
-"inoremap hk <ESC>
+"inoremap hh <ESC>
 
 " Make window management a little bit more easy:
 " map all the C-W <foobar> to <leader>w<foobar>
@@ -181,6 +199,8 @@ map <leader>wo <C-w>o
 map <leader>wp <C-w>p
 map <leader>wj <C-w>j
 map <leader>wk <C-w>k
+map <leader>wl <C-w>l
+map <leader>wh <C-w>h
 
 " Make the tab do something a little bit more useful in normal mode
 nnoremap <tab> %
