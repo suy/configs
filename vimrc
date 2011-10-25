@@ -38,6 +38,12 @@ set so=5
 " Automatically cd into the directory that the file is in
 set autochdir
 
+" Allow the backspace to do useful things (is not the default everywhere)
+set backspace=indent,eol,start
+
+" Set the ruler (is not visible by default everywhere)
+set ruler
+
 
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
