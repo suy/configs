@@ -44,6 +44,9 @@ set backspace=indent,eol,start
 " Set the ruler (is not visible by default everywhere)
 set ruler
 
+" Set encoding to utf-8 for systems that don't have it by default
+set encoding=utf-8
+
 
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
@@ -74,8 +77,8 @@ if has("gui_running")
 		set guifont=Consolas:h9:cANSI
 		colorscheme desert
 		set columns=9999 lines=99999 " Sort of maximize window on startup
-		set guioptions-=T " Get rid of toolbar
-		set guioptions-=r " Get rid of scrollbars"
+		set guioptions-=T " Get rid of the toolbar
+		set guioptions-=r " Get rid of scrollbars
 	endif
 else
 	colorscheme elflord
