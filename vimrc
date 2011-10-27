@@ -74,8 +74,8 @@ set laststatus=2
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
 	if has("win32")
-		set guifont=Consolas:h9:cANSI
-		colorscheme desert
+		set guifont=DejaVu_Sans_Mono:h9:cANSI
+		colorscheme torte
 		set columns=9999 lines=99999 " Sort of maximize window on startup
 		set guioptions-=T " Get rid of the toolbar
 		set guioptions-=r " Get rid of scrollbars
@@ -126,8 +126,8 @@ set hlsearch
 set gdefault
 
 " Remap the search keys to use the more compatible regular expressions
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 
 "  _____                          _   _   _
@@ -195,8 +195,9 @@ let mapleader = ","
 " will be brought back to normal mode. Is also easier to press than <ESC>.
 inoremap jj <ESC>
 inoremap kk <ESC>
-"inoremap ll <ESC> " Unfortunately, this are used in practice
-"inoremap hh <ESC>
+" Be more carful with this, because 'll' and 'hh' are somewhat used in practice
+inoremap lll <ESC>
+inoremap hhh <ESC>
 
 " Make window management a little bit more easy:
 " map all the C-W <foobar> to <leader>w<foobar>
