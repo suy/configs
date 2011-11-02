@@ -47,6 +47,9 @@ set ruler
 " Set encoding to utf-8 for systems that don't have it by default
 set encoding=utf-8
 
+" Allow more time between keystrokes for some key shortcuts
+set timeoutlen=1600
+
 
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
@@ -218,6 +221,7 @@ vnoremap <tab> %
 
 " Press the space key (which is easier to press) to colon
 nmap <space> :
+vmap <space> :
 
 " Change the single quote and the grave to be the opposite of each other
 nnoremap ' `
