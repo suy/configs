@@ -81,7 +81,8 @@ if has("gui_running")
 		colorscheme torte
 		set columns=9999 lines=99999 " Sort of maximize window on startup
 		set guioptions-=T " Get rid of the toolbar
-		set guioptions-=r " Get rid of scrollbars
+		set guioptions+=LlRrb " Get rid of scrollbars...
+		set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	endif
 else
 	colorscheme elflord
@@ -215,6 +216,9 @@ map <leader>wk <C-w>k
 map <leader>wl <C-w>l
 map <leader>wh <C-w>h
 
+" Convenient shortcut for closing a buffer without closing a window
+nmap <leader>q :bprevious<CR>:bdelete #<CR>
+
 " Make the tab do something a little bit more useful in normal mode
 nnoremap <tab> %
 vnoremap <tab> %
@@ -227,7 +231,7 @@ vmap <space> :
 nnoremap ' `
 nnoremap ` '
 
-" Map the CTRL-F (unused in insert mode) to the omnicompletion one
+" Map the CTRL-F (almost unused in insert mode) to the omnicompletion one
 imap <C-f> <C-x><C-o>
 
 " Easily toggle invisible characters (listchars). This is very important for:
