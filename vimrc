@@ -294,4 +294,8 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 " Initialize the pathogen plugin
 call pathogen#infect()
 
+" Customize TComment
+"let g:tcommentMapLeader1='<Leader>c'
+let g:tcommentMapLeader2='<leader>c'
+map <leader>cc <leader>c_
 
