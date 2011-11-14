@@ -33,7 +33,7 @@ set visualbell
 set hidden
 
 " scrolloff: Make the text scroll some lines before the cursor reaches the border
-set so=5
+set so=3
 
 " Automatically cd into the directory that the file is in
 set autochdir
@@ -85,7 +85,7 @@ if has("gui_running")
 		set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	endif
 else
-	colorscheme elflord
+	" colorscheme elflord
 	set background=dark
 endif
 
@@ -257,22 +257,23 @@ map <leader>p :set invpaste<CR>
 
 " Complete longest common string, then each full match
 set wildmode=longest,full
+set wildmode=longest,list
 
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest,preview
 
 "" Note: This should be unnecessary with the supertab plugin, but...
 " Insert <Tab> or use omni completion if the cursor is after a keyword character
-function! MyTabOrComplete()
-let col = col('.')-1
-if !col || getline('.')[col-1] !~ '\k'
-	return "\<tab>"
-	else
-		return "\<C-x>\<C-o>"
-	endif
-endfunction
-" Map the <Tab> to the function that will activate the completion
-inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
+"function! MyTabOrComplete()
+"let col = col('.')-1
+"if !col || getline('.')[col-1] !~ '\k'
+"	return "\<tab>"
+"	else
+"		return "\<C-x>\<C-o>"
+"	endif
+"endfunction
+"" Map the <Tab> to the function that will activate the completion
+"inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
 " function! CleverTab()
 " if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
@@ -293,6 +294,10 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
 " Initialize the pathogen plugin
 call pathogen#infect()
+
+" Use plugins that are included with Vim 7
+runtime macros/matchit.vim
+runtime macros/justify.vim
 
 " Customize TComment
 "let g:tcommentMapLeader1='<Leader>c'
