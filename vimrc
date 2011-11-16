@@ -58,6 +58,23 @@ set undodir=$HOME/.vimundo
 set foldopen-=search
 
 
+"  _   _ _       _     _ _       _     _   _
+" | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
+" | |_| | |/ _` | '_ \| | |/ _` | '_ \| __| | '_ \ / _` |
+" |  _  | | (_| | | | | | | (_| | | | | |_| | | | | (_| |
+" |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|_|_| |_|\__, |
+"          |___/           |___/                   |___/
+
+" Activates sintax highlighting
+syntax on
+
+" Force a specific type of sintax highlighting
+"set syntax=php
+
+" Highlight the opening bracket/parentheses when the closing one is written
+set showmatch
+
+
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
 "   / _ \ | '_ \| '_ \ / _ \/ _` | '__/ _` | '_ \ / __/ _ \
@@ -98,23 +115,6 @@ else
 	" Make the listchars darker
 	hi SpecialKey ctermfg=240
 endif
-
-
-"  _   _ _       _     _ _       _     _   _
-" | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
-" | |_| | |/ _` | '_ \| | |/ _` | '_ \| __| | '_ \ / _` |
-" |  _  | | (_| | | | | | | (_| | | | | |_| | | | | (_| |
-" |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|_|_| |_|\__, |
-"          |___/           |___/                   |___/
-
-" Activates sintax highlighting
-syntax on
-
-" Force a specific type of sintax highlighting
-"set syntax=php
-
-" Highlight the opening bracket/parentheses when the closing one is written
-set showmatch
 
 
 "  ____                      _     _
