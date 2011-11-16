@@ -50,6 +50,13 @@ set encoding=utf-8
 " Allow more time between keystrokes for some key shortcuts
 set timeoutlen=1600
 
+" Save all the undo history, even of closed files, in a specific directory
+set undofile
+set undodir=$HOME/.vimundo
+
+" Don't open folds when searching for a match
+set foldopen-=search
+
 
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
@@ -78,15 +85,18 @@ set laststatus=2
 if has("gui_running")
 	if has("win32")
 		set guifont=DejaVu_Sans_Mono:h9:cANSI
-		colorscheme torte
+		colorscheme molokai
+		" Make the listchars darker
+		hi SpecialKey guifg=#3B3B3B gui=italic
 		set columns=9999 lines=99999 " Sort of maximize window on startup
 		set guioptions-=T " Get rid of the toolbar
 		set guioptions+=LlRrb " Get rid of scrollbars...
 		set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	endif
 else
-	" colorscheme elflord
-	set background=dark
+	colorscheme elflord
+	" Make the listchars darker
+	hi SpecialKey ctermfg=240
 endif
 
 
@@ -292,7 +302,13 @@ set completeopt=menuone,longest,preview
 " |_|   |_|\__,_|\__, |_|_| |_|___/
 "                |___/
 
-" Initialize the pathogen plugin
+" Pathogen loads all sorts of plugins in subdirectories under ~/.vim/bundle/.
+" You can disable a plugin by adding a trailing '~' to the bundle
+" subdirectory, or conditionally adding its name to the disabling variable
+let g:pathogen_disabled = []
+if !has('gui_running')
+	call add(g:pathogen_disabled, 'vim-css-color')
+endif
 call pathogen#infect()
 
 " Use plugins that are included with Vim 7
@@ -303,4 +319,8 @@ runtime macros/justify.vim
 "let g:tcommentMapLeader1='<Leader>c'
 let g:tcommentMapLeader2='<leader>c'
 map <leader>cc <leader>c_
+
+" Unmap some keys defined by lusty juggler and redefine them
+" nunmap <leader>lj
+nmap <silent> <leader>jj :LustyJuggler<CR>
 
