@@ -105,7 +105,7 @@ if has("gui_running")
 		colorscheme molokai
 		" Make the listchars darker
 		hi SpecialKey guifg=#3B3B3B gui=italic
-		set columns=9999 lines=99999 " Sort of maximize window on startup
+		" set columns=9999 lines=99999 " Sort of maximize window on startup
 		set guioptions-=T " Get rid of the toolbar
 		set guioptions+=LlRrb " Get rid of scrollbars...
 		set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
