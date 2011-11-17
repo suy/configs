@@ -256,6 +256,13 @@ map <leader>wj <C-w>j
 map <leader>wk <C-w>k
 map <leader>wl <C-w>l
 map <leader>wh <C-w>h
+map <leader>w= <C-w>=
+map <leader>w_ <C-w>_
+map <leader>w<bar> <C-w><bar>
+map <leader>w+ <C-w>+
+map <leader>w- <C-w>-
+map <leader>w> <C-w>>
+map <leader>w<lt> <C-w><lt>
 
 " Convenient shortcut for closing a buffer without closing a window
 nmap <leader>q :bprevious<CR>:bdelete #<CR>
