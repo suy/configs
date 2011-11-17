@@ -295,6 +295,13 @@ nmap <leader>h :nohlsearch<CR>
 " Toggle paste on/off when you want to copy in insert mode (e.g. from other app)
 map <leader>p :set invpaste<CR>
 
+" Toggle the use of cursor column and cursor line
+map <leader><leader>cc :set cursorcolumn!<CR>
+map <leader><leader>cl :set cursorline!<CR>
+
+" Switch to the previous buffer
+map <leader>bb :b #<CR>
+
 
 "   ____                      _      _   _
 "  / ___|___  _ __ ___  _ __ | | ___| |_(_) ___  _ __
