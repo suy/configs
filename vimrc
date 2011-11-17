@@ -101,7 +101,7 @@ set laststatus=2
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
 	if has("win32")
-		set guifont=DejaVu_Sans_Mono:h9:cANSI
+		set guifont=DejaVu_Sans_Mono:h7.8:cANSI
 		colorscheme molokai
 		" Make the listchars darker
 		hi SpecialKey guifg=#3B3B3B gui=italic
