@@ -1,3 +1,34 @@
+"  ____  _             _
+" |  _ \| |_   _  __ _(_)_ __  ___
+" | |_) | | | | |/ _` | | '_ \/ __|
+" |  __/| | |_| | (_| | | | | \__ \
+" |_|   |_|\__,_|\__, |_|_| |_|___/
+"                |___/
+
+" Pathogen loads all sorts of plugins in subdirectories under ~/.vim/bundle/.
+" You can disable a plugin by adding a trailing '~' to the bundle
+" subdirectory, or conditionally adding its name to the disabling variable
+let g:pathogen_disabled = ['vim-fuzzyfinder', 'vim-l9', 'lusty']
+if !has('gui_running')
+	call add(g:pathogen_disabled, 'vim-css-color')
+endif
+call pathogen#infect()
+Helptags
+
+" Use plugins that are included with Vim 7
+runtime macros/matchit.vim
+runtime macros/justify.vim
+
+" Customize TComment
+"let g:tcommentMapLeader1='<Leader>c'
+let g:tcommentMapLeader2='<leader>c'
+map <leader>cc <leader>c_
+
+" Unmap some keys defined by lusty juggler and redefine them
+" nunmap <leader>lj
+nmap <silent> <leader>jj :LustyJuggler<CR>
+
+
 "  __  __ _
 " |  \/  (_)___  ___
 " | |\/| | / __|/ __|
@@ -294,33 +325,4 @@ set completeopt=menuone,longest,preview
 " endfunction
 " inoremap <Tab> <C-R>=CleverTab()<CR>
 
-
-"  ____  _             _
-" |  _ \| |_   _  __ _(_)_ __  ___
-" | |_) | | | | |/ _` | | '_ \/ __|
-" |  __/| | |_| | (_| | | | | \__ \
-" |_|   |_|\__,_|\__, |_|_| |_|___/
-"                |___/
-
-" Pathogen loads all sorts of plugins in subdirectories under ~/.vim/bundle/.
-" You can disable a plugin by adding a trailing '~' to the bundle
-" subdirectory, or conditionally adding its name to the disabling variable
-let g:pathogen_disabled = []
-if !has('gui_running')
-	call add(g:pathogen_disabled, 'vim-css-color')
-endif
-call pathogen#infect()
-
-" Use plugins that are included with Vim 7
-runtime macros/matchit.vim
-runtime macros/justify.vim
-
-" Customize TComment
-"let g:tcommentMapLeader1='<Leader>c'
-let g:tcommentMapLeader2='<leader>c'
-map <leader>cc <leader>c_
-
-" Unmap some keys defined by lusty juggler and redefine them
-" nunmap <leader>lj
-nmap <silent> <leader>jj :LustyJuggler<CR>
 
