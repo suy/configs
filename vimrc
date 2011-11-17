@@ -85,9 +85,6 @@ set timeoutlen=1600
 set undofile
 set undodir=$HOME/.vimundo
 
-" Don't open folds when searching for a match
-set foldopen-=search
-
 
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
@@ -173,6 +170,9 @@ set gdefault
 " Remap the search keys to use the more compatible regular expressions
 "nnoremap / /\v
 "vnoremap / /\v
+
+" Don't open folds when searching for a match, and show match only one
+set foldopen-=search
 
 
 "  _____                          _   _   _
