@@ -8,7 +8,11 @@
 " Pathogen loads all sorts of plugins in subdirectories under ~/.vim/bundle/.
 " You can disable a plugin by adding a trailing '~' to the bundle
 " subdirectory, or conditionally adding its name to the disabling variable
-let g:pathogen_disabled = ['vim-fuzzyfinder', 'vim-l9', 'lusty']
+let g:pathogen_disabled = ['vim-fuzzyfinder', 'vim-l9']
+" Lusty has failed for me on Windows :-(
+if has('win32')
+	call add(g:pathogen_disabled, 'lusty')
+endif
 if !has('gui_running')
 	call add(g:pathogen_disabled, 'vim-css-color')
 endif
