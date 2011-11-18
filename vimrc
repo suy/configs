@@ -33,6 +33,57 @@ map <leader>cc <leader>c_
 nmap <silent> <leader>jj :LustyJuggler<CR>
 
 
+"  _____                          _   _   _
+" |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
+" | |_ / _ \| '__| '_ ` _ \ / _` | __| __| | '_ \ / _` |
+" |  _| (_) | |  | | | | | | (_| | |_| |_| | | | | (_| |
+" |_|  \___/|_|  |_| |_| |_|\__,_|\__|\__|_|_| |_|\__, |
+"                                                 |___/
+
+" textwidth: break line when maximum line length is reached (use 0 to disable)
+"set tw=80
+
+" wrapmargin: breaks line when only n columns are left. Ignored if tw is set
+"set wm=5
+
+" linebreak: display long lines as if it were broken, but don't insert EOL
+set lbr
+
+" breakat: which caracter can cause a break
+"set brk
+
+" showbreak: show this string at the beggining of a broken line
+set sbr=…
+
+" columns
+"set co=85
+
+
+"  _____     _
+" |_   _|_ _| |__  ___
+"   | |/ _` | '_ \/ __|
+"   | | (_| | |_) \__ \
+"   |_|\__,_|_.__/|___/
+"
+
+" tabstop: Set how many spaces _looks_ a tab.
+set ts=4
+
+" shiftwidth: Number of spaces to use for each step of (auto)indent.
+" Usually you set it to the tabstop, unless you want to mix spaces and tabs.
+set sw=4
+
+" softtabstop: Makes the backspace more consistent with the tab in insert mode
+" if you set the shiftwidth and the softtabstop the same value
+set sts=4
+
+" Changes tabs with spaces (*beware* when you edit Makefiles)
+"set expandtab
+
+" noautoindent: don't autoindent text, cause it's annoying when pasting text
+set smartindent
+
+
 "  __  __ _
 " |  \/  (_)___  ___
 " | |\/| | / __|/ __|
@@ -177,57 +228,6 @@ set gdefault
 
 " Don't open folds when searching for a match, and show match only one
 set foldopen-=search
-
-
-"  _____                          _   _   _
-" |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
-" | |_ / _ \| '__| '_ ` _ \ / _` | __| __| | '_ \ / _` |
-" |  _| (_) | |  | | | | | | (_| | |_| |_| | | | | (_| |
-" |_|  \___/|_|  |_| |_| |_|\__,_|\__|\__|_|_| |_|\__, |
-"                                                 |___/
-
-" textwidth: break line when maximum line length is reached (use 0 to disable)
-"set tw=80
-
-" wrapmargin: breaks line when only n columns are left. Ignored if tw is set
-"set wm=5
-
-" linebreak: display long lines as if it were broken, but don't insert EOL
-set lbr
-
-" breakat: which caracter can cause a break
-"set brk
-
-" showbreak: show this string at the beggining of a broken line
-set sbr=…
-
-" columns
-"set co=85
-
-
-"  _____     _
-" |_   _|_ _| |__  ___
-"   | |/ _` | '_ \/ __|
-"   | | (_| | |_) \__ \
-"   |_|\__,_|_.__/|___/
-"
-
-" tabstop: Set how many spaces _looks_ a tab.
-set ts=4
-
-" shiftwidth: Number of spaces to use for each step of (auto)indent.
-" Usually you set it to the tabstop, unless you want to mix spaces and tabs.
-set sw=4
-
-" softtabstop: Makes the backspace more consistent with the tab in insert mode
-" if you set the shiftwidth and the softtabstop the same value
-set sts=4
-
-" Changes tabs with spaces (*beware* when you edit Makefiles)
-"set expandtab
-
-" noautoindent: don't autoindent text, cause it's annoying when pasting text
-set smartindent
 
 
 "  _  __                 _
