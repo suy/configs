@@ -104,8 +104,7 @@ set showcmd
 
 " Source .vimrc automatically when it changes
 if has("autocmd")
-	autocmd! bufwritepost .vimrc source $MYVIMRC
-	autocmd! bufwritepost _vimrc source $MYVIMRC
+	autocmd! bufwritepost *vimrc source $MYVIMRC
 endif
 
 " Use specific plugins and indentation of the filetype
