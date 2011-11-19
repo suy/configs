@@ -179,11 +179,47 @@ set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
 " Get rid of the automatic folding in debian changelogs of vim 7
 set nofoldenable
 
-" Use a colored column to mark the 85th column
-set colorcolumn=85
+" colorcolumn: Use a colored column to mark the textwidh+1 column
+set cc=+1
 
-" Always show the status bar
-set laststatus=2
+" laststatus: Show the statusbar always, not only on last window
+set ls=2
+
+" Customize the statusbar. The default is something like this (with ruler):
+"set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+" An example using several colors
+" set statusline=
+" set statusline +=%1*\ %n\ %*            "buffer number
+" set statusline +=%5*%{&ff}%*            "file format
+" set statusline +=%3*%y%*                "file type
+" set statusline +=%4*\ %<%F%*            "full path
+" set statusline +=%2*%m%*                "modified flag
+" set statusline +=%1*%=%5l%*             "current line
+" set statusline +=%2*/%L%*               "total lines
+" set statusline +=%1*%4c\ %*             "column number
+" set statusline +=%2*0x%04B\ %*          "character under cursor
+
+" Clear it first to start fresh each invocation
+set statusline=
+" Buffer name with 2 minimum width
+set statusline+=%2.n
+" Full path, but truncate the statusbar here if it's too long
+set statusline+=\ %<%F
+" a space, User1 color, modified flag, restore color
+set statusline+=\ %1*%m%*
+" Git information
+set statusline+=\ %{fugitive#statusline()}
+" Push everything else to the right
+set statusline+=%=
+" Modified, RO, help, preview, quickfix
+set statusline+=\ %R%H%W%q
+" Filetype in User1 color
+set statusline+=\ %1*%y%*
+" Ruler
+set statusline+=\ %-14.(%l,%c%V%)
+" Percentage
+set statusline +=%P
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
