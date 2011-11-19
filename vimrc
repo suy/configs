@@ -287,6 +287,9 @@ inoremap kk <ESC>
 inoremap lll <ESC>
 inoremap hhh <ESC>
 
+" Allow enter key in normal mode to insert lines
+nnoremap <CR> o<ESC>
+
 " Make window management a little bit more easy:
 " map all the C-W <foobar> to <leader>w<foobar>
 map <leader>ws <C-w>s
@@ -311,8 +314,7 @@ map <leader>w<lt> <C-w><lt>
 nmap <leader>q :bprevious<CR>:bdelete #<CR>
 
 " Make the tab do something a little bit more useful in normal mode
-nmap <tab> %
-vmap <tab> %
+map <tab> %
 
 " Press the space key (which is easier to press) to colon
 nmap <space> :
