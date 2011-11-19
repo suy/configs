@@ -155,6 +155,9 @@ syntax on
 " Highlight the opening bracket/parentheses when the closing one is written
 set showmatch
 
+" How to aggresively hightlight trailing whitespace
+"match Error /\v +$/
+
 
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
