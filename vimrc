@@ -55,7 +55,7 @@ set lbr
 "set brk
 
 " showbreak: show this string at the beggining of a broken line
-set sbr=…
+set sbr=➥
 
 
 "  _____     _
@@ -171,7 +171,10 @@ set showmatch
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
-set listchars=tab:▸\ ,trail:·,extends:>,precedes:<,
+set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
+
+" Set the characters for statusline (& non current stl), vsplit, fold & diff
+set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
 
 " Get rid of the automatic folding in debian changelogs of vim 7
 set nofoldenable
