@@ -136,7 +136,7 @@ set timeoutlen=1600
 
 " Save all the undo history, even of closed files, in a specific directory
 set undofile
-set undodir=$HOME/.local/share/vimundo
+set undodir=$HOME/.local/share/vim/undo
 
 
 "  _   _ _       _     _ _       _     _   _
