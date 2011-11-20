@@ -90,6 +90,9 @@ set smartindent
 " |_|  |_|_|___/\___|
 "
 
+" Clear other autocommands, to avoid defining them multiple times on reload
+autocmd!
+
 " Use the mouse for selection of text, and position the cursor
 "set mouse=a
 
@@ -289,6 +292,9 @@ inoremap hhh <ESC>
 
 " Allow enter key in normal mode to insert lines
 nnoremap <CR> o<ESC>
+" Unmap this shortcut for the command window (cmdwin)
+autocmd CmdwinEnter * nunmap <CR>
+autocmd CmdwinLeave * nnoremap <CR> o<ESC>
 
 " Make window management a little bit more easy:
 " map all the C-W <foobar> to <leader>w<foobar>
