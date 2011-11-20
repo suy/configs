@@ -356,8 +356,7 @@ map <leader>bb :b #<CR>
 "                      |_|
 
 " Complete longest common string, then each full match
-set wildmode=longest,full
-set wildmode=longest,list
+set wildmode=list:longest,full
 
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest,preview
