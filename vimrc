@@ -25,6 +25,9 @@ call pathogen#helptags() " equivalent to :Helptags
 runtime macros/matchit.vim
 runtime macros/justify.vim
 
+" Auto delete files created by fugitive
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " Customize TComment
 "let g:tcommentMapLeader1='<Leader>c'
 let g:tcommentMapLeader2='<leader>c'
