@@ -356,6 +356,9 @@ map <leader><leader>cl :set cursorline!<CR>
 " Switch to the previous buffer
 map <leader>bb :b #<CR>
 
+" Switch on and off spellchecking
+map <leader>s :set spell!<CR>
+
 
 "   ____                      _      _   _
 "  / ___|___  _ __ ___  _ __ | | ___| |_(_) ___  _ __
