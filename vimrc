@@ -249,15 +249,15 @@ set statusline +=%P
 if has("gui_running")
 	if has("win32")
 		set guifont=DejaVu_Sans_Mono:h7.8:cANSI
-		colorscheme molokai
 		" Make the listchars darker
-		hi SpecialKey guifg=#3B3B3B gui=italic
+		" hi SpecialKey guifg=#3B3B3B gui=italic
 		set guioptions-=T " Get rid of the toolbar
 		set guioptions+=LlRrb " Get rid of scrollbars...
 		set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	endif
+	colorscheme solarized
 else
-	colorscheme elflord
+	colorscheme molokai
 	" Make the listchars darker
 	hi SpecialKey ctermfg=240
 endif
