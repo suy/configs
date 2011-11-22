@@ -312,10 +312,13 @@ inoremap lll <ESC>
 inoremap hhh <ESC>
 
 " Allow enter key in normal mode to insert lines
-nnoremap <CR> o<ESC>
+nnoremap <CR> i<CR><ESC>
 " Unmap this shortcut for the command window (cmdwin)
 autocmd CmdwinEnter * nunmap <CR>
-autocmd CmdwinLeave * nnoremap <CR> o<ESC>
+autocmd CmdwinLeave * nnoremap <CR> i<CR><ESC>
+
+" Allow the backspace to delete in normal mode too
+nmap <BS> X
 
 " Make window management a little bit more easy:
 " map all the C-W <foobar> to <leader>w<foobar>
