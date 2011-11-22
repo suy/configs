@@ -144,6 +144,24 @@ set timeoutlen=1600
 set undofile
 set undodir=$HOME/.local/share/vim/undo
 
+" Save only cursor and folds on view files
+set viewoptions=cursor,folds
+
+" Use a different view directory
+set viewdir=$HOME/.local/share/vim/view
+
+" Atomatically create and load views of files in entering or exiting them
+augroup vimrc
+	au!
+	autocmd BufWritePost *
+		\   if expand('%') != '' && &buftype !~ 'nofile'
+		\|      mkview!
+		\|  endif
+	autocmd BufRead *
+		\   if expand('%') != '' && &buftype !~ 'nofile'
+		\|      silent loadview
+		\|  endif
+augroup END
 
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
