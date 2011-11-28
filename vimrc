@@ -28,15 +28,6 @@ runtime macros/justify.vim
 " Auto delete files created by fugitive
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Customize TComment
-"let g:tcommentMapLeader1='<Leader>c'
-let g:tcommentMapLeader2='<leader>c'
-map <leader>cc <leader>c_
-
-" Unmap some keys defined by lusty juggler and redefine them
-" nunmap <leader>lj
-nmap <silent> <leader>jj :LustyJuggler<CR>
-
 
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
