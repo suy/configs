@@ -9,11 +9,11 @@
 " You can disable a plugin by adding a trailing '~' to the bundle
 " subdirectory, or conditionally adding its name to the disabling variable
 " if exists('*pathogen#infect')
-let g:pathogen_disabled = ['vim-fuzzyfinder', 'vim-l9']
-" Lusty has failed for me on Windows :-(
-if has('win32')
-	call add(g:pathogen_disabled, 'lusty')
-endif
+" let g:pathogen_disabled = ['foo', 'bar']
+" if has('win32')
+" 	call add(g:pathogen_disabled, 'baz')
+" endif
+let g:pathogen_disabled = []
 if !has('gui_running')
 	call add(g:pathogen_disabled, 'vim-css-color')
 endif
