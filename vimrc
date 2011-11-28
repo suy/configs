@@ -151,13 +151,14 @@ set viewoptions=cursor,folds
 set viewdir=$HOME/.local/share/vim/view
 
 " Atomatically create and load views of files in entering or exiting them
+" FIXME: don't create views for fugitive:// or other temp files
 augroup vimrc
 	au!
-	autocmd BufWritePost *
+	autocmd BufWinLeave *
 		\   if expand('%') != '' && &buftype !~ 'nofile'
 		\|      mkview!
 		\|  endif
-	autocmd BufRead *
+	autocmd BufWinEnter *
 		\   if expand('%') != '' && &buftype !~ 'nofile'
 		\|      silent loadview
 		\|  endif
