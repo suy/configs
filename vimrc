@@ -406,26 +406,22 @@ set wildmode=list:longest,full
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest,preview
 
-"" Note: This should be unnecessary with the supertab plugin, but...
-" Insert <Tab> or use omni completion if the cursor is after a keyword character
-"function! MyTabOrComplete()
-"let col = col('.')-1
-"if !col || getline('.')[col-1] !~ '\k'
-"	return "\<tab>"
-"	else
-"		return "\<C-x>\<C-o>"
-"	endif
-"endfunction
-"" Map the <Tab> to the function that will activate the completion
-"inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
-
-" function! CleverTab()
-" if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-"    return "\<Tab>"
-" else
-" return "\<C-N>"
-" endif
-" endfunction
-" inoremap <Tab> <C-R>=CleverTab()<CR>
+function! CleverTab()
+	" Check if the cursor is at the beggining of line or after whitespace
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	   return "\<Tab>"
+	else
+		" Use omnifunc if available
+		if &omnifunc != ''
+			return "\<C-X>\<C-O>"
+		" Otherwise use the dictionary completion
+		elseif &dictionary != ''
+			return "\<C-K>"
+		else
+			return "\<C-P>"
+		endif
+	endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
 
 
