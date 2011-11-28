@@ -393,6 +393,14 @@ map <leader>bb :b #<CR>
 " Switch on and off spellchecking
 map <leader>s :set spell!<CR>
 
+" Experimental: use spanish keys in normal mode
+nmap ` [
+nmap + ]
+nmap ´ {
+nmap ç }
+nmap ñ [
+nmap Ñ {
+
 
 "   ____                      _      _   _
 "  / ___|___  _ __ ___  _ __ | | ___| |_(_) ___  _ __
