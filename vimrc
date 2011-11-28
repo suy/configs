@@ -200,6 +200,7 @@ set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
 
 " Set the characters for statusline (& non current stl), vsplit, fold & diff
 set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
+set fillchars=stl:/,stlnc:\ ,vert:┃,fold:=,diff:·
 
 " Get rid of the automatic folding in debian changelogs of vim 7
 set nofoldenable
