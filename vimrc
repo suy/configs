@@ -203,7 +203,7 @@ set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
 set fillchars=stl:/,stlnc:\ ,vert:┃,fold:=,diff:·
 
 " Get rid of the automatic folding in debian changelogs of vim 7
-set nofoldenable
+" set nofoldenable
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column
 set cc=+1
