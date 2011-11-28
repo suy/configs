@@ -357,7 +357,7 @@ map <leader>w<lt> <C-w><lt>
 nmap <leader>q :bprevious<CR>:bdelete #<CR>
 
 " Make the tab do something a little bit more useful in normal mode
-map <tab> %
+noremap <tab> %
 
 " Press the space key (which is easier to press) to colon
 nmap <space> :
