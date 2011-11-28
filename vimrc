@@ -236,16 +236,27 @@ set statusline+=\ %<%F
 set statusline+=\ %1*%m%*
 " Git information
 set statusline+=\ %{fugitive#statusline()}
+" Syntastic information
+set statusline+=\ %{SyntasticStatuslineFlag()}
 " Push everything else to the right
-set statusline+=%=
+set statusline+=\ %=
 " Modified, RO, help, preview, quickfix
 set statusline+=\ %R%H%W%q
 " Filetype in User1 color
 set statusline+=\ %1*%y%*
 " Ruler
-set statusline+=\ %-14.(%l,%c%V%)
+set statusline+=\ %(%l,%c%V%)
 " Percentage
-set statusline +=%P
+set statusline+=\ %P
+
+" Some configuration options for solarized that have to be applied previously
+let g:solarized_termcolors='256'
+let g:solarized_italic='0'
+let g:solarized_contrast='normal'
+" Don't hightlight the listchars too much...
+let g:solarized_visibility='low'
+" ...except the trailing whitespace
+let g:solarized_hitrail='1'
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
