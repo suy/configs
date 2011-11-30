@@ -388,12 +388,12 @@ map <leader>bb :b #<CR>
 map <leader>s :set spell!<CR>
 
 " Experimental: use spanish keys in normal mode
-nmap ` [
-nmap + ]
-nmap ´ {
-nmap ç }
-nmap ñ [
-nmap Ñ {
+map ` [
+map + ]
+map ´ {
+map ç }
+map ñ [
+map Ñ {
 
 
 "   ____                      _      _   _
