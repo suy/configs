@@ -231,7 +231,7 @@ set statusline+=\ %1*%m%*
 " Git information
 set statusline+=\ %{fugitive#statusline()}
 " Syntastic information
-set statusline+=\ %{SyntasticStatuslineFlag()}
+"set statusline+=\ %{SyntasticStatuslineFlag()}
 " Push everything else to the right
 set statusline+=\ %=
 " Modified, RO, help, preview, quickfix
