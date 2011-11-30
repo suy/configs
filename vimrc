@@ -26,7 +26,7 @@ runtime macros/matchit.vim
 runtime macros/justify.vim
 
 " Auto delete files created by fugitive
-autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd BufReadPost fugitive:* set bufhidden=delete
 
 
 "  _____                          _   _   _
