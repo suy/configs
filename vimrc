@@ -155,6 +155,9 @@ augroup vimrc
 		\|  endif
 augroup END
 
+" Save a lot more history
+set history=200
+
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
 " | |_| | |/ _` | '_ \| | |/ _` | '_ \| __| | '_ \ / _` |
