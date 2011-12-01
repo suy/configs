@@ -202,6 +202,9 @@ set fillchars=stl:/,stlnc:\ ,vert:┃,fold:=,diff:·
 " colorcolumn: Use a colored column to mark the textwidh+1 column
 set cc=+1
 
+" foldcolumn: Use 1 character wide column to display folding information
+set fdc=1
+
 " laststatus: Show the statusbar always, not only on last window
 set ls=2
 
