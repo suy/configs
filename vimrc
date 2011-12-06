@@ -390,13 +390,16 @@ map <leader>bb :b #<CR>
 " Switch on and off spellchecking
 map <leader>s :set spell!<CR>
 
+" Change the behaviour of spanish keys in normal/visual/etc. mode
+set langmap=ñ[,+],ç},Ñ{
+
 " Experimental: use spanish keys in normal mode
-map ` [
-map + ]
-map ´ {
-map ç }
-map ñ [
-map Ñ {
+" map ` [
+" map + ]
+" map ´ {
+" map ç }
+" map ñ [
+" map Ñ {
 
 
 "   ____                      _      _   _
