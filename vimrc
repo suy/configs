@@ -45,7 +45,7 @@ let g:UltiSnipsListSnippets="<C-S-S>"
 "                                                 |___/
 
 " textwidth: break line when maximum line length is reached (use 0 to disable)
-"set tw=80
+set tw=80
 
 " wrapmargin: breaks line when only n columns are left. Ignored if tw is set
 "set wm=5
@@ -195,6 +195,9 @@ set showmatch
 
 " number: show line number
 "set nu
+
+" Highlight the line in which the cursor is in
+set cursorline
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
