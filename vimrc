@@ -413,22 +413,22 @@ set wildmode=list:longest,full
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest,preview
 
-function! CleverTab()
-	" Check if the cursor is at the beggining of line or after whitespace
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-	   return "\<Tab>"
-	else
-		" Use omnifunc if available
-		if &omnifunc != ''
-			return "\<C-X>\<C-O>"
-		" Otherwise use the dictionary completion
-		elseif &dictionary != ''
-			return "\<C-K>"
-		else
-			return "\<C-P>"
-		endif
-	endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+" function! CleverTab()
+" 	" Check if the cursor is at the beggining of line or after whitespace
+" 	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+" 	   return "\<Tab>"
+" 	else
+" 		" Use omnifunc if available
+" 		if &omnifunc != ''
+" 			return "\<C-X>\<C-O>"
+" 		" Otherwise use the dictionary completion
+" 		elseif &dictionary != ''
+" 			return "\<C-K>"
+" 		else
+" 			return "\<C-P>"
+" 		endif
+" 	endif
+" endfunction
+" inoremap <Tab> <C-R>=CleverTab()<CR>
 
 
