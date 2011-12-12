@@ -60,10 +60,9 @@ $connection_color\u@\h\[\e[0m\]\
 
 # If this is an xterm set the title (window) and the session (tab) name
 case "$TERM" in
-xterm*|rxvt*)
-#    PS1=$PS1"\[\e]0;\w\a\]"
+xterm*|rxvt*|konsole*)
+    PS1=$PS1"\[\e]0;\w\a\]"
 #    PS1=$PS1"\[\e]30;\u@\h\a\]"
-    PS1=$PS1"\[\e]0;\W\a\]"
     ;;
 *)
     ;;
