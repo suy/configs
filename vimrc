@@ -259,12 +259,10 @@ let g:solarized_hitrail='1'
 if has("gui_running")
 	if has("win32")
 		set guifont=DejaVu_Sans_Mono:h7.8:cANSI
-		" Make the listchars darker
-		" hi SpecialKey guifg=#3B3B3B gui=italic
-		set guioptions-=T " Get rid of the toolbar
-		set guioptions+=LlRrb " Get rid of scrollbars...
-		set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	endif
+	set guioptions-=T " Get rid of the toolbar
+	set guioptions+=LlRrb " Get rid of scrollbars...
+	set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	colorscheme solarized
 else
 	colorscheme molokai
