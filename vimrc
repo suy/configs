@@ -92,6 +92,11 @@ set smartindent
 " |_|  |_|_|___/\___|
 "
 
+" Set PATH in Windows, because the sysadmins at my workplace are idiots
+if has("win32")
+	let $PATH.='C:\Cygwin\bin'
+endif
+
 " Clear other autocommands, to avoid defining them multiple times on reload
 autocmd!
 
