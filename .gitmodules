@@ -1,0 +1,3 @@
+[submodule "dotvim/bundle/colorscheme-solarized"]
+	path = dotvim/bundle/colorscheme-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
