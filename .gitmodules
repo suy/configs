@@ -4,3 +4,30 @@
 [submodule "dotvim/bundle/colorscheme-molokai"]
 	path = dotvim/bundle/colorscheme-molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "dotvim/bundle/gundo"]
+	path = dotvim/bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "dotvim/bundle/nerdcommenter"]
+	path = dotvim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "dotvim/bundle/supertab"]
+	path = dotvim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "dotvim/bundle/fugitive"]
+	path = dotvim/bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "dotvim/bundle/unimpaired"]
+	path = dotvim/bundle/unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "dotvim/bundle/surround"]
+	path = dotvim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "dotvim/bundle/commentary"]
+	path = dotvim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "dotvim/bundle/easymotion"]
+	path = dotvim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule "dotvim/bundle/vim-visual-star-search"]
+	path = dotvim/bundle/vim-visual-star-search
+	url = https://github.com/bronson/vim-visual-star-search.git
