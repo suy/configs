@@ -346,23 +346,7 @@ nmap <BS> X
 
 " Make window management a little bit more easy:
 " map all the C-W <foobar> to <leader>w<foobar>
-map <leader>ws <C-w>s
-map <leader>wv <C-w>v
-map <leader>wn <C-w>n
-map <leader>wq <C-w>q
-map <leader>wo <C-w>o
-map <leader>wp <C-w>p
-map <leader>wj <C-w>j
-map <leader>wk <C-w>k
-map <leader>wl <C-w>l
-map <leader>wh <C-w>h
-map <leader>w= <C-w>=
-map <leader>w_ <C-w>_
-map <leader>w<bar> <C-w><bar>
-map <leader>w+ <C-w>+
-map <leader>w- <C-w>-
-map <leader>w> <C-w>>
-map <leader>w<lt> <C-w><lt>
+map <leader>w <C-w>
 
 " Convenient shortcut for closing a buffer without closing a window
 nmap <leader>q :bprevious<CR>:bdelete #<CR>
