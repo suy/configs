@@ -130,7 +130,7 @@ set hidden
 set so=3
 
 " Automatically cd into the directory that the file is in
-set autochdir
+"set autochdir
 
 " Allow the backspace to do useful things (is not the default everywhere)
 set backspace=indent,eol,start
