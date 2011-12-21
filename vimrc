@@ -13,7 +13,7 @@
 " if has('win32')
 " 	call add(g:pathogen_disabled, 'baz')
 " endif
-let g:pathogen_disabled = []
+let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-indent']
 if !has('gui_running')
 	call add(g:pathogen_disabled, 'vim-css-color')
 endif

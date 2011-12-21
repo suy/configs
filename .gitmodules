@@ -40,3 +40,27 @@
 [submodule "dotvim/bundle/css-color"]
 	path = dotvim/bundle/css-color
 	url = https://github.com/skammer/vim-css-color.git
+[submodule "ultisnips"]
+	path = dotvim/bundle/ultisnips
+	url = https://github.com/rygwdn/ultisnips.git
+[submodule "dotvim/bundle/indent-guides"]
+	path = dotvim/bundle/indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "dotvim/bundle/repeat"]
+	path = dotvim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "dotvim/bundle/javascript-indentation"]
+	path = dotvim/bundle/javascript-indentation
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule "dotvim/bundle/simple-javascript-indenter"]
+	path = dotvim/bundle/simple-javascript-indenter
+	url = https://github.com/jiangmiao/simple-javascript-indenter.git
+[submodule "dotvim/bundle/web-indent"]
+	path = dotvim/bundle/web-indent
+	url = https://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "dotvim/bundle/space"]
+	path = dotvim/bundle/space
+	url = https://github.com/spiiph/vim-space
+[submodule "dotvim/bundle/syntastic"]
+	path = dotvim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
