@@ -31,3 +31,12 @@
 [submodule "dotvim/bundle/vim-visual-star-search"]
 	path = dotvim/bundle/vim-visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
+[submodule "dotvim/bundle/tabular"]
+	path = dotvim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "dotvim/bundle/colorscheme-desert256"]
+	path = dotvim/bundle/colorscheme-desert256
+	url = https://github.com/vim-scripts/desert256.vim.git
+[submodule "dotvim/bundle/css-color"]
+	path = dotvim/bundle/css-color
+	url = https://github.com/skammer/vim-css-color.git
