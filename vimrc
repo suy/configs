@@ -388,6 +388,9 @@ map <leader>bb :b #<CR>
 " Switch on and off spellchecking
 map <leader>s :set spell!<CR>
 
+" Update the view when in diff mode
+map <leader>d :diffupdate<CR>
+
 " Change the behaviour of spanish keys in normal/visual/etc. mode
 set langmap=ñ[,+],ç},Ñ{
 
