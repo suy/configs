@@ -4,6 +4,6 @@ This repository contains configurations of several of the tools that I use, and
 that I try to share and have in sync with different machines. Sharing your
 configurations (specially your vimrc file) on a public Git repository is quite
 common, but I finally dared to do it thanks to a great Vim and Git promoter,
-[http://drewneil.com/ Drew Neil], who made me a great
-[http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
- screencast on keeping in sync your Vim configuration with Git and Github].
+[http://drewneil.com/ Drew Neil], who made a great
+[http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/ 
+screencast on keeping in sync your Vim configuration with Git and Github].
