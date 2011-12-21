@@ -1,6 +1,6 @@
 [submodule "dotvim/bundle/colorscheme-solarized"]
 	path = dotvim/bundle/colorscheme-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "dotvim/bundle/colorscheme-molokai"]
 	path = dotvim/bundle/colorscheme-molokai
 	url = https://github.com/tomasr/molokai.git
