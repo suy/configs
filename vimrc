@@ -94,7 +94,7 @@ set smartindent
 
 " Set PATH in Windows, because the sysadmins at my workplace are idiots
 if has("win32")
-	let $PATH.='C:\Cygwin\bin'
+	let $PATH.=';D:\Cygwin\bin'
 endif
 
 " Clear other autocommands, to avoid defining them multiple times on reload
