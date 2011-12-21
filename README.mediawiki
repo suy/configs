@@ -6,4 +6,4 @@ configurations (specially your vimrc file) on a public Git repository is quite
 common, but I finally dared to do it thanks to a great Vim and Git promoter,
 [http://drewneil.com/ Drew Neil], who made me a great
 [http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
-screencast on keeping in sync your Vim configuration with Git and Github].
+ screencast on keeping in sync your Vim configuration with Git and Github].
