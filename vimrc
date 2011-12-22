@@ -23,6 +23,8 @@ let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-
 if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
 endif
+
+" Initialize all the plugins.
 call pathogen#infect()
 call pathogen#helptags() " equivalent to :Helptags
 " TODO: check if the plugin is properly loaded (for some environments where I
