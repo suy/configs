@@ -18,8 +18,10 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
 let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-indent']
+
+" Disable css-color in the console, because it slows down too much.
 if !has('gui_running')
-	call add(g:pathogen_disabled, 'vim-css-color')
+	call add(g:pathogen_disabled, 'css-color')
 endif
 call pathogen#infect()
 call pathogen#helptags() " equivalent to :Helptags
