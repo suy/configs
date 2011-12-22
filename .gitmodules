@@ -64,3 +64,6 @@
 [submodule "dotvim/bundle/syntastic"]
 	path = dotvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "dotvim/bundle/pathogen"]
+	path = dotvim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git

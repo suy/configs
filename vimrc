@@ -5,21 +5,27 @@
 " |_|   |_|\__,_|\__, |_|_| |_|___/
 "                |___/
 
-" Pathogen loads all sorts of plugins in subdirectories under ~/.vim/bundle/.
-" You can disable a plugin by adding a trailing '~' to the bundle
-" subdirectory, or conditionally adding its name to the disabling variable
-" if exists('*pathogen#infect')
-" let g:pathogen_disabled = ['foo', 'bar']
-" if has('win32')
-" 	call add(g:pathogen_disabled, 'baz')
-" endif
+" Pathogen is a freaking awesome plugin for managing other plugins where each
+" one is in a directory of it's own, instead of all mixed in the same. This
+" allows to install, remove and update your plugins with lots of ease. You just
+" have to put them in a directory that pathogen can find and initialize. By
+" default is '~/.vim/bundle' (or '~\vimfiles\bundle' under windows). First, load
+" the pathogen plugin itself from its own directory.
+runtime bundle/pathogen/autoload/pathogen.vim
+
+" You can disable a plugin (but keep the files) if you rename the directory by
+" adding a trailing '~' to it. In my case I use git submodules, so renaming is
+" not convenient, and I use the g:pathogen_disabled variable, that you can
+" manipulate conditionally if you want.
 let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-indent']
 if !has('gui_running')
 	call add(g:pathogen_disabled, 'vim-css-color')
 endif
 call pathogen#infect()
 call pathogen#helptags() " equivalent to :Helptags
-" endif
+" TODO: check if the plugin is properly loaded (for some environments where I
+" might copy the vimrc, but not the whole runtime). I need something like
+" if exists('pathogen#infect')
 
 " Use plugins that are included with Vim 7
 runtime macros/matchit.vim
