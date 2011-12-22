@@ -1,0 +1,14 @@
+# Don't beep, use visible feedback.
+set bell-style visible
+
+# Use case insensitive completion
+set completion-ignore-case on
+
+# Consider '_' and '-' same character with different case
+set completion-map-case on
+
+# Don't ring the bell when there are several options: just show them
+set show-all-if-ambiguous on
+
+# Use the tab to cycle through completion options instead of redisplaying them
+"\t": menu-complete
