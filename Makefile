@@ -7,4 +7,4 @@ windows-push-vim-config:
 	cp -uf vimrc '/cygdrive/c/Archivos de programa/Vim/_vimrc'
 
 roger-push-config:
-	rsync -avz --delete --exclude=.git --exclude=spell ./ roger:./configs
+	rsync -avz --delete --exclude=.git --exclude=tags --exclude=spell ./ roger:./configs
