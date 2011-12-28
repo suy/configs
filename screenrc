@@ -1,0 +1,54 @@
+# Remove the copyright notice at the beggining
+startup_message off
+
+#            _
+#   ___ ___ | | ___  _ __
+#  / __/ _ \| |/ _ \| '__|
+# | (_| (_) | | (_) | |
+#  \___\___/|_|\___/|_|
+#
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+# attrcolor b ".I" 
+# tell screen how to set colors. AB = background, AF=foreground 
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+# erase background with current bg color 
+defbce "on"
+
+term screen-256color-bce
+
+#                  _   _
+#   ___ __ _ _ __ | |_(_) ___  _ __
+#  / __/ _` | '_ \| __| |/ _ \| '_ \
+# | (_| (_| | |_) | |_| | (_) | | | |
+#  \___\__,_| .__/ \__|_|\___/|_| |_|
+#           |_|
+#
+
+# Set the caption to always show, and with which message
+# caption always "%3n %t" # This is the default: number and title
+
+# Other examples
+
+#  0 root  1 manpage  2 vim             /0,00 0,02 0,06/ bender - 15/nov - 17:23
+#caption always "%{=b}%{G} %{= kw}%-w%{= G}%n %t%{-}%+w %-= /%l/ %H - %d/%M - %c"
+
+# 5:26PM mar 15-11-2011  vim                                                   2
+#caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
+
+# Just the window titles: 0 root  1* manpage  2 vim
+caption always "%w"
+
+# Adapted from: http://www.calmar.ws/dotfiles/screenrc.html
+#
+# Original:
+#caption always "%?%F%{-b bc}%:%{-b bb}%?%C|%D|%M %d|%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
+# Without dates
+#caption always "%?%F%{-b bc}%:%{-b bb}%?%H%?%F%{+u wb}%? %L=%-Lw%45>%{+b by}%n%f* %t%{-}%+Lw%-0<"
+caption always  "%?%F%{-b kb}%:%{-b kk}%?%H%?%F%{   wb}%? %L=%-Lw%45>%{+b rk}%n%f* %t%{-}%+Lw%-0<"
+
+
+#hardstatus alwayslastline "This is a test..."
+
+#hardstatus alwayslastline "%-LW%{= BW}%50>%n%f* %t%{-}%+LW%<"
