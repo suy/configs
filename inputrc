@@ -8,7 +8,12 @@ set completion-ignore-case on
 set completion-map-case on
 
 # Don't ring the bell when there are several options: just show them
-set show-all-if-ambiguous on
+#set show-all-if-ambiguous on
+
+# Displays (if any) the common prefix of possible completions before the list
+set menu-complete-display-prefix on
 
 # Use the tab to cycle through completion options instead of redisplaying them
-"\t": menu-complete
+# "\t": menu-complete
+# "\e[Z": menu-complete-backward
+"\e[Z": menu-complete
