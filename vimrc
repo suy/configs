@@ -401,16 +401,22 @@ map <leader>s :set spell!<CR>
 " Update the view when in diff mode
 map <leader>d :diffupdate<CR>
 
-" Change the behaviour of spanish keys in normal/visual/etc. mode
-set langmap=ñ[,+],ç},Ñ{
+" This should change the behaviour of spanish keys in normal/visual/etc. mode.
+" However, it has been buggy in my experience, as it only worked on native Vim
+" actions with brackets (e.g., [c or ]p), but not on sequences mapped by the
+" user, like the ones provided by unimpaired.vim.
+" http://groups.google.com/group/vim_use/browse_thread/thread/bda0c89bcdb330d1
+" Will try to research about it, because it might be a bug to report.
+"set langmap=ñ[,+],ç},Ñ{
 
-" Experimental: use spanish keys in normal mode
+" Experimental: use spanish keys in normal mode with plain old mappings.
 " map ` [
 " map + ]
 " map ´ {
-" map ç }
-" map ñ [
-" map Ñ {
+map ñ [
+map Ñ {
+map Ç ]
+map ç }
 
 
 "   ____                      _      _   _
