@@ -410,8 +410,8 @@ map <leader>d :diffupdate<CR>
 "set langmap=ñ[,+],ç},Ñ{
 
 " Experimental: use spanish keys in normal mode with plain old mappings.
-" map ` [
-" map + ]
+nmap ` [
+nmap + ]
 " map ´ {
 map ñ [
 map Ñ {
