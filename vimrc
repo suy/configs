@@ -346,9 +346,6 @@ set foldopen-=search
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
-" Change the 'leader' key to something more easy to press
-let mapleader = ","
-
 " Try to be smart: if accidentally you press 'jj' or 'kk' in insert mode, you
 " will be brought back to normal mode. Is also easier to press than <ESC>.
 inoremap jj <ESC>
@@ -366,13 +363,6 @@ autocmd CmdwinLeave * nnoremap <CR> i<CR><ESC>
 " Allow the backspace to delete in normal mode too
 nmap <BS> X
 
-" Make window management a little bit more easy:
-" map all the C-W <foobar> to <leader>w<foobar>
-map <leader>w <C-w>
-
-" Convenient shortcut for closing a buffer without closing a window
-nmap <leader>q :b #<CR>:bdelete #<CR>
-
 " Make the tab do something a little bit more useful in normal mode
 noremap <tab> %
 
@@ -386,6 +376,16 @@ nnoremap ` '
 
 " Map the CTRL-F (almost unused in insert mode) to the omnicompletion one
 imap <C-f> <C-x><C-o>
+
+" Change the 'leader' key to something more easy to press
+let mapleader = ","
+
+" Make window management a little bit more easy: map all the C-W <foobar> to
+" <leader>w<foobar>
+map <leader>w <C-w>
+
+" Convenient shortcut for closing a buffer without closing a window
+nmap <leader>q :b #<CR>:bdelete #<CR>
 
 " Easily toggle invisible characters (listchars). This is very important for:
 " - Copying with the mouse to another application (if you don't disable them,
