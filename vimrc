@@ -371,7 +371,7 @@ nmap <BS> X
 map <leader>w <C-w>
 
 " Convenient shortcut for closing a buffer without closing a window
-nmap <leader>q :bprevious<CR>:bdelete #<CR>
+nmap <leader>q :b #<CR>:bdelete #<CR>
 
 " Make the tab do something a little bit more useful in normal mode
 noremap <tab> %
