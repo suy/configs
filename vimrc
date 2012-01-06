@@ -54,20 +54,32 @@ let g:UltiSnipsListSnippets="<C-S-S>"
 " |_|  \___/|_|  |_| |_| |_|\__,_|\__|\__|_|_| |_|\__, |
 "                                                 |___/
 
-" textwidth: break line when maximum line length is reached (use 0 to disable)
+" textwidth: break lines when this maximum line length is reached (use 0 to
+" disable). This is sometimes called 'hard breaking', because it inserts an EOL.
 set tw=80
 
-" wrapmargin: breaks line when only n columns are left. Ignored if tw is set
-"set wm=5
+" wrapmargin: break lines when only 'wm' columns are left. Ignored if tw is set,
+" which is probably the proper one to use, since 'wm' would make line formatting
+" dependent on the size of the window.
+" set wm=5
 
-" linebreak: display long lines as if it were broken, but don't insert EOL
+" Change default formatting options. Options are described in fo-table. The 'a'
+" option is for automatic formatting.
+set fo+=a
+
+" Don't display long lines that don't fit in the window as if were broken.
+" set nowrap
+
+" linebreak: break wrapped lines at specific characters, not simply at the last
+" one that fits. Doesn't apply if 'wrap' is unset, or 'list' is set.
 set lbr
 
-" breakat: which caracter can cause a break
-"set brk
+" breakat: fine tune which character can cause a soft break (the one caused by
+" linebreak). Vim defaults are appropriate in general.
+" set brk
 
-" showbreak: show this string at the beggining of a broken line
-set sbr=➥
+" showbreak: show this string at the beginning of a line that is soft broken.
+set sbr=➥➥➥
 
 
 "  _____     _
