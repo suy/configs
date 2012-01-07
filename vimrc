@@ -415,12 +415,14 @@ map <leader>dt :diffthis<CR>
 map <leader>du :diffupdate<CR>
 
 " Toggle the 'a' option (automatic formatting) in formatoptions.
-nnoremap <leader>fa :call ToggleAutoFormatting()<CR>
+nnoremap <silent> <leader>fa :call ToggleAutoFormatting()<CR>
 function! ToggleAutoFormatting()
 	if &formatoptions=~'a'
 		let &l:formatoptions = substitute(&fo, 'a', '', '')
+		echo 'Format options: ' . &fo
 	else
 		let &l:formatoptions.= 'a'
+		echo 'Format options: ' . &fo
 	endif
 endfunction
 
