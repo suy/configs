@@ -410,8 +410,9 @@ map <leader>bb :b #<CR>
 " Switch on and off spellchecking
 map <leader>s :set spell!<CR>
 
-" Update the view when in diff mode
-map <leader>d :diffupdate<CR>
+" Activate diff mode and update the diff highlighting.
+map <leader>dt :diffthis<CR>
+map <leader>du :diffupdate<CR>
 
 " This should change the behaviour of spanish keys in normal/visual/etc. mode.
 " However, it has been buggy in my experience, as it only worked on native Vim
