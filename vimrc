@@ -414,6 +414,16 @@ map <leader>s :set spell!<CR>
 map <leader>dt :diffthis<CR>
 map <leader>du :diffupdate<CR>
 
+" Toggle the 'a' option (automatic formatting) in formatoptions.
+nnoremap <leader>fa :call ToggleAutoFormatting()<CR>
+function! ToggleAutoFormatting()
+	if &formatoptions=~'a'
+		let &l:formatoptions = substitute(&fo, 'a', '', '')
+	else
+		let &l:formatoptions.= 'a'
+	endif
+endfunction
+
 " This should change the behaviour of spanish keys in normal/visual/etc. mode.
 " However, it has been buggy in my experience, as it only worked on native Vim
 " actions with brackets (e.g., [c or ]p), but not on sequences mapped by the
