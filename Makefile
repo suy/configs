@@ -3,8 +3,8 @@ all:
 	@echo "Is just a convenience to do some repetitive tasks with my configuration".
 
 windows-push-vim-config:
-	rsync -av --delete --exclude=.git --exclude=tags --safe-links ./dotvim/ /cygdrive/c/vimfiles/
+	rsync -av --delete --exclude=.git --exclude-from=ignore-patterns --safe-links ./dotvim/ /cygdrive/c/vimfiles/
 	cp -uf vimrc '/cygdrive/c/Archivos de programa/Vim/_vimrc'
 
 roger-push-config:
-	rsync -avz --delete --exclude=.git --exclude=tags --exclude=spell ./ roger:./configs
+	rsync -avz --delete --exclude=.git --exclude-from=ignore-patterns --exclude=spell ./ roger:./configs
