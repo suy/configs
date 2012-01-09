@@ -67,3 +67,6 @@
 [submodule "dotvim/bundle/pathogen"]
 	path = dotvim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "dotvim/bundle/pasta"]
+	path = dotvim/bundle/pasta
+	url = https://github.com/sickill/vim-pasta.git
