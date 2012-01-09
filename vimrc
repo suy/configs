@@ -435,13 +435,13 @@ endfunction
 "set langmap=ñ[,+],ç},Ñ{
 
 " Experimental: use spanish keys in normal mode with plain old mappings.
-nmap ` [
-nmap + ]
+" nmap ` [
+" nmap + ]
 " map ´ {
 map ñ [
 map Ñ {
-map Ç ]
-map ç }
+map ç ]
+map Ç }
 
 
 "   ____                      _      _   _
