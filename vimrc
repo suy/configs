@@ -367,6 +367,9 @@ autocmd CmdwinLeave * nnoremap <CR> i<CR><ESC>
 " Allow the backspace to delete in normal mode too
 nmap <BS> X
 
+" Make backspace insert an 'undo break' before deleting.
+"inoremap <BS> <C-G>u<BS>
+
 " Make the tab do something a little bit more useful in normal mode
 noremap <tab> %
 
