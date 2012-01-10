@@ -8,6 +8,30 @@ common, but I finally dared to do it thanks to a great Vim and Git promoter,
 [http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/ 
 screencast on keeping in sync your Vim configuration with Git and Github].
 
+==Usage notes==
+
+===Set up in a new machine===
+
+Get the files and set the symbolic links:
+
+*git clone git@github.com:suy/configs.git
+*ln -s configs/vimrc .vimrc
+*ln -s configs/bashrc .bashrc
+*ln -s configs/screenrc .screenrc
+*ln -s configs/inputrc .inputrc
+
+Etc.
+
+===Get updates from the depot===
+
+*git pull
+*git submodule update --init
+
+===Update from upstream repositories===
+
+*git submodule foreach git pull
+
+
 ==To do==
 
 I still have much to learn, and there is still too much that isn't exactly like
