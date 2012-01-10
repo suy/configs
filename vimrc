@@ -455,6 +455,20 @@ map Ñ {
 map ç ]
 map Ç }
 
+" Function and command for removing (with confirmation) trailing whitespace.
+command! RemoveTrailingWhiteSpace call RemoveTrailingWhiteSpace()
+function! RemoveTrailingWhiteSpace()
+	" Save last search and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+	" Do the business:
+	%s/\s\+$//ce
+	" Restore previous search history and cursor position.
+	let @/=_s
+	call cursor(l, c)
+endfunction
+
 
 "   ____                      _      _   _
 "  / ___|___  _ __ ___  _ __ | | ___| |_(_) ___  _ __
