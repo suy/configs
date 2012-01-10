@@ -436,7 +436,7 @@ endfunction
 " user, like the ones provided by unimpaired.vim.
 " http://groups.google.com/group/vim_use/browse_thread/thread/bda0c89bcdb330d1
 " Will try to research about it, because it might be a bug to report.
-"set langmap=ñ[,+],ç},Ñ{
+set langmap=ñ[,ç],Ñ{,Ç}
 
 " Experimental: use spanish keys in normal mode with plain old mappings.
 " nmap ` [
