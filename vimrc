@@ -65,7 +65,9 @@ set tw=80
 
 " Change default formatting options. Options are described in fo-table. The 'a'
 " option is for automatic formatting.
-set fo+=a
+" TODO: This format option is plain wrong for all files. Try to think which
+" filetypes should use it (if any) by default, and add the option conditionally.
+" set fo+=a
 
 " Don't display long lines that don't fit in the window as if were broken.
 " set nowrap
