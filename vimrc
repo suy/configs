@@ -223,25 +223,29 @@ set showmatch
 " number: show line number
 "set nu
 
-" Highlight the line in which the cursor is in
+" Set the characters for statusline (& non current stl), vsplit, fold & diff.
+" set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
+" TODO: some characters don't work with some colorschemes because use bold, etc.
+set fillchars=stl:/,stlnc:\ ,vert:┃,fold:=,diff:·
+
+" cul: Highlight the line in which the cursor is in. Caution, can be very slow.
 set cursorline
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
 set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
 
-" Set the characters for statusline (& non current stl), vsplit, fold & diff
-set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
-set fillchars=stl:/,stlnc:\ ,vert:┃,fold:=,diff:·
-
-" Get rid of the automatic folding in debian changelogs of vim 7
-" set nofoldenable
-
 " colorcolumn: Use a colored column to mark the textwidh+1 column
 set cc=+1
 
-" foldcolumn: Use 1 character wide column to display folding information
-set fdc=1
+" fen: enable folds by default. Can be swiftly disabled with 'zi'.
+set foldenable
+
+" fdm: sets the default folding behaviour.
+set foldmethod=indent
+
+" foldcolumn: Use a 4 characters wide column to display folding information.
+set fdc=4
 
 " laststatus: Show the statusbar always, not only on last window
 set ls=2
