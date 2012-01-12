@@ -41,7 +41,7 @@ autocmd BufReadPost fugitive:* set bufhidden=delete
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
 let g:UltiSnipsExpandTrigger="<C-S>"
-let g:UltiSnipsListSnippets="<F2>"
+let g:UltiSnipsListSnippets="<C-Q>"
 " These other two are the defaults. Left here as a reminder.
 " let g:UltiSnipsJumpForwardTrigger="<C-J>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-K>"
