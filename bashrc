@@ -30,6 +30,8 @@ alias l='ls -CF'
 # Enable the shell completion. Some functions can be used later to set PS1
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+else
+	. /usr/share/bash-completion/bash_completion
 fi
 
 # set variable identifying the chroot you work in (used in the prompt below)
