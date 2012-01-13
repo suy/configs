@@ -4,7 +4,6 @@ all:
 
 windows-push-vim-config:
 	rsync -av --delete --exclude=.git --exclude-from=ignore-patterns --safe-links ./dotvim/ /cygdrive/c/vimfiles/
-	cp -uf vimrc '/cygdrive/c/Archivos de programa/Vim/_vimrc'
 
 roger-push-config:
 	rsync -avz --delete --exclude=.git --exclude-from=ignore-patterns --exclude=spell ./ roger:./configs
