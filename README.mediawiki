@@ -16,6 +16,7 @@ Get the files and set the symbolic links:
 
 *git clone git@github.com:suy/configs.git
 *ln -s configs/vimrc .vimrc
+*ln -s configs/dotvim .vim
 *ln -s configs/bashrc .bashrc
 *ln -s configs/screenrc .screenrc
 *ln -s configs/inputrc .inputrc
