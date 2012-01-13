@@ -306,6 +306,8 @@ let g:solarized_hitrail='1'
 if has("gui_running")
 	if has("win32")
 		set guifont=DejaVu_Sans_Mono:h7.8:cANSI
+	else
+		set guifont="DejaVu Sans Mono 10"
 	endif
 	set guioptions-=T " Get rid of the toolbar
 	set guioptions+=LlRrb " Get rid of scrollbars...
