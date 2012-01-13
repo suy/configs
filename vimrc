@@ -45,6 +45,8 @@ let g:UltiSnipsListSnippets="<C-Q>"
 " These other two are the defaults. Left here as a reminder.
 " let g:UltiSnipsJumpForwardTrigger="<C-J>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+" Since I don't like the default snippets much, use my own directory only.
+let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 
 
 "  _____                          _   _   _
