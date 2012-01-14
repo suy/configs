@@ -197,6 +197,13 @@ set viewdir=$HOME/.local/share/vim/view
 " Save a lot more history
 set history=200
 
+" Jump to the last position when reopening a file.
+if has("autocmd")
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+	\ | exe "normal! g'\"" | endif
+endif
+
+
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
 " | |_| | |/ _` | '_ \| | |/ _` | '_ \| __| | '_ \ / _` |
