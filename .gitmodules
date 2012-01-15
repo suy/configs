@@ -42,7 +42,7 @@
 	url = https://github.com/skammer/vim-css-color.git
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
-	url = https://github.com/rygwdn/ultisnips.git
+	url = https://github.com/SirVer/ultisnips.git
 [submodule "dotvim/bundle/indent-guides"]
 	path = dotvim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
@@ -73,3 +73,9 @@
 [submodule "dotvim/bundle/powerline"]
 	path = dotvim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "dotvim/bundle/ragtag"]
+	path = dotvim/bundle/ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule "dotvim/bundle/autoclose"]
+	path = dotvim/bundle/autoclose
+	url = https://github.com/Townk/vim-autoclose.git
