@@ -387,7 +387,7 @@ nmap <BS> X
 "inoremap <BS> <C-G>u<BS>
 
 " Make the tab do something a little bit more useful in normal mode
-noremap <tab> %
+map <tab> %
 
 " Press the space key (which is easier to press) to colon
 nmap <space> :
