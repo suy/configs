@@ -437,6 +437,10 @@ map <leader>s :set spell!<CR>
 map <leader>dt :diffthis<CR>
 map <leader>du :diffupdate<CR>
 
+" Substitute what's under the cursor, or current selection.
+nnoremap <leader>S yiw:%s/<C-R>"/
+vnoremap <leader>S y:%s/<C-R>"/
+
 " Toggle the 'a' option (automatic formatting) in formatoptions.
 nnoremap <silent> <leader>fa :call ToggleAutoFormatting()<CR>
 function! ToggleAutoFormatting()
