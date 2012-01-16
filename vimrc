@@ -494,6 +494,12 @@ set wildmode=list:longest,full
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest,preview
 
+" suffixes: Patterns with a lower priority in completion.
+set su+=.asc,.cfg
+
+" wildignore: Patterns to completely ignore when completing.
+set wig+=*.pdf,*.png,*.jpg,*.jpeg
+
 " function! CleverTab()
 " 	" Check if the cursor is at the beggining of line or after whitespace
 " 	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
