@@ -220,8 +220,8 @@ syntax on
 " Highlight the opening bracket/parentheses when the closing one is written
 set showmatch
 
-" How to aggresively hightlight trailing whitespace
-"match Error /\v +$/
+" Use the Error colors for trailing whitespace.
+match Error /\v\s+$/
 
 
 "
