@@ -1,6 +1,8 @@
 # Alias of common operations
 alias cd..='cd ..'
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias mv='mv -i'
 alias cp='cp -i'
 alias df='df -h'
