@@ -419,7 +419,7 @@ nmap <leader>q :b #<CR>:bdelete #<CR>
 "   will be added to the clipboard, which doesn't make sense).
 " - Making linebreak work, because is a documented limitation that doesn't
 "   work with :set list. :-(
-nmap <leader>l :set list!<CR>
+nmap <leader>l :set list!<CR>:set list?<CR>
 
 " Easily hide the highlighting of the search
 nmap <leader>h :nohlsearch<CR>
