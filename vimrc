@@ -237,7 +237,7 @@ match Error /\v\s+$/
 " Set the characters for statusline (& non current stl), vsplit, fold & diff.
 " set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
 " TODO: some characters don't work with some colorschemes because use bold, etc.
-set fillchars=stl:/,stlnc:\ ,vert:┃,fold:=,diff:·
+set fillchars=stl:·,stlnc:\ ,vert:┃,fold:=,diff:·
 
 " cul: Highlight the line in which the cursor is in. Caution, can be very slow.
 set cursorline
@@ -328,6 +328,9 @@ else
 	" Make the listchars darker
 	hi SpecialKey ctermfg=240
 endif
+
+" Automatically resize window splits when the application is resized.
+autocmd VimResized * exe "normal! \<c-w>="
 
 
 "  ____                      _     _
