@@ -431,7 +431,7 @@ map <leader><leader>cl :set cursorline!<CR>
 map <leader>bb :b #<CR>
 
 " Switch on and off spellchecking
-map <leader>s :set spell!<CR>
+map <leader>s :set spell!<CR>:set spell?<CR>
 
 " Activate diff mode and update the diff highlighting.
 map <leader>dt :diffthis<CR>
