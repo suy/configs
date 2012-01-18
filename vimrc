@@ -318,7 +318,8 @@ if has("gui_running")
 	else
 		set guifont="DejaVu Sans Mono 10"
 	endif
-	set guioptions-=Tm " Get rid of the toolbar and the menu.
+	set guioptions-=T " Get rid of the toolbar and the menu.
+	set guioptions-=m
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
 	colorscheme solarized
