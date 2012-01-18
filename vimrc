@@ -424,8 +424,8 @@ nmap <leader>h :nohlsearch<CR>
 map <leader>p :set invpaste<CR>
 
 " Toggle the use of cursor column and cursor line
-map <leader><leader>cc :set cursorcolumn!<CR>
-map <leader><leader>cl :set cursorline!<CR>
+map <silent> <leader><leader>cc :set cursorcolumn!<CR>
+map <silent> <leader><leader>cl :set cursorline!<CR>
 
 " Switch to the previous buffer
 map <leader>bb :b #<CR>
