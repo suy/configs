@@ -17,7 +17,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " adding a trailing '~' to it. In my case I use git submodules, so renaming is
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
-let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-indent', 'powerline']
+let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-indent']
 
 " Disable css-color in the console, because it slows down too much.
 if !has('gui_running')
@@ -47,6 +47,10 @@ let g:UltiSnipsListSnippets="<C-Q>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 " Since I don't like the default snippets much, use my own directory only.
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
+
+" Powerline configuration.
+let g:Powerline_symbols="unicode"
+" let g:Powerline_theme="solarized"
 
 
 "  _____                          _   _   _
