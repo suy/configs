@@ -1,0 +1,124 @@
+#
+# Document definition plus usual boilerplate.
+#
+snippet "html|dtd|doctype" "HTML 5 boilerplate" br
+<!DOCTYPE html>
+<html>
+<head>
+<title>${1:Title}</title>
+</head>
+<body>
+$0
+</body>
+</html>
+endsnippet
+
+
+snippet "html|dtd|doctype" "DocType XHTML 1.1" br
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="${1:en}">
+<head>
+<title>${2:Title}</title>
+</head>
+<body>
+$0
+</body>
+</html>
+endsnippet
+
+
+snippet "html|dtd|doctype" "DocType XHTML 1.0 Strict" br
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title>${1:Title}</title>
+</head>
+<body>
+$0
+</body>
+</html>
+endsnippet
+
+snippet "html|dtd|doctype" "DocType XHTML 1.0 Transitional" br
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+endsnippet
+
+snippet "html|dtd|doctype" "HTML - 4.0 Transitional (doctype)" br
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+
+endsnippet
+
+#
+# Document content
+#
+snippet a "Link"
+<a href="${1:http://www.${2:example.com}}">${3:Anchor Text}</a>
+endsnippet
+
+snippet e "quick inline element"
+<${1:span}>$2</${1/(\w+).*/$1/}>$0
+endsnippet
+
+snippet el "inline element with class and id"
+<${1:span}${2: id="${3:foobar}" class="${4:foobaz}"}>$5</${1/(\w+).*/$1/}>$0
+endsnippet
+
+snippet b "quick block element" b
+<${1:div}>
+$2
+</${1/(\w+).*/$1/}>
+$0
+endsnippet
+
+snippet bl "block element with class and id" b
+<${1:div}${2: id="${3:foobar}" class="${4:foobaz}"}>
+$5
+</${1/(\w+).*/$1/}>
+$0
+endsnippet
+
+#
+# Lists
+#
+snippet ul "unordered list" 
+<ul>
+<li>$0</li>
+</ul>
+endsnippet
+
+snippet ol "ordered list" 
+<ol>
+<li>$0</li>
+</ol>
+endsnippet
+
+snippet dl "definition list" 
+<dl>
+<dt>$1</dt>
+<dd>$2</dd>$0
+</dl>
+endsnippet
+
+snippet li "list item" 
+<li>$0</li>
+endsnippet
+
+# Advanced definition with both optional dt and dt.
+# snippet "dt|dd" "definition list entry: dt and/or dd" r
+# ${1:<dt>${2:term}</dt>}
+# ${3:<dd>${4:data}</dd>}
+# $0
+# endsnippet
+
+# Simpler definion with both dt and dd non-optional.
+snippet "dt|dd" "definition list entry: dt and dd" r
+<dt>${1:term}</dt>
+<dd>${2:data}</dd>
+$0
+endsnippet
+
