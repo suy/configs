@@ -408,7 +408,7 @@ nnoremap ` '
 " A little trick for opening 'local' folds. First close all folds in the
 " context, then open them recursively. The net result is opening folds not in
 " the cursor, but in the same context (e.g., a function).
-nmap z<space> zCzO
+nmap z<space> zczO
 
 " Map the CTRL-F (almost unused in insert mode) to the omnicompletion one
 "imap <C-f> <C-x><C-o>
