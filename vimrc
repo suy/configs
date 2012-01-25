@@ -413,6 +413,11 @@ nmap z<space> zczO
 " Map the CTRL-F (almost unused in insert mode) to the omnicompletion one
 "imap <C-f> <C-x><C-o>
 
+" Mappings for the command-line.
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+
 " Change the 'leader' key to something more easy to press
 let mapleader = ","
 
