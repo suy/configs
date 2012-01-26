@@ -410,6 +410,9 @@ nnoremap ` '
 " the cursor, but in the same context (e.g., a function).
 nmap z<space> zczO
 
+" Map C-L (for 'label') as a synonym for for the 'tag' shortcut.
+map <C-L> <C-]>
+
 " Map the CTRL-F (almost unused in insert mode) to the omnicompletion one
 "imap <C-f> <C-x><C-o>
 
@@ -427,6 +430,9 @@ map <leader>w <C-w>
 
 " Convenient shortcut for closing a buffer without closing a window
 nmap <leader>q :b #<CR>:bdelete #<CR>
+
+" Clear and redraw the screen. Usually is C-L, but is mapped to something else.
+nmap <leader>r :redraw!<CR>
 
 " Easily toggle invisible characters (listchars). This is very important for:
 " - Copying with the mouse to another application (if you don't disable them,
