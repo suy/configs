@@ -78,4 +78,4 @@
 	url = https://github.com/tpope/vim-ragtag.git
 [submodule "dotvim/bundle/autoclose"]
 	path = dotvim/bundle/autoclose
-	url = https://github.com/Townk/vim-autoclose.git
+	url = git@github.com:suy/vim-autoclose.git
