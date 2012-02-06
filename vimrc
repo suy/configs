@@ -394,12 +394,9 @@ nmap <BS> X
 " Make backspace insert an 'undo break' before deleting.
 "inoremap <BS> <C-G>u<BS>
 
-" Make the tab do something a little bit more useful in normal mode
-map <tab> %
-
-" Press the space key (which is easier to press) to colon
+" Press the space key (which is easier to press) to start command line mode.
 nmap <space> :
-vmap <space> :
+xmap <space> :
 
 " Change the single quote and the grave to be the opposite of each other
 nnoremap ' `
@@ -426,7 +423,8 @@ let mapleader = ","
 
 " Make window management a little bit more easy: map all the C-W <foobar> to
 " <leader>w<foobar>
-map <leader>w <C-w>
+nmap <leader>w <C-w>
+xmap <leader>w <C-w>
 
 " Convenient shortcut for closing a buffer without closing a window
 nmap <leader>q :b #<CR>:bdelete #<CR>
@@ -445,25 +443,25 @@ nmap <leader>l :set list!<CR>:set list?<CR>
 nmap <leader>h :nohlsearch<CR>
 
 " Toggle paste on/off when you want to copy in insert mode (e.g. from other app)
-map <leader>p :set invpaste<CR>
+nmap <leader>p :set invpaste<CR>
 
 " Toggle the use of cursor column and cursor line
-map <silent> <leader><leader>cc :set cursorcolumn!<CR>
-map <silent> <leader><leader>cl :set cursorline!<CR>
+nmap <silent> <leader><leader>cc :set cursorcolumn!<CR>
+nmap <silent> <leader><leader>cl :set cursorline!<CR>
 
 " Switch to the previous buffer
-map <leader>bb :b #<CR>
+nmap <leader>bb :b #<CR>
 
 " Switch on and off spellchecking
-map <leader>s :set spell!<CR>:set spell?<CR>
+nmap <leader>s :set spell!<CR>:set spell?<CR>
 
 " Activate diff mode and update the diff highlighting.
-map <leader>dt :diffthis<CR>
-map <leader>du :diffupdate<CR>
+nmap <leader>dt :diffthis<CR>
+nmap <leader>du :diffupdate<CR>
 
 " Substitute what's under the cursor, or current selection.
 nnoremap <leader>S yiw:%s/<C-R>"/
-vnoremap <leader>S y:%s/<C-R>"/
+xnoremap <leader>S y:%s/<C-R>"/
 
 " Experiment
 imap <M-.> <C-X>/
@@ -497,10 +495,8 @@ endfunction
 " Will try to research about it, because it might be a bug to report.
 set langmap=ñ[,ç],Ñ{,Ç}
 
-" Experimental: use spanish keys in normal mode with plain old mappings.
-" nmap ` [
-" nmap + ]
-" map ´ {
+" The langmap above doesn't work in all situations, but adding the next mappings
+" to the mix makes the Ñ/Ç keys do what I want, so keep both for now.
 map ñ [
 map Ñ {
 map ç ]
