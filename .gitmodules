@@ -28,8 +28,8 @@
 [submodule "dotvim/bundle/easymotion"]
 	path = dotvim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "dotvim/bundle/vim-visual-star-search"]
-	path = dotvim/bundle/vim-visual-star-search
+[submodule "dotvim/bundle/visual-star-search"]
+	path = dotvim/bundle/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
@@ -79,3 +79,6 @@
 [submodule "dotvim/bundle/autoclose"]
 	path = dotvim/bundle/autoclose
 	url = git@github.com:suy/vim-autoclose.git
+[submodule "dotvim/bundle/javascript-syntax"]
+	path = dotvim/bundle/javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git

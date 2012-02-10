@@ -17,7 +17,13 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " adding a trailing '~' to it. In my case I use git submodules, so renaming is
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
-let g:pathogen_disabled = ['javascript-indentation', 'space', 'syntastic', 'web-indent']
+let g:pathogen_disabled = [
+		\ 'javascript-indentation',
+		\ 'javascript-syntax',
+		\ 'simple-javascript-indenter',
+		\ 'web-indent',
+		\ 'space',
+		\ 'syntastic']
 
 " Disable css-color in the console, because it slows down too much.
 if !has('gui_running')
