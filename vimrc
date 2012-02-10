@@ -423,6 +423,7 @@ map <C-L> <C-]>
 cnoremap <C-A> <Home>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
+cnoremap <C-J> <C-F>
 
 " Change the 'leader' key to something more easy to press
 let mapleader = ","
