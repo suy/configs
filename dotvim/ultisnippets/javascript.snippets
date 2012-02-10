@@ -4,13 +4,13 @@
 snippet fun "function (named)" w
 function ${1:name} (${2:argument})
 {
-	${0:// body...}
+	${0:${VISUAL:// body...}}
 }
 endsnippet
 
 snippet f "function (anonymous)" w
 function(${1:argument}) {
-	${0:// body...}
+	${0:${VISUAL:// body...}}
 }
 endsnippet
 
@@ -19,17 +19,38 @@ endsnippet
 #
 snippet if "if"
 if (${1:true}) {
-	$0
+	${VISUAL}$0
 }
+endsnippet
+
+# Mnemonic: iff means if and only if (in math), so it's one sentence and no brackets
+snippet iff "if and only if (one sentence)"
+if (${1:true})
+	${VISUAL}$0
 endsnippet
 
 snippet ife "if else" w
 if (${1:true}) {
-	$2
+	${2:${VISUAL}}
 }
 else {
 	$0
 }
+endsnippet
+
+snippet switch "switch case"
+switch (${1:condition}) {
+	case $2:
+		break;
+	${3:default:}
+		$0
+}
+endsnippet
+
+snippet case "additional case"
+case $1:
+	$0
+	break;
 endsnippet
 
 #
