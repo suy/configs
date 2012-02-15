@@ -42,7 +42,7 @@
 	url = https://github.com/skammer/vim-css-color.git
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
+	url = git@github.com:suy/ultisnips.git
 [submodule "dotvim/bundle/indent-guides"]
 	path = dotvim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
