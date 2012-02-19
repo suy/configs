@@ -460,6 +460,10 @@ nmap <silent> <leader><leader>cl :set cursorline!<CR>
 " Switch to the previous buffer
 nmap <leader>bb :b #<CR>
 
+" Helper trick to switch buffers comfortably.
+nmap <leader>b<space> :ls<CR>:b<space>
+nmap <leader>B<space> :ls!<CR>:b<space>
+
 " Switch on and off spellchecking
 nmap <leader>s :set spell!<CR>:set spell?<CR>
 
