@@ -340,6 +340,9 @@ endif
 " Automatically resize window splits when the application is resized.
 autocmd VimResized * exe "normal! \<c-w>="
 
+call Pl#Theme#RemoveSegment('fileformat')
+call Pl#Theme#RemoveSegment('fileencoding')
+
 
 "  ____                      _     _
 " / ___|  ___  __ _ _ __ ___| |__ (_)_ __   __ _
