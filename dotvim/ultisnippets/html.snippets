@@ -13,7 +13,6 @@ $0
 </html>
 endsnippet
 
-
 snippet "html|dtd|doctype" "XHTML 1.1" br
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
@@ -27,7 +26,6 @@ $0
 </body>
 </html>
 endsnippet
-
 
 snippet "html|dtd|doctype" "XHTML 1.0 Strict" br
 <?xml version="1.0" encoding="utf-8"?>
@@ -58,9 +56,20 @@ $0
 endsnippet
 
 #
+# Header inclusions.
+#
+snippet css "Include stylesheet"
+<link rel="stylesheet" type="text/css"${1: media="${2:all}"} href="$0" />
+endsnippet
+
+snippet js "Include JavaScript file"
+<script type="text/javascript" src="$0"></script>
+endsnippet
+
+#
 # General content elements.
 #
-snippet a "Link (anchor)"
+snippet a "Link (anchor)" w
 <a href="${1:http://${2:www.example.com}}">${VISUAL:Anchor Text}</a>$0
 endsnippet
 
