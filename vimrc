@@ -55,6 +55,9 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " Powerline configuration.
 let g:Powerline_symbols="unicode"
 " let g:Powerline_theme="solarized"
+call Pl#Theme#RemoveSegment('fileformat')
+call Pl#Theme#RemoveSegment('fileencoding')
+
 
 
 "  _____                          _   _   _
@@ -339,9 +342,6 @@ endif
 
 " Automatically resize window splits when the application is resized.
 autocmd VimResized * exe "normal! \<c-w>="
-
-call Pl#Theme#RemoveSegment('fileformat')
-call Pl#Theme#RemoveSegment('fileencoding')
 
 
 "  ____                      _     _
