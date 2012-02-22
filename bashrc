@@ -60,8 +60,18 @@ $connection_color\u@\h\[\e[0m\] \
 PS1=$PS1'\[\e[1;35m\]$(__git_ps1 " %s")\[\e[0m\]\$ '
 
 # Additional options for git prompt flags
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWUPSTREAM=auto
+case "$(uname)" in
+MINGW*|MSYS*|CYGWIN*)
+	alias git='git.cmd'
+	source '/cygdrive/c/Archivos de programa/Git/etc/git-completion.bash'
+	;;
+*)
+	# Don't do this on Cygwin, since is slow.
+	export GIT_PS1_SHOWDIRTYSTATE=1
+	export GIT_PS1_SHOWUPSTREAM=auto
+	;;
+esac
+
 # export GIT_PS1_SHOWSTASHSTATE=1
 # export GIT_PS1_SHOWUNTRACKEDFILES=1
 
