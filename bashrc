@@ -62,8 +62,8 @@ PS1=$PS1'\[\e[1;35m\]$(__git_ps1 " %s")\[\e[0m\]\$ '
 # Additional options for git prompt flags
 case "$(uname)" in
 MINGW*|MSYS*|CYGWIN*)
-	alias git='git.cmd'
-	source '/cygdrive/c/Archivos de programa/Git/etc/git-completion.bash'
+	# alias git='git.cmd'
+	# source '/cygdrive/c/Archivos de programa/Git/etc/git-completion.bash'
 	;;
 *)
 	# Don't do this on Cygwin, since is slow.
