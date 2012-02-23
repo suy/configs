@@ -32,7 +32,21 @@ Etc.
 ===Update from upstream repositories===
 
 *git submodule foreach git pull
+*git add dotvim/bundle && git commit
 
+You maybe want to be safe, and do git fetch instead of git pull. Then check the
+changes using something like git log master..origin/master.
+
+==Switch to your repository fork==
+
+If you want to provide a patch for a plugin that you are using, and you want to
+use that patch right away, you might need to switch the URL of the repository to
+the one of your fork. You will have to add your remote to the repository, create
+the branch, do the fix, commit and push to a public place. Now you will have to
+update the .gitmodules file, and do git submodule sync to make the .git/config
+file in sync. When you receive updates with git pull, you might need to do also
+a git submodule sync before the update, or otherwise it will be impossible for
+Git to find the commit in the old repository.
 
 ==To do==
 
