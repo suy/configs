@@ -389,6 +389,10 @@ inoremap kk <ESC>
 inoremap lll <ESC>
 inoremap hhh <ESC>
 
+" Shortcut in insert mode to add a comma or semicolon at the end.
+inoremap ,; <C-O>A;
+inoremap ,, <C-O>A,
+
 " Allow enter key in normal mode to insert lines
 nnoremap <CR> i<CR><ESC>
 " Unmap this shortcut for the command window (cmdwin)
