@@ -386,8 +386,8 @@ set foldopen-=search
 inoremap jj <ESC>
 inoremap kk <ESC>
 " Be more carful with this, because 'll' and 'hh' are somewhat used in practice
-inoremap lll <ESC>
-inoremap hhh <ESC>
+" inoremap lll <ESC>
+" inoremap hhh <ESC>
 
 " Shortcut in insert mode to add a comma, semicolon or dot at the end.
 inoremap ,; <C-O>A;
