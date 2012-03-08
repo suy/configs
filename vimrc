@@ -246,9 +246,9 @@ match Error /\v\s+$/
 "set nu
 
 " Set the characters for statusline (& non current stl), vsplit, fold & diff.
-" set fillchars=stl:_,stlnc:\ ,vert:┃,fold:═,diff:·
+" set fillchars=vert:┃,fold:═,diff:·
 " TODO: some characters don't work with some colorschemes because use bold, etc.
-set fillchars=stl:·,stlnc:\ ,vert:┃,fold:=,diff:·
+set fillchars=vert:┃,fold:=,diff:·
 
 " cul: Highlight the line in which the cursor is in. Caution, can be very slow.
 set cursorline
