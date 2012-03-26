@@ -20,8 +20,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
-		\ 'space',
-		\ 'syntastic']
+		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
 if !has('gui_running')
