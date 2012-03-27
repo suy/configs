@@ -53,6 +53,7 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 
 " Powerline configuration.
 let g:Powerline_symbols="unicode"
+let g:Powerline_stl_path_style="short"
 " let g:Powerline_theme="solarized"
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
