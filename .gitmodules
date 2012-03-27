@@ -82,3 +82,6 @@
 [submodule "dotvim/bundle/javascript-syntax"]
 	path = dotvim/bundle/javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "dotvim/bundle/insertlessly"]
+	path = dotvim/bundle/insertlessly
+	url = git@github.com:suy/Insertlessly.git

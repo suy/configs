@@ -57,6 +57,9 @@ let g:Powerline_symbols="unicode"
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
 
+" Configuration for Insertlessly.
+let g:insertlessly_cleanup_trailing_ws = 0
+let g:insertlessly_cleanup_all_ws = 0
 
 
 "  _____                          _   _   _
@@ -394,13 +397,13 @@ inoremap ,, <C-O>A,
 inoremap ,. <C-O>A.
 
 " Allow enter key in normal mode to insert lines
-nnoremap <CR> i<CR><ESC>
+" nnoremap <CR> i<CR><ESC>
 " Unmap this shortcut for the command window (cmdwin)
-autocmd CmdwinEnter * nunmap <CR>
-autocmd CmdwinLeave * nnoremap <CR> i<CR><ESC>
+" autocmd CmdwinEnter * nunmap <CR>
+" autocmd CmdwinLeave * nnoremap <CR> i<CR><ESC>
 
 " Allow the backspace to delete in normal mode too
-nmap <BS> X
+" nmap <BS> X
 
 " Make backspace insert an 'undo break' before deleting.
 "inoremap <BS> <C-G>u<BS>
