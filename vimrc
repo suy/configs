@@ -406,8 +406,9 @@ inoremap ,. <C-O>A.
 " Allow the backspace to delete in normal mode too
 " nmap <BS> X
 
-" Make backspace insert an 'undo break' before deleting.
-"inoremap <BS> <C-G>u<BS>
+" Make enter and backspace insert an 'undo break' before the normal behavior.
+inoremap <CR> <C-G>u<CR>
+inoremap <BS> <C-G>u<BS>
 
 " Press the space key (which is easier to press) to start command line mode.
 nmap <space> :
