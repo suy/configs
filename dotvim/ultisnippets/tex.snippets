@@ -1,0 +1,108 @@
+#
+# General environment.
+#
+snippet begin "begin{} / end{} environment" b
+\begin{${1:something}}
+	$0
+\end{$1}
+endsnippet
+
+snippet env "Inline environment"
+\\${1:emph}{$2} $0
+endsnippet
+
+#
+# Formatting
+#
+snippet tt "teletype" w
+\texttt{$1} $0
+endsnippet
+
+
+#
+# Lists.
+#
+snippet enum "Enumerate (numbered list)" b
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet item "Itemize (non numbered list)" b
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet desc "Description list" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
+#
+# Main structure: part, chapter, section, etc.
+#
+snippet part "Part" b
+\part{${1:part name}}
+\label{prt:${2:${1/(\w+)|\W+/(?1:\L$0\E:_)/g}}}
+
+${0}
+
+% part $2 (end)
+endsnippet
+
+
+snippet cha "Chapter" b
+\chapter{${1:chapter name}}
+\label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% chapter $2 (end)
+
+endsnippet
+
+
+snippet sec "Section" b
+\section{${1:section name}}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% section $2 (end)
+endsnippet
+
+
+snippet sub "Subsection" b
+\subsection{${1:subsection name}}
+\label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% subsection $2 (end)
+endsnippet
+
+
+snippet ssub "Subsubsection" b
+\subsubsection{${1:subsubsection name}}
+\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+${0}
+
+% subsubsection $2 (end)
+
+endsnippet
+
+
+#
+# Simple bibliography
+#
+snippet bibi "Simple bibliography entry" b
+\bibitem{$1}
+${2:Author};
+\emph{${3:Title}}.
+\url{$0}
+endsnippet
+
+# vim:ft=snippets:
