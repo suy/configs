@@ -141,7 +141,10 @@ if has("autocmd")
 		" times each time vimrc is reloaded. It has to be only once and at the
 		" begginning of each augroup.
 		autocmd!
-		autocmd! BufWritePost *vimrc source $MYVIMRC
+		autocmd BufWritePost *vimrc source $MYVIMRC
+		" Work around to fix Powerline colors (something clears highlighting).
+		" https://github.com/Lokaltog/vim-powerline/issues/28#issuecomment-3492408
+		autocmd BufWritePost *vimrc call Pl#Load()
 	augroup END
 endif
 
@@ -296,28 +299,31 @@ set ls=2
 " set statusline +=%1*%4c\ %*             "column number
 " set statusline +=%2*0x%04B\ %*          "character under cursor
 
-" Clear it first to start fresh each invocation
-set statusline=
-" Buffer name with 2 minimum width
-set statusline+=%2.n
-" Full path, but truncate the statusbar here if it's too long
-set statusline+=\ %<%F
-" a space, User1 color, modified flag, restore color
-set statusline+=\ %1*%m%*
-" Git information
-set statusline+=\ %{fugitive#statusline()}
-" Syntastic information
-"set statusline+=\ %{SyntasticStatuslineFlag()}
-" Push everything else to the right
-set statusline+=\ %=
-" Modified, RO, help, preview, quickfix
-set statusline+=\ %R%H%W%q
-" Filetype in User1 color
-set statusline+=\ %1*%y%*
-" Ruler
-set statusline+=\ %(%l,%c%V%)
-" Percentage
-set statusline+=\ %P
+" Comment out all statusline settings because I handle the statusline with the
+" Powerline plugin. TODO: Use the regular statusline when the plugin is not
+" available (e.g. on my server).
+" " Clear it first to start fresh each invocation
+" set statusline=
+" " Buffer name with 2 minimum width
+" set statusline+=%2.n
+" " Full path, but truncate the statusbar here if it's too long
+" set statusline+=\ %<%F
+" " a space, User1 color, modified flag, restore color
+" set statusline+=\ %1*%m%*
+" " Git information
+" set statusline+=\ %{fugitive#statusline()}
+" " Syntastic information
+" "set statusline+=\ %{SyntasticStatuslineFlag()}
+" " Push everything else to the right
+" set statusline+=\ %=
+" " Modified, RO, help, preview, quickfix
+" set statusline+=\ %R%H%W%q
+" " Filetype in User1 color
+" set statusline+=\ %1*%y%*
+" " Ruler
+" set statusline+=\ %(%l,%c%V%)
+" " Percentage
+" set statusline+=\ %P
 
 " Some configuration options for solarized that have to be applied previously
 let g:solarized_termcolors='256'
