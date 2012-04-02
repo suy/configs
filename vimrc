@@ -38,9 +38,6 @@ call pathogen#helptags() " equivalent to :Helptags
 runtime macros/matchit.vim
 runtime macros/justify.vim
 
-" Auto delete files created by fugitive
-autocmd BufReadPost fugitive:* set bufhidden=delete
-
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
 let g:UltiSnipsExpandTrigger="<C-S>"
@@ -137,8 +134,17 @@ if has("win32")
 	let $PATH.=';D:\Cygwin\bin'
 endif
 
-" Clear other autocommands, to avoid defining them multiple times on reload
-autocmd!
+" Source .vimrc automatically when it is saved.
+if has("autocmd")
+	augroup vimrc
+		" Clear all autocommands in the group to avoid defining them multiple
+		" times each time vimrc is reloaded. It has to be only once and at the
+		" begginning of each augroup.
+		autocmd!
+		autocmd! BufWritePost *vimrc source $MYVIMRC
+	augroup END
+endif
+
 
 " Use the mouse for selection of text, and position the cursor
 "set mouse=a
@@ -151,11 +157,6 @@ set modeline
 
 " Show commands as you type them
 set showcmd
-
-" Source .vimrc automatically when it changes
-if has("autocmd")
-	autocmd! bufwritepost *vimrc source $MYVIMRC
-endif
 
 " Use specific plugins and indentation of the filetype
 filetype plugin indent on
@@ -213,8 +214,10 @@ set history=200
 
 " Jump to the last position when reopening a file.
 if has("autocmd")
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
-	\ | exe "normal! g'\"" | endif
+	augroup vimrc
+		autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+		  \ | exe "normal! g'\"" | endif
+	augroup END
 endif
 
 
@@ -344,7 +347,11 @@ else
 endif
 
 " Automatically resize window splits when the application is resized.
-autocmd VimResized * exe "normal! \<c-w>="
+if has("autocmd")
+	augroup vimrc
+		autocmd VimResized * exe "normal! \<c-w>="
+	augroup END
+endif
 
 
 "  ____                      _     _
