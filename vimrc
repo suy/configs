@@ -456,8 +456,11 @@ let mapleader = ","
 nmap <leader>w <C-w>
 xmap <leader>w <C-w>
 
-" Convenient shortcut for closing a buffer without closing a window
-nmap <leader>q :b #<CR>:bdelete #<CR>
+" Convenient shortcut for closing a buffer without closing a window. First
+" change to another buffer (depending on if the alternate buffer is listed or
+" not), and then close the initial one.
+nmap <silent> <leader>q :if buflisted(expand('#'))<BAR>b #<BAR>
+	\ else<BAR>bnext<BAR>endif<CR>:bdelete #<CR>
 
 " Clear and redraw the screen. Usually is C-L, but is mapped to something else.
 nmap <leader>r :redraw!<CR>
