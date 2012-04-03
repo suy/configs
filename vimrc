@@ -501,7 +501,7 @@ nnoremap <leader>S yiw:%s/<C-R>"/
 xnoremap <leader>S y:%s/<C-R>"/
 
 " Select what was recently 'modified' (changed, yanked or pasted).
-nnoremap <expr> <leader>m "'[" . strpart(getregtype(), 0, 1) . "']"
+nnoremap <expr> <leader>m "`[" . strpart(getregtype(), 0, 1) . "`]"
 
 " Experiment
 imap <M-.> <C-X>/
