@@ -198,7 +198,7 @@ set viewoptions=cursor,folds
 " Use a different view directory
 set viewdir=$HOME/.local/share/vim/view
 
-" Atomatically create and load views of files in entering or exiting them
+" Automatically create and load views of files in entering or exiting them
 " FIXME: don't create views for fugitive:// or other temp files
 " augroup vimrc
 " 	au!
@@ -231,10 +231,10 @@ endif
 " |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|_|_| |_|\__, |
 "          |___/           |___/                   |___/
 
-" Activates sintax highlighting
+" Activates syntax highlighting
 syntax on
 
-" Force a specific type of sintax highlighting
+" Force a specific type of syntax highlighting
 "set syntax=php
 
 " Highlight the opening bracket/parentheses when the closing one is written
@@ -329,7 +329,7 @@ set ls=2
 let g:solarized_termcolors='256'
 let g:solarized_italic='0'
 let g:solarized_contrast='normal'
-" Don't hightlight the listchars too much...
+" Don't highlight the listchars too much...
 let g:solarized_visibility='low'
 " ...except the trailing whitespace
 let g:solarized_hitrail='1'
@@ -344,7 +344,7 @@ if has("gui_running")
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
 	set guioptions+=LlRrb " Get rid of scrollbars...
-	set guioptions-=LlRrb " ... for some reason rerquires 2 lines (???)
+	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	colorscheme solarized
 else
 	colorscheme molokai
@@ -527,7 +527,7 @@ function! ToggleAutoFormatting()
 	endif
 endfunction
 
-" This should change the behaviour of spanish keys in normal/visual/etc. mode.
+" This should change the behaviour of Spanish keys in normal/visual/etc. mode.
 " However, it has been buggy in my experience, as it only worked on native Vim
 " actions with brackets (e.g., [c or ]p), but not on sequences mapped by the
 " user, like the ones provided by unimpaired.vim.
@@ -577,7 +577,7 @@ set su+=.asc,.cfg
 set wig+=*.pdf,*.png,*.jpg,*.jpeg
 
 " function! CleverTab()
-" 	" Check if the cursor is at the beggining of line or after whitespace
+" 	" Check if the cursor is at the beginning of line or after whitespace
 " 	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
 " 	   return "\<Tab>"
 " 	else
