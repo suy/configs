@@ -367,17 +367,13 @@ endif
 " |____/ \___|\__,_|_|  \___|_| |_|_|_| |_|\__, |
 "                                          |___/
 
-" Ignore case in searches...
+" Ignore case in searches unless you specify it explicitly (like /PaTTern).
 set ignorecase
-
-" ...unless you specify it explicitly (like /PaTTern)
 set smartcase
 
-" Incremental search, while you type
-"set incsearch
-
-" Highlight search results
+" Highlight search results, but not on startup.
 set hlsearch
+nohlsearch
 
 " Use global matching by default in regexes (override adding a /g back)
 set gdefault
