@@ -59,6 +59,31 @@ call Pl#Theme#RemoveSegment('fileencoding')
 let g:insertlessly_cleanup_trailing_ws = 0
 let g:insertlessly_cleanup_all_ws = 0
 
+" Raise the timeout length in submodes a little bit (default is timeoutlen).
+let g:submode_timeoutlen=3000
+
+" Submode for resizing the window.
+call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
+call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
+call submode#enter_with('resize-window', 'n', '', '<C-W>>', '<C-W>>')
+call submode#enter_with('resize-window', 'n', '', '<C-W><', '<C-W><')
+call submode#map('resize-window', 'n', '', '+', '<C-W>+')
+call submode#map('resize-window', 'n', '', '-', '<C-W>-')
+call submode#map('resize-window', 'n', '', '<', '<C-W><')
+call submode#map('resize-window', 'n', '', '>', '<C-W>>')
+
+" Submode for moving through the changelist.
+call submode#enter_with('changelist', 'n', '', 'g,', 'g,')
+call submode#enter_with('changelist', 'n', '', 'g;', 'g;')
+call submode#map('changelist', 'n', '', ',', 'g,')
+call submode#map('changelist', 'n', '', ';', 'g;')
+
+" Submode for moving through changes in diff mode.
+call submode#enter_with('diff-mode', 'n', '', '[c', '[c')
+call submode#enter_with('diff-mode', 'n', '', ']c', ']c')
+call submode#map('diff-mode', 'n', '', 'k', '[c')
+call submode#map('diff-mode', 'n', '', 'j', ']c')
+
 
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
