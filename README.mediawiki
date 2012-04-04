@@ -37,16 +37,17 @@ Etc.
 You maybe want to be safe, and do git fetch instead of git pull. Then check the
 changes using something like git log master..origin/master.
 
-==Switch to your repository fork==
+===Switch to your fork of a plugin===
 
 If you want to provide a patch for a plugin that you are using, and you want to
 use that patch right away, you might need to switch the URL of the repository to
 the one of your fork. You will have to add your remote to the repository, create
 the branch, do the fix, commit and push to a public place. Now you will have to
-update the .gitmodules file, and do git submodule sync to make the .git/config
-file in sync. When you receive updates with git pull, you might need to do also
-a git submodule sync before the update, or otherwise it will be impossible for
-Git to find the commit in the old repository.
+update the .gitmodules file (since now your commit is in a different URL), and
+do git submodule sync to make the .git/config file in sync with .gitmodules.
+When you receive updates with git pull, you might need to do also a git
+submodule sync before the update, or otherwise it will be impossible for Git to
+find the commit in the old repository.
 
 ==To do==
 
@@ -57,3 +58,5 @@ tweak in my vimrc. Here are some notes for self reference:
 * Use syntastic. The plugin is OK, but I need to add the lint tools to my systems.
 * Tweak viminfo and swapfile configuration.
 * Reorder and reorganize.
+* Test plugins from [https://github.com/kana Kana Natsuno]. He has great things there.
+
