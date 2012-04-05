@@ -20,6 +20,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
+		\ 'autoclose',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
@@ -83,6 +84,24 @@ call submode#enter_with('diff-mode', 'n', '', '[c', '[c')
 call submode#enter_with('diff-mode', 'n', '', ']c', ']c')
 call submode#map('diff-mode', 'n', '', 'k', '[c')
 call submode#map('diff-mode', 'n', '', 'j', ']c')
+
+" Smartinput customization: add rules for CSS comments.
+" From /(*) to /**/
+call smartinput#define_rule({'at': '/\%#',
+	\ 'char': '*', 'input': '**/<Left><Left>', 'filetype': ['css']})
+" From /*(<space>)*/ to /*<space><space>*/
+call smartinput#define_rule({'at': '\/\*\%#\*\/',
+	\ 'char': '<Space>', 'input': '<Space><Space><Left>', 'filetype': ['css']})
+" From /*<space><space>*/ to /**/
+call smartinput#define_rule({'at': '\/\*<Space>\%#<Space>\*\/',
+	\ 'char': '<BS>', 'input': '<Del><BS>', 'filetype': ['css']})
+" From /**/ to nothing
+call smartinput#define_rule({'at': '\/\*\%#\*\/',
+	\ 'char': '<BS>', 'input': '<Del><Del><BS><BS>', 'filetype': ['css']})
+call smartinput#map_to_trigger('i', '*', '*', '*')
+call smartinput#map_to_trigger('i', '<BS>', '<BS>', '<BS>')
+call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
+" call smartinput#map_trigger_keys(1)
 
 
 "  _____                          _   _   _
