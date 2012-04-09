@@ -88,6 +88,8 @@ if exists('*submode#map')
 	call submode#enter_with('diff-mode', 'n', '', ']c', ']c')
 	call submode#map('diff-mode', 'n', '', 'k', '[c')
 	call submode#map('diff-mode', 'n', '', 'j', ']c')
+	call submode#map('diff-mode', 'n', '', 'p', 'dp')
+	call submode#map('diff-mode', 'n', '', 'o', 'do')
 endif
 
 " Smartinput customization: add rules for CSS comments.
