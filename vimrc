@@ -28,12 +28,12 @@ if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
 endif
 
-" Initialize all the plugins.
-call pathogen#infect()
-call pathogen#helptags() " equivalent to :Helptags
-" TODO: check if the plugin is properly loaded (for some environments where I
-" might copy the vimrc, but not the whole runtime). I need something like
-" if exists('pathogen#infect')
+" Initialize all the plugins by calling pathogen, but only if it exists, since
+" I might be using this vimrc but without all the runtime files on '~/.vim'.
+if exists('*pathogen#infect')
+	call pathogen#infect()
+	call pathogen#helptags() " equivalent to :Helptags
+endif
 
 " Use plugins that are included with Vim 7
 runtime macros/matchit.vim
@@ -53,8 +53,10 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 let g:Powerline_symbols="unicode"
 let g:Powerline_stl_path_style="short"
 " let g:Powerline_theme="solarized"
-call Pl#Theme#RemoveSegment('fileformat')
-call Pl#Theme#RemoveSegment('fileencoding')
+if exists('*Pl#Theme#RemoveSegment')
+	call Pl#Theme#RemoveSegment('fileformat')
+	call Pl#Theme#RemoveSegment('fileencoding')
+endif
 
 " Configuration for Insertlessly.
 let g:insertlessly_cleanup_trailing_ws = 0
@@ -63,27 +65,30 @@ let g:insertlessly_cleanup_all_ws = 0
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
 let g:submode_timeoutlen=3000
 
-" Submode for resizing the window.
-call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
-call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
-call submode#enter_with('resize-window', 'n', '', '<C-W>>', '<C-W>>')
-call submode#enter_with('resize-window', 'n', '', '<C-W><', '<C-W><')
-call submode#map('resize-window', 'n', '', '+', '<C-W>+')
-call submode#map('resize-window', 'n', '', '-', '<C-W>-')
-call submode#map('resize-window', 'n', '', '<', '<C-W><')
-call submode#map('resize-window', 'n', '', '>', '<C-W>>')
+" Configuration for the submode plugin.
+if exists('*submode#map')
+	" Submode for resizing the window.
+	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
+	call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
+	call submode#enter_with('resize-window', 'n', '', '<C-W>>', '<C-W>>')
+	call submode#enter_with('resize-window', 'n', '', '<C-W><', '<C-W><')
+	call submode#map('resize-window', 'n', '', '+', '<C-W>+')
+	call submode#map('resize-window', 'n', '', '-', '<C-W>-')
+	call submode#map('resize-window', 'n', '', '<', '<C-W><')
+	call submode#map('resize-window', 'n', '', '>', '<C-W>>')
 
-" Submode for moving through the changelist.
-call submode#enter_with('changelist', 'n', '', 'g,', 'g,')
-call submode#enter_with('changelist', 'n', '', 'g;', 'g;')
-call submode#map('changelist', 'n', '', ',', 'g,')
-call submode#map('changelist', 'n', '', ';', 'g;')
+	" Submode for moving through the changelist.
+	call submode#enter_with('changelist', 'n', '', 'g,', 'g,')
+	call submode#enter_with('changelist', 'n', '', 'g;', 'g;')
+	call submode#map('changelist', 'n', '', ',', 'g,')
+	call submode#map('changelist', 'n', '', ';', 'g;')
 
-" Submode for moving through changes in diff mode.
-call submode#enter_with('diff-mode', 'n', '', '[c', '[c')
-call submode#enter_with('diff-mode', 'n', '', ']c', ']c')
-call submode#map('diff-mode', 'n', '', 'k', '[c')
-call submode#map('diff-mode', 'n', '', 'j', ']c')
+	" Submode for moving through changes in diff mode.
+	call submode#enter_with('diff-mode', 'n', '', '[c', '[c')
+	call submode#enter_with('diff-mode', 'n', '', ']c', ']c')
+	call submode#map('diff-mode', 'n', '', 'k', '[c')
+	call submode#map('diff-mode', 'n', '', 'j', ']c')
+endif
 
 " Smartinput customization: add rules for CSS comments.
 " From /(*) to /**/
