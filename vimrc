@@ -92,6 +92,12 @@ if exists('*submode#map')
 	call submode#map('diff-mode', 'n', '', 'o', 'do')
 endif
 
+" Define commands for the exjumplist plugin.
+command! JumplistLast           call exjumplist#go_last()
+command! JumplistFirst          call exjumplist#go_first()
+command! JumplistPreviousBuffer call exjumplist#next_buffer()
+command! JumplistNextBuffer     call exjumplist#previous_buffer()
+
 " Smartinput customization: add rules for CSS comments.
 " From /(*) to /**/
 call smartinput#define_rule({'at': '/\%#',
