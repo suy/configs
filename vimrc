@@ -32,7 +32,9 @@ endif
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
 if exists('*pathogen#infect')
 	call pathogen#infect()
-	call pathogen#helptags() " equivalent to :Helptags
+	" Equivalent to :Helptags (which generates the help tags for all plugins),
+	" but better not to run it at startup/reload, since it is too slow.
+	" call pathogen#helptags()
 endif
 
 " Use plugins that are included with Vim 7
