@@ -219,20 +219,30 @@ if has("win32")
 	let $PATH.=';D:\Cygwin\bin'
 endif
 
-" Source .vimrc automatically when it is saved.
 if has("autocmd")
 	augroup vimrc
 		" Clear all autocommands in the group to avoid defining them multiple
 		" times each time vimrc is reloaded. It has to be only once and at the
-		" begginning of each augroup.
+		" beginning of each augroup.
 		autocmd!
+
+		" Jump to the last position when reopening a file.
+		autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
+		  \ | exe "normal! g'\"" | endif
+
+		" Automatically resize window splits when the application is resized.
+		autocmd VimResized * exe "normal! \<c-w>="
+
+		" Source .vimrc automatically when it is saved.
 		autocmd BufWritePost *vimrc source $MYVIMRC
 		" Work around to fix Powerline colors (something clears highlighting).
 		" https://github.com/Lokaltog/vim-powerline/issues/28#issuecomment-3492408
 		autocmd BufWritePost *vimrc call Pl#Load()
+
+		" Set nopaste once insert mode is left, just in case.
+		autocmd InsertLeave * set nopaste
 	augroup END
 endif
-
 
 " Use the mouse for selection of text, and position the cursor
 "set mouse=a
@@ -299,14 +309,6 @@ set viewdir=$HOME/.local/share/vim/view
 
 " Save a lot more history
 set history=200
-
-" Jump to the last position when reopening a file.
-if has("autocmd")
-	augroup vimrc
-		autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
-		  \ | exe "normal! g'\"" | endif
-	augroup END
-endif
 
 
 "  _   _ _       _     _ _       _     _   _
@@ -435,13 +437,6 @@ else
 	colorscheme molokai
 	" Make the listchars darker
 	hi SpecialKey ctermfg=240
-endif
-
-" Automatically resize window splits when the application is resized.
-if has("autocmd")
-	augroup vimrc
-		autocmd VimResized * exe "normal! \<c-w>="
-	augroup END
 endif
 
 
