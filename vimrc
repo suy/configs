@@ -98,23 +98,50 @@ command! JumplistFirst          call exjumplist#go_first()
 command! JumplistPreviousBuffer call exjumplist#next_buffer()
 command! JumplistNextBuffer     call exjumplist#previous_buffer()
 
-" Smartinput customization: add rules for CSS comments.
-" From /(*) to /**/
-call smartinput#define_rule({'at': '/\%#',
-	\ 'char': '*', 'input': '**/<Left><Left>', 'filetype': ['css']})
-" From /*(<space>)*/ to /*<space><space>*/
-call smartinput#define_rule({'at': '\/\*\%#\*\/',
-	\ 'char': '<Space>', 'input': '<Space><Space><Left>', 'filetype': ['css']})
-" From /*<space><space>*/ to /**/
-call smartinput#define_rule({'at': '\/\*<Space>\%#<Space>\*\/',
-	\ 'char': '<BS>', 'input': '<Del><BS>', 'filetype': ['css']})
-" From /**/ to nothing
-call smartinput#define_rule({'at': '\/\*\%#\*\/',
-	\ 'char': '<BS>', 'input': '<Del><Del><BS><BS>', 'filetype': ['css']})
+" Smartinput customization. Rules have to be added with define_rule. But for
+" rules to be triggered a mapping is needed. Since the default rules already map
+" some keys to the generic function that looks for a match, one doesn't need to
+" create that map. The exception is if you want to change the default behaviour
+" of a key, like how is done here, where <Space>, if it doesn't expand anything
+" returns a <Space> but preceded with an undo break.
+call smartinput#define_rule({
+\	'at':       '/\%#',
+\	'char':     '*',
+\	'input':    '**/<Left><Left>',
+\	'filetype': ['css']
+\})
+call smartinput#define_rule({
+\	'at':       '/\*\%#\*/',
+\	'char':     '<Space>',
+\	'input':    '<Space><Space><Left>',
+\	'filetype': ['css']
+\})
+call smartinput#define_rule({
+\	'at':       '/\* \%# \*/',
+\	'char':     '<BS>',
+\	'input':    '<Del><BS>',
+\	'filetype': ['css']
+\})
+call smartinput#define_rule({
+\	'at':       '/\*\%#\*/',
+\	'char':     '<BS>',
+\	'input':    '<Del><Del><BS><BS>',
+\	'filetype': ['css']
+\})
 call smartinput#map_to_trigger('i', '*', '*', '*')
-call smartinput#map_to_trigger('i', '<BS>', '<BS>', '<BS>')
-call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<Space>')
-" call smartinput#map_trigger_keys(1)
+call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<C-G>u<Space>')
+
+" Additional rules for spaces inside parentheses.
+call smartinput#define_rule({
+\	'at':       '(\%#)',
+\	'char':     '<Space>',
+\	'input':    '<Space><Space><Left>',
+\})
+call smartinput#define_rule({
+\	'at':       '( \%# )',
+\	'char':     '<BS>',
+\	'input':    '<Del><BS>',
+\})
 
 
 "  _____                          _   _   _
