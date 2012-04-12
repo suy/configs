@@ -481,10 +481,17 @@ inoremap kk <ESC>
 " inoremap lll <ESC>
 " inoremap hhh <ESC>
 
-" Shortcut in insert mode to add a comma, semicolon or dot at the end.
-inoremap ,; <C-O>A;
+" Shortcut in insert mode to add a comma, colon, semicolon or dot at the end.
+inoremap ,, <C-O>A,
+inoremap ,: <C-O>A:
 inoremap ,, <C-O>A,
 inoremap ,. <C-O>A.
+
+" Make some keys add an undo break, which allows one to undo a long piece of
+" inserted text piecewise, not all at once. Since some keys are already mapped
+" by some plugins (smartinput for example), the tweak has to be done there.
+" inoremap <CR> <C-G>u<CR>
+" inoremap <BS> <C-G>u<BS>
 
 " Allow enter key in normal mode to insert lines
 " nnoremap <CR> i<CR><ESC>
@@ -494,10 +501,6 @@ inoremap ,. <C-O>A.
 
 " Allow the backspace to delete in normal mode too
 " nmap <BS> X
-
-" Make enter and backspace insert an 'undo break' before the normal behavior.
-inoremap <CR> <C-G>u<CR>
-inoremap <BS> <C-G>u<BS>
 
 " Press the space key (which is easier to press) to start command line mode.
 nmap <space> :
