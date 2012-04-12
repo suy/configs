@@ -39,7 +39,6 @@ endif
 
 " Use plugins that are included with Vim 7
 runtime macros/matchit.vim
-runtime macros/justify.vim
 
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
