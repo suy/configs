@@ -100,3 +100,6 @@
 [submodule "dotvim/bundle/smartinput"]
 	path = dotvim/bundle/smartinput
 	url = https://github.com/kana/vim-smartinput.git
+[submodule "dotvim/bundle/eunuch"]
+	path = dotvim/bundle/eunuch
+	url = https://github.com/tpope/vim-eunuch.git
