@@ -493,14 +493,26 @@ inoremap ,. <C-O>A.
 " inoremap <CR> <C-G>u<CR>
 " inoremap <BS> <C-G>u<BS>
 
-" Allow enter key in normal mode to insert lines
-" nnoremap <CR> i<CR><ESC>
-" Unmap this shortcut for the command window (cmdwin)
-" autocmd CmdwinEnter * nunmap <CR>
-" autocmd CmdwinLeave * nnoremap <CR> i<CR><ESC>
-
-" Allow the backspace to delete in normal mode too
-" nmap <BS> X
+" Map the return and backspace keys to a function that edits in normal mode.
+nnoremap <silent> <CR> :<C-u>call NormalModeEdit('cr')<CR>
+nnoremap <silent> <BS> :<C-u>call NormalModeEdit('bs')<CR>
+" The function is still rough, some edge cases might need polish. See the
+" insertlessly plugin as an alternative.
+function! NormalModeEdit(key)
+	if a:key ==# "cr"
+		if &buftype ==# ""
+			execute "normal! i\<CR>"
+		else
+			execute "normal! \<CR>"
+		endif
+	elseif a:key ==# "bs"
+		if col('.') == 1
+			execute "normal! kJl"
+		else
+			execute "normal! X"
+		endif
+	endif
+endfunction
 
 " Press the space key (which is easier to press) to start command line mode.
 nmap <space> :
