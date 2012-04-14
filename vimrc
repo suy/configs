@@ -144,6 +144,9 @@ call smartinput#define_rule({
 \	'input':    '<Del><BS>',
 \})
 
+" The operator-replace plugin isn't mapped to any key, and I almost don't use R.
+map R <Plug>(operator-replace)
+
 
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
