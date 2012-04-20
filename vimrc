@@ -663,7 +663,8 @@ endfunction
 "                      |_|
 
 " Complete longest common string, then each full match
-set wildmode=list:longest,full
+set wildmode=list:longest,list:full
+set wildmenu
 
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest,preview
