@@ -420,7 +420,7 @@ set ls=2
 
 " Some configuration options for solarized that have to be applied previously
 let g:solarized_termcolors='256'
-let g:solarized_italic='0'
+let g:solarized_italic='1'
 let g:solarized_contrast='normal'
 " Don't highlight the listchars too much...
 let g:solarized_visibility='low'
@@ -439,6 +439,7 @@ if has("gui_running")
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	colorscheme solarized
+	highlight MatchParen gui=reverse guibg=NONE
 else
 	colorscheme molokai
 	" Make the listchars darker
