@@ -341,6 +341,9 @@ match Error /\v\s+$/
 " /_/   \_\ .__/| .__/ \___|\__,_|_|  \__,_|_| |_|\___\___|
 "         |_|   |_|
 
+" Seems to speed a lot the redraw on GVim, and makes cursorline usable again.
+set lazyredraw
+
 " number: show line number
 "set nu
 
