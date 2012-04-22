@@ -288,26 +288,6 @@ if has('persistent_undo')
 	set undofile undodir=$HOME/.local/share/vim/undo
 endif
 
-" Save only cursor and folds on view files
-set viewoptions=cursor,folds
-
-" Use a different view directory
-set viewdir=$HOME/.local/share/vim/view
-
-" Automatically create and load views of files in entering or exiting them
-" FIXME: don't create views for fugitive:// or other temp files
-" augroup vimrc
-" 	au!
-" 	autocmd BufWinLeave *
-" 		\   if expand('%') != '' && &buftype !~ 'nofile'
-" 		\|      mkview!
-" 		\|  endif
-" 	autocmd BufWinEnter *
-" 		\   if expand('%') != '' && &buftype !~ 'nofile'
-" 		\|      silent loadview
-" 		\|  endif
-" augroup END
-
 " Save a lot more history
 set history=200
 
@@ -690,6 +670,12 @@ set su+=.asc,.cfg
 " wildignore: Patterns to completely ignore when completing.
 set wig+=*.pdf,*.png,*.jpg,*.jpeg
 
+
+" ╻╺┳┓┏━╸┏━┓┏━┓   ╺┳╸┏━┓   ┏━╸┏━┓┏┓╻┏━┓╻╺┳┓┏━╸┏━┓   ╻  ┏━┓╺┳╸┏━╸╻  ╻ ╻
+" ┃ ┃┃┣╸ ┣━┫┗━┓    ┃ ┃ ┃   ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃┣╸ ┣┳┛   ┃  ┣━┫ ┃ ┣╸ ┃  ┗┳┛
+" ╹╺┻┛┗━╸╹ ╹┗━┛    ╹ ┗━┛   ┗━╸┗━┛╹ ╹┗━┛╹╺┻┛┗━╸╹┗╸   ┗━╸╹ ╹ ╹ ┗━╸┗━╸ ╹
+
+" " A moderately simple alternative to the SuperTab plugin.
 " function! CleverTab()
 " 	" Check if the cursor is at the beginning of line or after whitespace
 " 	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
@@ -708,4 +694,22 @@ set wig+=*.pdf,*.png,*.jpg,*.jpeg
 " endfunction
 " inoremap <Tab> <C-R>=CleverTab()<CR>
 
+" " Set up view files that save the cursor position and the folds of the files.
+" " I no longer use view files (at least for now), since the cursor position is
+" " already saved and restored through viminfo, and I use indent based folds.
+" set viewoptions=cursor,folds
+" set viewdir=$HOME/.local/share/vim/view
+" " Automatically create and load views of files in entering or exiting them
+" " FIXME: don't create views for fugitive:// or other temp files
+" augroup vimrc
+" 	au!
+" 	autocmd BufWinLeave *
+" 		\   if expand('%') != '' && &buftype !~ 'nofile'
+" 		\|      mkview!
+" 		\|  endif
+" 	autocmd BufWinEnter *
+" 		\   if expand('%') != '' && &buftype !~ 'nofile'
+" 		\|      silent loadview
+" 		\|  endif
+" augroup END
 
