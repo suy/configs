@@ -58,10 +58,6 @@ if exists('*Pl#Theme#RemoveSegment')
 	call Pl#Theme#RemoveSegment('fileencoding')
 endif
 
-" Configuration for Insertlessly.
-let g:insertlessly_cleanup_trailing_ws = 0
-let g:insertlessly_cleanup_all_ws = 0
-
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
 let g:submode_timeoutlen=3000
 
