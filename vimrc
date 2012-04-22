@@ -451,6 +451,9 @@ else
 	hi SpecialKey ctermfg=240
 endif
 
+" Extra space (in pixels) between two lines (GUI only).
+set linespace=2
+
 
 "  ____                      _     _
 " / ___|  ___  __ _ _ __ ___| |__ (_)_ __   __ _
