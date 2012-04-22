@@ -105,6 +105,7 @@ command! JumplistNextBuffer     call exjumplist#previous_buffer()
 " create that map. The exception is if you want to change the default behaviour
 " of a key, like how is done here, where <Space>, if it doesn't expand anything
 " returns a <Space> but preceded with an undo break.
+if exists('*smartinput#define_rule')
 call smartinput#define_rule({
 \	'at':       '/\%#',
 \	'char':     '*',
@@ -143,6 +144,7 @@ call smartinput#define_rule({
 \	'char':     '<BS>',
 \	'input':    '<Del><BS>',
 \})
+endif
 
 " The operator-replace plugin isn't mapped to any key, and I almost don't use R.
 map R <Plug>(operator-replace)
@@ -286,9 +288,10 @@ set encoding=utf-8
 " Allow more time between keystrokes for some key shortcuts
 set timeoutlen=1600
 
-" Save all the undo history, even of closed files, in a specific directory
-set undofile
-set undodir=$HOME/.local/share/vim/undo
+" Save the undo history in a persistent file, not just while Vim is running.
+if has('persistent_undo')
+	set undofile undodir=$HOME/.local/share/vim/undo
+endif
 
 " Save only cursor and folds on view files
 set viewoptions=cursor,folds
@@ -359,8 +362,10 @@ set cursorline
 set list
 set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
 
-" colorcolumn: Use a colored column to mark the textwidh+1 column
-set cc=+1
+" colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
+if v:version >= 703
+	set cc=+1
+endif
 
 " fen: enable folds by default. Can be swiftly disabled with 'zi'.
 set foldenable
