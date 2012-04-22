@@ -20,7 +20,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
-		\ 'autoclose',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.

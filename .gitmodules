@@ -76,9 +76,6 @@
 [submodule "dotvim/bundle/ragtag"]
 	path = dotvim/bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
-[submodule "dotvim/bundle/autoclose"]
-	path = dotvim/bundle/autoclose
-	url = https://github.com/Townk/vim-autoclose.git
 [submodule "dotvim/bundle/javascript-syntax"]
 	path = dotvim/bundle/javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
