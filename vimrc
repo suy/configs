@@ -214,11 +214,6 @@ set smartindent
 " |_|  |_|_|___/\___|
 "
 
-" Set PATH in Windows, because the sysadmins at my workplace are idiots
-if has("win32")
-	let $PATH.=';D:\Cygwin\bin'
-endif
-
 if has("autocmd")
 	augroup vimrc
 		" Clear all autocommands in the group to avoid defining them multiple
