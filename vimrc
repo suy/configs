@@ -447,6 +447,7 @@ set linespace=2
 " Ignore case in searches unless you specify it explicitly (like /PaTTern).
 set ignorecase
 set smartcase
+set incsearch
 
 " Highlight search results, but not on startup.
 set hlsearch
