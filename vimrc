@@ -239,9 +239,6 @@ if has("autocmd")
 	augroup END
 endif
 
-" Use the mouse for selection of text, and position the cursor
-"set mouse=a
-
 " Don't leave two spaces between two sentences (foo.  Bar) when joining lines
 set nojoinspaces
 
@@ -263,14 +260,8 @@ set hidden
 " scrolloff: Make the text scroll some lines before the cursor reaches the border
 set so=3
 
-" Automatically cd into the directory that the file is in
-"set autochdir
-
 " Allow the backspace to do useful things (is not the default everywhere)
 set backspace=indent,eol,start
-
-" Set the ruler (is not visible by default everywhere)
-set ruler
 
 " Set encoding to utf-8 for systems that don't have it by default
 set encoding=utf-8
@@ -297,9 +288,6 @@ set history=200
 " Activates syntax highlighting
 syntax on
 
-" Force a specific type of syntax highlighting
-"set syntax=php
-
 " Highlight the opening bracket/parentheses when the closing one is written
 set showmatch
 
@@ -316,9 +304,6 @@ match Error /\v\s+$/
 
 " Seems to speed a lot the redraw on GVim, and makes cursorline usable again.
 set lazyredraw
-
-" number: show line number
-"set nu
 
 " Set the characters for statusline (& non current stl), vsplit, fold & diff.
 " set fillchars=vert:┃,fold:═,diff:·
