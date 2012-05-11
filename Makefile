@@ -13,6 +13,8 @@ setup-unix:
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	ln -sf ${PWD}/dotvim ~/.vim # FIXME: fails on reruns
 	ln -sf ${PWD}/bashrc ~/.bashrc
+	ln -sf ${PWD}/aliases ~/.aliases
+	ln -sf ${PWD}/environment ~/.environment
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	# My git configuration, for now, is not a file like others
