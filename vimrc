@@ -443,6 +443,7 @@ if has("gui_running")
 	set guioptions-=m
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
+	set background=dark
 	colorscheme solarized
 	highlight MatchParen gui=reverse guibg=NONE
 else
