@@ -24,3 +24,8 @@ setup-unix:
 	git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	git config --global user.name "Alejandro Exojo"
 	git config --global user.email suy@badopi.org
+	git config --global core.excludesfile ${PWD}/ignore-patterns
+	#git config --global core.autocrlf input # Caution: not throughly tested, only Win?
+	#git config --global core.symlinks true
+	git config --global color.ui true
+	git config --global help.autocorrect 1 # Fix typos automatically
