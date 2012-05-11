@@ -15,7 +15,7 @@ screencast on keeping in sync your Vim configuration with Git and Github].
 Get the files and set the symbolic links:
 
 *git clone git@github.com:suy/configs.git
-*git submodule init
+*git submodule update --init
 *ln -s configs/vimrc .vimrc
 *ln -s configs/dotvim .vim
 *ln -s configs/bashrc .bashrc

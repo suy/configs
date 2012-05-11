@@ -7,3 +7,20 @@ windows-push-vim-config:
 
 roger-push-config:
 	rsync -avz --delete --exclude=.git --exclude-from=ignore-patterns --exclude=spell ./ roger:./configs
+
+setup-unix:
+	git submodule update --init
+	ln -sf ${PWD}/vimrc ~/.vimrc
+	ln -sf ${PWD}/dotvim ~/.vim # FIXME: fails on reruns
+	ln -sf ${PWD}/bashrc ~/.bashrc
+	ln -sf ${PWD}/screenrc ~/.screenrc
+	ln -sf ${PWD}/inputrc ~/.inputrc
+	# My git configuration, for now, is not a file like others
+	git config --global alias.st status
+	git config --global alias.co checkout
+	git config --global alias.ci commit
+	git config --global alias.br branch
+	git config --global alias.subdo "submodule foreach git"
+	git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	git config --global user.name "Alejandro Exojo"
+	git config --global user.email suy@badopi.org
