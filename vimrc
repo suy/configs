@@ -356,7 +356,11 @@ set lazyredraw
 set fillchars=vert:┃,fold:=,diff:·
 
 " cul: Highlight the line in which the cursor is in. Caution, can be very slow.
+" Also, disable it in the console since it seems problematic with screen or the
+" colorscheme, or whatever.
+if has("gui_running")
 set cursorline
+endif
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
