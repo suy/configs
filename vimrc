@@ -437,7 +437,7 @@ if has("gui_running")
 	if has("win32")
 		set guifont=DejaVu_Sans_Mono:h7.8:cANSI
 	else
-		set guifont="DejaVu Sans Mono 10"
+		set guifont=DejaVu\ Sans\ Mono\ 10
 	endif
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
