@@ -55,8 +55,9 @@ I still have much to learn, and there is still too much that isn't exactly like
 I want it to be. Lately I've been using Vim a lot, so I have many things to
 tweak in my vimrc. Here are some notes for self reference:
 
-* Use syntastic. The plugin is OK, but I need to add the lint tools to my systems.
+* Use syntastic properly: learn more about the specific syntax checkers.
 * Tweak viminfo and swapfile configuration.
 * Reorder and reorganize.
 * Test plugins from [https://github.com/kana Kana Natsuno]. He has great things there.
+* Add (and learn) stuff for nice C++ completion and refactoring (e.g. neocomplcache).
 
