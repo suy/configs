@@ -467,7 +467,7 @@ inoremap kk <ESC>
 " Shortcut in insert mode to add a comma, colon, semicolon or dot at the end.
 inoremap ,, <C-O>A,
 inoremap ,: <C-O>A:
-inoremap ,, <C-O>A,
+inoremap ,; <C-O>A;
 inoremap ,. <C-O>A.
 
 " Make some keys add an undo break, which allows one to undo a long piece of
