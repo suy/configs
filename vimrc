@@ -396,8 +396,9 @@ let g:solarized_hitrail='1'
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
-	if has("win32")
-		set guifont=DejaVu_Sans_Mono:h7.8:cANSI
+	" At work there is a larger screen.
+	if $USER == 'modpow'
+		set guifont=DejaVu\ Sans\ Mono\ 8
 	else
 		set guifont=DejaVu\ Sans\ Mono\ 10
 	endif
