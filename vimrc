@@ -131,6 +131,17 @@ call smartinput#define_rule({
 \	'char':     '<BS>',
 \	'input':    '<Del><BS>',
 \})
+" Fix some defaults
+call smartinput#define_rule({
+\	'at':       ' \%#\S',
+\	'char':     '[',
+\	'input':    '[',
+\})
+call smartinput#define_rule({
+\	'at':       ' \%#\S',
+\	'char':     '(',
+\	'input':    '(',
+\})
 endif
 
 " The operator-replace plugin isn't mapped to any key, and I almost don't use R.
