@@ -78,14 +78,6 @@ if exists('*submode#map')
 	call submode#enter_with('changelist', 'n', '', 'g;', 'g;')
 	call submode#map('changelist', 'n', '', ',', 'g,')
 	call submode#map('changelist', 'n', '', ';', 'g;')
-
-	" Submode for moving through changes in diff mode.
-	call submode#enter_with('diff-mode', 'n', '', '[c', '[c')
-	call submode#enter_with('diff-mode', 'n', '', ']c', ']c')
-	call submode#map('diff-mode', 'n', '', 'k', '[c')
-	call submode#map('diff-mode', 'n', '', 'j', ']c')
-	call submode#map('diff-mode', 'n', '', 'p', 'dp')
-	call submode#map('diff-mode', 'n', '', 'o', 'do')
 endif
 
 " Define commands for the exjumplist plugin.
