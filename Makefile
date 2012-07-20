@@ -23,6 +23,8 @@ setup-unix:
 	git config --global alias.ci commit
 	git config --global alias.br branch
 	git config --global alias.subdo "submodule foreach git"
+	git config --global alias.unstage-all "reset HEAD ."
+	git config --global alias.last "checkout -- ."
 	git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	git config --global user.name "Alejandro Exojo"
 	git config --global user.email suy@badopi.org
