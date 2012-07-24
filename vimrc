@@ -333,7 +333,7 @@ endif
 set foldenable
 
 " fdm: sets the default folding behaviour.
-set foldmethod=indent
+set foldmethod=syntax
 
 " fdl: the level of nested folds that will be closed initially.
 set foldlevel=4
