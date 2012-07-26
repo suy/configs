@@ -109,6 +109,7 @@
 [submodule "dotvim/bundle/qmake"]
 	path = dotvim/bundle/qmake
 	url = https://git.gitorious.org/vim-for-qt-kde/vim-qmake.git
+	pushurl = git@gitorious.org:vim-for-qt-kde/vim-qmake.git
 [submodule "dotvim/bundle/markdown"]
 	path = dotvim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
