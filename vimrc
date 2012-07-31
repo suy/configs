@@ -620,6 +620,11 @@ map Ñ {
 map ç ]
 map Ç }
 
+" Ease the pain in insert mode that is to type {} and [] with a Spanish
+" keyboard, because smartinput helps, but not that much with the first char.
+inoremap <C-x>r []<left>
+inoremap <C-x>b {}<left>
+
 " Text objects for 'rectangular' and 'angular' brackets (surround plugin-style).
 onoremap ir i[
 onoremap ar a]
