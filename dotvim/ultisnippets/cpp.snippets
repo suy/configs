@@ -1,0 +1,35 @@
+extends c
+
+snippet met "Method for this class" !b
+${1:void} `!v
+matchstr(getline(search('\C\(\<\w\+\)\ze::\1', 'nw')), '\C\(\<\w\+\)\ze::\1')
+`::${3:memberFunction}($4)
+{
+	$0
+}
+endsnippet
+
+#
+# This is Qt specific. I will have to think how to make this less obtrusive for
+# non-Qt C++ code.
+#
+snippet debu "qDebug" !b
+qDebug() << $0;
+endsnippet
+
+snippet defu "qDebug: print current function" !b
+qDebug() << __PRETTY_FUNCTION__;
+endsnippet
+
+snippet qa "Q_ASSERT" !b
+Q_ASSERT(${0:condition});
+endsnippet
+
+snippet qax "Q_ASSERT_X" !b
+Q_ASSERT_X(${1:condition}, ${2:__PRETTY_FUNCTION__}, "${3:what}");
+endsnippet
+
+snippet conn "Connect signal with slot" !b
+connect(${1:this}, SIGNAL(${2:signal signature}), ${3:this}, SLOT(${4:slot signature}));
+endsnippet
+
