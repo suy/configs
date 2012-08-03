@@ -33,3 +33,8 @@ snippet conn "Connect signal with slot" !b
 connect(${1:this}, SIGNAL(${2:signal signature}), ${3:this}, SLOT(${4:slot signature}));
 endsnippet
 
+snippet foreach "Qt's foreach" !b
+foreach (${1:variable}, ${2:container}) {
+	${VISUAL}$0
+}
+endsnippet
