@@ -411,6 +411,8 @@ if has("gui_running")
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
 	colorscheme solarized
+	" Some solarized changes: listchars and matched parents.
+	highlight SpecialKey guifg=#094757
 	highlight MatchParen gui=reverse guibg=NONE
 else
 	try
