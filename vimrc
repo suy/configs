@@ -62,7 +62,7 @@ endif
 let g:submode_timeoutlen=3000
 
 " Configuration for the submode plugin.
-if exists('*submode#map')
+if exists('*submode#map') && version > 702
 	" Submode for resizing the window.
 	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
 	call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
