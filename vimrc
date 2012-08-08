@@ -462,6 +462,9 @@ set foldopen-=search
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
+" Fix an historical inconsistency on the keyboard interface of vi(m).
+nnoremap Y y$
+
 " Try to be smart: if accidentally you press 'jj' or 'kk' in insert mode, you
 " will be brought back to normal mode. Is also easier to press than <ESC>.
 inoremap jj <ESC>
