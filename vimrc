@@ -147,6 +147,18 @@ endif
 " The operator-replace plugin isn't mapped to any key, and I almost don't use R.
 map R <Plug>(operator-replace)
 
+" Use a Creator-like shortcut for CtrlP plugin.
+let g:ctrlp_map = ''
+nmap <C-k> :call ctrlp#init(ctrlp#mixed#id())<CR>
+let g:ctrlp_user_command = {
+\	'types': {
+\		1: ['.git', 'cd %s && git ls-files'],
+\		2: ['.hg', 'hg --cwd %s locate -I .'],
+\	},
+\	'fallback': 'find %s -type f'
+\}
+let g:ctrlp_extensions = ['mixed']
+
 
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
