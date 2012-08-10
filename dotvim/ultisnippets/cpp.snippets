@@ -22,11 +22,19 @@ qDebug() << __PRETTY_FUNCTION__;
 endsnippet
 
 snippet qa "Q_ASSERT" !b
-Q_ASSERT(${0:condition});
+Q_ASSERT(${1:${VISUAL}});
 endsnippet
 
 snippet qax "Q_ASSERT_X" !b
-Q_ASSERT_X(${1:condition}, ${2:__PRETTY_FUNCTION__}, "${3:what}");
+Q_ASSERT_X(${1:${VISUAL:condition}}, ${2:__PRETTY_FUNCTION__}, "${3:what}");
+endsnippet
+
+snippet qun "Q_UNUSED" !
+Q_UNUSED(${VISUAL}$0);
+endsnippet
+
+snippet qau "Q_ASSERT followed by Q_UNUSED" !b
+Q_ASSERT(${1:${VISUAL}}); Q_UNUSED($1);
 endsnippet
 
 snippet conn "Connect signal with slot" !b
