@@ -49,6 +49,18 @@ When you receive updates with git pull, you might need to do also a git
 submodule sync before the update, or otherwise it will be impossible for Git to
 find the commit in the old repository.
 
+===Remove a plugin/submodule===
+
+Since I end up searching for the recipe online just in case I forget something,
+here is it, copied from the Git Wiki:
+
+#Delete the relevant line from the .gitmodules file.
+#Delete the relevant section from .git/config.
+#Run git rm --cached path_to_submodule (no trailing slash).
+#Commit the superproject.
+#Delete the now untracked submodule files.
+
+
 ==To do==
 
 I still have much to learn, and there is still too much that isn't exactly like
