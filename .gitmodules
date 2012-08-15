@@ -128,3 +128,6 @@
 [submodule "dotvim/bundle/ctrlp"]
 	path = dotvim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "dotvim/bundle/clang_complete"]
+	path = dotvim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
