@@ -1,6 +1,9 @@
 # Remove the copyright notice at the beggining
 startup_message off
 
+# Increase the amount of lines in the scrollback
+defscrollback 10000
+
 #            _
 #   ___ ___ | | ___  _ __
 #  / __/ _ \| |/ _ \| '__|
