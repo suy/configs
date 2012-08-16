@@ -546,6 +546,10 @@ cnoremap <C-J> <C-F>
 " Change the 'leader' key to something more easy to press
 let mapleader = ","
 
+" Mappings for the altr plugin.
+nmap <leader>A <Plug>(altr-back)
+nmap <leader>Z <Plug>(altr-forward)
+
 " Make window management a little bit more easy: map all the C-W <foobar> to
 " <leader>w<foobar>
 nmap <leader>w <C-w>
