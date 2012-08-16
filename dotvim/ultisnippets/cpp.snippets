@@ -3,10 +3,11 @@ extends c
 snippet met "Method for this class" !b
 ${1:void} `!v
 matchstr(getline(search('\C\(\<\w\+\)\ze::\1', 'nw')), '\C\(\<\w\+\)\ze::\1')
-`::${3:memberFunction}($4)
+`::${2:memberFunction}($3)
 {
 	$0
 }
+$1 $2($3);
 endsnippet
 
 #
