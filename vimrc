@@ -497,6 +497,9 @@ inoremap ,. <C-O>A.
 " inoremap <CR> <C-G>u<CR>
 " inoremap <BS> <C-G>u<BS>
 
+" Make the dot command useful in visual mode (good suggestion, nelstrom).
+xnoremap . :normal .<CR>
+
 " Map the return and backspace keys to a function that edits in normal mode.
 nnoremap <silent> <CR> :<C-u>call NormalModeEdit('cr')<CR>
 nnoremap <silent> <BS> :<C-u>call NormalModeEdit('bs')<CR>
