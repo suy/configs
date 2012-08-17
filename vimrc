@@ -20,6 +20,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
+		\ 'supertab',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
@@ -160,6 +161,11 @@ let g:ctrlp_user_command = {
 let g:ctrlp_extensions = ['mixed']
 let g:ctrlp_max_height = 20
 let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
+
+" Setup for clang_complete.
+let g:clang_snippets=1
+let g:clang_snippets_engine="ultisnips"
+let g:clang_close_preview=1
 
 
 "  _____                          _   _   _
