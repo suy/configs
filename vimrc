@@ -703,24 +703,24 @@ set wig+=*.pdf,*.png,*.jpg,*.jpeg
 " ┃ ┃┃┣╸ ┣━┫┗━┓    ┃ ┃ ┃   ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃┣╸ ┣┳┛   ┃  ┣━┫ ┃ ┣╸ ┃  ┗┳┛
 " ╹╺┻┛┗━╸╹ ╹┗━┛    ╹ ┗━┛   ┗━╸┗━┛╹ ╹┗━┛╹╺┻┛┗━╸╹┗╸   ┗━╸╹ ╹ ╹ ┗━╸┗━╸ ╹
 
-" " A moderately simple alternative to the SuperTab plugin.
-" function! CleverTab()
-" 	" Check if the cursor is at the beginning of line or after whitespace
-" 	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-" 	   return "\<Tab>"
-" 	else
-" 		" Use omnifunc if available
-" 		if &omnifunc != ''
-" 			return "\<C-X>\<C-O>"
-" 		" Otherwise use the dictionary completion
-" 		elseif &dictionary != ''
-" 			return "\<C-K>"
-" 		else
-" 			return "\<C-P>"
-" 		endif
-" 	endif
-" endfunction
-" inoremap <Tab> <C-R>=CleverTab()<CR>
+" A moderately simple alternative to the SuperTab plugin.
+function! CleverTab()
+	" Check if the cursor is at the beginning of line or after whitespace
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	   return "\<Tab>"
+	else
+		" Use omnifunc if available
+		if &omnifunc != ''
+			return "\<C-X>\<C-O>"
+		" Otherwise use the dictionary completion
+		elseif &dictionary != ''
+			return "\<C-K>"
+		else
+			return "\<C-P>"
+		endif
+	endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
 
 " " Set up view files that save the cursor position and the folds of the files.
 " " I no longer use view files (at least for now), since the cursor position is
