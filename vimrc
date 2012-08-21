@@ -705,12 +705,19 @@ set wig+=*.pdf,*.png,*.jpg,*.jpeg
 
 " A moderately simple alternative to the SuperTab plugin.
 function! CleverTab()
+	" Use tab for going forward in the pop up menu (pum).
+	if pumvisible()
+		return "\<C-n>"
 	" Check if the cursor is at the beginning of line or after whitespace
+	endif
 	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
 	   return "\<Tab>"
 	else
+		" If the previous text looks like a path, use filename completion.
+		if strpart( getline('.'), 0, col('.')-1 ) =~ '^.*/$'
+			return "\<C-x>\<C-f>"
 		" Use omnifunc if available
-		if &omnifunc != ''
+		elseif &omnifunc != ''
 			return "\<C-X>\<C-O>"
 		" Otherwise use the dictionary completion
 		elseif &dictionary != ''
