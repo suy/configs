@@ -663,8 +663,8 @@ inoremap <C-x>b {}<left>
 " Text objects for 'rectangular' and 'angular' brackets (surround plugin-style).
 onoremap ir i[
 onoremap ar a]
-onoremap ia i<
-onoremap aa i>
+" onoremap ia i<
+" onoremap aa i>
 
 " Function and command for removing (with confirmation) trailing whitespace.
 command! RemoveTrailingWhiteSpace call RemoveTrailingWhiteSpace()
