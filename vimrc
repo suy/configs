@@ -693,7 +693,7 @@ set wildmode=list:longest,list:full
 set wildmenu
 
 " Behaviour of completion 'popup'
-set completeopt=menuone,longest,preview
+set completeopt=menuone,longest
 
 " suffixes: Patterns with a lower priority in completion.
 set su+=.asc,.cfg
