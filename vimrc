@@ -701,6 +701,9 @@ set su+=.asc,.cfg
 " wildignore: Patterns to completely ignore when completing.
 set wig+=*.pdf,*.png,*.jpg,*.jpeg
 
+" Ignore case in the command line.
+if version > 702 | set wildignorecase | endif
+
 
 " ╻╺┳┓┏━╸┏━┓┏━┓   ╺┳╸┏━┓   ┏━╸┏━┓┏┓╻┏━┓╻╺┳┓┏━╸┏━┓   ╻  ┏━┓╺┳╸┏━╸╻  ╻ ╻
 " ┃ ┃┃┣╸ ┣━┫┗━┓    ┃ ┃ ┃   ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃┣╸ ┣┳┛   ┃  ┣━┫ ┃ ┣╸ ┃  ┗┳┛
