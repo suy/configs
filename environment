@@ -27,11 +27,15 @@ export DEBSIGN_KEYID=0x0B8B0BC2
 # Other
 KDE_NO_IPV6=true
 
-#if [ -d ~/local/bin ] ; then
-#    PATH=~/local/bin:"${PATH}"
-#fi
-#
-#if [ -d ~/local/man ] ; then
-#    MANPATH=~/local/man:"${MANPATH}"
-#fi
-#
+if [ -d ~/local/bin ] ; then
+    export PATH=~/local/bin:"${PATH}"
+fi
+
+if [ -d ~/local/man ] ; then
+    export MANPATH=~/local/man:"${MANPATH}"
+fi
+
+# Source another "local" environment file if exists.
+if [ -f ~/.environment.local ] ; then
+    source ~/.environment.local
+fi
