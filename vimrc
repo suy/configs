@@ -734,6 +734,7 @@ function! CleverTab()
 	endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
+inoremap <S-Tab> <C-p>
 
 " " Set up view files that save the cursor position and the folds of the files.
 " " I no longer use view files (at least for now), since the cursor position is
