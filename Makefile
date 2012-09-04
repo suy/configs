@@ -22,6 +22,7 @@ setup-unix:
 	git config --global alias.co checkout
 	git config --global alias.ci commit
 	git config --global alias.br branch
+	git config --global alias.sb show-branch
 	git config --global alias.subdo "submodule foreach git"
 	git config --global alias.unstage-all "reset HEAD ."
 	git config --global alias.last "checkout -- "
