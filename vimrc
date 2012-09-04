@@ -358,8 +358,8 @@ set foldenable
 " fdm: sets the default folding behaviour.
 set foldmethod=syntax
 
-" fdl: the level of nested folds that will be closed initially.
-set foldlevel=4
+" fdls: the level of nested folds that will be closed initially.
+set foldlevelstart=4
 
 " foldcolumn: Use a 4 characters wide column to display folding information.
 set fdc=4
