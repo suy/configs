@@ -300,6 +300,9 @@ endif
 " Save a lot more history
 set history=200
 
+" Set Blowfish for encryption method.
+if has('cryptv') | set cryptmethod=blowfish | endif
+
 
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
