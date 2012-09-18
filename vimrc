@@ -313,8 +313,8 @@ set directory=$HOME/.local/share/vim/swap,.,/var/tmp,/tmp
 " Save a lot more history
 set history=200
 
-" Set Blowfish for encryption method.
-if has('cryptv') | set cryptmethod=blowfish | endif
+" Set Blowfish for encryption method, but only on Vim >=7.3.
+if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
 
 
 "  _   _ _       _     _ _       _     _   _
