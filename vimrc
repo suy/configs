@@ -292,10 +292,23 @@ set encoding=utf-8
 " Allow more time between keystrokes for some key shortcuts
 set timeoutlen=1600
 
+" Create directories on $HOME to avoid littering stuff in the source tree.
+if exists("*mkdir")
+	if !isdirectory($HOME . "/.local/share/vim/undo")
+		call mkdir($HOME . "/.local/share/vim/undo", "p")
+	endif
+	if !isdirectory($HOME . "/.local/share/vim/swap")
+		call mkdir($HOME . "/.local/share/vim/swap", "p")
+	endif
+endif
+
 " Save the undo history in a persistent file, not just while Vim is running.
 if has('persistent_undo')
-	set undofile undodir=$HOME/.local/share/vim/undo
+	set undofile undodir=$HOME/.local/share/vim/undo,.,/var/tmp,/tmp
 endif
+
+" Save the swap files on a different directory.
+set directory=$HOME/.local/share/vim/swap,.,/var/tmp,/tmp
 
 " Save a lot more history
 set history=200
