@@ -1,140 +1,186 @@
 [submodule "dotvim/bundle/colorscheme-solarized"]
 	path = dotvim/bundle/colorscheme-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+	update = rebase
 [submodule "dotvim/bundle/colorscheme-molokai"]
 	path = dotvim/bundle/colorscheme-molokai
 	url = https://github.com/tomasr/molokai.git
+	update = rebase
 [submodule "dotvim/bundle/gundo"]
 	path = dotvim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+	update = rebase
 [submodule "dotvim/bundle/supertab"]
 	path = dotvim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+	update = rebase
 [submodule "dotvim/bundle/fugitive"]
 	path = dotvim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+	update = rebase
 [submodule "dotvim/bundle/unimpaired"]
 	path = dotvim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+	update = rebase
 [submodule "dotvim/bundle/surround"]
 	path = dotvim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+	update = rebase
 [submodule "dotvim/bundle/commentary"]
 	path = dotvim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+	update = rebase
 [submodule "dotvim/bundle/easymotion"]
 	path = dotvim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
+	update = rebase
 [submodule "dotvim/bundle/visual-star-search"]
 	path = dotvim/bundle/visual-star-search
 	url = https://github.com/bronson/vim-visual-star-search.git
+	update = rebase
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+	update = rebase
 [submodule "dotvim/bundle/colorscheme-desert256"]
 	path = dotvim/bundle/colorscheme-desert256
 	url = https://github.com/vim-scripts/desert256.vim.git
+	update = rebase
 [submodule "dotvim/bundle/css-color"]
 	path = dotvim/bundle/css-color
 	url = https://github.com/skammer/vim-css-color.git
+	update = rebase
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+	update = rebase
 [submodule "dotvim/bundle/indent-guides"]
 	path = dotvim/bundle/indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+	update = rebase
 [submodule "dotvim/bundle/repeat"]
 	path = dotvim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
+	update = rebase
 [submodule "dotvim/bundle/javascript-indentation"]
 	path = dotvim/bundle/javascript-indentation
 	url = https://github.com/pangloss/vim-javascript.git
+	update = rebase
 [submodule "dotvim/bundle/simple-javascript-indenter"]
 	path = dotvim/bundle/simple-javascript-indenter
 	url = https://github.com/jiangmiao/simple-javascript-indenter.git
+	update = rebase
 [submodule "dotvim/bundle/web-indent"]
 	path = dotvim/bundle/web-indent
 	url = https://github.com/vim-scripts/JavaScript-Indent.git
+	update = rebase
 [submodule "dotvim/bundle/space"]
 	path = dotvim/bundle/space
 	url = https://github.com/spiiph/vim-space
+	update = rebase
 [submodule "dotvim/bundle/syntastic"]
 	path = dotvim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+	update = rebase
 [submodule "dotvim/bundle/pathogen"]
 	path = dotvim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+	update = rebase
 [submodule "dotvim/bundle/pasta"]
 	path = dotvim/bundle/pasta
 	url = https://github.com/sickill/vim-pasta.git
+	update = rebase
 [submodule "dotvim/bundle/powerline"]
 	path = dotvim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+	update = rebase
 [submodule "dotvim/bundle/ragtag"]
 	path = dotvim/bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
+	update = rebase
 [submodule "dotvim/bundle/javascript-syntax"]
 	path = dotvim/bundle/javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+	update = rebase
 [submodule "dotvim/bundle/operator-user"]
 	path = dotvim/bundle/operator-user
 	url = https://github.com/kana/vim-operator-user.git
+	update = rebase
 [submodule "dotvim/bundle/operator-replace"]
 	path = dotvim/bundle/operator-replace
 	url = https://github.com/kana/vim-operator-replace.git
+	update = rebase
 [submodule "dotvim/bundle/submode"]
 	path = dotvim/bundle/submode
 	url = https://github.com/kana/vim-submode.git
+	update = rebase
 [submodule "dotvim/bundle/exjumplist"]
 	path = dotvim/bundle/exjumplist
 	url = https://github.com/kana/vim-exjumplist.git
+	update = rebase
 [submodule "dotvim/bundle/smartinput"]
 	path = dotvim/bundle/smartinput
 	url = https://github.com/kana/vim-smartinput.git
+	update = rebase
 [submodule "dotvim/bundle/eunuch"]
 	path = dotvim/bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-user"]
 	path = dotvim/bundle/textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-line"]
 	path = dotvim/bundle/textobj-line
 	url = https://github.com/kana/vim-textobj-line.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-function"]
 	path = dotvim/bundle/textobj-function
 	url = https://github.com/kana/vim-textobj-function.git
+	update = rebase
 [submodule "dotvim/bundle/qmake"]
 	path = dotvim/bundle/qmake
 	url = https://git.gitorious.org/vim-for-qt-kde/vim-qmake.git
 	pushurl = git@gitorious.org:vim-for-qt-kde/vim-qmake.git
+	update = rebase
 [submodule "dotvim/bundle/markdown"]
 	path = dotvim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-underscore"]
 	path = dotvim/bundle/textobj-underscore
 	url = https://github.com/lucapette/vim-textobj-underscore.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-entire"]
 	path = dotvim/bundle/textobj-entire
 	url = https://github.com/kana/vim-textobj-entire.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-syntax"]
 	path = dotvim/bundle/textobj-syntax
 	url = https://github.com/kana/vim-textobj-syntax.git
+	update = rebase
 [submodule "dotvim/bundle/textobj-diff"]
 	path = dotvim/bundle/textobj-diff
 	url = https://github.com/kana/vim-textobj-diff.git
+	update = rebase
 [submodule "dotvim/bundle/altr"]
 	path = dotvim/bundle/altr
 	url = https://github.com/kana/vim-altr.git
+	update = rebase
 [submodule "dotvim/bundle/ctrlp"]
 	path = dotvim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+	update = rebase
 [submodule "dotvim/bundle/clang_complete"]
 	path = dotvim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
+	update = rebase
 [submodule "dotvim/bundle/argtextobj"]
 	path = dotvim/bundle/argtextobj
 	url = https://github.com/vim-scripts/argtextobj.vim.git
+	update = rebase
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = https://github.com/suy/ack.vim.git
 	pushurl = git@github.com:suy/ack.vim.git
+	update = rebase
