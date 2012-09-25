@@ -134,3 +134,7 @@
 [submodule "dotvim/bundle/argtextobj"]
 	path = dotvim/bundle/argtextobj
 	url = https://github.com/vim-scripts/argtextobj.vim.git
+[submodule "dotvim/bundle/ack"]
+	path = dotvim/bundle/ack
+	url = https://github.com/suy/ack.vim.git
+	pushurl = git@github.com:suy/ack.vim.git

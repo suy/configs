@@ -53,7 +53,9 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " Powerline configuration.
 let g:Powerline_symbols="unicode"
 let g:Powerline_stl_path_style="short"
-" let g:Powerline_theme="solarized"
+" let g:Powerline_theme="skwp"
+" let g:Powerline_colorscheme = 'skwp'
+runtime autoload/Pl/Theme.vim
 if exists('*Pl#Theme#RemoveSegment')
 	call Pl#Theme#RemoveSegment('fileformat')
 	call Pl#Theme#RemoveSegment('fileencoding')
@@ -63,6 +65,7 @@ endif
 let g:submode_timeoutlen=3000
 
 " Configuration for the submode plugin.
+runtime autoload/submode.vim
 if exists('*submode#map') && version > 702
 	" Submode for resizing the window.
 	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
@@ -149,8 +152,8 @@ endif
 map R <Plug>(operator-replace)
 
 " Use a Creator-like shortcut for CtrlP plugin.
-let g:ctrlp_map = ''
-nmap <C-k> :call ctrlp#init(ctrlp#mixed#id())<CR>
+let g:ctrlp_map = '<C-k>'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_user_command = {
 \	'types': {
 \		1: ['.git', 'cd %s && git ls-files'],
@@ -158,15 +161,18 @@ let g:ctrlp_user_command = {
 \	},
 \	'fallback': 'find %s -type f'
 \}
-let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_extensions = ['mixed', 'quickfix', 'undo', 'line', 'changes']
 let g:ctrlp_max_height = 20
 let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
+let g:ctrlp_switch_buffer = 'et'
 
 " Setup for clang_complete.
 let g:clang_snippets=1
 let g:clang_snippets_engine="ultisnips"
 let g:clang_close_preview=1
 
+" Check C++ headers too.
+let g:syntastic_cpp_check_header = 1
 
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
@@ -449,10 +455,13 @@ if has("gui_running")
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
-	colorscheme solarized
-	" Some solarized changes: listchars and matched parents.
-	highlight SpecialKey guifg=#094757
-	highlight MatchParen gui=reverse guibg=NONE
+	runtime autoload/togglebg.vim
+	if exists('*togglebg#map')
+		colorscheme solarized
+		" Some solarized changes: listchars and matched parents.
+		highlight SpecialKey guifg=#094757
+		highlight MatchParen gui=reverse guibg=NONE
+	endif
 else
 	try
 		colorscheme molokai
