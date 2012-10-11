@@ -34,4 +34,4 @@ setup-unix:
 	#git config --global core.autocrlf input # Caution: not throughly tested, only Win?
 	#git config --global core.symlinks true
 	git config --global color.ui true
-	git config --global help.autocorrect 1 # Fix typos automatically
+	git config --global help.autocorrect 20 # Fix typos automatically
