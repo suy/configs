@@ -161,10 +161,11 @@ let g:ctrlp_user_command = {
 \	},
 \	'fallback': 'find %s -type f'
 \}
-let g:ctrlp_extensions = ['mixed', 'quickfix', 'undo', 'line', 'changes']
+let g:ctrlp_extensions = ['mixed', 'quickfix', 'undo', 'line', 'changes', 'cmdline', 'menu']
 let g:ctrlp_max_height = 20
 let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
 let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_by_filename = 0
 
 " Setup for clang_complete.
 let g:clang_snippets=1
@@ -581,6 +582,9 @@ cnoremap <C-A> <Home>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 cnoremap <C-J> <C-F>
+
+" Quickly open the command-line CtrlP plugin.
+nmap <C-q> :CtrlPCmdline<CR>
 
 " Change the 'leader' key to something more easy to press
 let mapleader = ","

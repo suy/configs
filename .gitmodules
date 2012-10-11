@@ -184,3 +184,7 @@
 	url = https://github.com/suy/ack.vim.git
 	pushurl = git@github.com:suy/ack.vim.git
 	update = rebase
+[submodule "dotvim/bundle/ctrlp-extensions-sgur"]
+	path = dotvim/bundle/ctrlp-extensions-sgur
+	url = https://github.com/sgur/ctrlp-extensions.vim.git
+	update = rebase
