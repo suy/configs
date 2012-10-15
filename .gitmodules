@@ -188,3 +188,7 @@
 	path = dotvim/bundle/ctrlp-extensions-sgur
 	url = https://github.com/sgur/ctrlp-extensions.vim.git
 	update = rebase
+[submodule "dotvim/bundle/lastnextprevious"]
+	path = dotvim/bundle/lastnextprevious
+	url = https://github.com/suy/vim-lastnextprevious.git
+	update = rebase
