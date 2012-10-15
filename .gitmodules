@@ -192,3 +192,11 @@
 	path = dotvim/bundle/lastnextprevious
 	url = https://github.com/suy/vim-lastnextprevious.git
 	update = rebase
+[submodule "dotvim/bundle/vimproc"]
+	path = dotvim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.git
+	update = rebase
+[submodule "dotvim/bundle/vimshell"]
+	path = dotvim/bundle/vimshell
+	url = https://github.com/Shougo/vimshell.git
+	update = rebase
