@@ -175,6 +175,10 @@ let g:clang_close_preview=1
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
 
+" Local configuration file (from the localrc plugin).
+let g:localrc_filename=".localrc.vim"
+
+
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
 " | |_ / _ \| '__| '_ ` _ \ / _` | __| __| | '_ \ / _` |

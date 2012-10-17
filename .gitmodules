@@ -200,3 +200,7 @@
 	path = dotvim/bundle/vimshell
 	url = https://github.com/Shougo/vimshell.git
 	update = rebase
+[submodule "dotvim/bundle/localrc"]
+	path = dotvim/bundle/localrc
+	url = https://github.com/thinca/vim-localrc.git
+	update = rebase
