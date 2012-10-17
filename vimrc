@@ -51,7 +51,11 @@ let g:UltiSnipsListSnippets="<C-Q>"
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 
 " Powerline configuration.
-let g:Powerline_symbols="unicode"
+if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
+	let g:Powerline_symbols="fancy"
+else
+	let g:Powerline_symbols="unicode"
+endif
 let g:Powerline_stl_path_style="short"
 " let g:Powerline_theme="skwp"
 " let g:Powerline_colorscheme = 'skwp'
@@ -59,6 +63,7 @@ runtime autoload/Pl/Theme.vim
 if exists('*Pl#Theme#RemoveSegment')
 	call Pl#Theme#RemoveSegment('fileformat')
 	call Pl#Theme#RemoveSegment('fileencoding')
+	call Pl#Theme#InsertSegment('lastnextprevious:static_str', 'after', 'filetype')
 endif
 
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
@@ -174,6 +179,18 @@ let g:clang_close_preview=1
 
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
+
+" Setup for the lastnextprevious plugin.
+nmap <silent> + <Plug>lastnextprevious_forward
+nmap <silent> - <Plug>lastnextprevious_backward
+let g:lastnextprevious#last = 'tabcycle'
+call extend(g:lastnextprevious#table,
+\ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
+\   'window':   {'b': '<C-w>-', 'f': '<C-w>+'} ,
+\   'quickfix': {'b': '[q', 'f': ']q'} }
+\)
+" FIXME: gives an error when resourcing vimrc. Think about an API maybe?
+call remove(g:lastnextprevious#table, 'changelist')
 
 " Local configuration file (from the localrc plugin).
 let g:localrc_filename=".localrc.vim"
@@ -451,9 +468,17 @@ let g:solarized_hitrail='1'
 if has("gui_running")
 	" At work there is a larger screen.
 	if $USER == 'modpow'
-		set guifont=DejaVu\ Sans\ Mono\ 8
+		if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+		else
+			set guifont=DejaVu\ Sans\ Mono\ 8
+		endif
 	else
-		set guifont=DejaVu\ Sans\ Mono\ 10
+		if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+		else
+			set guifont=DejaVu\ Sans\ Mono\ 10
+		endif
 	endif
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
