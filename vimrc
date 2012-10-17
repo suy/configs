@@ -774,7 +774,7 @@ function! CleverTab()
 		return "\<C-n>"
 	" Check if the cursor is at the beginning of line or after whitespace
 	endif
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '\s*$'
 	   return "\<Tab>"
 	else
 		" If the previous text looks like a path, use filename completion.
