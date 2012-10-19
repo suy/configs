@@ -72,16 +72,6 @@ let g:submode_timeoutlen=3000
 " Configuration for the submode plugin.
 runtime autoload/submode.vim
 if exists('*submode#map') && version > 702
-	" Submode for resizing the window.
-	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
-	call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
-	call submode#enter_with('resize-window', 'n', '', '<C-W>>', '<C-W>>')
-	call submode#enter_with('resize-window', 'n', '', '<C-W><', '<C-W><')
-	call submode#map('resize-window', 'n', '', '+', '<C-W>+')
-	call submode#map('resize-window', 'n', '', '-', '<C-W>-')
-	call submode#map('resize-window', 'n', '', '<', '<C-W><')
-	call submode#map('resize-window', 'n', '', '>', '<C-W>>')
-
 	" Submode for moving through the changelist.
 	call submode#enter_with('changelist', 'n', '', 'g,', 'g,')
 	call submode#enter_with('changelist', 'n', '', 'g;', 'g;')
@@ -186,10 +176,11 @@ nmap <silent> - <Plug>lastnextprevious_backward
 let g:lastnextprevious#last = 'tabcycle'
 call extend(g:lastnextprevious#table,
 \ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
-\   'window':   {'b': '<C-w>-', 'f': '<C-w>+'} ,
+\   'window':   {'b': "\<C-w>-", 'f': "\<C-w>+"} ,
 \   'quickfix': {'b': '[q', 'f': ']q'} }
 \)
 " FIXME: gives an error when resourcing vimrc. Think about an API maybe?
+" There is also the problem of the mappings not being removed.
 call remove(g:lastnextprevious#table, 'changelist')
 
 " Local configuration file (from the localrc plugin).
