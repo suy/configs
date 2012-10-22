@@ -204,3 +204,11 @@
 	path = dotvim/bundle/localrc
 	url = https://github.com/thinca/vim-localrc.git
 	update = rebase
+[submodule "dotvim/bundle/gist"]
+	path = dotvim/bundle/gist
+	url = https://github.com/mattn/gist-vim.git
+	update = rebase
+[submodule "dotvim/bundle/webapi"]
+	path = dotvim/bundle/webapi
+	url = https://github.com/mattn/webapi-vim.git
+	update = rebase
