@@ -212,3 +212,7 @@
 	path = dotvim/bundle/webapi
 	url = https://github.com/mattn/webapi-vim.git
 	update = rebase
+[submodule "dotvim/bundle/ctrlp-commandline"]
+	path = dotvim/bundle/ctrlp-commandline
+	url = https://github.com/suy/vim-ctrlp-commandline.git
+	update = rebase
