@@ -47,3 +47,12 @@ case $1:
 	break;
 endsnippet
 
+#
+# Repetition
+#
+snippet while "while" !b
+while (${1:condition}) {
+	${VISUAL}$2
+}$0
+endsnippet
+
