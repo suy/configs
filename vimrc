@@ -223,6 +223,9 @@ set lbr
 " showbreak: show this string at the beginning of a line that is soft broken.
 set sbr=➥➥➥
 
+" Add 'j' (remove commentstring when joining) to format options.
+if v:version >= 703 && has('patch550') | set fo+=j | endif
+
 
 "  _____     _
 " |_   _|_ _| |__  ___
