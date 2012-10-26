@@ -268,7 +268,7 @@ if has("autocmd")
 
 		" Jump to the last position when reopening a file.
 		autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
-		  \ | exe "normal! g'\"" | endif
+		  \ | exe "normal! g`\"" | endif
 
 		" Automatically resize window splits when the application is resized.
 		autocmd VimResized * exe "normal! \<c-w>="
