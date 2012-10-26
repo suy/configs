@@ -751,7 +751,7 @@ set completeopt=menuone,longest
 set su+=.asc,.cfg
 
 " wildignore: Patterns to completely ignore when completing.
-set wig+=*.pdf,*.png,*.jpg,*.jpeg
+set wig+=*.pdf,*.png,*.jpg,*.jpeg,*.ttf,*.otf,*.qpf2,*.wav,*.mp3,*.ogg
 
 " Ignore case in the command line.
 if version > 702 | set wildignorecase | endif
