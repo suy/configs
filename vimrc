@@ -756,11 +756,6 @@ set wig+=*.pdf,*.png,*.jpg,*.jpeg,*.ttf,*.otf,*.qpf2,*.wav,*.mp3,*.ogg
 " Ignore case in the command line.
 if version > 702 | set wildignorecase | endif
 
-
-" ╻╺┳┓┏━╸┏━┓┏━┓   ╺┳╸┏━┓   ┏━╸┏━┓┏┓╻┏━┓╻╺┳┓┏━╸┏━┓   ╻  ┏━┓╺┳╸┏━╸╻  ╻ ╻
-" ┃ ┃┃┣╸ ┣━┫┗━┓    ┃ ┃ ┃   ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃┣╸ ┣┳┛   ┃  ┣━┫ ┃ ┣╸ ┃  ┗┳┛
-" ╹╺┻┛┗━╸╹ ╹┗━┛    ╹ ┗━┛   ┗━╸┗━┛╹ ╹┗━┛╹╺┻┛┗━╸╹┗╸   ┗━╸╹ ╹ ╹ ┗━╸┗━╸ ╹
-
 " A moderately simple alternative to the SuperTab plugin.
 function! CleverTab()
 	" Use tab for going forward in the pop up menu (pum).
@@ -786,23 +781,4 @@ function! CleverTab()
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 inoremap <S-Tab> <C-p>
-
-" " Set up view files that save the cursor position and the folds of the files.
-" " I no longer use view files (at least for now), since the cursor position is
-" " already saved and restored through viminfo, and I use indent based folds.
-" set viewoptions=cursor,folds
-" set viewdir=$HOME/.local/share/vim/view
-" " Automatically create and load views of files in entering or exiting them
-" " FIXME: don't create views for fugitive:// or other temp files
-" augroup vimrc
-" 	au!
-" 	autocmd BufWinLeave *
-" 		\   if expand('%') != '' && &buftype !~ 'nofile'
-" 		\|      mkview!
-" 		\|  endif
-" 	autocmd BufWinEnter *
-" 		\   if expand('%') != '' && &buftype !~ 'nofile'
-" 		\|      silent loadview
-" 		\|  endif
-" augroup END
 
