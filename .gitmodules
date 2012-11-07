@@ -34,10 +34,6 @@
 	path = dotvim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
 	update = rebase
-[submodule "dotvim/bundle/visual-star-search"]
-	path = dotvim/bundle/visual-star-search
-	url = https://github.com/bronson/vim-visual-star-search.git
-	update = rebase
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -220,3 +216,6 @@
 	path = dotvim/bundle/fontzoom
 	url = https://github.com/suy/vim-fontzoom.git
 	pushurl = git@github.com:suy/vim-fontzoom.git
+[submodule "dotvim/bundle/visualstar"]
+	path = dotvim/bundle/visualstar
+	url = https://github.com/thinca/vim-visualstar.git
