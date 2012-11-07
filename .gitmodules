@@ -216,3 +216,7 @@
 	path = dotvim/bundle/ctrlp-commandline
 	url = https://github.com/suy/vim-ctrlp-commandline.git
 	update = rebase
+[submodule "dotvim/bundle/fontzoom"]
+	path = dotvim/bundle/fontzoom
+	url = https://github.com/suy/vim-fontzoom.git
+	pushurl = git@github.com:suy/vim-fontzoom.git
