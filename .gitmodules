@@ -177,8 +177,8 @@
 	update = rebase
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
-	url = https://github.com/suy/ack.vim.git
-	pushurl = git@github.com:suy/ack.vim.git
+	url = https://github.com/suy/vim-ack.git
+	pushurl = git@github.com:suy/vim-ack.git
 	update = rebase
 [submodule "dotvim/bundle/ctrlp-extensions-sgur"]
 	path = dotvim/bundle/ctrlp-extensions-sgur
@@ -219,3 +219,15 @@
 [submodule "dotvim/bundle/visualstar"]
 	path = dotvim/bundle/visualstar
 	url = https://github.com/thinca/vim-visualstar.git
+[submodule "dotvim/bundle/prettyprint"]
+	path = dotvim/bundle/prettyprint
+	url = https://github.com/thinca/vim-prettyprint.git
+[submodule "dotvim/bundle/singleton"]
+	path = dotvim/bundle/singleton
+	url = https://github.com/thinca/vim-singleton.git
+[submodule "dotvim/bundle/editvar"]
+	path = dotvim/bundle/editvar
+	url = https://github.com/thinca/vim-editvar.git
+[submodule "dotvim/bundle/current-func-info"]
+	path = dotvim/bundle/current-func-info
+	url = https://github.com/tyru/current-func-info.vim.git
