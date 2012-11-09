@@ -181,7 +181,7 @@ call extend(g:lastnextprevious#table,
 \)
 " FIXME: gives an error when resourcing vimrc. Think about an API maybe?
 " There is also the problem of the mappings not being removed.
-call remove(g:lastnextprevious#table, 'changelist')
+silent! call remove(g:lastnextprevious#table, 'changelist')
 
 " Local configuration file (from the localrc plugin).
 let g:localrc_filename=".localrc.vim"
