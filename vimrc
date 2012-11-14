@@ -72,11 +72,15 @@ let g:submode_timeoutlen=3000
 " Configuration for the submode plugin.
 runtime autoload/submode.vim
 if exists('*submode#map') && version > 702
-	" Submode for moving through the changelist.
-	call submode#enter_with('changelist', 'n', '', 'g,', 'g,')
-	call submode#enter_with('changelist', 'n', '', 'g;', 'g;')
-	call submode#map('changelist', 'n', '', ',', 'g,')
-	call submode#map('changelist', 'n', '', ';', 'g;')
+	" Submode for resizing the window.
+	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
+	call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
+	call submode#enter_with('resize-window', 'n', '', '<C-W>>', '<C-W>>')
+	call submode#enter_with('resize-window', 'n', '', '<C-W><', '<C-W><')
+	call submode#map('resize-window', 'n', '', '+', '<C-W>+')
+	call submode#map('resize-window', 'n', '', '-', '<C-W>-')
+	call submode#map('resize-window', 'n', '', '<', '<C-W><')
+	call submode#map('resize-window', 'n', '', '>', '<C-W>>')
 endif
 
 " Define commands for the exjumplist plugin.
@@ -188,12 +192,13 @@ nmap <silent> - <Plug>lastnextprevious_backward
 let g:lastnextprevious#last = 'tabcycle'
 call extend(g:lastnextprevious#table,
 \ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
-\   'window':   {'b': "\<C-w>-", 'f': "\<C-w>+"} ,
 \   'quickfix': {'b': '[q', 'f': ']q'} }
 \)
-" FIXME: gives an error when resourcing vimrc. Think about an API maybe?
-" There is also the problem of the mappings not being removed.
-silent! call remove(g:lastnextprevious#table, 'changelist')
+" FIXME: gives an error when resourcing vimrc (wihout using silent). Think about
+" an API maybe? There is also the problem of the mappings not being removed.
+" Is important that I use it, since otherwise the feature might not work and I
+" might not notice it.
+silent! call remove(g:lastnextprevious#table, 'undolist')
 
 " Local configuration file (from the localrc plugin).
 let g:localrc_filename=".localrc.vim"
