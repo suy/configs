@@ -162,10 +162,22 @@ let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
 let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_by_filename = 0
 
-" Setup for clang_complete.
+" Setup for clang_complete and neocomplcache. Still much to do.
 let g:clang_snippets=1
 let g:clang_snippets_engine="ultisnips"
 let g:clang_close_preview=1
+
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_auto_completion_start_length=4
+
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.cpp =
+	  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
 
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
