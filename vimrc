@@ -384,9 +384,9 @@ set showmatch
 set lazyredraw
 
 " Set the characters for statusline (& non current stl), vsplit, fold & diff.
-" set fillchars=vert:┃,fold:═,diff:·
 " TODO: some characters don't work with some colorschemes because use bold, etc.
-set fillchars=vert:┃,fold:=,diff:·
+" set fillchars=vert:┃,fold:=,diff:·
+set fillchars=vert:┃,fold:═,diff:·
 
 " See the cursor line.
 set number
