@@ -189,7 +189,7 @@ let g:syntastic_cpp_check_header = 1
 " Setup for the lastnextprevious plugin.
 nmap <silent> + <Plug>lastnextprevious_forward
 nmap <silent> - <Plug>lastnextprevious_backward
-let g:lastnextprevious#last = 'tabcycle'
+let g:lastnextprevious#last = 'changelist'
 call extend(g:lastnextprevious#table,
 \ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
 \   'quickfix': {'b': '[q', 'f': ']q'} }
