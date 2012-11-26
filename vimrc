@@ -570,11 +570,11 @@ inoremap kk <ESC>
 " inoremap lll <ESC>
 " inoremap hhh <ESC>
 
-" Shortcut in insert mode to add a comma, colon, semicolon or dot at the end.
-inoremap ,, <C-O>A,
-inoremap ,: <C-O>A:
-inoremap ,; <C-O>A;
-inoremap ,. <C-O>A.
+" If pumvisible accept the entry (C-y) and add a punctuation char at the end.
+inoremap <expr> ,, pumvisible() ? "\<C-y>\<C-o>A," : "\<C-o>A,"
+inoremap <expr> ,: pumvisible() ? "\<C-y>\<C-o>A:" : "\<C-o>A:"
+inoremap <expr> ,; pumvisible() ? "\<C-y>\<C-o>A;" : "\<C-o>A;"
+inoremap <expr> ,. pumvisible() ? "\<C-y>\<C-o>A." : "\<C-o>A."
 
 " Make some keys add an undo break, which allows one to undo a long piece of
 " inserted text piecewise, not all at once. Since some keys are already mapped
