@@ -240,3 +240,6 @@
 [submodule "dotvim/bundle/niceblock"]
 	path = dotvim/bundle/niceblock
 	url = https://github.com/kana/vim-niceblock.git
+[submodule "dotvim/bundle/ctrlp-unicode"]
+	path = dotvim/bundle/ctrlp-unicode
+	url = https://github.com/suy/vim-ctrlp-unicode.git

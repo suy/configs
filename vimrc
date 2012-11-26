@@ -160,7 +160,7 @@ let g:ctrlp_user_command = {
 \	},
 \	'fallback': 'find %s -type f'
 \}
-let g:ctrlp_extensions = ['mixed', 'quickfix', 'line', 'commandline']
+let g:ctrlp_extensions = ['mixed', 'quickfix', 'line', 'commandline', 'unicode']
 let g:ctrlp_max_height = 20
 let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
 let g:ctrlp_switch_buffer = 'et'
