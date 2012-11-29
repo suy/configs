@@ -243,3 +243,9 @@
 [submodule "dotvim/bundle/ctrlp-unicode"]
 	path = dotvim/bundle/ctrlp-unicode
 	url = https://github.com/suy/vim-ctrlp-unicode.git
+[submodule "dotvim/bundle/mojo-template-syntax"]
+	path = dotvim/bundle/mojo-template-syntax
+	url = https://github.com/yko/mojo.vim.git
+[submodule "dotvim/bundle/perlomni"]
+	path = dotvim/bundle/perlomni
+	url = https://github.com/c9s/perlomni.vim
