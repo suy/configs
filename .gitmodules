@@ -249,3 +249,6 @@
 [submodule "dotvim/bundle/perlomni"]
 	path = dotvim/bundle/perlomni
 	url = https://github.com/c9s/perlomni.vim
+[submodule "dotvim/bundle/scriptease"]
+	path = dotvim/bundle/scriptease
+	url = https://github.com/tpope/vim-scriptease.git
