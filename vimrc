@@ -687,7 +687,8 @@ nmap <leader>dt :diffthis<CR>
 nmap <leader>du :diffupdate<CR>
 
 " Substitute what's under the cursor, or current selection.
-nnoremap <leader>S yiw:%s/<C-R>"//c<left><left>
+" FIXME: escape regex character, like selecting /foo/bar and the slashes are there
+nnoremap <leader>S :%s/\<<C-R><C-w>\>//c<left><left>
 xnoremap <leader>S y:%s/<C-R>"//c<left><left>
 
 " Select what was recently 'modified' (changed, yanked or pasted).
