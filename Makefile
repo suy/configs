@@ -36,6 +36,7 @@ setup-unix:
 	#git config --global core.symlinks true
 	git config --global color.ui true
 	git config --global help.autocorrect 20 # Fix typos automatically
+	git config --global merge.defaultToUpstream 1
 
 install-powerline-fonts:
 	git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
