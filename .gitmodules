@@ -252,3 +252,6 @@
 [submodule "dotvim/bundle/scriptease"]
 	path = dotvim/bundle/scriptease
 	url = https://github.com/tpope/vim-scriptease.git
+[submodule "dotvim/bundle/unite"]
+	path = dotvim/bundle/unite
+	url = https://github.com/Shougo/unite.vim.git
