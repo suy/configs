@@ -214,8 +214,7 @@
 	update = rebase
 [submodule "dotvim/bundle/fontzoom"]
 	path = dotvim/bundle/fontzoom
-	url = https://github.com/suy/vim-fontzoom.git
-	pushurl = git@github.com:suy/vim-fontzoom.git
+	url = https://github.com/thinca/vim-fontzoom.git
 [submodule "dotvim/bundle/visualstar"]
 	path = dotvim/bundle/visualstar
 	url = https://github.com/thinca/vim-visualstar.git
