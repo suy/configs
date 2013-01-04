@@ -95,6 +95,7 @@ command! JumplistNextBuffer     call exjumplist#previous_buffer()
 " create that map. The exception is if you want to change the default behaviour
 " of a key, like how is done here, where <Space>, if it doesn't expand anything
 " returns a <Space> but preceded with an undo break.
+runtime autoload/smartinput.vim
 if exists('*smartinput#define_rule')
 call smartinput#define_rule({
 \	'at':       '/\%#',
@@ -136,12 +137,12 @@ call smartinput#define_rule({
 \})
 " Fix some defaults
 call smartinput#define_rule({
-\	'at':       ' \%#\S',
+\	'at':       '\s\%#\S',
 \	'char':     '[',
 \	'input':    '[',
 \})
 call smartinput#define_rule({
-\	'at':       ' \%#\S',
+\	'at':       '\s\%#\S',
 \	'char':     '(',
 \	'input':    '(',
 \})
