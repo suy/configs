@@ -1,0 +1,12 @@
+snippet if "if" !b
+if $1 ; then
+	${VISUAL:$2}
+${3:else
+	$4
+}fi$0
+endsnippet
+
+snippet elif "elif" !b
+elif $1 ; then
+	${VISUAL:$0}
+endsnippet
