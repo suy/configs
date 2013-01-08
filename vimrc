@@ -587,11 +587,11 @@ inoremap <expr> ,. pumvisible() ? "\<C-y>\<C-o>A." : "\<C-o>A."
 xnoremap . :normal .<CR>
 
 " Map the return and backspace keys to a function that edits in normal mode.
-nnoremap <silent> <CR> :<C-u>call NormalModeEdit('cr')<CR>
-nnoremap <silent> <BS> :<C-u>call NormalModeEdit('bs')<CR>
+nnoremap <silent> <CR> :<C-u>call <SID>NormalModeEdit('cr')<CR>
+nnoremap <silent> <BS> :<C-u>call <SID>NormalModeEdit('bs')<CR>
 " The function is still rough, some edge cases might need polish. See the
 " insertlessly plugin as an alternative.
-function! NormalModeEdit(key)
+function! s:NormalModeEdit(key)
 	if a:key ==# "cr"
 		if &buftype ==# ""
 			execute "normal! i\<CR>"
@@ -708,8 +708,8 @@ imap <C-B> <Left>
 " inoremap <M-E> <C-O>$
 
 " Toggle the 'a' option (automatic formatting) in formatoptions.
-nnoremap <silent> <leader>fa :call ToggleAutoFormatting()<CR>
-function! ToggleAutoFormatting()
+nnoremap <silent> <leader>fa :call <SID>ToggleAutoFormatting()<CR>
+function! s:ToggleAutoFormatting()
 	if &formatoptions=~'a'
 		let &l:formatoptions = substitute(&fo, 'a', '', '')
 		echo 'Format options: ' . &fo
@@ -746,8 +746,8 @@ onoremap ar a]
 " onoremap aa i>
 
 " Function and command for removing (with confirmation) trailing whitespace.
-command! RemoveTrailingWhiteSpace call RemoveTrailingWhiteSpace()
-function! RemoveTrailingWhiteSpace()
+command! RemoveTrailingWhiteSpace call <SID>RemoveTrailingWhiteSpace()
+function! s:RemoveTrailingWhiteSpace()
 	" Save last search and cursor position.
 	let _s=@/
 	let l = line(".")
@@ -784,7 +784,7 @@ set wig+=*.pdf,*.png,*.jpg,*.jpeg,*.ttf,*.otf,*.qpf2,*.wav,*.mp3,*.ogg
 if version > 702 | set wildignorecase | endif
 
 " A moderately simple alternative to the SuperTab plugin.
-function! CleverTab()
+function! s:CleverTab()
 	" Use tab for going forward in the pop up menu (pum).
 	if pumvisible()
 		return "\<C-n>"
@@ -806,6 +806,6 @@ function! CleverTab()
 		endif
 	endif
 endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+inoremap <Tab> <C-R>=<SID>CleverTab()<CR>
 inoremap <S-Tab> <C-p>
 
