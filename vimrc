@@ -627,9 +627,9 @@ map <C-L> <C-]>
 "imap <C-f> <C-x><C-o>
 
 " Mappings for the command-line.
-cnoremap <C-A> <Home>
-cnoremap <C-F> <Right>
-cnoremap <C-B> <Left>
+" cnoremap <C-A> <Home>
+" cnoremap <C-F> <Right>
+" cnoremap <C-B> <Left>
 cnoremap <C-J> <C-F>
 
 " Quickly open the command-line CtrlP plugin.
@@ -697,8 +697,8 @@ nnoremap <expr> <leader>m "`[" . strpart(getregtype(), 0, 1) . "`]"
 
 " Experiment
 imap <M-.> <C-X>/
-imap <C-F> <Right>
-imap <C-B> <Left>
+" imap <C-F> <Right>
+" imap <C-B> <Left>
 " Craptastic
 " imap <M-H> <Left>
 " imap <M-J> <Down>

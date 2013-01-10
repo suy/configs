@@ -254,3 +254,6 @@
 [submodule "dotvim/bundle/unite"]
 	path = dotvim/bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "dotvim/bundle/rsi"]
+	path = dotvim/bundle/rsi
+	url = https://github.com/tpope/vim-rsi.git
