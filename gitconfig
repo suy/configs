@@ -1,0 +1,31 @@
+[user]
+	name = Alejandro Exojo
+	email = suy@badopi.org
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	subdo = submodule foreach git
+	unstage-all = reset HEAD .
+	wdiff = diff --word-diff=color
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	toorigin = log -p --reverse ..origin/master
+[url "git://anongit.kde.org/"]
+    insteadOf = kde:
+[url "git@git.kde.org:"]
+    pushInsteadOf = kde:
+[core]
+	excludesfile = ~/.ignore-patterns
+[merge]
+	defaultToUpstream = 1
+[branch]
+	autosetuprebase = local
+
+# vim:set filetype=gitconfig:
