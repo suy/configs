@@ -12,6 +12,7 @@
 	co = checkout
 	ci = commit
 	br = branch
+	sb = show-branch
 	subdo = submodule foreach git
 	unstage-all = reset HEAD .
 	wdiff = diff --word-diff=color
