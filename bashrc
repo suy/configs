@@ -7,6 +7,9 @@
 
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL="ignoreboth"
+export HISTFILESIZE=5000
+export HISTSIZE=5000
+shopt -s histappend
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
