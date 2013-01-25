@@ -257,3 +257,9 @@
 [submodule "dotvim/bundle/rsi"]
 	path = dotvim/bundle/rsi
 	url = https://github.com/tpope/vim-rsi.git
+[submodule "dotvim/bundle/vimfiler"]
+	path = dotvim/bundle/vimfiler
+	url = https://github.com/Shougo/vimfiler.git
+[submodule "dotvim/bundle/unite-outline"]
+	path = dotvim/bundle/unite-outline
+	url = https://github.com/h1mesuke/unite-outline.git

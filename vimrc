@@ -642,6 +642,22 @@ let mapleader = ","
 nmap <leader>A <Plug>(altr-back)
 nmap <leader>Z <Plug>(altr-forward)
 
+" Mappings and settings for Unite.
+nmap <silent> <leader>u  :<C-u>execute get([
+	\ "Unite -no-split buffer file_rec/async file_mru",
+	\ "Unite outline",
+	\ "Unite output:message",
+	\ ], v:count)<Return>
+call unite#custom_default_action('buffer', 'goto')
+let g:unite_enable_start_insert=1
+let g:unite_enable_use_short_source_names=1
+imap ,u  <Plug>(neocomplcache_start_unite_complete)
+imap ,q  <Plug>(neocomplcache_start_unite_quick_match)
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
+		\ 'matchers', 'matcher_fuzzy')
+call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
+
 " Make window management a little bit more easy: map all the C-W <foobar> to
 " <leader>w<foobar>
 nmap <leader>w <C-w>
