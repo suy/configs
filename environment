@@ -1,7 +1,7 @@
 # Environment variables for the shell and X
 
 # Language
-export LANG="es_ES.UTF-8"
+test $USER = "modpow" || export LANG="es_ES.UTF-8"
 export LC_COLLATE="C"
 
 # Pretty common unix programs
