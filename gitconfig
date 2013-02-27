@@ -17,7 +17,7 @@
 	unstage-all = reset HEAD .
 	wdiff = diff --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	toorigin = log -p --reverse ..origin/master
+	tomerge = log -p --reverse ..FETCH_HEAD
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
 [url "git@git.kde.org:"]
