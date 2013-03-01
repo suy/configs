@@ -83,12 +83,6 @@ if exists('*submode#map') && version > 702
 	call submode#map('resize-window', 'n', '', '>', '<C-W>>')
 endif
 
-" Define commands for the exjumplist plugin.
-command! JumplistLast           call exjumplist#go_last()
-command! JumplistFirst          call exjumplist#go_first()
-command! JumplistPreviousBuffer call exjumplist#next_buffer()
-command! JumplistNextBuffer     call exjumplist#previous_buffer()
-
 " Smartinput customization. Rules have to be added with define_rule. But for
 " rules to be triggered a mapping is needed. Since the default rules already map
 " some keys to the generic function that looks for a match, one doesn't need to
@@ -712,6 +706,10 @@ xnoremap <leader>S y:%s/<C-R>"//c<left><left>
 
 " Select what was recently 'modified' (changed, yanked or pasted).
 nnoremap <expr> <leader>m "`[" . strpart(getregtype(), 0, 1) . "`]"
+
+" Shortcuts for the exjumplist plugin.
+nmap <Leader>i <Plug>(exjumplist-next-buffer)
+nmap <Leader>o <Plug>(exjumplist-previous-buffer)
 
 " Experiment
 imap <M-.> <C-X>/
