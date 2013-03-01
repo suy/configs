@@ -637,6 +637,9 @@ let mapleader = ","
 nmap <leader>A <Plug>(altr-back)
 nmap <leader>Z <Plug>(altr-forward)
 
+" Shorthand for HTML/XML completion.
+imap <leader>< </<Plug>ragtagHtmlComplete
+
 " Mappings and settings for Unite.
 nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite -no-split buffer file_rec/async file_mru",
