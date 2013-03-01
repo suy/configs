@@ -180,6 +180,7 @@ let g:clang_auto_select = 0
 
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
+let g:syntastic_auto_loc_list=1
 
 " Setup for the lastnextprevious plugin.
 nmap <silent> + <Plug>lastnextprevious_forward
