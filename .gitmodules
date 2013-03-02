@@ -263,3 +263,6 @@
 [submodule "dotvim/bundle/unite-outline"]
 	path = dotvim/bundle/unite-outline
 	url = https://github.com/h1mesuke/unite-outline.git
+[submodule "dotvim/bundle/sensible"]
+	path = dotvim/bundle/sensible
+	url = https://github.com/tpope/vim-sensible.git

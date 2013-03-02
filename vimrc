@@ -37,8 +37,11 @@ if exists('*pathogen#infect')
 	" call pathogen#helptags()
 endif
 
+" Load early vim-sensible, so it can be overriden if needed.
+runtime! plugin/sensible.vim
+
 " Use plugins that are included with Vim 7
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
@@ -263,7 +266,7 @@ set sts=4
 "set expandtab
 
 " noautoindent: don't autoindent text, cause it's annoying when pasting text
-set smartindent
+" set smartindent
 
 
 "  __  __ _
@@ -305,7 +308,7 @@ set nojoinspaces
 set modeline
 
 " Show commands as you type them
-set showcmd
+" set showcmd
 
 " Use specific plugins and indentation of the filetype
 filetype plugin indent on
@@ -320,7 +323,7 @@ set hidden
 set so=3
 
 " Allow the backspace to do useful things (is not the default everywhere)
-set backspace=indent,eol,start
+" set backspace=indent,eol,start
 
 " Set encoding to utf-8 for systems that don't have it by default
 set encoding=utf-8
@@ -364,7 +367,7 @@ if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
 syntax on
 
 " Highlight the opening bracket/parentheses when the closing one is written
-set showmatch
+" set showmatch
 
 " Use the Error colors for trailing whitespace.
 " match Error /\v\s+$/
@@ -397,7 +400,7 @@ endif
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
-set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
+" set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
 if v:version >= 703
@@ -417,7 +420,7 @@ set foldlevelstart=4
 set fdc=4
 
 " laststatus: Show the statusbar always, not only on last window
-set ls=2
+" set ls=2
 
 " Customize the statusbar. The default is something like this (with ruler):
 "set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -524,7 +527,7 @@ set linespace=2
 " Ignore case in searches unless you specify it explicitly (like /PaTTern).
 set ignorecase
 set smartcase
-set incsearch
+" set incsearch
 
 " Highlight search results, but not on startup.
 set hlsearch
@@ -790,7 +793,7 @@ endfunction
 
 " Complete longest common string, then each full match
 set wildmode=list:longest,list:full
-set wildmenu
+" set wildmenu
 
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest
