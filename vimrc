@@ -117,6 +117,7 @@ call smartinput#define_rule({
 \})
 call smartinput#map_to_trigger('i', '*', '*', '*')
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<C-G>u<Space>')
+call smartinput#map_to_trigger('i', '<Return>', '<Return>', '<C-G>u<Return>')
 
 " Additional rules for spaces inside parentheses.
 call smartinput#define_rule({
