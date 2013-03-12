@@ -38,6 +38,12 @@ else {
 }
 endsnippet
 
+snippet elsif "else if { ... }" !w
+else if (${1:true}) {
+	${VISUAL}$0
+}
+endsnippet
+
 snippet switch "switch case"
 switch (${1:condition}) {
 	case $2:$3${4:
