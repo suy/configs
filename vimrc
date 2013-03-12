@@ -654,7 +654,7 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ ], v:count)<Return>
 call unite#custom_default_action('buffer', 'goto')
 let g:unite_enable_start_insert=1
-let g:unite_enable_use_short_source_names=1
+let g:unite_enable_short_source_names=1
 " call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
 		\ 'matchers', 'matcher_fuzzy')
@@ -687,7 +687,7 @@ nmap <leader>l :set list!<CR>:set list?<CR>
 nmap <leader>h :nohlsearch<CR>
 
 " Toggle paste on/off when you want to copy in insert mode (e.g. from other app)
-nmap <leader>p :set invpaste<CR>
+nmap <leader>p :set paste<CR>"+p:set nopaste<Return>
 
 " Toggle the use of cursor column and cursor line
 nmap <silent> <leader><leader>cc :set cursorcolumn!<CR>
@@ -720,7 +720,7 @@ nmap <Leader>i <Plug>(exjumplist-next-buffer)
 nmap <Leader>o <Plug>(exjumplist-previous-buffer)
 
 " Experiment
-imap <M-.> <C-X>/
+" imap <M-.> <C-X>/ " Doesn't work in qvim...
 " imap <C-F> <Right>
 " imap <C-B> <Left>
 " Craptastic
