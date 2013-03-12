@@ -265,8 +265,7 @@ set sts=4
 " Changes tabs with spaces (*beware* when you edit Makefiles)
 "set expandtab
 
-" noautoindent: don't autoindent text, cause it's annoying when pasting text
-" set smartindent
+" TODO: autoindent, smartindent, cindent...
 
 
 "  __  __ _
@@ -351,6 +350,10 @@ set directory=$HOME/.local/share/vim/swap,.,/var/tmp,/tmp
 
 " Save a lot more history
 set history=200
+
+" Better to be noisy than find something unexpected.
+set noautoread
+set noautowrite
 
 " Set Blowfish for encryption method, but only on Vim >=7.3.
 if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
@@ -527,7 +530,6 @@ set linespace=2
 " Ignore case in searches unless you specify it explicitly (like /PaTTern).
 set ignorecase
 set smartcase
-" set incsearch
 
 " Highlight search results, but not on startup.
 set hlsearch
@@ -551,8 +553,6 @@ set foldopen-=search
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
-" Fix an historical inconsistency on the keyboard interface of vi(m).
-nnoremap Y y$
 
 " Don't do dangerous things.
 nnoremap ZQ <Nop>
@@ -793,7 +793,6 @@ endfunction
 
 " Complete longest common string, then each full match
 set wildmode=list:longest,list:full
-" set wildmenu
 
 " Behaviour of completion 'popup'
 set completeopt=menuone,longest
