@@ -171,10 +171,6 @@
 	path = dotvim/bundle/clang_complete
 	url = https://github.com/Rip-Rip/clang_complete.git
 	update = rebase
-[submodule "dotvim/bundle/argtextobj"]
-	path = dotvim/bundle/argtextobj
-	url = https://github.com/vim-scripts/argtextobj.vim.git
-	update = rebase
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = https://github.com/suy/vim-ack.git
@@ -266,3 +262,6 @@
 [submodule "dotvim/bundle/sensible"]
 	path = dotvim/bundle/sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule "dotvim/bundle/angry"]
+	path = dotvim/bundle/angry
+	url = https://github.com/b4winckler/vim-angry.git
