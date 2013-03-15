@@ -5,14 +5,14 @@
 #
 # Selection
 #
-snippet if "if"
+snippet if "if" w
 if (${1:true}) {
 	${VISUAL}$2
 }$0
 endsnippet
 
 # Mnemonic: iff means if and only if (in math), so it's one sentence and no brackets
-snippet iff "if and only if (one sentence)"
+snippet iff "if and only if (one sentence)" w
 if (${1:true})
 	${VISUAL}$0
 endsnippet
@@ -25,20 +25,20 @@ if (${1:true}) {
 }$0
 endsnippet
 
-snippet iffe "if else (one sentence)" !b
+snippet iffe "if else (one sentence)" w
 if (${1:true})
 	${VISUAL}$2
 else
 	$3
 endsnippet
 
-snippet else "else" !w
+snippet else "else" w
 else {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet elsif "else if { ... }" !w
+snippet elsif "else if { ... }" w
 else if (${1:true}) {
 	${VISUAL}$0
 }
@@ -62,14 +62,16 @@ endsnippet
 #
 # Repetition
 #
-snippet while "while" !b
+snippet while "while" w
 while (${1:condition}) {
 	${VISUAL}$2
 }$0
 endsnippet
 
-snippet do "do while" !b
+snippet do "do while" w
 do {
 	${VISUAL}$2
 } while (${1:condition});$0
 endsnippet
+
+# vim:ft=snippets:
