@@ -176,10 +176,6 @@
 	url = https://github.com/suy/vim-ack.git
 	pushurl = git@github.com:suy/vim-ack.git
 	update = rebase
-[submodule "dotvim/bundle/ctrlp-extensions-sgur"]
-	path = dotvim/bundle/ctrlp-extensions-sgur
-	url = https://github.com/sgur/ctrlp-extensions.vim.git
-	update = rebase
 [submodule "dotvim/bundle/lastnextprevious"]
 	path = dotvim/bundle/lastnextprevious
 	url = https://github.com/suy/vim-lastnextprevious.git
