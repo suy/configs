@@ -1,5 +1,12 @@
 extends cfamily
 
+snippet perl "Perl initial boilerplate" w
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+endsnippet
+
 #
 # Selection.
 #
@@ -11,6 +18,13 @@ endsnippet
 
 snippet xunless "Conditional one-line (unless)"
 ${1:expression} unless ${2:condition};
+endsnippet
+
+# Redefinition.
+snippet elsif "elsif {...}" !w
+elsif (${1:true}) {
+	${VISUAL}$2
+}$0
 endsnippet
 
 #
