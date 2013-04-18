@@ -261,3 +261,9 @@
 [submodule "dotvim/bundle/angry"]
 	path = dotvim/bundle/angry
 	url = https://github.com/b4winckler/vim-angry.git
+[submodule "dotvim/bundle/abolish"]
+	path = dotvim/bundle/abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "dotvim/bundle/characterize"]
+	path = dotvim/bundle/characterize
+	url = https://github.com/tpope/vim-characterize.git
