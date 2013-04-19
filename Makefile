@@ -11,15 +11,17 @@ roger-push-config:
 setup-unix:
 	git submodule update --init
 	ln -sf ${PWD}/vimrc ~/.vimrc
-	ln -sf ${PWD}/dotvim ~/.vim # FIXME: fails on reruns
+	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
 	ln -sf ${PWD}/bashrc ~/.bashrc
 	ln -sf ${PWD}/aliases ~/.aliases
 	ln -sf ${PWD}/environment ~/.environment
+	test ~/.kde/ && test -d ~/.kde/env || mkdir ~/.kde/env/
 	ln -sf ${PWD}/environment ~/.kde/env/environment.sh
 	ln -sf ${PWD}/gitconfig ~/.gitconfig
 	ln -sf ${PWD}/ignore-patterns ~/.ignore-patterns
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
+	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 
 install-powerline-fonts:
 	git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
