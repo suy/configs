@@ -267,3 +267,6 @@
 [submodule "dotvim/bundle/characterize"]
 	path = dotvim/bundle/characterize
 	url = https://github.com/tpope/vim-characterize.git
+[submodule "dotvim/bundle/qml"]
+	path = dotvim/bundle/qml
+	url = https://github.com/peterhoeg/vim-qml.git
