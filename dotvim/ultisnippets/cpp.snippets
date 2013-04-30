@@ -5,7 +5,7 @@ ${1:void} `!v
 matchstr(getline(search('\C\(\<\w\+\)\ze::\1', 'nw')), '\C\(\<\w\+\)\ze::\1')
 `::${2:memberFunction}($3)
 {
-	$0
+	${VISUAL}$0
 }
 $1 $2($3);
 endsnippet
