@@ -176,6 +176,10 @@ let g:clang_close_preview=1
 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_auto_completion_start_length=4
+let g:neocomplcache_enable_smart_case = 1
+" Note: possibly slow.
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
 
 if !exists('g:neocomplcache_force_omni_patterns')
   let g:neocomplcache_force_omni_patterns = {}
@@ -189,6 +193,10 @@ let g:clang_auto_select = 0
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_mode_map = { 'mode': 'active',
+						   \ 'active_filetypes': ['cpp'],
+						   \ 'passive_filetypes': ['xml'] }
 
 " Setup for the lastnextprevious plugin.
 nmap <silent> + <Plug>lastnextprevious_forward
@@ -651,15 +659,18 @@ imap <leader>< </<Plug>ragtagHtmlComplete
 
 " Mappings and settings for Unite.
 nmap <silent> <leader>u  :<C-u>execute get([
-	\ "Unite -no-split buffer file_rec/async file_mru",
-	\ "Unite -no-split buffer",
-	\ "Unite -no-split file_mru",
+	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
+	\ "Unite -no-split -buffer-name=files buffer",
+	\ "Unite -no-split -buffer-name=files file_mru",
 	\ "Unite outline",
 	\ "Unite output:message",
 	\ ], v:count)<Return>
 call unite#custom_default_action('buffer', 'goto')
+let g:unite_source_file_mru_filename_format = ''
 let g:unite_enable_start_insert=1
 let g:unite_enable_short_source_names=1
+let g:unite_force_overwrite_statusline=0
+let g:unite_source_history_yank_enable=1
 " call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
 		\ 'matchers', 'matcher_fuzzy')
@@ -711,6 +722,10 @@ nmap <leader>s :set spell!<CR>:set spell?<CR>
 " Activate diff mode and update the diff highlighting.
 nmap <leader>dt :diffthis<CR>
 nmap <leader>du :diffupdate<CR>
+
+" Restore original fold settings (FIXME: this duplicates the values from this
+" very same file, and is not variable).
+nmap <leader>fo :set foldmethod=syntax foldlevel=4 foldcolumn=4<Return>
 
 " Substitute what's under the cursor, or current selection.
 " FIXME: escape regex character, like selecting /foo/bar and the slashes are there
