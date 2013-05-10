@@ -1,5 +1,20 @@
 extends c
 
+snippet class "Class header boilerplate" w
+#ifndef ${1/.*/\U$0\E/}_H
+#define ${1/.*/\U$0\E/}_H
+
+class ${1:ClassName} : public ${2:QObject}
+{
+${3:	Q_OBJECT}
+	public:
+		$1();
+		~$1();
+};
+
+#endif // ${1/.*/\U$0\E/}_H
+endsnippet
+
 snippet met "Method for this class" !b
 ${1:void} `!v
 matchstr(getline(search('\C\(\<\w\+\)\ze::\1', 'nw')), '\C\(\<\w\+\)\ze::\1')
@@ -25,7 +40,7 @@ snippet debu "qDebug" !b
 qDebug() << ${VISUAL}$0;
 endsnippet
 
-snippet defu "qDebug: print current function" !b
+snippet defu "qDebug: print current function" !w
 qDebug() << __PRETTY_FUNCTION__;
 endsnippet
 
