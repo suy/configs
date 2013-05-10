@@ -21,6 +21,7 @@ let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
 		\ 'supertab',
+		\ 'powerline',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
@@ -40,6 +41,9 @@ endif
 " Load early vim-sensible, so it can be overriden if needed.
 runtime! plugin/sensible.vim
 
+" Manually use Powerline.
+set rtp+=~/local/configs/powerline/powerline/bindings/vim
+
 " Use plugins that are included with Vim 7
 " runtime macros/matchit.vim
 
@@ -54,20 +58,20 @@ let g:UltiSnipsListSnippets="<C-Q>"
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 
 " Powerline configuration.
-if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
-	let g:Powerline_symbols="fancy"
-else
-	let g:Powerline_symbols="unicode"
-endif
-let g:Powerline_stl_path_style="short"
+" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
+" 	let g:Powerline_symbols="fancy"
+" else
+" 	let g:Powerline_symbols="unicode"
+" endif
+" let g:Powerline_stl_path_style="short"
 " let g:Powerline_theme="skwp"
 " let g:Powerline_colorscheme = 'skwp'
-runtime autoload/Pl/Theme.vim
-if exists('*Pl#Theme#RemoveSegment')
-	call Pl#Theme#RemoveSegment('fileformat')
-	call Pl#Theme#RemoveSegment('fileencoding')
-	call Pl#Theme#InsertSegment('lastnextprevious:static_str', 'after', 'filetype')
-endif
+" runtime autoload/Pl/Theme.vim
+" if exists('*Pl#Theme#RemoveSegment')
+" 	call Pl#Theme#RemoveSegment('fileformat')
+" 	call Pl#Theme#RemoveSegment('fileencoding')
+" 	call Pl#Theme#InsertSegment('lastnextprevious:static_str', 'after', 'filetype')
+" endif
 
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
 let g:submode_timeoutlen=3000
@@ -293,7 +297,7 @@ if has("autocmd")
 		autocmd BufWritePost *vimrc source $MYVIMRC
 		" Work around to fix Powerline colors (something clears highlighting).
 		" https://github.com/Lokaltog/vim-powerline/issues/28#issuecomment-3492408
-		autocmd BufWritePost *vimrc call Pl#Load()
+		" autocmd BufWritePost *vimrc call Pl#Load()
 
 		" Set nopaste once insert mode is left, just in case.
 		autocmd InsertLeave * set nopaste
@@ -441,7 +445,8 @@ set fdc=4
 " set statusline +=%2*0x%04B\ %*          "character under cursor
 
 " Only use the default statusline setting if Powerline is not present.
-if !exists('*Pl#Theme#RemoveSegment')
+" if !exists('*Pl#Theme#RemoveSegment')
+if 0
 	" Clear it first to start fresh each invocation
 	set statusline=
 	" Buffer name with 2 minimum width
@@ -482,17 +487,17 @@ let g:solarized_hitrail='1'
 if has("gui_running")
 	" At work there is a larger screen.
 	if $USER == 'modpow'
-		if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
-			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-		else
-			set guifont=DejaVu\ Sans\ Mono\ 8
-		endif
+		" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
+		" 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+		" else
+			set guifont=DejaVu\ Sans\ Mono\ 9
+		" endif
 	else
-		if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
-			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-		else
+		" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
+		" 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+		" else
 			set guifont=DejaVu\ Sans\ Mono\ 10
-		endif
+		" endif
 	endif
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m

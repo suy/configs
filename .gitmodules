@@ -270,3 +270,9 @@
 [submodule "dotvim/bundle/qml"]
 	path = dotvim/bundle/qml
 	url = https://github.com/peterhoeg/vim-qml.git
+[submodule "dotvim/bundle/linepower"]
+	path = dotvim/bundle/linepower
+	url = https://github.com/zhaocai/linepower.vim.git
+[submodule "powerline"]
+	path = powerline
+	url = https://github.com/Lokaltog/powerline.git
