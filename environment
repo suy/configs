@@ -28,7 +28,11 @@ export DEBSIGN_KEYID=0x0B8B0BC2
 KDE_NO_IPV6=true
 
 if [ -d ~/local/bin ] ; then
-    export PATH=~/local/bin:"${PATH}"
+	export PATH=~/local/bin:"${PATH}"
+fi
+
+if [ -d ~/local/configs/powerline/ ] ; then
+	export PYTHONPATH=~/local/configs/powerline:"${PYTHONPATH}"
 fi
 
 if [ -d ~/local/man ] ; then

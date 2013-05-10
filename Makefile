@@ -24,4 +24,6 @@ setup-unix:
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 
 install-powerline-fonts:
-	git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
+	# git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
+	ln -sf ${PWD}/powerline/font/ ~/.fonts/
+	ln -sf ${PWD}/powerline/font/ ~/.config/fontconfig/

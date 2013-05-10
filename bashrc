@@ -86,6 +86,8 @@ esac
 # export GIT_PS1_SHOWSTASHSTATE=1
 # export GIT_PS1_SHOWUNTRACKEDFILES=1
 
+# source ~/local/configs/powerline/powerline/bindings/bash/powerline.sh
+
 # If this is an xterm set the title (window) and the session (tab) name
 case "$TERM" in
 xterm*|rxvt*|konsole*)
