@@ -86,8 +86,8 @@
 	path = dotvim/bundle/pasta
 	url = https://github.com/sickill/vim-pasta.git
 	update = rebase
-[submodule "dotvim/bundle/powerline"]
-	path = dotvim/bundle/powerline
+[submodule "dotvim/bundle/vim-powerline"]
+	path = dotvim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 	update = rebase
 [submodule "dotvim/bundle/ragtag"]

@@ -10,6 +10,11 @@ roger-push-config:
 
 setup-unix:
 	git submodule update --init
+	@# Specific module/plugin setup.
+	make -C dotvim/bundle/vimproc -f make_unix.mak
+	mkdir ~/.config/powerline
+	ln -sf ${PWD}/dotvim/bundle/linepower/config ~/.config/powerline
+	@# ln -sf ${PWD}/powerline/powerline/bindings/vim/ dotvim/bundle/powerline
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
 	ln -sf ${PWD}/bashrc ~/.bashrc
@@ -25,5 +30,6 @@ setup-unix:
 
 install-powerline-fonts:
 	# git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
+	mkdir ~/.fonts ~/.config/fontconfig
 	ln -sf ${PWD}/powerline/font/ ~/.fonts/
 	ln -sf ${PWD}/powerline/font/ ~/.config/fontconfig/

@@ -21,7 +21,7 @@ let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
 		\ 'supertab',
-		\ 'powerline',
+		\ 'vim-powerline',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
@@ -42,7 +42,7 @@ endif
 runtime! plugin/sensible.vim
 
 " Manually use Powerline.
-set rtp+=~/local/configs/powerline/powerline/bindings/vim
+" set rtp+=~/personal/configs/powerline/powerline/bindings/vim
 
 " Use plugins that are included with Vim 7
 " runtime macros/matchit.vim
