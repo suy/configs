@@ -102,25 +102,25 @@ call smartinput#define_rule({
 \	'at':       '/\%#',
 \	'char':     '*',
 \	'input':    '**/<Left><Left>',
-\	'filetype': ['css']
+\	'filetype': ['css', 'c']
 \})
 call smartinput#define_rule({
 \	'at':       '/\*\%#\*/',
 \	'char':     '<Space>',
 \	'input':    '<Space><Space><Left>',
-\	'filetype': ['css']
+\	'filetype': ['css', 'c']
 \})
 call smartinput#define_rule({
 \	'at':       '/\* \%# \*/',
 \	'char':     '<BS>',
 \	'input':    '<Del><BS>',
-\	'filetype': ['css']
+\	'filetype': ['css', 'c']
 \})
 call smartinput#define_rule({
 \	'at':       '/\*\%#\*/',
 \	'char':     '<BS>',
 \	'input':    '<Del><Del><BS><BS>',
-\	'filetype': ['css']
+\	'filetype': ['css', 'c']
 \})
 call smartinput#map_to_trigger('i', '*', '*', '*')
 call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<C-G>u<Space>')
