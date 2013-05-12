@@ -13,3 +13,6 @@ alias doc='cd /usr/share/doc ; cd'
 alias grep='grep --color=auto'
 
 alias clive='clive --format=best'
+
+alias apg='apg -m 18 -M sncl -s'
+
