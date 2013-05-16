@@ -404,7 +404,7 @@ set lazyredraw
 set fillchars=vert:┃,fold:═,diff:·
 
 " See the cursor line.
-set number
+set relativenumber
 
 " cul: Highlight the line in which the cursor is in. Caution, can be very slow.
 " Also, disable it in the console since it seems problematic with screen or the
