@@ -117,9 +117,6 @@ let g:unite_source_menu_menus.test3.command_candidates = [
 	  \   ['python', 'VimShellInteractive python'],
 	  \ ]
 
-" Use plugins that are included with Vim 7
-" runtime macros/matchit.vim
-
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
 let g:UltiSnipsExpandTrigger="<C-S>"
