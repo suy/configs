@@ -64,11 +64,14 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite output:message",
 	\ ], v:count)<Return>
 call unite#custom_default_action('buffer', 'goto')
+let g:unite_source_file_mru_time_format=''
 let g:unite_source_file_mru_filename_format = ''
 let g:unite_enable_start_insert=1
 let g:unite_enable_short_source_names=1
 let g:unite_force_overwrite_statusline=0
 let g:unite_source_history_yank_enable=1
+let g:unite_data_directory=expand('~/.local/share/vim/unite')
+
 " call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
 		\ 'matchers', 'matcher_fuzzy')
@@ -76,46 +79,46 @@ call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
 		\ 'sorters', 'sorter_rank')
 call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
 
+"
 " Unite menu setup.
-let g:unite_source_menu_menus = {}
-let g:unite_source_menu_menus.favourites = {
-			\ 'description' : 'Favourite Unite invocations'
-			\ }
-let g:unite_source_menu_menus.favourites.candidates = {
-			\ 'mixed': 'Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new',
+"
+
+" See: http://d.hatena.ne.jp/osyo-manga/20130225/1361794133 (useful map)
+" And this for several instructions at the same time:
+" http://akakyouryuu.com/blog/unite%E3%81%8B%E3%82%89vimrepress%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/
+if !exists("g:unite_source_menu_menus")
+    let g:unite_source_menu_menus = {}
+endif
+" Favourite Unite commands
+let g:unite_source_menu_menus.unite = {'description' : 'Unite invocations'}
+let g:unite_source_menu_menus.unite.candidates = {
+			\ 'mixed': 'Unite -no-split -buffer-name=files' .
+				\ ' buffer file_rec/async file_mru file/new',
 			\ 'commands': 'Unite history/command',
-			\ 'ps': 'Unite process',
+			\ 'process list': 'Unite process',
 			\ 'variable': 'Unite variable',
 			\ 'run': 'Unite launcher',
 			\ 'yank': 'Unite history/yank',
-			\ 'messages': 'Unite output:message',
+			\ 'messages': 'Unite -log output:messages',
+			\ 'jump list': 'Unite jump',
+			\ 'change list': 'Unite change',
 			\ 'register': 'Unite register',
 			\ }
-
-function g:unite_source_menu_menus.favourites.map(key, value)
+function g:unite_source_menu_menus.unite.map(key, value)
 	return {
-				\ 'word': a:key,
+				\ 'word': a:key . ' - [' . a:value . ']',
 				\ 'kind': 'command',
 				\ 'action__command': a:value,
 				\ 'description': a:value,
-				\ }
+				\ } " TODO: description does nothing... fill a wish?
 endfunction
 
-
-let g:unite_source_menu_menus.test2 = {
-	  \     'description' : 'Test menu2',
-	  \ }
-let g:unite_source_menu_menus.test2.command_candidates = {
-	  \   'python'    : 'VimShellInteractive python',
-	  \ }
-
-let g:unite_source_menu_menus.test3 = {
-	  \     'description' : 'Test menu3',
-	  \ }
-let g:unite_source_menu_menus.test3.command_candidates = [
-	  \   ['ruby', 'VimShellInteractive ruby'],
-	  \   ['python', 'VimShellInteractive python'],
-	  \ ]
+let g:unite_source_menu_menus.git = {'description': 'Git commands'}
+let g:unite_source_menu_menus.git.command_candidates = [
+			\ ['git status', 'Gstatus'],
+			\ ['master..trunk', 'Glog master..trunk --'],
+			\ ['gitk', 'Gitv'],
+			\ ]
 
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
