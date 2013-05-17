@@ -1,9 +1,10 @@
-"  ____  _             _
-" |  _ \| |_   _  __ _(_)_ __  ___
-" | |_) | | | | |/ _` | | '_ \/ __|
-" |  __/| | |_| | (_| | | | | \__ \
-" |_|   |_|\__,_|\__, |_|_| |_|___/
+"  ____  _             _         _       _ _
+" |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
+" | |_) | | | | |/ _` | | '_ \  | | '_ \| | __|
+" |  __/| | |_| | (_| | | | | | | | | | | | |_
+" |_|   |_|\__,_|\__, |_|_| |_| |_|_| |_|_|\__|
 "                |___/
+" {{{
 
 " Pathogen is a freaking awesome plugin for managing other plugins where each
 " one is in a directory of it's own, instead of all mixed in the same. This
@@ -41,8 +42,80 @@ endif
 " Load early vim-sensible, so it can be overriden if needed.
 runtime! plugin/sensible.vim
 
-" Manually use Powerline.
-" set rtp+=~/personal/configs/powerline/powerline/bindings/vim
+" }}}
+
+"  ____  _             _                  _
+" |  _ \| |_   _  __ _(_)_ __    ___  ___| |_ _   _ _ __
+" | |_) | | | | |/ _` | | '_ \  / __|/ _ \ __| | | | '_ \
+" |  __/| | |_| | (_| | | | | | \__ \  __/ |_| |_| | |_) |
+" |_|   |_|\__,_|\__, |_|_| |_| |___/\___|\__|\__,_| .__/
+"                |___/                             |_|
+" {{{
+
+" Set the map leader early, so we can use it with plugins.
+let mapleader = ","
+
+" Mappings and settings for Unite.
+nmap <silent> <leader>u  :<C-u>execute get([
+	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
+	\ "Unite -no-split -buffer-name=files buffer",
+	\ "Unite -no-split -buffer-name=files file_mru",
+	\ "Unite outline",
+	\ "Unite output:message",
+	\ ], v:count)<Return>
+call unite#custom_default_action('buffer', 'goto')
+let g:unite_source_file_mru_filename_format = ''
+let g:unite_enable_start_insert=1
+let g:unite_enable_short_source_names=1
+let g:unite_force_overwrite_statusline=0
+let g:unite_source_history_yank_enable=1
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
+		\ 'matchers', 'matcher_fuzzy')
+call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
+		\ 'sorters', 'sorter_rank')
+call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
+
+" Unite menu setup.
+let g:unite_source_menu_menus = {}
+let g:unite_source_menu_menus.favourites = {
+			\ 'description' : 'Favourite Unite invocations'
+			\ }
+let g:unite_source_menu_menus.favourites.candidates = {
+			\ 'mixed': 'Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new',
+			\ 'commands': 'Unite history/command',
+			\ 'ps': 'Unite process',
+			\ 'variable': 'Unite variable',
+			\ 'run': 'Unite launcher',
+			\ 'yank': 'Unite history/yank',
+			\ 'messages': 'Unite output:message',
+			\ 'register': 'Unite register',
+			\ }
+
+function g:unite_source_menu_menus.favourites.map(key, value)
+	return {
+				\ 'word': a:key,
+				\ 'kind': 'command',
+				\ 'action__command': a:value,
+				\ 'description': a:value,
+				\ }
+endfunction
+
+
+let g:unite_source_menu_menus.test2 = {
+	  \     'description' : 'Test menu2',
+	  \ }
+let g:unite_source_menu_menus.test2.command_candidates = {
+	  \   'python'    : 'VimShellInteractive python',
+	  \ }
+
+let g:unite_source_menu_menus.test3 = {
+	  \     'description' : 'Test menu3',
+	  \ }
+let g:unite_source_menu_menus.test3.command_candidates = [
+	  \   ['ruby', 'VimShellInteractive ruby'],
+	  \   ['python', 'VimShellInteractive python'],
+	  \ ]
 
 " Use plugins that are included with Vim 7
 " runtime macros/matchit.vim
@@ -215,6 +288,9 @@ silent! call remove(g:lastnextprevious#table, 'undolist')
 " Local configuration file (from the localrc plugin).
 let g:localrc_filename=".localrc.vim"
 
+" }}}
+
+
 
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
@@ -222,6 +298,7 @@ let g:localrc_filename=".localrc.vim"
 " |  _| (_) | |  | | | | | | (_| | |_| |_| | | | | (_| |
 " |_|  \___/|_|  |_| |_| |_|\__,_|\__|\__|_|_| |_|\__, |
 "                                                 |___/
+" {{{
 
 " textwidth: break lines when this maximum line length is reached (use 0 to
 " disable). This is sometimes called 'hard breaking', because it inserts an EOL.
@@ -255,6 +332,8 @@ set sbr=➥➥➥
 " Add 'j' (remove commentstring when joining) to format options.
 if v:version >= 703 && has('patch550') | set fo+=j | endif
 
+" }}}
+
 
 "  _____     _
 " |_   _|_ _| |__  ___
@@ -262,6 +341,7 @@ if v:version >= 703 && has('patch550') | set fo+=j | endif
 "   | | (_| | |_) \__ \
 "   |_|\__,_|_.__/|___/
 "
+" {{{
 
 " tabstop: Set how many spaces _looks_ a tab.
 set ts=4
@@ -278,6 +358,7 @@ set sts=4
 "set expandtab
 
 " TODO: autoindent, smartindent, cindent...
+" }}}
 
 
 "  __  __ _
@@ -286,6 +367,7 @@ set sts=4
 " | |  | | \__ \ (__
 " |_|  |_|_|___/\___|
 "
+" {{{
 
 if has("autocmd")
 	augroup vimrc
@@ -647,36 +729,12 @@ cnoremap <C-J> <C-F>
 " Quickly open the command-line CtrlP plugin.
 nmap <C-q> :call ctrlp#init(ctrlp#commandline#id())<Return>
 
-" Change the 'leader' key to something more easy to press
-let mapleader = ","
-
 " Mappings for the altr plugin.
 nmap <leader>A <Plug>(altr-back)
 nmap <leader>Z <Plug>(altr-forward)
 
 " Shorthand for HTML/XML completion.
 imap <leader>< </<Plug>ragtagHtmlComplete
-
-" Mappings and settings for Unite.
-nmap <silent> <leader>u  :<C-u>execute get([
-	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
-	\ "Unite -no-split -buffer-name=files buffer",
-	\ "Unite -no-split -buffer-name=files file_mru",
-	\ "Unite outline",
-	\ "Unite output:message",
-	\ ], v:count)<Return>
-call unite#custom_default_action('buffer', 'goto')
-let g:unite_source_file_mru_filename_format = ''
-let g:unite_enable_start_insert=1
-let g:unite_enable_short_source_names=1
-let g:unite_force_overwrite_statusline=0
-let g:unite_source_history_yank_enable=1
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
-		\ 'matchers', 'matcher_fuzzy')
-call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
-		\ 'sorters', 'sorter_rank')
-call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
 
 " Make window management a little bit more easy: map all the C-W <foobar> to
 " <leader>w<foobar>
@@ -852,3 +910,4 @@ endfunction
 inoremap <Tab> <C-R>=<SID>CleverTab()<CR>
 inoremap <S-Tab> <C-p>
 
+" vim: set foldmethod=marker:
