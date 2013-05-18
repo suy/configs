@@ -30,6 +30,6 @@ setup-unix:
 
 install-powerline-fonts:
 	# git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
-	mkdir ~/.fonts ~/.config/fontconfig
-	ln -sf ${PWD}/powerline/font/ ~/.fonts/
-	ln -sf ${PWD}/powerline/font/ ~/.config/fontconfig/
+	mkdir -p ~/.fonts ~/.config/fontconfig
+	ln -sf ${PWD}/powerline/font/ ~/.fonts/powerline
+	ln -sf ${PWD}/powerline/font/ ~/.config/fontconfig/powerline
