@@ -125,8 +125,13 @@ let g:unite_source_menu_menus.git.command_candidates = [
 if $USER == 'modpow'
 	let g:junkfile#directory='/var/tmp/misc/misc'
 else
-	let g:junkfile#directory='~/personal/misc'
+	let g:junkfile#directory=expand('~/personal/misc')
 endif
+" Ideas: remove the default command, and put one/some of my own. Submit a pull
+" request to improve the docs and made it more customizable. For example,
+" JunkfileOpen lets you choose the name of the file, but is always put in %Y/%m
+" directory. Another possibility is using plain Unite to do it, since the
+" sources provided are just fine.
 "}}}
 
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
