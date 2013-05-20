@@ -408,6 +408,10 @@ if has("autocmd")
 	augroup END
 endif
 
+" Disable autoselection of the visual region to the clipboard.
+set guioptions-=a
+set clipboard-=autoselect
+
 " Don't leave two spaces between two sentences (foo.  Bar) when joining lines
 set nojoinspaces
 
