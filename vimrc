@@ -121,6 +121,14 @@ let g:unite_source_menu_menus.git.command_candidates = [
 			\ ['gitk', 'Gitv'],
 			\ ]
 
+" JunkFile configuration. "{{{
+if $USER == 'modpow'
+	let g:junkfile#directory='/var/tmp/misc/misc'
+else
+	let g:junkfile#directory='~/personal/misc'
+endif
+"}}}
+
 " Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
 " snippet. This way, your <tab> can be free for other completion actions.
 let g:UltiSnipsExpandTrigger="<C-S>"

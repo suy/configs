@@ -279,3 +279,15 @@
 [submodule "dotvim/bundle/unite-history"]
 	path = dotvim/bundle/unite-history
 	url = https://github.com/thinca/vim-unite-history.git
+[submodule "dotvim/bundle/dispatch"]
+	path = dotvim/bundle/dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "dotvim/bundle/quickrun"]
+	path = dotvim/bundle/quickrun
+	url = https://github.com/thinca/vim-quickrun.git
+[submodule "dotvim/bundle/unite-build"]
+	path = dotvim/bundle/unite-build
+	url = https://github.com/Shougo/unite-build.git
+[submodule "dotvim/bundle/junkfile"]
+	path = dotvim/bundle/junkfile
+	url = https://github.com/Shougo/junkfile.vim.git
