@@ -44,6 +44,7 @@ runtime! plugin/sensible.vim
 
 " }}}
 
+
 "  ____  _             _                  _
 " |  _ \| |_   _  __ _(_)_ __    ___  ___| |_ _   _ _ __
 " | |_) | | | | |/ _` | | '_ \  / __|/ _ \ __| | | | '_ \
@@ -52,18 +53,11 @@ runtime! plugin/sensible.vim
 "                |___/                             |_|
 " {{{
 
-" Set the map leader early, so we can use it with plugins.
+" Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
-" Mappings and settings for Unite.
-nmap <silent> <leader>u  :<C-u>execute get([
-	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
-	\ "Unite -no-split -buffer-name=files buffer",
-	\ "Unite -no-split -buffer-name=files file_mru",
-	\ "Unite outline",
-	\ "Unite output:message",
-	\ ], v:count)<Return>
-call unite#custom_default_action('buffer', 'goto')
+" Unite. "{{{
+" Unite preferences. "{{{
 let g:unite_source_file_mru_time_format=''
 let g:unite_source_file_mru_filename_format = ''
 let g:unite_enable_start_insert=1
@@ -71,7 +65,19 @@ let g:unite_enable_short_source_names=1
 let g:unite_force_overwrite_statusline=0
 let g:unite_source_history_yank_enable=1
 let g:unite_data_directory=expand('~/.local/share/vim/unite')
+"}}}
 
+" Invocation trick. Use: [count]<leader>u
+nmap <silent> <leader>u  :<C-u>execute get([
+	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
+	\ "Unite -no-split -buffer-name=files buffer",
+	\ "Unite -no-split -buffer-name=files file_mru",
+	\ "Unite outline",
+	\ "Unite output:message",
+	\ ], v:count)<Return>
+
+" Customize default sources.
+call unite#custom_default_action('buffer', 'goto')
 " call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
 		\ 'matchers', 'matcher_fuzzy')
@@ -79,9 +85,7 @@ call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
 		\ 'sorters', 'sorter_rank')
 call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
 
-"
-" Unite menu setup.
-"
+" Unite menu definitions. "{{{
 
 " See: http://d.hatena.ne.jp/osyo-manga/20130225/1361794133 (useful map)
 " And this for several instructions at the same time:
@@ -120,6 +124,8 @@ let g:unite_source_menu_menus.git.command_candidates = [
 			\ ['master..trunk', 'Glog master..trunk --'],
 			\ ['gitk', 'Gitv'],
 			\ ]
+"}}}
+"}}}
 
 " JunkFile configuration. "{{{
 if $USER == 'modpow'
@@ -160,6 +166,7 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " 	call Pl#Theme#InsertSegment('lastnextprevious:static_str', 'after', 'filetype')
 " endif
 
+" Submode. "{{{
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
 let g:submode_timeoutlen=3000
 
@@ -176,7 +183,9 @@ if exists('*submode#map') && version > 702
 	call submode#map('resize-window', 'n', '', '<', '<C-W><')
 	call submode#map('resize-window', 'n', '', '>', '<C-W>>')
 endif
+"}}}
 
+" Smartinput. "{{{
 " Smartinput customization. Rules have to be added with define_rule. But for
 " rules to be triggered a mapping is needed. Since the default rules already map
 " some keys to the generic function that looks for a match, one doesn't need to
@@ -236,6 +245,7 @@ call smartinput#define_rule({
 \	'input':    '(',
 \})
 endif
+"}}}
 
 " The operator-replace plugin isn't mapped to any key, and I almost don't use R.
 map R <Plug>(operator-replace)
