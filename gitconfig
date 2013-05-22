@@ -30,3 +30,5 @@
 	autosetuprebase = local
 
 # vim:set filetype=gitconfig:
+[svn]
+	rmdir = 1
