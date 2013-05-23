@@ -12,8 +12,7 @@ setup-unix:
 	git submodule update --init
 	@# Specific module/plugin setup.
 	make -C dotvim/bundle/vimproc -f make_unix.mak
-	mkdir -p ~/.config/powerline
-	ln -sf ${PWD}/dotvim/bundle/linepower/config/* ~/.config/powerline
+	ln -sf ${PWD}/dotvim/bundle/linepower/config ~/.config/powerline
 	@# ln -sf ${PWD}/powerline/powerline/bindings/vim/ dotvim/bundle/powerline
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
