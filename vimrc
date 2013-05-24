@@ -70,6 +70,7 @@ let g:unite_data_directory=expand('~/.local/share/vim/unite')
 " Invocation trick. Use: [count]<leader>u
 nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
+	\ "Unite menu:unite",
 	\ "Unite -no-split -buffer-name=files buffer",
 	\ "Unite -no-split -buffer-name=files file_mru",
 	\ "Unite outline",
