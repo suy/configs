@@ -4,11 +4,13 @@ snippet class "Class header boilerplate" w
 #ifndef ${1/.*/\U$0\E/}_H
 #define ${1/.*/\U$0\E/}_H
 
+#include <$2>
+
 class ${1:ClassName} : public ${2:QObject}
 {
 ${3:	Q_OBJECT}
 	public:
-		$1();
+		explicit $1();
 		~$1();
 };
 
