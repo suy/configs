@@ -18,18 +18,6 @@ shopt -s checkwinsize
 # Give "**" and "**/" some additional meaning.
 shopt -s globstar
 
-# enable color support of ls and also add handy aliases
-if [ "$TERM" != "dumb" ]; then
-    eval "`dircolors -b`"
-    alias ls='ls --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -l'
-alias lh='ls -lh'
-alias la='ls -A'
-alias l='ls -CF'
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 

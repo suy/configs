@@ -1,3 +1,15 @@
+if [ "$TERM" != "dumb" ]; then
+	eval "`dircolors -b`"
+	alias ls='ls --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias lh='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+alias lld='ls -l */'
+
 # Alias of common operations
 alias cd..='cd ..'
 alias ..='cd ..'
