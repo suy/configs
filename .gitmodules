@@ -136,7 +136,7 @@
 	update = rebase
 [submodule "dotvim/bundle/qmake"]
 	path = dotvim/bundle/qmake
-	url = https://git.gitorious.org/vim-for-qt-kde/vim-qmake.git
+	url = git://gitorious.org/vim-for-qt-kde/vim-qmake.git
 	pushurl = git@gitorious.org:vim-for-qt-kde/vim-qmake.git
 	update = rebase
 [submodule "dotvim/bundle/markdown"]
