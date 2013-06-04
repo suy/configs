@@ -65,14 +65,20 @@ let g:unite_enable_short_source_names=1
 let g:unite_force_overwrite_statusline=0
 let g:unite_source_history_yank_enable=1
 let g:unite_data_directory=expand('~/.local/share/vim/unite')
+let g:unite_quick_match_table={
+			\ 'a': 0,  'b': 1,  'c': 2,  'd': 3,  'e': 4,  'f': 5,  'g': 6,
+			\ 'h': 7,  'i': 8,  'j': 9,  'k': 10, 'l': 11, 'm': 12,
+			\ 'n': 13, 'o': 14, 'p': 15, 'q': 16, 'r': 17,
+			\}
 "}}}
 
 " Invocation trick. Use: [count]<leader>u
 nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
 	\ "Unite menu:unite",
-	\ "Unite -no-split -buffer-name=files buffer",
-	\ "Unite -no-split -buffer-name=files file_mru",
+	\ "Unite -no-split -buffer-name=files -quick-match buffer",
+	\ "Unite -no-split -buffer-name=files -quick-match file_mru",
+	\ "Unite history/command",
 	\ "Unite outline",
 	\ "Unite output:message",
 	\ ], v:count)<Return>
