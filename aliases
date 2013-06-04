@@ -8,7 +8,7 @@ alias ll='ls -l'
 alias lh='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
-alias lld='ls -l */'
+alias lld='ls -ld */'
 
 # Alias of common operations
 alias cd..='cd ..'
