@@ -273,26 +273,95 @@ let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
 let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_by_filename = 0
 
-" Setup for clang_complete and neocomplcache. Still much to do.
+" neocomplete and clang_complete {{{
 let g:clang_snippets=1
 let g:clang_snippets_engine="ultisnips"
 let g:clang_close_preview=1
-
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_auto_completion_start_length=4
-let g:neocomplcache_enable_smart_case = 1
-" Note: possibly slow.
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns.cpp =
-	  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
+
+let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#enable_auto_select = 0
+let g:neocomplete#enable_refresh_always = 1
+
+let g:neocomplete#auto_completion_start_length=4
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+" Seems to be a pattern of buffer names that should be ignored.
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionaries for filetypes.
+" let g:neocomplete#sources#dictionary#dictionaries = {
+" 			\ 'default' : '',
+" 			TODO: change vimshell 'home dir'
+" 			\ 'vimshell' : $HOME.'/.vimshell_hist',
+" 			\ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+" inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"   return neocomplete#smart_close_popup() . "\<CR>"
+"   " For no inserting <CR> key.
+"   "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" endfunction
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplete#close_popup()
+" inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+
+" Enable omni completion.
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+
+" Patterns for omnicompletion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+
+" *force* patterns for omnicompletion.
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.c =
+	  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#force_omni_input_patterns.cpp =
+	  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" " TODO: This were available on neocomplcache, but are needed?
+" let g:neocomplcache_enable_camel_case_completion = 1
+" let g:neocomplcache_enable_underbar_completion = 1
+
+"}}}
 
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
