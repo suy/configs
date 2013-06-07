@@ -34,6 +34,10 @@ snippet static "Static cast" w
 static_cast<$1>(${2:${VISUAL}})
 endsnippet
 
+snippet qoc "QObject cast" w
+qobject_cast<$1>(${2:${VISUAL}})
+endsnippet
+
 #
 # This is Qt specific. I will have to think how to make this less obtrusive for
 # non-Qt C++ code.
