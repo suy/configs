@@ -32,3 +32,5 @@
 # vim:set filetype=gitconfig:
 [svn]
 	rmdir = 1
+[push]
+	default = simple
