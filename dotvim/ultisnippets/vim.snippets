@@ -1,5 +1,5 @@
 snippet f
-function ${1:function_name}(${2})
+function! ${1:function_name}(${2})
 	${VISUAL}$0
 endfunction
 endsnippet
@@ -18,3 +18,8 @@ else
 endif
 endsnippet
 
+snippet for "For loop" !b
+for ${1:item} in ${2:list}
+	${VISUAL}$0
+endfor
+endsnippet
