@@ -74,7 +74,7 @@ let g:unite_quick_match_table={
 
 " Invocation trick. Use: [count]<leader>u
 nmap <silent> <leader>u  :<C-u>execute get([
-	\ "Unite -no-split -buffer-name=files buffer file_rec/async file_mru file/new",
+	\ "Unite -no-split -buffer-name=files buffer file_rec/async:! file_mru file/new",
 	\ "Unite menu:unite",
 	\ "Unite -no-split -buffer-name=files -quick-match buffer",
 	\ "Unite -no-split -buffer-name=files -quick-match file_mru",
