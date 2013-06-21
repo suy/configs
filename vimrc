@@ -21,7 +21,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
-		\ 'supertab',
 		\ 'vim-powerline',
 		\ 'space']
 
