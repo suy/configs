@@ -34,4 +34,4 @@
 [svn]
 	rmdir = 1
 [push]
-	default = simple
+	default = matching
