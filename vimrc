@@ -29,6 +29,10 @@ if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
 endif
 
+if v:version <= 703 || !has('patch885') || !has('lua')
+	call add(g:pathogen_disabled, 'neocomplete')
+endif
+
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
 if exists('*pathogen#infect')
