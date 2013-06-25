@@ -29,7 +29,7 @@ if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
 endif
 
-if v:version <= 703 || !has('patch885') || !has('lua')
+if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 	call add(g:pathogen_disabled, 'neocomplete')
 endif
 
@@ -433,7 +433,7 @@ set lbr
 set sbr=➥➥➥
 
 " Add 'j' (remove commentstring when joining) to format options.
-if v:version >= 703 && has('patch550') | set fo+=j | endif
+if (v:version == 703 && has('patch550')) || v:version > 703 | set fo+=j | endif
 
 " }}}
 
