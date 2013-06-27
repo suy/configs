@@ -56,6 +56,16 @@ runtime! plugin/sensible.vim
 "                |___/                             |_|
 " {{{
 
+" Neosnippet."{{{
+imap <C-z> <Plug>(neosnippet_expand_or_jump)
+smap <C-z> <Plug>(neosnippet_expand_or_jump)
+xmap <C-z> <Plug>(neosnippet_expand_target)
+" imap <C-l> <Plug>(neosnippet_start_unite_snippet_target)
+
+" Disable all runtime snippets for now
+" let g:neosnippet#disable_runtime_snippets = {'_' : 1}
+"}}}
+
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
@@ -391,6 +401,13 @@ silent! call remove(g:lastnextprevious#table, 'undolist')
 " Local configuration file (from the localrc plugin).
 let g:localrc_filename=".localrc.vim"
 
+" Word in word text object.
+let g:textobj_wiw_default_key_mappings_prefix='\'
+
+" Indent guides. TODO: more customization.
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_default_mapping=0
+let g:indent_guides_color_change_percent=3
 " }}}
 
 

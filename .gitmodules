@@ -293,3 +293,12 @@
 [submodule "dotvim/bundle/context-commentstring"]
 	path = dotvim/bundle/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
+[submodule "dotvim/bundle/textobj-wiw"]
+	path = dotvim/bundle/textobj-wiw
+	url = https://github.com/h1mesuke/textobj-wiw.git
+[submodule "dotvim/bundle/neosnippet"]
+	path = dotvim/bundle/neosnippet
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "dotvim/bundle/neocomplete-calc"]
+	path = dotvim/bundle/neocomplete-calc
+	url = https://github.com/hrsh7th/vim-neco-calc.git
