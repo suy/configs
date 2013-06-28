@@ -302,3 +302,6 @@
 [submodule "dotvim/bundle/neocomplete-calc"]
 	path = dotvim/bundle/neocomplete-calc
 	url = https://github.com/hrsh7th/vim-neco-calc.git
+[submodule "dotvim/bundle/signify"]
+	path = dotvim/bundle/signify
+	url = https://github.com/mhinz/vim-signify.git
