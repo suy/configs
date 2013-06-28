@@ -724,6 +724,7 @@ if has("gui_running")
 		" Some solarized changes: listchars and matched parents.
 		highlight SpecialKey guifg=#094757
 		highlight MatchParen gui=reverse guibg=NONE
+		highlight SignColumn guifg=#839496 guibg=#002b36
 	endif
 else
 	try
