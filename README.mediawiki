@@ -12,10 +12,9 @@ screencast on keeping in sync your Vim configuration with Git and Github].
 
 ===Set up in a new machine===
 
-Get the files and set the symbolic links:
+Get the files and set symbolic links like the following:
 
-*git clone git@github.com:suy/configs.git
-*git submodule update --init
+*git clone --recursive git@github.com:suy/configs.git
 *ln -s configs/vimrc .vimrc
 *ln -s configs/dotvim .vim
 *ln -s configs/bashrc .bashrc
@@ -24,10 +23,14 @@ Get the files and set the symbolic links:
 
 Etc.
 
+I automated it a bit by adding a Makefile, so I normally just do:
+
+*make setup-unix install-powerline-fonts
+
 ===Get updates from the depot===
 
 *git pull
-*git submodule update --init --merge
+*git submodule update --init --rebase
 
 ===Update from upstream repositories===
 
@@ -60,6 +63,7 @@ here is it, copied from the Git Wiki:
 #Commit the superproject.
 #Delete the now untracked submodule files.
 
+Or, if you install git-extras, the git remove-submodule command is provided.
 
 ==To do==
 

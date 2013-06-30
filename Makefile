@@ -9,17 +9,22 @@ roger-push-config:
 	rsync -avz --delete --exclude=.git --exclude-from=ignore-patterns --exclude=spell ./ roger:./configs
 
 setup-unix:
+	@# Just in case I forgot to use --recursive.
 	git submodule update --init
+	git remote set-url --push origin git@github.com:suy/configs.git
+	@#
 	@# Specific module/plugin setup.
 	make -C dotvim/bundle/vimproc -f make_unix.mak
 	ln -sf ${PWD}/dotvim/bundle/linepower/config ~/.config/powerline
 	@# ln -sf ${PWD}/powerline/powerline/bindings/vim/ dotvim/bundle/powerline
+	@#
+	@# Set the symbolic links.
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
 	ln -sf ${PWD}/bashrc ~/.bashrc
 	ln -sf ${PWD}/aliases ~/.aliases
 	ln -sf ${PWD}/environment ~/.environment
-	test ~/.kde/ && test -d ~/.kde/env || mkdir ~/.kde/env/
+	test ~/.kde/ && test -d ~/.kde/env || mkdir -p ~/.kde/env/
 	ln -sf ${PWD}/environment ~/.kde/env/environment.sh
 	ln -sf ${PWD}/gitconfig ~/.gitconfig
 	ln -sf ${PWD}/ignore-patterns ~/.ignore-patterns
