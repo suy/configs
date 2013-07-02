@@ -128,13 +128,14 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'change list': 'Unite change',
 			\ 'register': 'Unite register',
 			\ }
-function g:unite_source_menu_menus.unite.map(key, value)
+function g:unite_source_menu_menus.unite.map(key, value) dict
+	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
 	return {
-				\ 'word': a:key . ' - [' . a:value . ']',
-				\ 'kind': 'command',
+				\ 'abbr': unite#util#truncate(a:key, l:max) .'   -- '. a:value,
+				\ 'word': a:key,
 				\ 'action__command': a:value,
-				\ 'description': a:value,
-				\ } " TODO: description does nothing... fill a wish?
+				\ 'kind': 'command',
+				\ }
 endfunction
 
 let g:unite_source_menu_menus.git = {'description': 'Git commands'}
