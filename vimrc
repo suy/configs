@@ -363,9 +363,9 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.c =
-	  \ '[^.[:digit:] *\t]\%(\.\|->\)'
+	  \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 let g:neocomplete#force_omni_input_patterns.cpp =
-	  \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+	  \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
