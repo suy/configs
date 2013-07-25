@@ -305,3 +305,6 @@
 [submodule "dotvim/bundle/signify"]
 	path = dotvim/bundle/signify
 	url = https://github.com/mhinz/vim-signify.git
+[submodule "dotvim/bundle/airline"]
+	path = dotvim/bundle/airline
+	url = https://github.com/bling/vim-airline.git

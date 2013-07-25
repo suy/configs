@@ -22,6 +22,7 @@ let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
 		\ 'vim-powerline',
+		\ 'linepower',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
