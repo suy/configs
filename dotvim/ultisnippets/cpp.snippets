@@ -47,7 +47,7 @@ qDebug() << ${VISUAL}$0;
 endsnippet
 
 snippet defu "qDebug: print current function" !w
-qDebug() << __PRETTY_FUNCTION__;
+qDebug() << Q_FUNC_INFO;
 endsnippet
 
 snippet qa "Q_ASSERT" !b
