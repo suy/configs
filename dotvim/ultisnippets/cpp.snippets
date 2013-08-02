@@ -55,7 +55,7 @@ Q_ASSERT(${1:${VISUAL}});
 endsnippet
 
 snippet qax "Q_ASSERT_X" !b
-Q_ASSERT_X(${1:${VISUAL:condition}}, ${2:__PRETTY_FUNCTION__}, "${3:what}");
+Q_ASSERT_X(${1:${VISUAL:condition}}, ${2:Q_FUNC_INFO}, "${3:what}");
 endsnippet
 
 snippet qun "Q_UNUSED" !
