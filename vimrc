@@ -394,6 +394,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Check C++ headers too.
 let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_config_file = '.clang_complete'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_mode_map = { 'mode': 'active',
