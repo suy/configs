@@ -751,6 +751,8 @@ else
 		colorscheme molokai
 		" Make the listchars darker
 		hi SpecialKey ctermfg=240
+		" Indent guides look terrible for now...
+		let g:indent_guides_enable_on_vim_startup=0
 	catch
 		colorscheme elflord
 	endtry
