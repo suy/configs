@@ -57,6 +57,9 @@ runtime! plugin/sensible.vim
 "                |___/                             |_|
 " {{{
 
+" Use VimFiler instead of netrw.
+let g:vimfiler_as_default_explorer = 1
+
 " Neosnippet."{{{
 imap <C-z> <Plug>(neosnippet_expand_or_jump)
 smap <C-z> <Plug>(neosnippet_expand_or_jump)
