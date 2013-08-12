@@ -23,15 +23,19 @@
     insteadOf = kde:
 [url "git@git.kde.org:"]
     pushInsteadOf = kde:
+[url "https://github.com/"]
+	insteadOf = gh:
+[url "git@bitbucket.org:"]
+	insteadOf = bb:
 [core]
 	excludesfile = ~/.ignore-patterns
 [merge]
 	defaultToUpstream = 1
 [branch]
 	autosetuprebase = local
-
-# vim:set filetype=gitconfig:
 [svn]
 	rmdir = 1
 [push]
 	default = matching
+
+# vim:set filetype=gitconfig:
