@@ -1,0 +1,16 @@
+HashKnownHosts no
+
+Host *.debian.org
+	User suy-guest
+
+Host svn.kde.org
+	User suy
+
+Host shell.sourceforge.net
+	User suy
+
+Host *.badopi.org
+	User alex
+
+Host mari
+	User modpow

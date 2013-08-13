@@ -34,6 +34,7 @@ setup-unix:
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
+	ln -sf ${PWD}/sshconfig ~/.ssh/config
 
 install-powerline-fonts:
 	# git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
