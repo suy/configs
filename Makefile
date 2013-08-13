@@ -26,7 +26,10 @@ setup-unix:
 	ln -sf ${PWD}/environment ~/.environment
 	test ~/.kde/ && test -d ~/.kde/env || mkdir -p ~/.kde/env/
 	ln -sf ${PWD}/environment ~/.kde/env/environment.sh
-	ln -sf ${PWD}/gitconfig ~/.gitconfig
+	@# This config is for git to modify at will, so is only copied.
+	cp ${PWD}/gitconfig ~/.gitconfig
+	@# This is not seen by Git, so is under version control, manually edited.
+	ln -sf ${PWD}/gitconfig.local ~/.gitconfig.local
 	ln -sf ${PWD}/ignore-patterns ~/.ignore-patterns
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
