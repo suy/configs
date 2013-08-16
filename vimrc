@@ -30,6 +30,11 @@ if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
 endif
 
+" Disable Ultisnips if needed to avoid the startup warning.
+if !has('python') || !has('python3')
+	call add(g:pathogen_disabled, 'ultisnips')
+endif
+
 if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 	call add(g:pathogen_disabled, 'neocomplete')
 endif
