@@ -31,7 +31,7 @@ if !has('gui_running')
 endif
 
 " Disable Ultisnips if needed to avoid the startup warning.
-if !has('python') || !has('python3')
+if !has('python') && !has('python3')
 	call add(g:pathogen_disabled, 'ultisnips')
 endif
 
