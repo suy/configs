@@ -15,7 +15,7 @@ setup-unix:
 	@#
 	@# Specific module/plugin setup.
 	make -C dotvim/bundle/vimproc -f make_unix.mak
-	ln -sf ${PWD}/dotvim/bundle/linepower/config ~/.config/powerline
+	# ln -sf ${PWD}/dotvim/bundle/linepower/config ~/.config/powerline
 	@# ln -sf ${PWD}/powerline/powerline/bindings/vim/ dotvim/bundle/powerline
 	@#
 	@# Set the symbolic links.
