@@ -37,6 +37,7 @@ endif
 
 if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 	call add(g:pathogen_disabled, 'neocomplete')
+	call add(g:pathogen_disabled, 'unite')
 endif
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
@@ -106,13 +107,15 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ ], v:count)<Return>
 
 " Customize default sources.
-call unite#custom_default_action('buffer', 'goto')
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
-		\ 'matchers', 'matcher_fuzzy')
-call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
-		\ 'sorters', 'sorter_rank')
-call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
+if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
+	call unite#custom_default_action('buffer', 'goto')
+	" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+	call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
+			\ 'matchers', 'matcher_fuzzy')
+	call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
+			\ 'sorters', 'sorter_rank')
+	call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
+endif
 
 " Unite menu definitions. "{{{
 
@@ -410,6 +413,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 						   \ 'passive_filetypes': ['xml'] }
 
 " Setup for the lastnextprevious plugin.
+" FIXME: Something is wrong here in Vim 7.2.
 nmap <silent> + <Plug>lastnextprevious_forward
 nmap <silent> - <Plug>lastnextprevious_backward
 let g:lastnextprevious#last = 'changelist'
