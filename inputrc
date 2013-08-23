@@ -5,7 +5,7 @@ set bell-style visible
 set completion-ignore-case on
 
 # Consider '_' and '-' same character with different case
-set completion-map-case on
+set completion-map-case off
 
 # Don't ring the bell when there are several options: just show them
 #set show-all-if-ambiguous on
