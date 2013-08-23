@@ -35,9 +35,9 @@ if !has('python') && !has('python3')
 	call add(g:pathogen_disabled, 'ultisnips')
 endif
 
+" Neocomplete requires some features.
 if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 	call add(g:pathogen_disabled, 'neocomplete')
-	call add(g:pathogen_disabled, 'unite')
 endif
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
@@ -107,7 +107,7 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ ], v:count)<Return>
 
 " Customize default sources.
-if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
+if !pathogen#is_disabled('unite')
 	call unite#custom_default_action('buffer', 'goto')
 	" call unite#filters#matcher_default#use(['matcher_fuzzy'])
 	call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
