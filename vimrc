@@ -542,7 +542,7 @@ if has("autocmd")
 		autocmd VimResized * exe "normal! \<c-w>="
 
 		" Source .vimrc automatically when it is saved.
-		autocmd BufWritePost *vimrc source $MYVIMRC
+		" autocmd BufWritePost *vimrc source $MYVIMRC
 		" Work around to fix Powerline colors (something clears highlighting).
 		" https://github.com/Lokaltog/vim-powerline/issues/28#issuecomment-3492408
 		" autocmd BufWritePost *vimrc call Pl#Load()
