@@ -63,8 +63,14 @@ runtime! plugin/sensible.vim
 "                |___/                             |_|
 " {{{
 
-" Use VimFiler instead of netrw.
+" Set the map leader early, so we can use it with plugin mappings.
+let mapleader = ","
+
+" Several small variable settings for plugins. "{{{
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_data_directory=expand('~/.local/share/vim/vimfiler')
+let g:neocomplete#data_directory=expand('~/.local/share/vim/neocomplete')
+"}}}
 
 " Neosnippet."{{{
 imap <C-z> <Plug>(neosnippet_expand_or_jump)
@@ -75,9 +81,6 @@ xmap <C-z> <Plug>(neosnippet_expand_target)
 " Disable all runtime snippets for now
 " let g:neosnippet#disable_runtime_snippets = {'_' : 1}
 "}}}
-
-" Set the map leader early, so we can use it with plugin mappings.
-let mapleader = ","
 
 " Unite. "{{{
 " Unite preferences. "{{{
