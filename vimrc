@@ -221,6 +221,8 @@ let g:airline_branch_prefix = '⎇ '
 let g:airline_paste_symbol = 'ρ'
 let g:airline_paste_symbol = 'Þ'
 let g:airline_paste_symbol = '∥'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
 
 " Submode. "{{{
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
