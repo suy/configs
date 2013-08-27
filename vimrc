@@ -742,8 +742,8 @@ let g:solarized_hitrail='1'
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
-	" At work there is a larger screen.
-	if $USER == 'modpow'
+	" At work there is a different screen.
+	if $USER == 'modpow' || $USER == 'aexojo'
 		" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
 		" 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 		" else
