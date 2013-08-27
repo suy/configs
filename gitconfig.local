@@ -32,7 +32,7 @@
 [merge]
 	defaultToUpstream = 1
 [branch]
-	autosetuprebase = local
+	autosetuprebase = remote
 [svn]
 	rmdir = 1
 [push]
