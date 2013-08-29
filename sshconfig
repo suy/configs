@@ -9,6 +9,9 @@ Host svn.kde.org
 Host shell.sourceforge.net
 	User suy
 
+Host *.badopi.com
+	User alex
+
 Host *.badopi.org
 	User alex
 
