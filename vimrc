@@ -330,6 +330,10 @@ let g:clang_snippets_engine="ultisnips"
 let g:clang_close_preview=1
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
+" For backported libclang
+if isdirectory('/usr/lib/llvm-3.2/lib')
+	let g:clang_library_path='/usr/lib/llvm-3.2/lib'
+endif
 
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_auto_select = 0
