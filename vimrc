@@ -115,15 +115,24 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite output:message",
 	\ ], v:count)<Return>
 
+" Experiment. :-)
+nmap <silent> cd :<C-u>Unite -buffer-name=browse -no-split directory<Return>
+
 " Customize default sources.
 if !pathogen#is_disabled('unite')
 	call unite#custom_default_action('buffer', 'goto')
+	call unite#custom_default_action('directory', 'cd')
 	" call unite#filters#matcher_default#use(['matcher_fuzzy'])
 	call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
 			\ 'matchers', 'matcher_fuzzy')
 	call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
 			\ 'sorters', 'sorter_rank')
 	call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
+	autocmd FileType unite call s:unite_my_settings()
+	function! s:unite_my_settings() "{{{
+		imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+		nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+	endfunction "}}}
 endif
 
 " Unite menu definitions. "{{{
