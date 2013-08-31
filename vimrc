@@ -218,20 +218,14 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " endif
 
 " let g:airline_powerline_fonts=1
-let g:airline_theme='powerlineish'
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-let g:airline_linecolumn_prefix = '¶ '
-let g:airline_branch_prefix = '⎇ '
-let g:airline_paste_symbol = 'ρ'
-let g:airline_paste_symbol = 'Þ'
-let g:airline_paste_symbol = '∥'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
+let g:airline_theme='solarized'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols = {}
+let g:airline_symbols.linenr = '¶ '
+" let g:airline_symbols.linenr = '¶ '
 
 " Submode. "{{{
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
@@ -785,6 +779,7 @@ if has("gui_running")
 else
 	try
 		colorscheme molokai
+		let g:airline_theme='powerlineish'
 		" Make the listchars darker
 		hi SpecialKey ctermfg=240
 		" Indent guides look terrible for now...
