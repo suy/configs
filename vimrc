@@ -68,6 +68,7 @@ runtime! plugin/sensible.vim
 let mapleader = ","
 
 " Several small variable settings for plugins. "{{{
+let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_data_directory=expand('~/.local/share/vim/vimfiler')
 let g:neocomplete#data_directory=expand('~/.local/share/vim/neocomplete')
@@ -114,6 +115,7 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite history/command",
 	\ "Unite outline",
 	\ "Unite output:message",
+	\ "Unite grep -keep-focus -no-quit",
 	\ ], v:count)<Return>
 
 " Experiment. :-)
@@ -221,6 +223,7 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='solarized'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
@@ -338,6 +341,7 @@ let g:clang_auto_select = 0
 if isdirectory('/usr/lib/llvm-3.2/lib')
 	let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 endif
+let g:clang_make_default_keymappings=0
 
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_auto_select = 0
