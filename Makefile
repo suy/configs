@@ -25,7 +25,7 @@ setup-unix:
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
-	ln -sf ${PWD}/sshconfig ~/.ssh/config
+	mkdir ~/.ssh/ && ln -sf ${PWD}/sshconfig ~/.ssh/config
 
 
 setup-unix-vim: setup-unix
