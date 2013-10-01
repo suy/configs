@@ -22,6 +22,7 @@ let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
 		\ 'vim-powerline',
+		\ 'signify',
 		\ 'linepower',
 		\ 'space']
 
