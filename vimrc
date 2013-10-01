@@ -467,6 +467,22 @@ nnoremap <leader>ff :<C-u>echo cfi#format("%s", "")<CR>
 
 
 
+"""
+""" TODO: convert this into a plugin, or find one equivalent.
+"""
+
+" augroup Binary
+"   au!
+"   au BufReadPre  *.bin let &bin=1
+"   au BufReadPost *.bin if &bin | %!xxd -g 1
+"   au BufReadPost *.bin set ft=xxd | endif
+"   au BufWritePre *.bin if &bin | %!xxd -g 1 -r
+"   au BufWritePre *.bin endif
+"   au BufWritePost *.bin if &bin | %!xxd -g 1
+"   au BufWritePost *.bin set nomod | endif
+" augroup END
+
+
 "  _____                          _   _   _
 " |  ___|__  _ __ _ __ ___   __ _| |_| |_(_)_ __   __ _
 " | |_ / _ \| '__| '_ ` _ \ / _` | __| __| | '_ \ / _` |
