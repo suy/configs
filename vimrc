@@ -122,7 +122,9 @@ nmap <silent> <leader>u  :<C-u>execute get([
 nmap <silent> cd :<C-u>Unite -buffer-name=browse -no-split directory<Return>
 
 " Customize default sources.
-if !pathogen#is_disabled('unite')
+" Can't use pathogen if no plugins are loaded at all.
+" if !pathogen#is_disabled('unite')
+if stridx(&runtimepath, "bundle/unite") != -1
 	call unite#custom_default_action('buffer', 'goto')
 	call unite#custom_default_action('directory', 'cd')
 	" call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -439,11 +441,13 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " FIXME: Something is wrong here in Vim 7.2.
 nmap <silent> + <Plug>lastnextprevious_forward
 nmap <silent> - <Plug>lastnextprevious_backward
-let g:lastnextprevious#last = 'changelist'
-call extend(g:lastnextprevious#table,
-\ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
-\   'quickfix': {'b': '[q', 'f': ']q'} }
-\)
+if exists("g:lastnextprevious#table")
+	let g:lastnextprevious#last = 'changelist'
+	call extend(g:lastnextprevious#table,
+	\ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
+	\   'quickfix': {'b': '[q', 'f': ']q'} }
+	\)
+endif
 " FIXME: gives an error when resourcing vimrc (wihout using silent). Think about
 " an API maybe? There is also the problem of the mappings not being removed.
 " Is important that I use it, since otherwise the feature might not work and I
