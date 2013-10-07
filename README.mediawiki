@@ -25,7 +25,9 @@ Etc.
 
 I automated it a bit by adding a Makefile, so I normally just do:
 
-*make setup-unix install-powerline-fonts
+*make setup-unix
+
+But you can choose which ones to get.
 
 ===Get updates from the depot===
 

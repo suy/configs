@@ -1,6 +1,6 @@
 all:
 	@echo "This Makefile isn't intended to build anything."
-	@echo "Is just a convenience to do some repetitive tasks with my configuration".
+	@echo "Run 'make setup-unix' to setup the configuration."
 
 windows-push-vim-config:
 	rsync -av --delete --exclude=.git --exclude=gnupg.vim --exclude-from=ignore-patterns ./dotvim/ /cygdrive/c/vimfiles/
@@ -17,7 +17,7 @@ setup-unix:
 	ln -sf ${PWD}/environment ~/.kde/env/environment.sh
 	@# This config is for git to modify at will, so is only copied. Is where the
 	@# user name and email can be set to each ones values.
-	cp ${PWD}/gitconfig ~/.gitconfig
+	cp -f ${PWD}/gitconfig ~/.gitconfig
 	@# This is not changed by "git config --global", so it can be under version
 	@# control, and improved by hand like the other files.
 	ln -sf ${PWD}/gitconfig.extra ~/.gitconfig.extra
