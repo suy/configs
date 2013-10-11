@@ -258,3 +258,6 @@
 [submodule "dotvim/bundle/airline"]
 	path = dotvim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "dotvim/bundle/unite-ssh"]
+	path = dotvim/bundle/unite-ssh
+	url = https://github.com/Shougo/unite-ssh.git
