@@ -21,3 +21,7 @@ Host codereview.qt-project.org
 
 Host mari
 	User modpow
+Host proytecsa*.local
+	User modpow
+Host pc-mw*.local
+	User modpow
