@@ -18,6 +18,8 @@
 	tomerge = log -p --reverse ..FETCH_HEAD
 [url "git://gitorious.org/qt/"]
 	insteadOf = qt:
+[url "git://gitorious.org/qt-labs/"]
+	insteadOf = qtl:
 [url "git://anongit.kde.org/"]
     insteadOf = kde:
 [url "git@git.kde.org:"]
