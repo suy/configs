@@ -2,4 +2,4 @@
 	name = Alejandro Exojo
 	email = suy@badopi.org
 [include]
-	path = .gitconfig.local
+	path = .gitconfig.extra
