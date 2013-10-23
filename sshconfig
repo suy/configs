@@ -30,3 +30,5 @@ Host aunavnext*.local
 Host pc-mw*.local
 	User modpow
 	IdentityFile ~/.ssh/aexojo@pc-mw03
+
+# vim: set ft=sshconfig:
