@@ -222,15 +222,15 @@ let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " 	call Pl#Theme#InsertSegment('lastnextprevious:static_str', 'after', 'filetype')
 " endif
 
-" let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='solarized'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols = {}
-let g:airline_symbols.linenr = '¶ '
+" TODO: Detect if powerline symbols are not available and use this instead.
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols = {}
 " let g:airline_symbols.linenr = '¶ '
 
 " Submode. "{{{

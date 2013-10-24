@@ -44,6 +44,8 @@ setup-unix-vim: setup-unix
 
 install-powerline-fonts:
 	# git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
-	mkdir -p ~/.fonts ~/.config/fontconfig
-	ln -sf ${PWD}/powerline/font/ ~/.fonts/powerline
-	ln -sf ${PWD}/powerline/font/ ~/.config/fontconfig/powerline
+	mkdir -p ~/.fonts ~/.config/fontconfig/conf.d
+	# For compatibility
+	ln -s ~/.config/fontconfig/conf.d/ ~/.fonts.conf.d
+	ln -sf ${PWD}/powerline/font/PowerlineSymbols.otf ~/.fonts/
+	ln -sf ${PWD}/powerline/font/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
