@@ -696,7 +696,7 @@ endif
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
-" set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
+set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
 if v:version >= 703
