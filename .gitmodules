@@ -261,3 +261,9 @@
 [submodule "dotvim/bundle/unite-ssh"]
 	path = dotvim/bundle/unite-ssh
 	url = https://github.com/Shougo/unite-ssh.git
+[submodule "dotvim/bundle/reunions"]
+	path = dotvim/bundle/reunions
+	url = https://github.com/osyo-manga/vim-reunions
+[submodule "dotvim/bundle/marching"]
+	path = dotvim/bundle/marching
+	url = https://github.com/osyo-manga/vim-marching
