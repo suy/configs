@@ -25,8 +25,9 @@ setup-unix:
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
-	test ~/.ssh || mkdir ~/.ssh/
-	ln -sf ${PWD}/sshconfig ~/.ssh/config
+	# Disable this for now, since it can lead to trouble to my fellow coworkers.
+	# test ~/.ssh || mkdir ~/.ssh/
+	# ln -sf ${PWD}/sshconfig ~/.ssh/config
 	@# Set the symbolic links for vim, but not the submodules for plugins.
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
