@@ -19,6 +19,13 @@ Host codereview.qt-project.org
 	Port 29418
 	User suy
 
+#
+# Work stuff
+#
+
+Host *-modpow.rhcloud.com
+	IdentityFile ~/.ssh/aexojo@pc-mw03
+
 Host mari
 	User modpow
 	IdentityFile ~/.ssh/aexojo@pc-mw03
@@ -29,6 +36,11 @@ Host aunavnext*.local
 
 Host pc-mw*.local
 	User modpow
+	IdentityFile ~/.ssh/aexojo@pc-mw03
+
+Host 146.66.240.174
+	User modpow
+	Port 7022
 	IdentityFile ~/.ssh/aexojo@pc-mw03
 
 # vim: set ft=sshconfig:
