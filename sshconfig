@@ -38,6 +38,10 @@ Host pc-mw*.local
 	User modpow
 	IdentityFile ~/.ssh/aexojo@pc-mw03
 
+Host lap-mw*.local
+	User modpow
+	IdentityFile ~/.ssh/aexojo@pc-mw03
+
 Host 146.66.240.174
 	User modpow
 	Port 7022
