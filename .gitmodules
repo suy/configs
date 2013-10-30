@@ -267,3 +267,6 @@
 [submodule "dotvim/bundle/marching"]
 	path = dotvim/bundle/marching
 	url = https://github.com/osyo-manga/vim-marching
+[submodule "dotvim/bundle/youcompleteme"]
+	path = dotvim/bundle/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git

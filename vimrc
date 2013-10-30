@@ -22,7 +22,8 @@ let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
 		\ 'vim-powerline',
-		\ 'signify',
+		\ 'neocomplete',
+		\ 'clang_complete',
 		\ 'linepower',
 		\ 'space']
 
@@ -39,6 +40,11 @@ endif
 " Neocomplete requires some features.
 if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 	call add(g:pathogen_disabled, 'neocomplete')
+endif
+
+" Likewise for youcompleteme.
+if v:version < 703 || (v:version == 703 && !has('patch584')) || !has('python')
+	call add(g:pathogen_disabled, 'youcompleteme')
 endif
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
