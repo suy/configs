@@ -232,7 +232,7 @@ let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='solarized'
+let g:airline_theme='tomorrow'
 " TODO: Detect if powerline symbols are not available and use this instead.
 " let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '◀'
@@ -799,14 +799,16 @@ if has("gui_running")
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
-	runtime autoload/togglebg.vim
-	if exists('*togglebg#map')
-		colorscheme solarized
-		" Some solarized changes: listchars and matched parents.
-		highlight SpecialKey guifg=#094757
-		highlight MatchParen gui=reverse guibg=NONE
-		highlight SignColumn guifg=#839496 guibg=#002b36
-	endif
+	colorscheme Tomorrow-Night
+	" Solarized thingies.
+	" runtime autoload/togglebg.vim
+	" if exists('*togglebg#map')
+	" 	colorscheme solarized
+	" 	" Some solarized changes: listchars and matched parents.
+	" 	highlight SpecialKey guifg=#094757
+	" 	highlight MatchParen gui=reverse guibg=NONE
+	" 	highlight SignColumn guifg=#839496 guibg=#002b36
+	" endif
 else
 	try
 		colorscheme molokai
