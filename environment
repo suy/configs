@@ -1,8 +1,8 @@
 # Environment variables for the shell and X
 
 # Language
-if [ ! -z `locale -a | grep es_ES.UTF-8` ] ; then
-	export LANG="es_ES.UTF-8"
+if [ ! -z `locale -a | grep es_ES.utf-8` ] ; then
+	export LANG="es_ES.utf-8"
 elif [ ! -z `locale -a | grep C.UTF-8` ] ; then
 	export LANG="C.UTF-8"
 else
