@@ -15,7 +15,8 @@
 	unstage-all = reset HEAD .
 	wdiff = diff --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	tomerge = log -p --reverse ..FETCH_HEAD
+	tomerge = log -p --reverse ..@{upstream}
+	topush  = log -p --reverse   @{upstream}..
 [url "git://gitorious.org/qt/"]
 	insteadOf = qt:
 [url "git://gitorious.org/qt-labs/"]
