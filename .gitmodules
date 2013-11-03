@@ -273,3 +273,6 @@
 [submodule "dotvim/bundle/colorscheme-tomorrow"]
 	path = dotvim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
+[submodule "dotvim/bundle/quicktask"]
+	path = dotvim/bundle/quicktask
+	url = https://github.com/aaronbieber/quicktask.git
