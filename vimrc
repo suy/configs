@@ -22,8 +22,6 @@ let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
 		\ 'vim-powerline',
-		\ 'neocomplete',
-		\ 'clang_complete',
 		\ 'linepower',
 		\ 'space']
 
@@ -46,6 +44,13 @@ endif
 if v:version < 703 || (v:version == 703 && !has('patch584')) || !has('python')
 	call add(g:pathogen_disabled, 'youcompleteme')
 endif
+
+" Temporary tweaks. Just use neocomplete and clang_complete, disable others.
+call add(g:pathogen_disabled, 'youcompleteme')
+call add(g:pathogen_disabled, 'marching')
+call add(g:pathogen_disabled, 'reunions')
+" call add(g:pathogen_disabled, 'neocomplete')
+" call add(g:pathogen_disabled, 'clang_complete')
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
