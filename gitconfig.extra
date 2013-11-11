@@ -9,6 +9,7 @@
 	co = checkout
 	ci = commit
 	br = branch
+	fe = fetch
 	sb = show-branch
 	cp = cherry-pick
 	subdo = submodule foreach git
