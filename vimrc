@@ -611,7 +611,7 @@ set nojoinspaces
 set modeline
 
 " Show commands as you type them
-" set showcmd
+set showcmd
 
 " Use specific plugins and indentation of the filetype
 filetype plugin indent on
@@ -626,7 +626,7 @@ set hidden
 set so=3
 
 " Allow the backspace to do useful things (is not the default everywhere)
-" set backspace=indent,eol,start
+set backspace=indent,eol,start
 
 " Set encoding to utf-8 for systems that don't have it by default
 set encoding=utf-8
@@ -674,7 +674,7 @@ if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
 syntax on
 
 " Highlight the opening bracket/parentheses when the closing one is written
-" set showmatch
+set showmatch
 
 " Use the Error colors for trailing whitespace.
 " match Error /\v\s+$/
@@ -727,7 +727,10 @@ set foldlevelstart=4
 set fdc=4
 
 " laststatus: Show the statusbar always, not only on last window
-" set ls=2
+set ls=2
+
+" For default statusline.
+set ruler
 
 " Customize the statusbar. The default is something like this (with ruler):
 "set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
@@ -842,7 +845,10 @@ set linespace=2
 set ignorecase
 set smartcase
 
-" Highlight search results, but not on startup.
+" Start the search, and apparently move the cursor as you type.
+set incsearch
+
+" Highlight search results, but not on startup
 set hlsearch
 nohlsearch
 
