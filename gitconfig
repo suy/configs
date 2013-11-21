@@ -1,5 +1,2 @@
-[user]
-	name = Alejandro Exojo
-	email = suy@badopi.org
 [include]
 	path = .gitconfig.extra
