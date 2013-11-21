@@ -695,7 +695,8 @@ set lazyredraw
 " set fillchars=vert:┃,fold:=,diff:·
 set fillchars=vert:┃,fold:═,diff:·
 
-" See the cursor line.
+" See the cursor line and the offset with the adjacent lines.
+set number
 set relativenumber
 
 " cul: Highlight the line in which the cursor is in. Caution, can be very slow.
