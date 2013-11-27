@@ -83,6 +83,10 @@ let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_data_directory=expand('~/.local/share/vim/vimfiler')
 let g:neocomplete#data_directory=expand('~/.local/share/vim/neocomplete')
+
+set cmdheight=2
+let g:echodoc_enable_at_startup = 1
+
 "}}}
 
 " Neosnippet."{{{
