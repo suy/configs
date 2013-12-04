@@ -355,7 +355,9 @@ let g:clang_close_preview=1
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 " For backported libclang
-if isdirectory('/usr/lib/llvm-3.2/lib')
+if filereadable('/usr/lib/libclang.so')
+	let g:clang_library_path='/usr/lib/'
+elseif isdirectory('/usr/lib/llvm-3.2/lib')
 	let g:clang_library_path='/usr/lib/llvm-3.2/lib'
 endif
 let g:clang_make_default_keymappings=0
