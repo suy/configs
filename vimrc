@@ -1136,7 +1136,7 @@ function! s:CleverTab()
 		endif
 	endif
 endfunction
-inoremap <Tab> <C-R>=<SID>CleverTab()<CR>
-inoremap <S-Tab> <C-p>
+inoremap <silent> <Tab> <C-R>=<SID>CleverTab()<CR>
+inoremap <silent> <S-Tab> <C-p>
 
 " vim: set foldmethod=marker:
