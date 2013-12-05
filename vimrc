@@ -1,3 +1,4 @@
+scriptencoding utf-8
 "  ____  _             _         _       _ _
 " |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
 " | |_) | | | | |/ _` | | '_ \  | | '_ \| | __|
@@ -539,7 +540,9 @@ set lbr
 " set brk
 
 " showbreak: show this string at the beginning of a line that is soft broken.
-set sbr=➥➥➥
+if $USER != 'root'
+	set sbr=➥➥➥
+endif
 
 " Add 'j' (remove commentstring when joining) to format options.
 if (v:version == 703 && has('patch550')) || v:version > 703 | set fo+=j | endif
@@ -714,7 +717,9 @@ endif
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
-set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
+if $USER != 'root'
+	set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
+endif
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
 if v:version >= 703
