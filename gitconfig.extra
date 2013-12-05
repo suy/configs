@@ -39,6 +39,6 @@
 [svn]
 	rmdir = 1
 [push]
-	default = matching
+	default = simple
 
 # vim:set filetype=gitconfig:
