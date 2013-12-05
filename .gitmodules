@@ -125,6 +125,7 @@
 [submodule "dotvim/bundle/clang_complete"]
 	path = dotvim/bundle/clang_complete
 	url = https://github.com/suy/clang_complete.git
+	branch = compatibility
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = https://github.com/suy/vim-ack.git
@@ -219,6 +220,7 @@
 [submodule "powerline"]
 	path = powerline
 	url = https://github.com/Lokaltog/powerline.git
+	branch = develop
 [submodule "dotvim/bundle/unite-history"]
 	path = dotvim/bundle/unite-history
 	url = https://github.com/thinca/vim-unite-history.git
