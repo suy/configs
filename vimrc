@@ -800,20 +800,7 @@ let g:solarized_hitrail='1'
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
-	" At work there is a different screen.
-	if $USER == 'modpow' || $USER == 'aexojo'
-		" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
-		" 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-		" else
-			set guifont=DejaVu\ Sans\ Mono\ 9
-		" endif
-	else
-		" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
-		" 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-		" else
-			set guifont=DejaVu\ Sans\ Mono\ 10
-		" endif
-	endif
+	set guifont=DejaVu\ Sans\ Mono\ 9
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
 	set guioptions+=LlRrb " Get rid of scrollbars...
