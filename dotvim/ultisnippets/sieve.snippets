@@ -1,0 +1,4 @@
+snippet list "New list filter"
+} elsif header :contains "List-Id" "$1${2}" {
+	fileinto :create "${1}";
+endsnippet
