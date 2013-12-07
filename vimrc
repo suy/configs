@@ -995,11 +995,7 @@ nmap <leader>bb :b #<CR>
 nmap <leader>b<space> :ls<CR>:b<space>
 nmap <leader>B<space> :ls!<CR>:b<space>
 
-" Switch on and off spellchecking
-nmap <leader>s :set spell!<CR>:set spell?<CR>
-
-" Activate diff mode and update the diff highlighting.
-nmap <leader>dt :diffthis<CR>
+" Update the diff highlighting.
 nmap <leader>du :diffupdate<CR>
 
 " Restore original fold settings (FIXME: this duplicates the values from this
