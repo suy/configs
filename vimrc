@@ -981,8 +981,9 @@ nmap <leader>l :set list!<CR>:set list?<CR>
 " Easily hide the highlighting of the search
 nmap <leader>h :nohlsearch<CR>
 
-" Toggle paste on/off when you want to copy in insert mode (e.g. from other app)
-nmap <leader>p :set paste<CR>"+p:set nopaste<Return>
+" Common paste operations.
+nmap <leader>p "+p
+nmap <leader>P "*p
 
 " Toggle the use of cursor column and cursor line
 nmap <silent> <leader><leader>cc :set cursorcolumn!<CR>
