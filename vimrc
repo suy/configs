@@ -1,4 +1,3 @@
-scriptencoding utf-8
 "  ____  _             _         _       _ _
 " |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
 " | |_) | | | | |/ _` | | '_ \  | | '_ \| | __|
@@ -6,6 +5,10 @@ scriptencoding utf-8
 " |_|   |_|\__,_|\__, |_|_| |_| |_|_| |_|_|\__|
 "                |___/
 " {{{
+
+" Safety net, since sometimes I screwed locale configuration and this file
+" contains some characters outside of ASCII.
+scriptencoding utf-8
 
 " Pathogen is a freaking awesome plugin for managing other plugins where each
 " one is in a directory of it's own, instead of all mixed in the same. This
@@ -529,10 +532,14 @@ set tw=80
 " set fo+=a
 
 " Don't display long lines that don't fit in the window as if were broken.
-" set nowrap
+" Display long lines by showing them in multiple visual lines, not by scrolling.
+" Only affects how the lines look. See 'showbreak' for the visual hint.
+set wrap
 
-" linebreak: break wrapped lines at specific characters, not simply at the last
-" one that fits. Doesn't apply if 'wrap' is unset, or 'list' is set.
+" linebreak: break wrapped lines at specific characters (like spaces) to make
+" text more readable, not simply at the last one that fits. Only makes sense
+" when 'wrap' is active, and unfortunately is disabled if 'list' is set, which
+" is a Vim limitation. See 'unimpaired' for a map for toggling 'list'.
 set lbr
 
 " breakat: fine tune which character can cause a soft break (the one caused by
@@ -572,7 +579,21 @@ set sts=4
 " Changes tabs with spaces (*beware* when you edit Makefiles)
 "set expandtab
 
-" TODO: autoindent, smartindent, cindent...
+" Make <Tab> and <BS> behave according to 'shiftwidth'.
+set smarttab
+
+" If you ask vimgor on #vim about smartindent, you get this:
+"   'smartindent' is an obsolete option for C-like syntax. It has been replaced
+"   with 'cindent', and setting 'cindent' also overrides 'smartindent'. Vim has
+"   indentation support for many languages out-of-the-box, and setting
+"   'smartindent' (or 'cindent', for that matter) in your .vimrc might interfere
+"   with this. Use 'filetype plugin indent on' and be happy.
+" That said, 'autoindent' is always safe to set.
+set autoindent
+
+" Use multiples of 'shiftwidth' when using the operators '>' and '<'.
+set shiftround
+
 " }}}
 
 
@@ -643,6 +664,9 @@ set encoding=utf-8
 " Allow more time between keystrokes for some key shortcuts
 set timeoutlen=1600
 
+" But not for for key codes.
+" Continue here the porting
+
 " Create directories on $HOME to avoid littering stuff in the source tree.
 if exists("*mkdir")
 	if !isdirectory($HOME . "/.local/share/vim/undo")
@@ -679,8 +703,10 @@ if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
 " |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|_|_| |_|\__, |
 "          |___/           |___/                   |___/
 
-" Activates syntax highlighting
-syntax on
+" Activates syntax highlighting, but keeping current color settings. From the
+" documentation: "If you want Vim to overrule your settings with the
+" defaults, use ':syntax on'".
+syntax enable
 
 " Highlight the opening bracket/parentheses when the closing one is written
 set showmatch
@@ -847,7 +873,7 @@ set smartcase
 " Start the search, and apparently move the cursor as you type.
 set incsearch
 
-" Highlight search results, but not on startup
+" Highlight search results, but not on startup.
 set hlsearch
 nohlsearch
 
@@ -976,7 +1002,7 @@ nmap <leader>r :redraw!<CR>
 "   will be added to the clipboard, which doesn't make sense).
 " - Making linebreak work, because is a documented limitation that doesn't
 "   work with :set list. :-(
-nmap <leader>l :set list!<CR>:set list?<CR>
+nmap <silent> <leader>l :<C-u>echoerr 'Use unimpaired: col'<Return>
 
 " Easily hide the highlighting of the search
 nmap <leader>h :nohlsearch<CR>
@@ -1086,6 +1112,9 @@ endfunction
 " | |__| (_) | | | | | | |_) | |  __/ |_| | (_) | | | |
 "  \____\___/|_| |_| |_| .__/|_|\___|\__|_|\___/|_| |_|
 "                      |_|
+
+" TODO:
+set wildmenu
 
 " Complete longest common string, then each full match
 set wildmode=list:longest,list:full
