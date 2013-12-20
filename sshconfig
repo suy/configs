@@ -7,6 +7,9 @@ ServerAliveInterval 60
 # disconnect.
 ServerAliveCountMax 3
 
+# For unite-ssh. Seems safe enough for the remaining use cases.
+ControlMaster auto
+
 Host *.debian.org
 	User suy-guest
 
@@ -25,9 +28,6 @@ Host *.badopi.org
 Host codereview.qt-project.org
 	Port 29418
 	User suy
-
-# For unite-ssh. Seems safe enough for the remaining use cases.
-ControlMaster auto
 
 #
 # Work stuff. Uses the other ssh key, so all here specify IdentityFile.
