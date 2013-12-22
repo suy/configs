@@ -732,7 +732,7 @@ set fillchars=vert:┃,fold:═,diff:·
 
 " See the cursor line and the offset with the adjacent lines.
 set number
-if v:version >= 703
+if exists('+relativenumber')
 	set relativenumber
 endif
 
@@ -750,7 +750,7 @@ if $USER != 'root'
 endif
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
-if v:version >= 703
+if exists('+cursorcolumn')
 	set cc=+1
 endif
 
@@ -1131,7 +1131,7 @@ set su+=.asc,.cfg
 set wig+=*.pdf,*.png,*.jpg,*.jpeg,*.ttf,*.otf,*.qpf2,*.wav,*.mp3,*.ogg
 
 " Ignore case in the command line.
-if version > 702 | set wildignorecase | endif
+if exists('+wildignorecase') | set wildignorecase | endif
 
 " A moderately simple alternative to the SuperTab plugin.
 function! s:CleverTab()
