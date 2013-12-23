@@ -278,3 +278,12 @@
 [submodule "dotvim/bundle/echodoc"]
 	path = dotvim/bundle/echodoc
 	url = https://github.com/Shougo/echodoc.vim.git
+[submodule "dotvim/bundle/maktaba"]
+	path = dotvim/bundle/maktaba
+	url = https://github.com/google/maktaba.git
+[submodule "dotvim/bundle/vital"]
+	path = dotvim/bundle/vital
+	url = https://github.com/vim-jp/vital.vim.git
+[submodule "dotvim/bundle/glaive"]
+	path = dotvim/bundle/glaive
+	url = https://github.com/google/glaive.git
