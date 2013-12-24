@@ -661,13 +661,18 @@ set backspace=indent,eol,start
 " Set encoding to utf-8 for systems that don't have it by default
 set encoding=utf-8
 
-" Allow more time between keystrokes for some key shortcuts
-set timeoutlen=1600
+" Allow more time between keystrokes for some key mappings.
+set timeout timeoutlen=1600
 
-" But not for for key codes.
-" Continue here the porting
+" But not for for key codes. Use a very small value for them.
+set ttimeout ttimeoutlen=50
 
-" Create directories on $HOME to avoid littering stuff in the source tree.
+" Set and create specific directories on $HOME and similar to avoid littering the
+" filesystem with Vim specific stuff.
+let s:dir = has('win32') ? '$APPDATA/Vim' :
+			\ match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' :
+			\ empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+
 if exists("*mkdir")
 	if !isdirectory($HOME . "/.local/share/vim/undo")
 		call mkdir($HOME . "/.local/share/vim/undo", "p")
@@ -694,6 +699,11 @@ set noautowrite
 
 " Set Blowfish for encryption method, but only on Vim >=7.3.
 if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
+
+" Save and restore g:UPPERCASE variables in viminfo.
+if !empty(&viminfo)
+  set viminfo^=!
+endif
 
 
 "  _   _ _       _     _ _       _     _   _
@@ -745,9 +755,16 @@ endif
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
-if $USER != 'root'
-	set listchars=tab:⇥\ ,trail:·,extends:❬,precedes:❬
-endif
+" Boring but 'safe' characters.
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+" TODO: only set this characters in some constrained conditions. But which ones?
+let &listchars = "tab:\u21e5 ,nbsp:\u00b7,extends:\u276c,precedes:\u276d,trail:\u2423"
+
+" This is what sensible.vim uses. I'm not sure that I understand the checks. Why
+" can't be set on win32?
+" if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
+" 	let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
+" endif
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
 if exists('+cursorcolumn')
@@ -1115,7 +1132,7 @@ endfunction
 "  \____\___/|_| |_| |_| .__/|_|\___|\__|_|\___/|_| |_|
 "                      |_|
 
-" TODO:
+" Activate completion of the command line.
 set wildmenu
 
 " Complete longest common string, then each full match
