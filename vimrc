@@ -758,7 +758,7 @@ set list
 " Boring but 'safe' characters.
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 " TODO: only set this characters in some constrained conditions. But which ones?
-let &listchars = "tab:\u21e5 ,nbsp:\u00b7,extends:\u276c,precedes:\u276d,trail:\u2423"
+let &listchars = "tab:\u21e5 ,nbsp:\u00b7,extends:\u276d,precedes:\u276c,trail:\u2423"
 
 " This is what sensible.vim uses. I'm not sure that I understand the checks. Why
 " can't be set on win32?
