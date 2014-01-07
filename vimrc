@@ -672,23 +672,25 @@ set ttimeout ttimeoutlen=50
 let s:dir = has('win32') ? '$APPDATA/Vim' :
 			\ match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' :
 			\ empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+let s:dir = expand(s:dir)
 
 if exists("*mkdir")
-	if !isdirectory($HOME . "/.local/share/vim/undo")
-		call mkdir($HOME . "/.local/share/vim/undo", "p")
+	if !isdirectory(s:dir . "/undo")
+		call mkdir(s:dir . "/undo", "p")
 	endif
-	if !isdirectory($HOME . "/.local/share/vim/swap")
-		call mkdir($HOME . "/.local/share/vim/swap", "p")
+	if !isdirectory(s:dir . "/swap")
+		call mkdir(s:dir . "/swap", "p")
 	endif
 endif
 
 " Save the undo history in a persistent file, not just while Vim is running.
 if has('persistent_undo')
-	set undofile undodir=$HOME/.local/share/vim/undo,.,/var/tmp,/tmp
+	set undofile
+	let &undodir = s:dir . '/undo,.,/var/tmp,/tmp'
 endif
 
 " Save the swap files on a different directory.
-set directory=$HOME/.local/share/vim/swap,.,/var/tmp,/tmp
+let &directory = s:dir . '/swap,.,/var/tmp,/tmp'
 
 " Save a lot more history
 set history=200
@@ -915,6 +917,15 @@ set foldopen-=search
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
+" Make Y consistent with C and D.  See :help Y.
+nnoremap Y y$
+
+" Safe net with <C-u>: add an undo-break (see :help i_CTRL-G_u).
+inoremap <C-u> <C-g>u<C-u>
+
+" Like & (repeat last substitute), but repeating the same flags.
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 " Don't do dangerous things.
 nnoremap ZQ <Nop>
