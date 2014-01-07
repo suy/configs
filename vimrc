@@ -761,7 +761,8 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 let &listchars = "tab:\u21e5 ,nbsp:\u00b7,extends:\u276d,precedes:\u276c,trail:\u2423"
 
 " This is what sensible.vim uses. I'm not sure that I understand the checks. Why
-" can't be set on win32?
+" can't be set on win32? See:
+" https://github.com/tpope/vim-sensible/commit/3ffe25ce1d78e884879cc8c26d5a7ea6a14f4d49
 " if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
 " 	let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
 " endif
