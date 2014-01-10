@@ -367,7 +367,8 @@ endif
 let g:clang_make_default_keymappings=0
 
 " For snowdrop, use the same path.
-let g:snowdrop#libclang_path = g:clang_library_path
+let g:snowdrop#libclang_path ='/usr/lib/x86_64-linux-gnu/'
+let g:snowdrop#libclang_file='libclang-3.4.so.1'
 
 let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_auto_select = 0
