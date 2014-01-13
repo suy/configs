@@ -100,7 +100,7 @@ xmap <C-z> <Plug>(neosnippet_expand_target)
 " imap <C-l> <Plug>(neosnippet_start_unite_snippet_target)
 
 " Disable all runtime snippets for now
-" let g:neosnippet#disable_runtime_snippets = {'_' : 1}
+let g:neosnippet#disable_runtime_snippets = {'_' : 1}
 "}}}
 
 " Unite. "{{{
