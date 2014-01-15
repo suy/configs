@@ -492,6 +492,10 @@ let g:indent_guides_color_change_percent=3
 
 " Current func info.
 nnoremap <leader>ff :<C-u>echo cfi#format("%s", "")<CR>
+
+" Choosewin
+let g:choosewin_overlay_enable = 1
+nnoremap <leader>W :ChooseWin<Return>
 " }}}
 
 
