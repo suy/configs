@@ -287,3 +287,9 @@
 [submodule "dotvim/bundle/snowdrop"]
 	path = dotvim/bundle/snowdrop
 	url = https://github.com/osyo-manga/vim-snowdrop.git
+[submodule "dotvim/bundle/choosewin"]
+	path = dotvim/bundle/choosewin
+	url = https://github.com/t9md/vim-choosewin.git
+[submodule "dotvim/bundle/startify"]
+	path = dotvim/bundle/startify
+	url = https://github.com/mhinz/vim-startify.git
