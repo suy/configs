@@ -181,6 +181,7 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'jump list': 'Unite jump',
 			\ 'change list': 'Unite change',
 			\ 'register': 'Unite register',
+			\ 'grep': 'Unite grep -keep-focus -no-quit',
 			\ }
 function g:unite_source_menu_menus.unite.map(key, value) dict
 	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
