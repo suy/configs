@@ -782,7 +782,7 @@ let &listchars = "tab:\u21e5 ,nbsp:\u00b7,extends:\u276d,precedes:\u276c,trail:\
 " endif
 
 " colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
-if exists('+cursorcolumn')
+if exists('+colorcolumn')
 	set cc=+1
 endif
 
