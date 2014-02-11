@@ -25,8 +25,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 let g:pathogen_disabled = [
 		\ 'simple-javascript-indenter',
 		\ 'web-indent',
-		\ 'vim-powerline',
-		\ 'linepower',
 		\ 'space']
 
 " Disable css-color in the console, because it slows down too much.
@@ -225,22 +223,6 @@ let g:UltiSnipsListSnippets="<C-Q>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-K>"
 " Since I don't like the default snippets much, use my own directory only.
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
-
-" Powerline configuration.
-" if isdirectory($HOME . "/.fonts/ttf-dejavu-powerline")
-" 	let g:Powerline_symbols="fancy"
-" else
-" 	let g:Powerline_symbols="unicode"
-" endif
-" let g:Powerline_stl_path_style="short"
-" let g:Powerline_theme="skwp"
-" let g:Powerline_colorscheme = 'skwp'
-" runtime autoload/Pl/Theme.vim
-" if exists('*Pl#Theme#RemoveSegment')
-" 	call Pl#Theme#RemoveSegment('fileformat')
-" 	call Pl#Theme#RemoveSegment('fileencoding')
-" 	call Pl#Theme#InsertSegment('lastnextprevious:static_str', 'after', 'filetype')
-" endif
 
 let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 0
@@ -631,9 +613,6 @@ if has("autocmd")
 
 		" Source .vimrc automatically when it is saved.
 		" autocmd BufWritePost *vimrc source $MYVIMRC
-		" Work around to fix Powerline colors (something clears highlighting).
-		" https://github.com/Lokaltog/vim-powerline/issues/28#issuecomment-3492408
-		" autocmd BufWritePost *vimrc call Pl#Load()
 
 		" Set nopaste once insert mode is left, just in case.
 		autocmd InsertLeave * set nopaste
@@ -820,9 +799,8 @@ set ruler
 " set statusline +=%1*%4c\ %*             "column number
 " set statusline +=%2*0x%04B\ %*          "character under cursor
 
-" Only use the default statusline setting if Powerline is not present.
-" if !exists('*Pl#Theme#RemoveSegment')
-if 0
+" Only use the default statusline setting if Airline is not present.
+if !exists('*airline#parts#define_function')
 	" Clear it first to start fresh each invocation
 	set statusline=
 	" Buffer name with 2 minimum width

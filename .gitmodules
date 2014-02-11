@@ -61,9 +61,6 @@
 [submodule "dotvim/bundle/pasta"]
 	path = dotvim/bundle/pasta
 	url = https://github.com/sickill/vim-pasta.git
-[submodule "dotvim/bundle/vim-powerline"]
-	path = dotvim/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "dotvim/bundle/ragtag"]
 	path = dotvim/bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
@@ -211,9 +208,6 @@
 [submodule "dotvim/bundle/qml"]
 	path = dotvim/bundle/qml
 	url = https://github.com/peterhoeg/vim-qml.git
-[submodule "dotvim/bundle/linepower"]
-	path = dotvim/bundle/linepower
-	url = https://github.com/zhaocai/linepower.vim.git
 [submodule "powerline"]
 	path = powerline
 	url = https://github.com/Lokaltog/powerline.git
