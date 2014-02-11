@@ -49,10 +49,11 @@ endif
 
 " Temporary tweaks. Just use neocomplete and clang_complete, disable others.
 call add(g:pathogen_disabled, 'youcompleteme')
+" call add(g:pathogen_disabled, 'clang_complete')
+
 call add(g:pathogen_disabled, 'marching')
 call add(g:pathogen_disabled, 'reunions')
 " call add(g:pathogen_disabled, 'neocomplete')
-" call add(g:pathogen_disabled, 'clang_complete')
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
@@ -62,9 +63,6 @@ if exists('*pathogen#infect')
 	" but better not to run it at startup/reload, since it is too slow.
 	" call pathogen#helptags()
 endif
-
-" Load early vim-sensible, so it can be overriden if needed.
-runtime! plugin/sensible.vim
 
 " }}}
 
@@ -80,16 +78,18 @@ runtime! plugin/sensible.vim
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
-" Several small variable settings for plugins. "{{{
+" Several small variable settings for plugins that don't require much. " {{{
+" Vimfiler.
 let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_data_directory=expand('~/.local/share/vim/vimfiler')
-let g:neocomplete#data_directory=expand('~/.local/share/vim/neocomplete')
 
+" Echodoc.
 set cmdheight=2
 let g:echodoc_enable_at_startup = 1
 
-"}}}
+" The operator-replace plugin doesn't map any key, and I only use gR for replace.
+map R <Plug>(operator-replace)
+" }}}
 
 " Neosnippet."{{{
 imap <C-z> <Plug>(neosnippet_expand_or_jump)
@@ -100,6 +100,20 @@ xmap <C-z> <Plug>(neosnippet_expand_target)
 " Disable all runtime snippets for now
 let g:neosnippet#disable_runtime_snippets = {'_' : 1}
 "}}}
+
+" UltiSnips. "{{{
+" Use CTRL+S (unused in insert mode) to invoke a
+" snippet. This way, your <tab> can be free for other completion actions.
+let g:UltiSnipsExpandTrigger="<C-S>"
+let g:UltiSnipsListSnippets="<C-Q>"
+" These other two are the defaults. Left here as a reminder.
+" let g:UltiSnipsJumpForwardTrigger="<C-J>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-K>"
+" Since I don't like the default snippets much, use my own directory only.
+let g:UltiSnipsSnippetDirectories=["ultisnippets"]
+" }}}
+
+
 
 " Unite. "{{{
 " Unite preferences. "{{{
@@ -214,16 +228,7 @@ endif
 " sources provided are just fine.
 "}}}
 
-" Configuration for UltiSnips. Use CTRL+S (unused in insert mode) to invoke a
-" snippet. This way, your <tab> can be free for other completion actions.
-let g:UltiSnipsExpandTrigger="<C-S>"
-let g:UltiSnipsListSnippets="<C-Q>"
-" These other two are the defaults. Left here as a reminder.
-" let g:UltiSnipsJumpForwardTrigger="<C-J>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-" Since I don't like the default snippets much, use my own directory only.
-let g:UltiSnipsSnippetDirectories=["ultisnippets"]
-
+" Airline " {{{
 let g:airline_powerline_fonts=1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#hunks#enabled = 0
@@ -234,6 +239,7 @@ let g:airline_theme='tomorrow'
 " let g:airline_right_sep = '◀'
 " let g:airline_symbols = {}
 " let g:airline_symbols.linenr = '¶ '
+" }}}
 
 " Submode. "{{{
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
@@ -315,9 +321,6 @@ call smartinput#define_rule({
 \})
 endif
 "}}}
-
-" The operator-replace plugin isn't mapped to any key, and I almost don't use R.
-map R <Plug>(operator-replace)
 
 " Use a Creator-like shortcut for CtrlP plugin.
 let g:ctrlp_map = '<C-k>'
