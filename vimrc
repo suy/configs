@@ -84,7 +84,6 @@ let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
 
 " Echodoc.
-set cmdheight=2
 let g:echodoc_enable_at_startup = 1
 
 " The operator-replace plugin doesn't map any key, and I only use gR for replace.
@@ -322,7 +321,7 @@ call smartinput#define_rule({
 endif
 "}}}
 
-" Use a Creator-like shortcut for CtrlP plugin.
+" CtrlP. " {{{
 let g:ctrlp_map = '<C-k>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_user_command = {
@@ -337,6 +336,7 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
 let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_by_filename = 0
+" }}}
 
 " neocomplete and clang_complete {{{
 let g:clang_snippets=1
@@ -621,6 +621,9 @@ if has("autocmd")
 		autocmd InsertLeave * set nopaste
 	augroup END
 endif
+
+" For echodoc.
+set cmdheight=2
 
 " Limit suggestions when spell checking with z=.
 set spellsuggest=best,15
