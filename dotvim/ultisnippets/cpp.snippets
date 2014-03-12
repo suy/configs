@@ -1,5 +1,15 @@
 extends c
 
+snippet rfor "Range based for"
+for (${1:auto ${2:item}} : ${3:container}) {
+    ${VISUAL}$4
+}$0
+endsnippet
+
+snippet var "A variable as string and as value"
+"${1:variable}" << $1
+endsnippet
+
 snippet class "Class header boilerplate" w
 #ifndef ${1/.*/\U$0\E/}_H
 #define ${1/.*/\U$0\E/}_H
@@ -42,6 +52,10 @@ endsnippet
 # This is Qt specific. I will have to think how to make this less obtrusive for
 # non-Qt C++ code.
 #
+snippet qsl "QStringLiteral" w
+QStringLiteral(${1:${VISUAL}})$0
+endsnippet
+
 snippet debu "qDebug" !w
 qDebug() << ${VISUAL}$0;
 endsnippet
@@ -74,14 +88,4 @@ snippet foreach "Qt's foreach" !b
 foreach (${1:variable}, ${2:container}) {
 	${VISUAL}$0
 }
-endsnippet
-
-snippet rfor "Range based for"
-for (${1:auto ${2:item}} : ${3:container}) {
-    ${VISUAL}$4
-}$0
-endsnippet
-
-snippet var "A variable as string and as value"
-"${1:variable}" << $1
 endsnippet
