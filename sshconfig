@@ -39,6 +39,9 @@ Host backend-modpow.rhcloud.com
 Host *-modpow.rhcloud.com
 	IdentityFile ~/.ssh/aexojo@pc-mw03
 
+Host *-jllobet.rhcloud.com
+	IdentityFile ~/.ssh/aexojo@pc-mw03
+
 Host 192.168.0.70
 	User modpow
 	IdentityFile ~/.ssh/aexojo@pc-mw03
