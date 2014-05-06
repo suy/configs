@@ -18,27 +18,27 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	tomerge = log -p --reverse ..@{upstream}
 	topush  = log -p --reverse   @{upstream}..
-[url "git://gitorious.org/qt/"]
-	insteadOf = qt:
-[url "git://gitorious.org/qt-labs/"]
-	insteadOf = qtl:
-[url "git://anongit.kde.org/"]
-    insteadOf = kde:
-[url "git@git.kde.org:"]
-    pushInsteadOf = kde:
-[url "https://github.com/"]
-	insteadOf = gh:
-[url "git@bitbucket.org:"]
-	insteadOf = bb:
 [core]
 	excludesfile = ~/.ignore-patterns
 [merge]
 	defaultToUpstream = 1
 [branch]
 	autosetuprebase = remote
-[svn]
-	rmdir = 1
 [push]
 	default = simple
+[svn]
+	rmdir = 1
+[url "git://gitorious.org/qt/"]
+	insteadOf = qt:
+[url "git://gitorious.org/qt-labs/"]
+	insteadOf = qtl:
+[url "git://anongit.kde.org/"]
+	insteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
+[url "https://github.com/"]
+	insteadOf = gh:
+[url "git@bitbucket.org:"]
+	insteadOf = bb:
 
 # vim:set filetype=gitconfig:
