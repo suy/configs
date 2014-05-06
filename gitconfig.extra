@@ -26,6 +26,8 @@
 	autosetuprebase = remote
 [push]
 	default = simple
+[fetch]
+	prune = 1
 [svn]
 	rmdir = 1
 [url "git://gitorious.org/qt/"]
