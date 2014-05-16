@@ -40,6 +40,7 @@ Host *-modpow.rhcloud.com
 	IdentityFile ~/.ssh/aexojo@pc-mw03
 
 Host *-jllobet.rhcloud.com
+	User 532c0ce1e0b8cd329f0000c6
 	IdentityFile ~/.ssh/aexojo@pc-mw03
 
 Host 192.168.0.70
