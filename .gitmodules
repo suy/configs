@@ -289,3 +289,6 @@
 [submodule "dotvim/bundle/neomru"]
 	path = dotvim/bundle/neomru
 	url = https://github.com/Shougo/neomru.vim.git
+[submodule "dotvim/bundle/indent-line"]
+	path = dotvim/bundle/indent-line
+	url = https://github.com/Yggdroot/indentLine.git

@@ -88,6 +88,9 @@ let g:echodoc_enable_at_startup = 1
 
 " The operator-replace plugin doesn't map any key, and I only use gR for replace.
 map R <Plug>(operator-replace)
+
+" Enable markdown folding.
+let g:markdown_folding=1
 " }}}
 
 " Neosnippet."{{{
@@ -473,7 +476,7 @@ let g:localrc_filename=".localrc.vim"
 let g:textobj_wiw_default_key_mappings_prefix='\'
 
 " Indent guides. TODO: more customization.
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=0
 let g:indent_guides_default_mapping=0
 let g:indent_guides_color_change_percent=3
 
