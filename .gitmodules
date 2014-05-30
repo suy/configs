@@ -292,3 +292,6 @@
 [submodule "dotvim/bundle/indent-line"]
 	path = dotvim/bundle/indent-line
 	url = https://github.com/Yggdroot/indentLine.git
+[submodule "dotvim/bundle/textobj-number"]
+	path = dotvim/bundle/textobj-number
+	url = https://github.com/haya14busa/vim-textobj-number.git
