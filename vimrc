@@ -726,6 +726,8 @@ set showmatch
 
 " Use the Error colors for trailing whitespace.
 " match Error /\v\s+$/
+" Alternative idea: highlight bogus whitespace mixtures.
+match Error /\v\t+ +\t+/
 
 
 "
