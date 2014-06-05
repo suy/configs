@@ -295,3 +295,9 @@
 [submodule "dotvim/bundle/textobj-number"]
 	path = dotvim/bundle/textobj-number
 	url = https://github.com/haya14busa/vim-textobj-number.git
+[submodule "dotvim/bundle/lesscss"]
+	path = dotvim/bundle/lesscss
+	url = https://github.com/groenewege/vim-less.git
+[submodule "dotvim/bundle/css3-syntax"]
+	path = dotvim/bundle/css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
