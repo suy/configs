@@ -233,7 +233,7 @@ endif
 
 " Airline " {{{
 let g:airline_powerline_fonts=1
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='tomorrow'
@@ -430,9 +430,9 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.c =
-	  \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 let g:neocomplete#force_omni_input_patterns.cpp =
-	  \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+	\ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
@@ -449,9 +449,9 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_config_file = '.clang_complete'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_wq=0
-let g:syntastic_mode_map = { 'mode': 'active',
-						   \ 'active_filetypes': ['cpp'],
-						   \ 'passive_filetypes': ['xml'] }
+let g:syntastic_mode_map =	{ 'mode': 'active',
+							\ 'active_filetypes': ['cpp'],
+							\ 'passive_filetypes': ['xml'] }
 
 " Setup for the lastnextprevious plugin.
 " FIXME: Something is wrong here in Vim 7.2.
@@ -612,7 +612,7 @@ if has("autocmd")
 
 		" Jump to the last position when reopening a file.
 		autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
-		  \ | exe "normal! g`\"" | endif
+			\ | exe "normal! g`\"" | endif
 
 		" Automatically resize window splits when the application is resized.
 		autocmd VimResized * exe "normal! \<c-w>="
@@ -1171,7 +1171,7 @@ function! s:CleverTab()
 		return "\<C-n>"
 	" Check if the cursor is at the beginning of line or after whitespace
 	elseif col('.') == 1 || strpart( getline('.'), 0, col('.')-1 ) =~ '\s$'
-	   return "\<Tab>"
+		return "\<Tab>"
 	else
 		" If the previous text looks like a path, use filename completion.
 		if strpart( getline('.'), 0, col('.')-1 ) =~ '/$'
