@@ -92,6 +92,18 @@ map R <Plug>(operator-replace)
 
 " Enable markdown folding.
 let g:markdown_folding=1
+
+" Startify features, and arrangement of sections.
+let g:startify_list_order = ['bookmarks', 'files', 'dir']
+let g:startify_change_to_vcs_root = 1
+let g:startify_skiplist = [
+	\ 'COMMIT_EDITMSG',
+	\ '.git/index'
+	\ ]
+if executable('fortune')
+	let g:startify_custom_header =
+	\ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
+endif
 " }}}
 
 " Neosnippet."{{{
@@ -142,10 +154,10 @@ endif
 
 " Invocation trick. Use: [count]<leader>u
 nmap <silent> <leader>u  :<C-u>execute get([
-	\ "Unite -no-split -buffer-name=files buffer file_rec/async:! file_mru file/new",
+	\ "Unite -no-split -buffer-name=files buffer file_rec/async:! file/new",
 	\ "Unite menu:unite",
-	\ "Unite -no-split -buffer-name=files -quick-match buffer",
-	\ "Unite -no-split -buffer-name=files -quick-match file_mru",
+	\ "Unite -no-split -buffer-name=files buffer",
+	\ "Unite -no-split -buffer-name=files file_mru",
 	\ "Unite history/command",
 	\ "Unite outline",
 	\ "Unite output:message",
