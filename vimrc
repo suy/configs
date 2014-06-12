@@ -100,6 +100,7 @@ let g:startify_skiplist = [
 	\ 'COMMIT_EDITMSG',
 	\ '.git/index'
 	\ ]
+let g:startify_custom_indices = map(range(5,100), 'string(v:val)')
 if executable('fortune')
 	let g:startify_custom_header =
 	\ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
