@@ -499,6 +499,9 @@ nnoremap <leader>ff :<C-u>echo cfi#format("%s", "")<CR>
 " Choosewin
 let g:choosewin_overlay_enable = 1
 nnoremap <leader>W :ChooseWin<Return>
+
+" Experiment: swap the contents of the default register and the clipboard.
+nnoremap <silent> <Leader>k :let temp=@+ <BAR> let @+=@" <BAR> let @"=temp <BAR> unlet temp<Return>
 " }}}
 
 
