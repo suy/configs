@@ -13,11 +13,11 @@
 	sb = show-branch
 	cp = cherry-pick
 	subdo = submodule foreach git
-	unstage-all = reset HEAD .
 	wdiff = diff --word-diff=color
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	tomerge = log -p --reverse ..@{upstream}
 	topush  = log -p --reverse   @{upstream}..
+	root = rev-parse --show-toplevel
 [core]
 	excludesfile = ~/.ignore-patterns
 [merge]
