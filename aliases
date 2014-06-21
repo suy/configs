@@ -5,7 +5,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -l --time-style=long-iso'
-alias lh='ls -lh'
+alias lh='ll -h'
 alias la='ls -A'
 alias l='ls -CF'
 alias lld='ls -ld */'
