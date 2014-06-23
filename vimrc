@@ -724,6 +724,9 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 
+" Some diff options.
+set diffopt=filler,vertical
+
 
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
