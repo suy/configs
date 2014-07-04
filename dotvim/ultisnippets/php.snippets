@@ -1,0 +1,11 @@
+extends cfamily
+
+snippet log "log"
+error_log(var_export(${1}, true));${2}
+endsnippet
+
+snippet debu
+error_log(__METHOD__.' '.$1);$0
+endsnippet
+
+# :vim: filetype=snippets:
