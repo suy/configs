@@ -79,3 +79,13 @@ tweak in my vimrc. Here are some notes for self reference:
 * Test plugins from [https://github.com/kana Kana Natsuno]. He has great things there.
 * Add (and learn) stuff for nice C++ completion and refactoring (e.g. neocomplcache).
 
+Evaluate the following plugins:
+* https://github.com/osyo-manga/vim-precious
+* https://github.com/sheerun/vim-polyglot
+* https://github.com/gorodinskiy/vim-coloresque
+* https://github.com/tpope/vim-obsession
+* https://github.com/tpope/vim-tbone
+* https://github.com/tpope/vim-git
+* https://github.com/jtratner/vim-flavored-markdown
+* https://github.com/Shougo/vinarise.vim
+
