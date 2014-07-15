@@ -301,3 +301,6 @@
 [submodule "dotvim/bundle/css3-syntax"]
 	path = dotvim/bundle/css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule "dotvim/bundle/lion"]
+	path = dotvim/bundle/lion
+	url = https://github.com/tommcdo/vim-lion.git
