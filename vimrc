@@ -210,6 +210,8 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'change list': 'Unite change',
 			\ 'register': 'Unite register',
 			\ 'grep': 'Unite grep -keep-focus -no-quit',
+			\ 'mapping': 'Unite mapping',
+			\ 'runtimepath': 'Unite runtimepath',
 			\ }
 function g:unite_source_menu_menus.unite.map(key, value) dict
 	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
@@ -223,6 +225,7 @@ endfunction
 
 let g:unite_source_menu_menus.git = {'description': 'Git commands'}
 let g:unite_source_menu_menus.git.command_candidates = [
+			\ ['git diff', 'Git! diff'],
 			\ ['git status', 'Gstatus'],
 			\ ['git show', 'Git! show'],
 			\ ['master..trunk', 'Glog master..trunk --'],
