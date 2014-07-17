@@ -65,6 +65,12 @@ if exists('*pathogen#infect')
 	" call pathogen#helptags()
 endif
 
+" This is copied from sensible.vim. There is not any updated matchit version.
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+
 " }}}
 
 
