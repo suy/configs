@@ -218,6 +218,7 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'grep': 'Unite grep -keep-focus -no-quit',
 			\ 'mapping': 'Unite mapping',
 			\ 'runtimepath': 'Unite runtimepath',
+			\ 'git': 'Unite menu:git',
 			\ }
 function g:unite_source_menu_menus.unite.map(key, value) dict
 	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
