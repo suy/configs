@@ -34,21 +34,21 @@ export DEBSIGN_KEYID=0x0B8B0BC2
 # Other
 KDE_NO_IPV6=true
 
-if [ -d ~/local/bin ] ; then
-	export PATH=~/local/bin:"${PATH}"
+if [ -d $HOME/local/bin ] ; then
+	export PATH=$HOME/local/bin:"${PATH}"
 fi
 
-if [ -d ~/local/configs/powerline/ ] ; then
-	export PYTHONPATH=~/local/configs/powerline:"${PYTHONPATH}"
+if [ -d $HOME/local/configs/powerline/ ] ; then
+	export PYTHONPATH=$HOME/local/configs/powerline:"${PYTHONPATH}"
 fi
 
-if [ -d ~/local/man ] ; then
-    export MANPATH=~/local/man:"${MANPATH}"
+if [ -d $HOME/local/man ] ; then
+    export MANPATH=$HOME/local/man:"${MANPATH}"
 fi
 
 # Source another "local" environment file if exists.
-if [ -f ~/.environment.local ] ; then
-    source ~/.environment.local
+if [ -f $HOME/.environment.local ] ; then
+    source $HOME/.environment.local
 fi
 
 # vim:set filetype=sh:
