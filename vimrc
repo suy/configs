@@ -475,7 +475,6 @@ let g:syntastic_check_on_wq=0
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_less_checkers = ['lessc']
 let g:syntastic_mode_map =	{ 'mode': 'active',
-							\ 'active_filetypes': ['cpp'],
 							\ 'passive_filetypes': ['xml'] }
 
 " Setup for the lastnextprevious plugin.
