@@ -15,3 +15,16 @@ endsnippet
 snippet inc "Include a file" !b
 #include "${VISUAL}$0"
 endsnippet
+
+snippet main "Kickstart a main()" !b
+#include <${1:stdio.h}>
+
+int main(int argc, char* argv[])
+{
+	$2
+	return 0;
+}
+$0
+endsnippet
+
+# vim:ft=snippets:
