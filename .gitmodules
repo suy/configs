@@ -304,3 +304,6 @@
 [submodule "dotvim/bundle/lion"]
 	path = dotvim/bundle/lion
 	url = https://github.com/tommcdo/vim-lion.git
+[submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
+	path = dotvim/bundle/fugitive-bitbucket-gbrowse
+	url = https://github.com/tommcdo/vim-fubitive.git
