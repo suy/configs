@@ -307,3 +307,6 @@
 [submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
 	path = dotvim/bundle/fugitive-bitbucket-gbrowse
 	url = https://github.com/tommcdo/vim-fubitive.git
+[submodule "dotvim/bundle/projectionist"]
+	path = dotvim/bundle/projectionist
+	url = https://github.com/tpope/vim-projectionist.git
