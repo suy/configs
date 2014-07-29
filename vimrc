@@ -379,6 +379,7 @@ elseif isdirectory('/usr/lib/llvm-3.4/lib')
 	let g:clang_library_path='/usr/lib/llvm-3.4/lib'
 endif
 let g:clang_make_default_keymappings=0
+autocmd FileType cpp nnoremap <buffer> <silent> <C-l> :call g:ClangGotoDeclaration()<CR><Esc>
 
 " For snowdrop, use the same path.
 let g:snowdrop#libclang_directory ='/usr/lib/x86_64-linux-gnu'
