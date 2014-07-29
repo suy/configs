@@ -952,6 +952,9 @@ set foldopen-=search
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
+" Note to self: possible key candidates to be remapped as handy operators,
+" since I rarely use them: K, H, L, M, ^Q, ^P, ^N.
+
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
 
