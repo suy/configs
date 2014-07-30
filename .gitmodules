@@ -310,3 +310,9 @@
 [submodule "dotvim/bundle/projectionist"]
 	path = dotvim/bundle/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
+[submodule "dotvim/bundle/smartinput-endwise"]
+	path = dotvim/bundle/smartinput-endwise
+	url = https://github.com/cohama/vim-smartinput-endwise.git
+[submodule "dotvim/bundle/endwise"]
+	path = dotvim/bundle/endwise
+	url = https://github.com/tpope/vim-endwise.git

@@ -28,6 +28,11 @@ let g:pathogen_disabled = [
 		\ 'indent-guides',
 		\ 'space']
 
+" Additionally, disable the plugin code of endwise, since I want it available
+" in the runtimepath, but not loading any code. This way I can check the source
+" and the documentation with :Vedit, etc.
+let g:loaded_endwise=1
+
 " Disable css-color in the console, because it slows down too much.
 if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
@@ -347,6 +352,8 @@ call smartinput#define_rule({
 \	'input':    '(',
 \})
 endif
+
+call smartinput_endwise#define_default_rules()
 "}}}
 
 " CtrlP. " {{{
