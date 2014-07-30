@@ -960,7 +960,7 @@ set foldopen-=search
 "           |___/                          |___/
 
 " Note to self: possible key candidates to be remapped as handy operators,
-" since I rarely use them: K, H, L, M, ^Q, ^P, ^N.
+" since I rarely use them: K, H, L, M, Q, ^Q, ^P, ^N.
 
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
