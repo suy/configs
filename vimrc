@@ -116,6 +116,15 @@ if executable('fortune')
 	let g:startify_custom_header =
 	\ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
 endif
+
+" Indent line.
+let g:indentLine_char = '│'
+let g:indentLine_char = '┃'
+let g:indentLine_char = '┊'
+let g:indentLine_char = '⎸'
+let g:indentLine_first_char = '┃'
+let g:indentLine_fileTypeExclude = ['help']
+
 " }}}
 
 " Neosnippet."{{{
@@ -246,12 +255,8 @@ let g:unite_source_menu_menus.git.command_candidates = [
 "}}}
 "}}}
 
-" JunkFile configuration. "{{{
-if $USER == 'modpow'
-	let g:junkfile#directory='/var/tmp/misc/misc'
-else
-	let g:junkfile#directory=expand('~/personal/misc')
-endif
+" JunkFile "{{{
+let g:junkfile#directory=expand('~/personal/misc')
 " Ideas: remove the default command, and put one/some of my own. Submit a pull
 " request to improve the docs and made it more customizable. For example,
 " JunkfileOpen lets you choose the name of the file, but is always put in %Y/%m
