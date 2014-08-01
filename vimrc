@@ -353,7 +353,9 @@ call smartinput#define_rule({
 \})
 endif
 
-call smartinput_endwise#define_default_rules()
+if exists('*smartinput_endwise#define_default_rules')
+	call smartinput_endwise#define_default_rules()
+endif
 "}}}
 
 " CtrlP. " {{{
