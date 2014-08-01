@@ -78,9 +78,13 @@ tweak in my vimrc. Here are some notes for self reference:
 * Reorder and reorganize.
 * Test plugins from [https://github.com/kana Kana Natsuno]. He has great things there.
 * Add (and learn) stuff for nice C++ completion and refactoring (e.g. neocomplcache).
+* Syntax highlighting for template engines that mix code and markup. Is possible
+  to do it in a generic way? What about context-commentstring, context_filetype,
+  etc?
 
 Evaluate the following plugins:
 * https://github.com/osyo-manga/vim-precious
+* https://github.com/Shougo/context_filetype.vim
 * https://github.com/sheerun/vim-polyglot
 * https://github.com/gorodinskiy/vim-coloresque
 * https://github.com/tpope/vim-obsession
@@ -89,3 +93,5 @@ Evaluate the following plugins:
 * https://github.com/jtratner/vim-flavored-markdown
 * https://github.com/Shougo/vinarise.vim
 * https://github.com/szw/vim-ctrlspace
+* https://github.com/osyo-manga/vim-operator-blockwise
+* https://github.com/osyo-manga/vim-watchdogs
