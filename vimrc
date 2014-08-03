@@ -94,6 +94,7 @@ let mapleader = ","
 " Vimfiler.
 let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
+autocmd FileType vimfiler nnoremap <buffer> <space> :
 
 " Echodoc.
 let g:echodoc_enable_at_startup = 1
@@ -233,6 +234,7 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'mapping': 'Unite mapping',
 			\ 'runtimepath': 'Unite runtimepath',
 			\ 'git': 'Unite menu:git',
+			\ 'outline': 'Unite outline',
 			\ }
 function g:unite_source_menu_menus.unite.map(key, value) dict
 	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
