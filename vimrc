@@ -233,8 +233,9 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'grep': 'Unite grep -keep-focus -no-quit',
 			\ 'mapping': 'Unite mapping',
 			\ 'runtimepath': 'Unite runtimepath',
-			\ 'git': 'Unite menu:git',
 			\ 'outline': 'Unite outline',
+			\ 'git': 'Unite menu:git',
+			\ 'shell-like': 'Unite menu:shell',
 			\ }
 function g:unite_source_menu_menus.unite.map(key, value) dict
 	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
@@ -245,6 +246,14 @@ function g:unite_source_menu_menus.unite.map(key, value) dict
 				\ 'kind': 'command',
 				\ }
 endfunction
+
+let g:unite_source_menu_menus.shell = {'description': 'Shell-like'}
+let g:unite_source_menu_menus.shell.command_candidates = [
+			\   ['ruby', 'VimShellInteractive ruby'],
+			\   ['irb', 'VimShellInteractive irb'],
+			\   ['re.pl', 'VimShellInteractive re.pl'],
+			\   ['python', 'VimShellInteractive python'],
+			\ ]
 
 let g:unite_source_menu_menus.git = {'description': 'Git commands'}
 let g:unite_source_menu_menus.git.command_candidates = [
