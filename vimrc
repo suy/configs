@@ -369,6 +369,7 @@ call smartinput#define_rule({
 \})
 endif
 
+runtime autoload/smartinput_endwise.vim
 if exists('*smartinput_endwise#define_default_rules')
 	call smartinput_endwise#define_default_rules()
 endif
