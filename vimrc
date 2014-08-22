@@ -745,6 +745,9 @@ if has('persistent_undo')
 	let &undodir = s:dir . '/undo,.,/var/tmp,/tmp'
 endif
 
+" Double the number of undo levels.
+set undolevels=2000
+
 " Save the swap files on a different directory.
 let &directory = s:dir . '/swap,.,/var/tmp,/tmp'
 
