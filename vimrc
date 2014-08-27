@@ -658,6 +658,9 @@ set shiftround
 "
 " {{{
 
+" Add 'mac' fileformat, because there are still people as silly as v2msoft.com.
+set fileformats+=mac
+
 if has("autocmd")
 	augroup vimrc
 		" Clear all autocommands in the group to avoid defining them multiple
