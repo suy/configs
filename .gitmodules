@@ -316,3 +316,6 @@
 [submodule "dotvim/bundle/endwise"]
 	path = dotvim/bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "dotvim/bundle/agit"]
+	path = dotvim/bundle/agit
+	url = https://github.com/cohama/agit.vim.git
