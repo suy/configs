@@ -146,8 +146,10 @@ let g:UltiSnipsListSnippets="<C-Q>"
 " These other two are the defaults. Left here as a reminder.
 " let g:UltiSnipsJumpForwardTrigger="<C-J>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-" Since I don't like the default snippets much, use my own directory only.
+" For the snippets themselves to work.
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
+" The user snippet definition directory, for the :UltiSnipsEdit command.
+let g:UltiSnipsSnippetsDir="~/.vim/ultisnippets"
 " }}}
 
 
