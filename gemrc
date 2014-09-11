@@ -1,0 +1,14 @@
+:verbose: true
+
+# Avoid docs in all cases. Is extremely slow. :-/
+gem: --no-document
+# Deprecated.
+# install: --no-ri --no-rdoc
+# update: --no-ri --no-rdoc
+# To regenerate:
+# gem help rdoc
+# gem rdoc --all --ri
+#   or...
+# gem update --document
+
+# vim:set filetype=yaml:

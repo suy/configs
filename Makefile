@@ -25,6 +25,7 @@ setup-unix:
 	ln -sf ${PWD}/screenrc ~/.screenrc
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
+	ln -sf ${PWD}/gemrc ~/.gemrc
 	# Disable this for now, since it can lead to trouble to my fellow coworkers.
 	# test ~/.ssh || mkdir ~/.ssh/
 	# ln -sf ${PWD}/sshconfig ~/.ssh/config
