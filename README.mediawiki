@@ -95,3 +95,13 @@ Evaluate the following plugins:
 * https://github.com/szw/vim-ctrlspace
 * https://github.com/osyo-manga/vim-operator-blockwise
 * https://github.com/osyo-manga/vim-watchdogs
+* https://github.com/osyo-manga/vim-brightest
+* https://github.com/wellle/targets.vim
+* https://github.com/junegunn/goyo.vim
+
+== Other repos/projects to look at ==
+* https://github.com/sickill/bitpocket
+* https://github.com/asciinema/asciinema-cli
+* https://github.com/sickill/git-dude
+* https://asciinema.org/docs/how-it-works
+* https://github.com/sickill?tab=repositories
