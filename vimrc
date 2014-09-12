@@ -61,6 +61,12 @@ call add(g:pathogen_disabled, 'marching')
 call add(g:pathogen_disabled, 'reunions')
 " call add(g:pathogen_disabled, 'neocomplete')
 
+" Disable stuff that I keep as submodule to track it, but is not really used in
+" the configuration for now.
+call add(g:pathogen_disabled, 'maktaba')
+call add(g:pathogen_disabled, 'vital')
+call add(g:pathogen_disabled, 'glaive')
+
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
 if exists('*pathogen#infect')
@@ -753,6 +759,9 @@ endif
 
 " Double the number of undo levels.
 set undolevels=2000
+
+" TODO: Consider something to avoid undofiles for useless stuff.
+" au BufWritePre /tmp/* setlocal noundofile
 
 " Save the swap files on a different directory.
 let &directory = s:dir . '/swap,.,/var/tmp,/tmp'
