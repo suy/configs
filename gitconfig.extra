@@ -30,17 +30,25 @@
 	prune = 1
 [svn]
 	rmdir = 1
+
 [url "git://gitorious.org/qt/"]
 	insteadOf = qt:
 [url "git://gitorious.org/qt-labs/"]
 	insteadOf = qtl:
+
 [url "git://anongit.kde.org/"]
 	insteadOf = kde:
 [url "git@git.kde.org:"]
 	pushInsteadOf = kde:
+
 [url "https://github.com/"]
 	insteadOf = gh:
+[url "git@github.com:"]
+	pushInsteadOf = gh:
+
 [url "git@bitbucket.org:"]
 	insteadOf = bb:
+[url "git@gitlab.com:"]
+	insteadOf = gl:
 
 # vim:set filetype=gitconfig:
