@@ -1,0 +1,51 @@
+commit a69764dff62e2e07c7f214f1b3c69e753979cdaf
+Author: Kevin Ballard <kevin@sb.org>
+Date:   Tue Aug 5 18:03:36 2014 -0700
+
+    Tweak the ftplugin
+    
+    Update the ftplugin to behave better. This means use b:did_ftplugin,
+    toggle cpo as appropriate, and define a b:undo_ftplugin.
+
+diff --git a/ftplugin/snippets.vim b/ftplugin/snippets.vim
+index 3191444..8479a45 100644
+--- a/ftplugin/snippets.vim
++++ b/ftplugin/snippets.vim
+@@ -1,5 +1,13 @@
+ " Set some sane defaults for snippet files
+ 
++if exists('b:did_ftplugin')
++    finish
++endif
++let b:did_ftplugin = 1
++
++let s:save_cpo = &cpo
++set cpo&vim
++
+ " Fold by syntax, but open all folds by default
+ setlocal foldmethod=syntax
+ setlocal foldlevel=99
+@@ -14,6 +22,7 @@ setlocal autoindent nosmartindent nocindent
+ if exists("loaded_matchit") && !exists("b:match_words")
+   let b:match_ignorecase = 0
+   let b:match_words = '^snippet\>:^endsnippet\>,^global\>:^endglobal\>,\${:}'
++  let s:set_match_words = 1
+ endif
+ 
+ " Add TagBar support
+@@ -24,3 +33,15 @@ let g:tagbar_type_snippets = {
+             \ ],
+             \ 'deffile': expand('<sfile>:p:h:h') . '/ctags/UltiSnips.cnf',
+         \ }
++
++" don't unset g:tagbar_type_snippets, it serves no purpose
++let b:undo_ftplugin = "
++            \ setlocal foldmethod< foldlevel< commentstring<
++            \|setlocal expandtab< autoindent< smartindent< cindent<
++            \|if get(s:, 'set_match_words')
++                \|unlet! b:match_ignorecase b:match_words s:set_match_words
++            \|endif
++            \"
++
++let &cpo = s:save_cpo
++unlet s:save_cpo
