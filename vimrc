@@ -117,6 +117,7 @@ if executable('fortune')
 	let g:startify_custom_header =
 	\ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
 endif
+autocmd FileType startify nnoremap <silent> <buffer> r :<C-u>Startify<Return>
 
 " Indent line.
 let g:indentLine_char = '│'
