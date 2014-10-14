@@ -503,6 +503,11 @@ let g:neocomplete#force_omni_input_patterns.cpp =
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
+" For rubycomplete.
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplete#force_omni_input_patterns.ruby =
+\ '[^. *\t]\.\w*\|\h\w*::'
+
 " " TODO: This were available on neocomplcache, but are needed?
 " let g:neocomplcache_enable_camel_case_completion = 1
 " let g:neocomplcache_enable_underbar_completion = 1
