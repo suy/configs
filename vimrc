@@ -621,6 +621,11 @@ set lbr
 " showbreak: show this string at the beginning of a line that is soft broken.
 if $USER != 'root'
 	set sbr=➥➥➥
+	" Display the 'showbreak' characters on wrapped lines as well.
+	if exists("+breakindent")
+		set sbr=➥
+		set breakindent
+	endif
 endif
 
 " Add 'j' (remove commentstring when joining) to format options.
