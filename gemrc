@@ -2,10 +2,12 @@
 
 # Avoid docs in all cases. Is extremely slow. :-/
 gem: --no-document
-# Deprecated.
-# install: --no-ri --no-rdoc
-# update: --no-ri --no-rdoc
-# To regenerate:
+# People say this is deprecated and the above should work. Let's have the two
+# since system's Ruby is old.
+install: --no-ri --no-rdoc
+update: --no-ri --no-rdoc
+
+# To regenerate if needed at a later time:
 # gem help rdoc
 # gem rdoc --all --ri
 #   or...
