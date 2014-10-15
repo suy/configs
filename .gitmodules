@@ -328,3 +328,7 @@
 [submodule "dotvim/bundle/rake"]
 	path = dotvim/bundle/rake
 	url = https://github.com/tpope/vim-rake.git
+[submodule "dotvim/bundle/twiggy"]
+	path = dotvim/bundle/twiggy
+	url = https://github.com/sodapopcan/vim-twiggy.git
+	branch = master
