@@ -319,3 +319,12 @@
 [submodule "dotvim/bundle/agit"]
 	path = dotvim/bundle/agit
 	url = https://github.com/cohama/agit.vim.git
+[submodule "dotvim/bundle/rbenv"]
+	path = dotvim/bundle/rbenv
+	url = https://github.com/tpope/vim-rbenv.git
+[submodule "dotvim/bundle/bundler"]
+	path = dotvim/bundle/bundler
+	url = https://github.com/tpope/vim-bundler.git
+[submodule "dotvim/bundle/rake"]
+	path = dotvim/bundle/rake
+	url = https://github.com/tpope/vim-rake.git
