@@ -18,6 +18,7 @@
 	tomerge = log -p --reverse ..@{upstream}
 	topush  = log -p --reverse   @{upstream}..
 	root = rev-parse --show-toplevel
+	x-submodule-reset = submodule foreach 'git reset --hard $sha1'
 [core]
 	excludesfile = ~/.ignore-patterns
 [merge]
