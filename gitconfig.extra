@@ -19,6 +19,7 @@
 	topush  = log -p --reverse   @{upstream}..
 	root = rev-parse --show-toplevel
 	x-submodule-reset = submodule foreach 'git reset --hard $sha1'
+	x-submodule-attach = 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; test -z "$branch" && branch=master; git checkout $branch'
 [core]
 	excludesfile = ~/.ignore-patterns
 [merge]
