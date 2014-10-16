@@ -14,12 +14,16 @@
 	cp = cherry-pick
 	subdo = submodule foreach git
 	wdiff = diff --word-diff=color
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --graph \
+		--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
+		--abbrev-commit --date=relative
 	tomerge = log -p --reverse ..@{upstream}
 	topush  = log -p --reverse   @{upstream}..
 	root = rev-parse --show-toplevel
 	x-submodule-reset = submodule foreach 'git reset --hard $sha1'
-	x-submodule-attach = "submodule foreach 'branch=$(git config -f $toplevel/.gitmodules submodule.$name.branch); test -z $branch && branch=master; git checkout $branch'"
+	x-submodule-attach = "submodule foreach \
+		'branch=$(git config -f $toplevel/.gitmodules submodule.$name.branch); \
+		test -z $branch && branch=master; git checkout $branch'"
 [core]
 	excludesfile = ~/.ignore-patterns
 [merge]
