@@ -333,3 +333,7 @@
 	path = dotvim/bundle/twiggy
 	url = https://github.com/sodapopcan/vim-twiggy.git
 	branch = master
+[submodule "dotvim/bundle/vimbed"]
+	path = dotvim/bundle/vimbed
+	url = https://github.com/ardagnir/vimbed.git
+	branch = master
