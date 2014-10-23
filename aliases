@@ -27,4 +27,9 @@ alias grep='grep --color=auto'
 alias clive='clive --format=best'
 
 alias apg='apg -m 18 -M sncl -s'
-alias irb='irb -r pp -r ap --simple-prompt'
+
+# Save the command first, otherwise "su" might see "please" instead.
+alias please='last=`fc -ln -1`; \
+	test -x /usr/bin/sudo && sudo -- $last || su -c "$last"'
+
+# vim: set filetype=sh:
