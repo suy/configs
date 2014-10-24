@@ -341,3 +341,6 @@
 	path = dotvim/bundle/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
 	branch = master
+[submodule "dotvim/bundle/rails"]
+	path = dotvim/bundle/rails
+	url = https://github.com/tpope/vim-rails.git
