@@ -337,3 +337,7 @@
 	path = dotvim/bundle/vimbed
 	url = https://github.com/ardagnir/vimbed.git
 	branch = master
+[submodule "dotvim/bundle/splitjoin"]
+	path = dotvim/bundle/splitjoin
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
+	branch = master
