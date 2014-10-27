@@ -46,10 +46,10 @@ if [ -d $HOME/local/gems ] ; then
 	export PATH=$HOME/local/gems/bin:"${PATH}"
 fi
 
-if [ -x $HOME/.rbenv/bin/rbenv ] ; then
-	export PATH=$HOME/.rbenv/bin:"${PATH}"
-	eval "$(rbenv init -)"
-fi
+# if [ -x $HOME/.rbenv/bin/rbenv ] ; then
+# 	export PATH=$HOME/.rbenv/bin:"${PATH}"
+# 	eval "$(rbenv init -)"
+# fi
 
 
 if [ -d $HOME/local/configs/powerline/ ] ; then
