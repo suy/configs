@@ -52,10 +52,6 @@ fi
 # fi
 
 
-if [ -d $HOME/local/configs/powerline/ ] ; then
-	export PYTHONPATH=$HOME/local/configs/powerline:"${PYTHONPATH}"
-fi
-
 if [ -d $HOME/local/man ] ; then
     export MANPATH=$HOME/local/man:"${MANPATH}"
 fi

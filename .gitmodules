@@ -208,10 +208,6 @@
 [submodule "dotvim/bundle/qml"]
 	path = dotvim/bundle/qml
 	url = https://github.com/peterhoeg/vim-qml.git
-[submodule "powerline"]
-	path = powerline
-	url = https://github.com/Lokaltog/powerline.git
-	branch = develop
 [submodule "dotvim/bundle/unite-history"]
 	path = dotvim/bundle/unite-history
 	url = https://github.com/thinca/vim-unite-history.git
