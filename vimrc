@@ -123,7 +123,7 @@ if executable('fortune')
 	let g:startify_custom_header =
 	\ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
 endif
-autocmd FileType startify nnoremap <silent> <buffer> r :<C-u>Startify<Return>
+autocmd User Startified nnoremap <silent> <buffer> r :<C-u>Startify<Return>
 
 " Indent line.
 let g:indentLine_char = '│'
@@ -291,7 +291,7 @@ let g:junkfile#directory=expand('~/personal/misc')
 "}}}
 
 " Airline " {{{
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1 " Depends on the fonts-powerline package
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
