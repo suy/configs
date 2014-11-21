@@ -622,10 +622,13 @@ set lbr
 " showbreak: show this string at the beginning of a line that is soft broken.
 if $USER != 'root'
 	set sbr=➥➥➥
-	" Display the 'showbreak' characters on wrapped lines as well.
+	" If breakindent is available, enable it, but align the first real character
+	" of the wrapped line at the level of the previous line by the length of the
+	" cosmetic characters of 'shobreak'. It sucks compared to Kate, which does
+	" this easily and does it right, but is the best that we've got...
 	if exists("+breakindent")
-		set sbr=➥
 		set breakindent
+		let &breakindentopt= 'shift:-' . len(&sbr)
 	endif
 endif
 
