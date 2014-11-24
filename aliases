@@ -17,7 +17,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias mv='mv -i'
 alias cp='cp -i'
-alias df='df -h'
+alias df='df -h -x devtmpfs -x tmpfs -x rootfs'
 
 alias doc='cd /usr/share/doc ; cd'
 
