@@ -657,8 +657,9 @@ set sw=4
 " if you set the shiftwidth and the softtabstop the same value
 set sts=4
 
-" Changes tabs with spaces (*beware* when you edit Makefiles)
-"set expandtab
+" Changes tabs with spaces. Problematic with, e.g. Makefiles, so overriden there
+" through ftplugin/makefile.vim. Or use vim-sleuth.
+set expandtab
 
 " Make <Tab> and <BS> behave according to 'shiftwidth'.
 set smarttab
