@@ -19,6 +19,9 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias df='df -h -x devtmpfs -x tmpfs -x rootfs'
 
+# I hope I don't repent on this. Open with the browser, or whatever nicely.
+alias o='xdg-open'
+
 alias doc='cd /usr/share/doc ; cd'
 
 # Use colors when grepping
