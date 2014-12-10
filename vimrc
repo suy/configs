@@ -939,7 +939,7 @@ let g:solarized_termcolors='256'
 let g:solarized_italic='1'
 let g:solarized_contrast='normal'
 " Don't highlight the listchars too much...
-let g:solarized_visibility='low'
+let g:solarized_visibility='normal'
 " ...except the trailing whitespace
 let g:solarized_hitrail='1'
 
