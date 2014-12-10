@@ -628,7 +628,7 @@ if $USER != 'root'
 	" this easily and does it right, but is the best that we've got...
 	if exists("+breakindent")
 		set breakindent
-		let &breakindentopt= 'shift:-' . len(&sbr)
+		let &breakindentopt= 'shift:-' . strdisplaywidth(&sbr)
 	endif
 endif
 
