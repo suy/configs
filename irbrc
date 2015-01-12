@@ -8,6 +8,7 @@ require 'pp'
 %w[
   ap
   interactive_editor
+  pry-editline
 ].each do |gem|
   begin
     require gem
