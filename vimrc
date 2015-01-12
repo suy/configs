@@ -426,7 +426,6 @@ let g:snowdrop#libclang_directory ='/usr/lib/x86_64-linux-gnu'
 let g:snowdrop#libclang_file='libclang-3.4.so.1'
 let g:snowdrop#debug#enable=1
 
-let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_auto_select = 0
 let g:neocomplete#enable_refresh_always = 1
 
