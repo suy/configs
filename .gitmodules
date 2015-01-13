@@ -43,12 +43,6 @@
 [submodule "dotvim/bundle/javascript-indentation"]
 	path = dotvim/bundle/javascript-indentation
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "dotvim/bundle/simple-javascript-indenter"]
-	path = dotvim/bundle/simple-javascript-indenter
-	url = https://github.com/jiangmiao/simple-javascript-indenter.git
-[submodule "dotvim/bundle/web-indent"]
-	path = dotvim/bundle/web-indent
-	url = https://github.com/vim-scripts/JavaScript-Indent.git
 [submodule "dotvim/bundle/space"]
 	path = dotvim/bundle/space
 	url = https://github.com/spiiph/vim-space

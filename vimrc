@@ -23,8 +23,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
 let g:pathogen_disabled = [
-		\ 'simple-javascript-indenter',
-		\ 'web-indent',
 		\ 'indent-guides',
 		\ 'space']
 
