@@ -98,6 +98,13 @@ Evaluate the following plugins:
 * https://github.com/osyo-manga/vim-brightest
 * https://github.com/wellle/targets.vim
 * https://github.com/junegunn/goyo.vim
+* https://github.com/idanarye/vim-vebugger
+* https://github.com/stefandtw/quickfix-reflector.vim
+* https://github.com/lambdalisue/vim-gista
+* https://github.com/bbchung/clighter
+* https://github.com/nelstrom/vim-textobj-rubyblock
+* https://github.com/tek/vim-textobj-ruby
+* https://github.com/haya14busa/vim-asterisk
 
 == Other repos/projects to look at ==
 * https://github.com/sickill/bitpocket
