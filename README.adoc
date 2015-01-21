@@ -1,48 +1,53 @@
-==Personal configurations==
+== Personal configurations
 
 This repository contains configurations of several of the tools that I use, and
 that I try to share and have in sync with different machines. Sharing your
 configurations (specially your vimrc file) on a public Git repository is quite
 common, but I finally dared to do it thanks to a great Vim and Git promoter,
-[http://drewneil.com/ Drew Neil], who made a great
-[http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/ 
+http://drewneil.com/[Drew Neil], who made a great
+http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/[
 screencast on keeping in sync your Vim configuration with Git and Github].
 
-==Usage notes==
+== Usage notes
 
-===Set up in a new machine===
+=== Set up in a new machine
 
 Get the files and set symbolic links like the following:
 
-*git clone --recursive git@github.com:suy/configs.git
-*ln -s configs/vimrc .vimrc
-*ln -s configs/dotvim .vim
-*ln -s configs/bashrc .bashrc
-*ln -s configs/screenrc .screenrc
-*ln -s configs/inputrc .inputrc
+* git clone --recursive git@github.com:suy/configs.git
+* ln -s configs/vimrc .vimrc
+* ln -s configs/dotvim .vim
+* ln -s configs/bashrc .bashrc
+* ln -s configs/screenrc .screenrc
+* ln -s configs/inputrc .inputrc
 
 Etc.
 
 I automated it a bit by adding a Makefile, so I normally just do:
 
-*make setup-unix
+* make setup-unix
 
-But you can choose which ones to get.
+But you can choose which ones to get. I used to have a `setup-windows`, but I no
+longer use Windows that much.
 
-===Get updates from the depot===
+The odd setup for gitconfig is because coworkers used to clone my repo and use
+it right away without really understanding what were doing, and they had trouble
+with the user name and email.
 
-*git pull
-*git submodule update --init --rebase
+=== Get updates from the depot
 
-===Update from upstream repositories===
+* git pull
+* git submodule update --init --rebase
 
-*git submodule foreach git pull
-*git add dotvim/bundle && git commit
+=== Update from upstream repositories
+
+* git submodule foreach git pull
+* git add dotvim/bundle && git commit
 
 You maybe want to be safe, and do git fetch instead of git pull. Then check the
 changes using something like git log master..origin/master.
 
-===Switch to your fork of a plugin===
+=== Switch to your fork of a plugin
 
 If you want to provide a patch for a plugin that you are using, and you want to
 use that patch right away, you might need to switch the URL of the repository to
@@ -54,20 +59,23 @@ When you receive updates with git pull, you might need to do also a git
 submodule sync before the update, or otherwise it will be impossible for Git to
 find the commit in the old repository.
 
-===Remove a plugin/submodule===
+=== Remove a plugin/submodule
+
+Adding a submodule is easy. Removing it used to be a bit tedious with older git
+versions. Newer ones seem to be more convenient.
 
 Since I end up searching for the recipe online just in case I forget something,
 here is it, copied from the Git Wiki:
 
-#Delete the relevant line from the .gitmodules file.
-#Delete the relevant section from .git/config.
-#Run git rm --cached path_to_submodule (no trailing slash).
-#Commit the superproject.
-#Delete the now untracked submodule files.
+. Delete the relevant line from the .gitmodules file.
+. Delete the relevant section from .git/config.
+. Run git rm --cached path_to_submodule (no trailing slash).
+. Commit the superproject.
+. Delete the now untracked submodule files.
 
 Or, if you install git-extras, the git remove-submodule command is provided.
 
-==To do==
+== To do
 
 I still have much to learn, and there is still too much that isn't exactly like
 I want it to be. Lately I've been using Vim a lot, so I have many things to
@@ -76,13 +84,16 @@ tweak in my vimrc. Here are some notes for self reference:
 * Use syntastic properly: learn more about the specific syntax checkers.
 * Tweak viminfo and swapfile configuration.
 * Reorder and reorganize.
-* Test plugins from [https://github.com/kana Kana Natsuno]. He has great things there.
-* Add (and learn) stuff for nice C++ completion and refactoring (e.g. neocomplcache).
+* Test plugins from https://github.com/kana[Kana Natsuno]. He has great things
+  there.
+* Add (and learn) stuff for nice C++ completion and refactoring (e.g.
+  neocomplcache).
 * Syntax highlighting for template engines that mix code and markup. Is possible
   to do it in a generic way? What about context-commentstring, context_filetype,
   etc?
 
 Evaluate the following plugins:
+
 * https://github.com/osyo-manga/vim-precious
 * https://github.com/Shougo/context_filetype.vim
 * https://github.com/sheerun/vim-polyglot
@@ -106,7 +117,8 @@ Evaluate the following plugins:
 * https://github.com/tek/vim-textobj-ruby
 * https://github.com/haya14busa/vim-asterisk
 
-== Other repos/projects to look at ==
+=== Other repos/projects to look at (misc notes to self)
+
 * https://github.com/sickill/bitpocket
 * https://github.com/asciinema/asciinema-cli
 * https://github.com/sickill/git-dude
