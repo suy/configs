@@ -18,4 +18,10 @@ snippet lipsum5 "Lorem Ipsum - 5st paragraph" w
 Nam accumsan tristique lacinia. Nunc suscipit consequat lacus. Vivamus ante ante, mattis at pellentesque vitae, molestie ut dui. Aenean hendrerit diam sed lorem pellentesque faucibus. Donec ut venenatis enim. Aliquam pharetra tortor nec justo viverra ac suscipit leo egestas. Suspendisse eu neque justo, eu dictum quam. Etiam vitae metus sapien. Aliquam laoreet volutpat tincidunt. Nulla ante nunc, placerat quis cursus in, viverra ultricies mauris. Vivamus sed ipsum risus.
 endsnippet
 
+snippet now "Current ISO 8601 date and time" w
+`!v strftime("%FT%T")`$0
+endsnippet
 
+snippet now "Current ISO 8601 date and time with timezone" w
+`!v strftime("%FT%T%z")`$0
+endsnippet
