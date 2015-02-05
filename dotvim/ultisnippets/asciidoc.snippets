@@ -1,0 +1,78 @@
+# SECTIONS
+#
+# http://asciidoc.org/userguide.html#X17
+#
+# Level 0 (top level):     ======================
+# Level 1:                 ----------------------
+# Level 2:                 ~~~~~~~~~~~~~~~~~~~~~~
+# Level 3:                 ^^^^^^^^^^^^^^^^^^^^^^
+# Level 4 (bottom level):  ++++++++++++++++++++++
+#
+# = Document Title (level 0) =
+# == Section title (level 1) ==
+# === Section title (level 2) ===
+# ==== Section title (level 3) ====
+# ===== Section title (level 4) =====
+
+snippet h0 "Level 0 header" !b
+${1:${VISUAL:Level 0 header/=|-//mg}}
+${1/./=/g}
+$0
+endsnippet
+
+snippet h1 "Level 1 header" !b
+${1:${VISUAL:Level 1 header/=|-//mg}}
+${1/./-/g}
+$0
+endsnippet
+
+snippet h2 "Level 2 header" !b
+${1:${VISUAL:Level 2 header/=|-//mg}}
+${1/./~/g}
+$0
+endsnippet
+
+snippet c "check item" !b
+- [ ] $0
+endsnippet
+
+snippet a "Anchor link" !w
+${2:http://${3:www.url.com}}[${1:${VISUAL:Text}}]$0
+endsnippet
+
+snippet r "Anchor reference" !w
+{${2:LinkName}}[${1:${VISUAL:link text}}]$0
+
+:$2: ${3:http://${4:www.url.com}}
+endsnippet
+
+
+# TODO: polish, make the "Who" optional as well.
+snippet quote "Block quote" !w
+[quote, ${1:Who}${2:, ${3:Extended description}}]
+____
+${VISUAL}$0
+____
+endsnippet
+
+snippet quotemarkdown "Block quote, markdown style (asciidoctor only)" !w
+> ${VISUAL}$0
+endsnippet
+
+snippet code "Code block" !b
+${1:[source,${2:language}]}
+${3:.title}
+----
+${VISUAL}$4
+----
+$0
+endsnippet
+
+snippet codemarkdown "Fenced code block" !b
+\`\`\`${1:language}
+${VISUAL}$0
+\`\`\`
+endsnippet
+
+
+# vim:ft=snippets:
