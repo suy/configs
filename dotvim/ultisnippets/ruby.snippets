@@ -4,6 +4,14 @@ snippet i "Interpolated expression" w
 #{${VISUAL}$1}$0
 endsnippet
 
+snippet var "A variable as string and as value"
+"${1:variable}: #{$1}"
+endsnippet
+
+snippet pry "binding.pry" !b
+binding.pry$0
+endsnippet
+
 snippet "^#!" "#!/usr/bin/env ruby" r
 #!/usr/bin/env ruby
 $0
