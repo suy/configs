@@ -4,7 +4,7 @@ augroup FoldComments
 augroup END
 
 function! s:Fold() abort
-    let starting_position = getcurpos()
+    let starting_position = exists('*getcurpos') ? getcurpos() : getpos('.')
     keepjumps normal! gg
     " TODO: be smart and only fold if the comment has copyright info.
     if hlID("Comment") == synIDtrans(synID(line("."), col("."), 0))
