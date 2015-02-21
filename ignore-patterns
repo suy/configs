@@ -5,3 +5,5 @@ tags-??
 *~
 .netrwhist
 .localrc.vim
+.DS_Store
+CMakeLists.txt.user*
