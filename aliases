@@ -1,6 +1,16 @@
+# If on OS X and I have "gls", then I have GNU coreutils.
+if [ "$(uname)" = "Darwin" ] && type gls > /dev/null; then
+	LS='gls'
+	DF='gdf'
+	alias dircolors='gdircolors'
+else
+	LS='ls'
+	DF='df'
+fi
+
 if [ "$TERM" != "dumb" ]; then
 	eval "`dircolors -b`"
-	alias ls='ls --color=auto'
+	alias ls=$LS' --color=auto'
 fi
 
 # some more ls aliases
@@ -17,7 +27,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias mv='mv -i'
 alias cp='cp -i'
-alias df='df -h -x devtmpfs -x tmpfs -x rootfs'
+alias df=$DF' -h -x devtmpfs -x tmpfs -x rootfs'
 
 # I hope I don't repent on this. Open with the browser, or whatever nicely.
 alias o='xdg-open'
