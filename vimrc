@@ -179,7 +179,13 @@ let g:unite_quick_match_table={
 			\ 'h': 7,  'i': 8,  'j': 9,  'k': 10, 'l': 11, 'm': 12,
 			\ 'n': 13, 'o': 14, 'p': 15, 'q': 16, 'r': 17,
 			\}
-if executable('ack-grep')
+if executable('ag')
+	let g:unite_source_grep_command = 'ag'
+	let g:unite_source_grep_default_opts =
+	\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+	\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+	let g:unite_source_grep_recursive_opt = ''
+elseif executable('ack-grep')
 	let g:unite_source_grep_command='ack-grep'
 	let g:unite_source_grep_default_opts='--no-heading --no-color -a -H'
 	let g:unite_source_grep_recursive_opt=''
