@@ -1287,4 +1287,4 @@ endfunction
 inoremap <silent> <Tab> <C-R>=<SID>CleverTab()<CR>
 inoremap <silent> <S-Tab> <C-p>
 
-" vim: set foldmethod=marker:
+" vim: set foldmethod=marker:noet:ts=4:sw=4:
