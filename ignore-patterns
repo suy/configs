@@ -7,3 +7,4 @@ tags-??
 .localrc.vim
 .DS_Store
 CMakeLists.txt.user*
+*.autosave
