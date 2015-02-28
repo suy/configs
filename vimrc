@@ -94,6 +94,9 @@ endif
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
+" Enable syntax folding for QML filetype.
+let g:qml_fold = 1
+
 " Several small variable settings for plugins that don't require much. " {{{
 " Vimfiler.
 let g:loaded_netrwPlugin = 1
