@@ -964,6 +964,7 @@ if has("gui_running")
 		set guifont=DejaVu\ Sans\ Mono\ 9
 	else
 		set guifont=Consolas:h10:cANSI
+		set guifont=DejaVu_Sans_Mono:h10:cANSI
 	endif
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
@@ -971,8 +972,7 @@ if has("gui_running")
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
 	" Solarized thingies.
-	runtime autoload/togglebg.vim
-	if exists('*togglebg#map')
+	if stridx(&runtimepath, "colorscheme-solarized") != -1
 		colorscheme solarized
 		" Some solarized changes: listchars and matched parents.
 		highlight SpecialKey guifg=#094757
