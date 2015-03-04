@@ -94,6 +94,14 @@ endif
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
+" Try to find git.exe on Windows. For fugitive, signify, etc.
+if has('win32')
+	" let g:fugitive_git_executable='"C:\\Program Files (x86)\\Git\\bin\\git.exe"'
+	if has('win32')
+		let $PATH .= ';' . 'C:/Program Files (x86)/Git/bin'
+	endif
+endif
+
 " Enable syntax folding for QML filetype.
 let g:qml_fold = 1
 
@@ -952,23 +960,27 @@ let g:solarized_hitrail='1'
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
-	set guifont=DejaVu\ Sans\ Mono\ 9
+	if !has('win32')
+		set guifont=DejaVu\ Sans\ Mono\ 9
+	else
+		set guifont=Consolas:h10:cANSI
+	endif
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
-	" colorscheme Tomorrow-Night
-	colorscheme solarized
 	" Solarized thingies.
-	" runtime autoload/togglebg.vim
-	" if exists('*togglebg#map')
-	" 	colorscheme solarized
-	" 	" Some solarized changes: listchars and matched parents.
-	" 	highlight SpecialKey guifg=#094757
-	" 	highlight MatchParen gui=reverse guibg=NONE
-	" 	highlight SignColumn guifg=#839496 guibg=#002b36
-	" endif
+	runtime autoload/togglebg.vim
+	if exists('*togglebg#map')
+		colorscheme solarized
+		" Some solarized changes: listchars and matched parents.
+		highlight SpecialKey guifg=#094757
+		highlight MatchParen gui=reverse guibg=NONE
+		highlight SignColumn guifg=#839496 guibg=#002b36
+	else
+		colorscheme desert
+	endif
 else
 	try
 		colorscheme molokai
