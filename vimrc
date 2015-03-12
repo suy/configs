@@ -37,7 +37,7 @@ if !has('gui_running')
 endif
 
 " Disable Ultisnips if needed to avoid the startup warning.
-if !has('python') && !has('python3')
+if !has('python') && !has('python3') && !has('python/dyn') && !has('python3/dyn')
 	call add(g:pathogen_disabled, 'ultisnips')
 endif
 
@@ -96,10 +96,7 @@ let mapleader = ","
 
 " Try to find git.exe on Windows. For fugitive, signify, etc.
 if has('win32')
-	" let g:fugitive_git_executable='"C:\\Program Files (x86)\\Git\\bin\\git.exe"'
-	if has('win32')
-		let $PATH .= ';' . 'C:/Program Files (x86)/Git/bin'
-	endif
+	let $PATH .= ';' . 'C:/Program Files (x86)/Git/bin'
 endif
 
 " Enable syntax folding for QML filetype.
@@ -171,7 +168,9 @@ let g:UltiSnipsListSnippets="<C-Q>"
 " For the snippets themselves to work.
 let g:UltiSnipsSnippetDirectories=["ultisnippets"]
 " The user snippet definition directory, for the :UltiSnipsEdit command.
-let g:UltiSnipsSnippetsDir="~/.vim/ultisnippets"
+if exists('*pathogen#infect')
+	let g:UltiSnipsSnippetsDir=pathogen#split(&rtp)[0] . "/ultisnippets"
+endif
 " }}}
 
 
