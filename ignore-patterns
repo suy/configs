@@ -8,3 +8,4 @@ tags-??
 .DS_Store
 CMakeLists.txt.user*
 *.autosave
+.clang_complete
