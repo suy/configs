@@ -38,9 +38,9 @@
 [svn]
 	rmdir = 1
 
-[url "git://gitorious.org/qt/"]
+[url "http://code.qt.io/git/qt/"]
 	insteadOf = qt:
-[url "git://gitorious.org/qt-labs/"]
+[url "http://code.qt.io/git/qt-labs/"]
 	insteadOf = qtl:
 
 [url "git://anongit.kde.org/"]
