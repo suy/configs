@@ -7,8 +7,9 @@
 " {{{
 
 " Safety net, since sometimes I screwed locale configuration and this file
-" contains some characters outside of ASCII.
-scriptencoding utf-8
+" contains some characters outside of ASCII. Also, for whatever reason latin1 is
+" the default unless overriden by LANG (but not on Windows). Go figure.
+set encoding=utf-8
 
 " Pathogen is a freaking awesome plugin for managing other plugins where each
 " one is in a directory of it's own, instead of all mixed in the same. This
