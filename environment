@@ -33,6 +33,7 @@ export DEBSIGN_KEYID=0x0B8B0BC2
 
 # Other
 KDE_NO_IPV6=true
+export CYGWIN=winsymlinks:nativestrict
 
 #
 # PATH, and PATH-like environment
