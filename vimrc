@@ -1143,7 +1143,8 @@ xmap <leader>w <C-w>
 " change to another buffer (depending on if the alternate buffer is listed or
 " not), and then close the initial one.
 nmap <silent> <leader>q :if buflisted(expand('#'))<BAR>b #<BAR>
-	\ else<BAR>bnext<BAR>endif<CR>:bdelete #<CR>
+	\ else<BAR>bnext<BAR>endif<BAR>
+	\ if buflisted(expand('#'))<BAR>bdelete #<BAR>endif<CR>
 
 " Clear and redraw the screen. Usually is C-L, but is mapped to something else.
 nmap <leader>r :redraw!<CR>
