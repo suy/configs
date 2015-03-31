@@ -116,6 +116,9 @@ Evaluate the following plugins:
 * https://github.com/nelstrom/vim-textobj-rubyblock
 * https://github.com/tek/vim-textobj-ruby
 * https://github.com/haya14busa/vim-asterisk
+* https://github.com/kyuhi/vim-emoji-complete
+* https://github.com/vim-jp/vim-cpp
+* https://github.com/chrisbra/vim-diff-enhanced
 
 === Other repos/projects to look at (misc notes to self)
 
