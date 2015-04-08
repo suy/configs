@@ -37,6 +37,8 @@
 	prune = 1
 [svn]
 	rmdir = 1
+[diff]
+	mnemonicprefix = true
 
 [url "http://code.qt.io/git/qt/"]
 	insteadOf = qt:
