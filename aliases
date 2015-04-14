@@ -14,7 +14,11 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -l --time-style=long-iso'
+if [ "$(uname)" = "Linux" ] || type gls > /dev/null; then
+	alias ll=LS' -l --time-style=long-iso'
+else
+	alias ll=LS' -l'
+fi
 alias lh='ll -h'
 alias la='ls -A'
 alias l='ls -CF'
@@ -35,7 +39,9 @@ alias o='xdg-open'
 alias doc='cd /usr/share/doc ; cd'
 
 # Use colors when grepping
-alias grep='grep --color=auto'
+if [ "$(uname)" = "Linux" ]; then
+	alias grep='grep --color=auto'
+fi
 
 alias clive='clive --format=best'
 

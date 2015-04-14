@@ -54,7 +54,9 @@ endif
 
 " Temporary tweaks. Just use neocomplete and clang_complete, disable others.
 call add(g:pathogen_disabled, 'youcompleteme')
-" call add(g:pathogen_disabled, 'clang_complete')
+if has('win32')
+	call add(g:pathogen_disabled, 'clang_complete')
+endif
 
 call add(g:pathogen_disabled, 'marching')
 call add(g:pathogen_disabled, 'reunions')
@@ -95,9 +97,11 @@ endif
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
-" Try to find git.exe on Windows. For fugitive, signify, etc.
+" All all at once some binary paths on Windows, like git.exe, gcc.exe, etc. For
+" simpler plugin configuration like fugitive, signify, etc.
 if has('win32')
 	let $PATH .= ';' . 'C:/Program Files (x86)/Git/bin'
+	let $PATH .= ';' . 'C:/Qt/Tools/mingw491_32/bin'
 endif
 
 " Enable syntax folding for QML filetype.
