@@ -334,3 +334,15 @@
 [submodule "dotvim/bundle/gnupg"]
 	path = dotvim/bundle/gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
+[submodule "dotvim/bundle/cpp"]
+	path = dotvim/bundle/cpp
+	url = https://github.com/vim-jp/vim-cpp.git
+[submodule "dotvim/bundle/exchange"]
+	path = dotvim/bundle/exchange
+	url = https://github.com/tommcdo/vim-exchange.git
+[submodule "dotvim/bundle/diff-enhanced"]
+	path = dotvim/bundle/diff-enhanced
+	url = https://github.com/chrisbra/vim-diff-enhanced.git
+[submodule "dotvim/bundle/recover"]
+	path = dotvim/bundle/recover
+	url = https://github.com/chrisbra/Recover.vim.git
