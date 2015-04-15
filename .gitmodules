@@ -34,9 +34,6 @@
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "dotvim/bundle/indent-guides"]
-	path = dotvim/bundle/indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule "dotvim/bundle/repeat"]
 	path = dotvim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -253,15 +250,9 @@
 [submodule "dotvim/bundle/echodoc"]
 	path = dotvim/bundle/echodoc
 	url = https://github.com/Shougo/echodoc.vim.git
-[submodule "dotvim/bundle/maktaba"]
-	path = dotvim/bundle/maktaba
-	url = https://github.com/google/maktaba.git
 [submodule "dotvim/bundle/vital"]
 	path = dotvim/bundle/vital
 	url = https://github.com/vim-jp/vital.vim.git
-[submodule "dotvim/bundle/glaive"]
-	path = dotvim/bundle/glaive
-	url = https://github.com/google/glaive.git
 [submodule "dotvim/bundle/snowdrop"]
 	path = dotvim/bundle/snowdrop
 	url = https://github.com/osyo-manga/vim-snowdrop.git

@@ -24,7 +24,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
 let g:pathogen_disabled = [
-		\ 'indent-guides',
 		\ 'space']
 
 " Additionally, disable the plugin code of endwise, since I want it available
@@ -64,9 +63,7 @@ call add(g:pathogen_disabled, 'reunions')
 
 " Disable stuff that I keep as submodule to track it, but is not really used in
 " the configuration for now.
-call add(g:pathogen_disabled, 'maktaba')
 call add(g:pathogen_disabled, 'vital')
-call add(g:pathogen_disabled, 'glaive')
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
@@ -564,10 +561,6 @@ let g:localrc_filename=".localrc.vim"
 
 " Word in word text object.
 let g:textobj_wiw_default_key_mappings_prefix='\'
-
-" Indent guides. TODO: more customization.
-let g:indent_guides_default_mapping=0
-let g:indent_guides_color_change_percent=3
 
 " Current func info.
 nnoremap <leader>ff :<C-u>echo cfi#format("%s", "")<CR>
