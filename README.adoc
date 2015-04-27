@@ -119,6 +119,8 @@ Evaluate the following plugins:
 * https://github.com/kyuhi/vim-emoji-complete
 * https://github.com/vim-jp/vim-cpp
 * https://github.com/chrisbra/vim-diff-enhanced
+* https://github.com/tommcdo/vim-express
+* https://github.com/tommcdo/vim-ninja-feet
 
 === Other repos/projects to look at (misc notes to self)
 
