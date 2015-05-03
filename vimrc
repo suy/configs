@@ -1240,6 +1240,11 @@ onoremap ar a]
 " onoremap ia i<
 " onoremap aa i>
 
+" Stuff for whatever reason I type awfully bad all the time.
+iabbr tODO TODO
+iabbr fIXME FIXME
+iabbr hte the
+
 " Function and command for removing (with confirmation) trailing whitespace.
 command! RemoveTrailingWhiteSpace call <SID>RemoveTrailingWhiteSpace()
 function! s:RemoveTrailingWhiteSpace()
