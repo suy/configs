@@ -120,7 +120,11 @@ Evaluate the following plugins:
 * https://github.com/vim-jp/vim-cpp
 * https://github.com/chrisbra/vim-diff-enhanced
 * https://github.com/tommcdo/vim-express
-* https://github.com/tommcdo/vim-ninja-feet
+* https://github.com/tommcdo/vim-ninja-feet versus
+  https://github.com/thinca/vim-textobj-between
+* https://github.com/justmao945/vim-clang
+* https://github.com/kana/vim-operator-siege versus
+  https://github.com/rhysd/vim-operator-surround
 
 === Other repos/projects to look at (misc notes to self)
 
@@ -129,3 +133,4 @@ Evaluate the following plugins:
 * https://github.com/sickill/git-dude
 * https://asciinema.org/docs/how-it-works
 * https://github.com/sickill?tab=repositories
+* https://github.com/ManuelSchneid3r/albert
