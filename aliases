@@ -1,5 +1,5 @@
 # If on OS X and I have "gls", then I have GNU coreutils.
-if [ "$(uname)" = "Darwin" ] && type gls > /dev/null; then
+if [ "$(uname)" = "Darwin" ] && type gls > /dev/null 2>&1 ; then
 	LS='gls'
 	DF='gdf'
 	alias dircolors='gdircolors'
@@ -14,7 +14,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # some more ls aliases
-if [ "$(uname)" = "Linux" ] || type gls > /dev/null; then
+if [ "$(uname)" = "Linux" ] || type gls > /dev/null 2>&1 ; then
 	alias ll=$LS' -l --time-style=long-iso'
 else
 	alias ll=$LS' -l'
