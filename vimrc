@@ -104,6 +104,9 @@ endif
 " Enable syntax folding for QML filetype.
 let g:qml_fold = 1
 
+" The most important signify option and I overlooked it for ages. *sigh*
+let g:signify_vcs_list = ['git']
+
 " Several small variable settings for plugins that don't require much. " {{{
 " Vimfiler.
 let g:loaded_netrwPlugin = 1
