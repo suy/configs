@@ -1,0 +1,10 @@
+inoremap jj <Esc>
+inoremap kk <Esc>
+nnoremap <Space> :
+nnoremap H :nohl<Return>
+nnoremap ` '
+nnoremap ' `
+inoremap ,; <C-o>A;
+inoremap ,. <C-o>A.
+inoremap <C-e> <C-o>A
+inoremap <C-a> <C-o>I
