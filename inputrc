@@ -17,3 +17,9 @@ set menu-complete-display-prefix on
 # "\t": menu-complete
 # "\e[Z": menu-complete-backward
 "\e[Z": menu-complete
+
+# Seems to make history expansion apply on the line that you are typing (so you
+# can see it), instead of having to press enter to have the expansion applied.
+$if Bash
+    Space: magic-space
+$endif
