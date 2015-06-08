@@ -437,6 +437,8 @@ if filereadable('/usr/lib/libclang.so')
 	let g:clang_library_path='/usr/lib/'
 elseif isdirectory('/usr/lib/llvm-3.4/lib')
 	let g:clang_library_path='/usr/lib/llvm-3.4/lib'
+elseif isdirectory('/usr/lib/llvm-3.6/lib')
+	let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.6.so.1'
 endif
 let g:clang_make_default_keymappings=0
 autocmd FileType cpp nnoremap <buffer> <silent> <C-l> :call g:ClangGotoDeclaration()<CR><Esc>
