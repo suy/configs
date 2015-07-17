@@ -544,6 +544,8 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_less_checkers = ['lessc']
 let g:syntastic_mode_map =	{ 'mode': 'active',
 							\ 'passive_filetypes': ['xml'] }
+let g:syntastic_quiet_messages = {
+			\ "regex": 'pragma once in main file' }
 
 " Setup for the lastnextprevious plugin.
 " FIXME: Something is wrong here in Vim 7.2.
