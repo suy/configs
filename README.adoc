@@ -125,6 +125,8 @@ Evaluate the following plugins:
 * https://github.com/justmao945/vim-clang
 * https://github.com/kana/vim-operator-siege versus
   https://github.com/rhysd/vim-operator-surround
+* https://github.com/svermeulen/vim-easyclip
+* https://github.com/lambdalisue/vim-improve-diff
 
 === Other repos/projects to look at (misc notes to self)
 
