@@ -1,7 +1,11 @@
+*.o
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+*.pyc
 tags
 tags-??
 *.swp
-*.pyc
 *~
 .netrwhist
 .localrc.vim
