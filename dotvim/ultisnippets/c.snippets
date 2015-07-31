@@ -19,9 +19,9 @@ endsnippet
 snippet main "Kickstart a main()" !b
 #include <${1:stdio.h}>
 
-int main(int argc, char* argv[])
+int main(int ${2:argc}, char** ${3:argv})
 {
-	$2
+	$4
 	return 0;
 }
 $0
