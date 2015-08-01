@@ -21,7 +21,7 @@
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "dotvim/bundle/easymotion"]
 	path = dotvim/bundle/easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
+	url = https://github.com/easymotion/vim-easymotion.git
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git

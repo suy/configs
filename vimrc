@@ -449,7 +449,6 @@ let g:snowdrop#libclang_file='libclang-3.4.so.1'
 let g:snowdrop#debug#enable=1
 
 let g:neocomplete#enable_auto_select = 0
-let g:neocomplete#enable_refresh_always = 1
 
 let g:neocomplete#auto_completion_start_length=4
 let g:neocomplete#enable_at_startup = 1
