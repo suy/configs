@@ -966,6 +966,9 @@ let g:solarized_hitrail='1'
 if has("gui_running")
 	if !has('win32')
 		set guifont=DejaVu\ Sans\ Mono\ 9
+		if hostname() ==# 'rallo'
+			set guifont=DejaVu\ Sans\ Mono\ 12
+		endif
 	else
 		set guifont=Consolas:h10:cANSI
 		set guifont=DejaVu_Sans_Mono:h10:cANSI
