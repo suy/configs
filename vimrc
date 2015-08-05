@@ -124,7 +124,7 @@ map R <Plug>(operator-replace)
 let g:markdown_folding=1
 
 " Startify features, and arrangement of sections.
-let g:startify_list_order = ['bookmarks', 'files', 'dir']
+let g:startify_list_order = ['bookmarks', 'dir', 'files']
 let g:startify_change_to_vcs_root = 1
 let g:startify_skiplist = [
 	\ 'COMMIT_EDITMSG',
