@@ -331,3 +331,6 @@
 [submodule "dotvim/bundle/recover"]
 	path = dotvim/bundle/recover
 	url = https://github.com/chrisbra/Recover.vim.git
+[submodule "dotvim/bundle/grepper"]
+	path = dotvim/bundle/grepper
+	url = http://github.com/mhinz/vim-grepper.git
