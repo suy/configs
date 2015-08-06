@@ -135,7 +135,9 @@ let g:startify_list_order = ['bookmarks', 'dir', 'files']
 let g:startify_change_to_vcs_root = 1
 let g:startify_skiplist = [
 	\ 'COMMIT_EDITMSG',
-	\ '.git/index'
+	\ '.git/index',
+	\ '^/tmp',
+	\ 'bundle/.*/doc',
 	\ ]
 let g:startify_custom_indices = map(range(5,100), 'string(v:val)')
 if executable('fortune')
