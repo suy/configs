@@ -68,6 +68,10 @@ snippet debu "qDebug" !w
 qDebug() << ${VISUAL}$0;
 endsnippet
 
+snippet debc "qCDebug(category)" !w
+qCDebug(${1:log}) << ${VISUAL}$0;
+endsnippet
+
 snippet defu "qDebug: print current function" !w
 qDebug() << Q_FUNC_INFO;
 endsnippet
@@ -88,8 +92,19 @@ snippet qau "Q_ASSERT followed by Q_UNUSED" !b
 Q_ASSERT(${1:${VISUAL}}); Q_UNUSED($1);
 endsnippet
 
-snippet conn "Connect signal with slot" !b
-connect(${1:this}, SIGNAL(${2:signal signature}), ${3:this}, SLOT(${4:slot signature}));
+snippet connl "QObject::connect to a lambda" !b
+connect(${1:this}, ${2:&Class::signal},
+		${3:this}, [$4]($5) {$6});
+endsnippet
+
+snippet connm "QObject::connect to a member" !b
+connect(${1:this}, ${2:&Class::signal},
+		${3:that}, ${4:&Class::slot});
+endsnippet
+
+snippet conno "QObject::connect with the old style" !b
+connect(${1:this}, SIGNAL(${2:signal signature}),
+		${3:that}, SLOT(${4:slot signature}));
 endsnippet
 
 snippet foreach "Qt's foreach" !b
