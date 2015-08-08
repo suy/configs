@@ -1160,7 +1160,8 @@ xmap <leader>w <C-w>
 " not), and then close the initial one.
 nmap <silent> <leader>q :if buflisted(expand('#'))<BAR>b #<BAR>
 	\ else<BAR>bnext<BAR>endif<BAR>
-	\ if buflisted(expand('#'))<BAR>bdelete #<BAR>endif<CR>
+	\ bdelete #<CR>
+	" \ if buflisted(expand('#'))<BAR>bdelete #<BAR>endif<CR>
 
 " Clear and redraw the screen. Usually is C-L, but is mapped to something else.
 nmap <leader>r :redraw!<CR>
