@@ -10,7 +10,8 @@ fi
 
 if [ "$TERM" != "dumb" ]; then
 	eval "`dircolors -b`"
-	alias ls=$LS' --color=auto'
+	LS=$LS' --color=auto'
+	alias ls="$LS"
 fi
 
 # some more ls aliases
