@@ -173,10 +173,15 @@ let g:neosnippet#disable_runtime_snippets = {'_' : 1}
 "}}}
 
 " UltiSnips. "{{{
-" Use CTRL+S (unused in insert mode) to invoke a
-" snippet. This way, your <tab> can be free for other completion actions.
-let g:UltiSnipsExpandTrigger="<C-S>"
-let g:UltiSnipsListSnippets="<C-Q>"
+" Use <C-S>/<C-Q> (unused in insert mode, and in the GUI only) for snippet
+" shortcuts. This way <tab> is a bit more free for fine grained actions.
+if has("gui_running")
+	let g:UltiSnipsExpandTrigger="<C-S>"
+	let g:UltiSnipsListSnippets="<C-Q>"
+else
+	let g:UltiSnipsExpandTrigger=",s"
+	let g:UltiSnipsListSnippets=",q"
+endif
 " These other two are the defaults. Left here as a reminder.
 " let g:UltiSnipsJumpForwardTrigger="<C-J>"
 " let g:UltiSnipsJumpBackwardTrigger="<C-K>"
