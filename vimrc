@@ -973,14 +973,16 @@ let g:solarized_hitrail='1'
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
-	if !has('win32')
+	if !has('win32') && !has('mac')
 		set guifont=DejaVu\ Sans\ Mono\ 9
 		if hostname() ==# 'rallo'
 			set guifont=DejaVu\ Sans\ Mono\ 12
 		endif
-	else
+	elseif has('win32')
 		set guifont=Consolas:h10:cANSI
 		set guifont=DejaVu_Sans_Mono:h10:cANSI
+	else
+		set guifont=DejaVu_Sans_Mono:h13
 	endif
 	set guioptions-=T " Get rid of the toolbar and the menu.
 	set guioptions-=m
