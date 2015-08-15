@@ -49,10 +49,15 @@ endsnippet
 
 # TODO: polish, make the "Who" optional as well.
 snippet quote "Block quote" !w
-${4:[quote, ${1:Who}${2:, ${3:Extended description}}]}
+${1:[quote, ${2:Who}${3:, ${4:Extended description}}]}
 ____
 ${VISUAL}$0
 ____
+endsnippet
+
+snippet q "Single line quote" b
+[quote]
+${VISUAL}$0
 endsnippet
 
 snippet quotemarkdown "Block quote, markdown style (asciidoctor only)" !w
