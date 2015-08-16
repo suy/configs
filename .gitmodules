@@ -255,7 +255,7 @@
 	url = https://github.com/t9md/vim-choosewin.git
 [submodule "dotvim/bundle/startify"]
 	path = dotvim/bundle/startify
-	url = https://github.com/mhinz/vim-startify.git
+	url = https://github.com/suy/vim-startify.git
 [submodule "dotvim/bundle/neomru"]
 	path = dotvim/bundle/neomru
 	url = https://github.com/Shougo/neomru.vim.git
