@@ -921,8 +921,8 @@ set foldmethod=syntax
 " fdls: the level of nested folds that will be closed initially.
 set foldlevelstart=4
 
-" foldcolumn: Use a 4 characters wide column to display folding information.
-set fdc=4
+" foldcolumn: Use a 0 characters wide column to display folding information.
+set fdc=0
 
 " laststatus: Show the statusbar always, not only on last window
 set ls=2
