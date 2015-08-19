@@ -328,16 +328,20 @@ let g:junkfile#directory=expand('~/personal/misc')
 "}}}
 
 " Airline " {{{
-let g:airline_powerline_fonts=1 " Depends on the fonts-powerline package
+" TODO: Detect if powerline symbols are available at runtime.
+" Depends on the fonts-powerline package, so Linux only (and disabled for now).
+if !has('win32') && !has('mac') && 0
+	let g:airline_powerline_fonts=1
+else
+	let g:airline_left_sep = '▶'
+	let g:airline_right_sep = '◀'
+	let g:airline_symbols = {}
+	let g:airline_symbols.linenr = '¶ '
+endif
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='understated'
-" TODO: Detect if powerline symbols are not available and use this instead.
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols = {}
-" let g:airline_symbols.linenr = '¶ '
 " }}}
 
 " Submode. "{{{
