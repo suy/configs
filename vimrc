@@ -24,7 +24,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
 let g:pathogen_disabled = [
-		\ 'neosnippet',
 		\ 'space']
 
 " Additionally, disable the plugin code of endwise, since I want it available
@@ -164,16 +163,6 @@ let g:gist_post_private = 1      " Post secretly by default.
 let g:gist_get_multiplefile = 1
 
 " }}}
-
-" Neosnippet."{{{
-imap <C-z> <Plug>(neosnippet_expand_or_jump)
-smap <C-z> <Plug>(neosnippet_expand_or_jump)
-xmap <C-z> <Plug>(neosnippet_expand_target)
-" imap <C-l> <Plug>(neosnippet_start_unite_snippet_target)
-
-" Disable all runtime snippets for now
-let g:neosnippet#disable_runtime_snippets = {'_' : 1}
-"}}}
 
 " UltiSnips. "{{{
 " Use <C-S>/<C-Q> (unused in insert mode, and in the GUI only) for snippet
@@ -589,9 +578,6 @@ let g:localrc_filename=".localrc.vim"
 
 " Word in word text object.
 let g:textobj_wiw_default_key_mappings_prefix='\'
-
-" Current func info.
-nnoremap <leader>ff :<C-u>echo cfi#format("%s", "")<CR>
 
 " Choosewin
 let g:choosewin_overlay_enable = 1

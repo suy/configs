@@ -145,9 +145,6 @@
 [submodule "dotvim/bundle/editvar"]
 	path = dotvim/bundle/editvar
 	url = https://github.com/thinca/vim-editvar.git
-[submodule "dotvim/bundle/current-func-info"]
-	path = dotvim/bundle/current-func-info
-	url = https://github.com/tyru/current-func-info.vim.git
 [submodule "dotvim/bundle/gitv"]
 	path = dotvim/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
@@ -217,9 +214,6 @@
 [submodule "dotvim/bundle/textobj-wiw"]
 	path = dotvim/bundle/textobj-wiw
 	url = https://github.com/h1mesuke/textobj-wiw.git
-[submodule "dotvim/bundle/neosnippet"]
-	path = dotvim/bundle/neosnippet
-	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule "dotvim/bundle/signify"]
 	path = dotvim/bundle/signify
 	url = https://github.com/mhinz/vim-signify.git
