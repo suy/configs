@@ -1331,4 +1331,9 @@ endfunction
 inoremap <silent> <Tab> <C-R>=<SID>CleverTab()<CR>
 inoremap <silent> <S-Tab> <C-p>
 
+" Neovim's terminal
+if has('nvim')
+	tnoremap <Esc> <C-\><C-n>
+endif
+
 " vim:foldmethod=marker:noet:ts=4:sw=4:
