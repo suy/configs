@@ -326,3 +326,6 @@
 [submodule "dotvim/bundle/grepper"]
 	path = dotvim/bundle/grepper
 	url = http://github.com/mhinz/vim-grepper.git
+[submodule "dotvim/bundle/textobj-comment"]
+	path = dotvim/bundle/textobj-comment
+	url = https://github.com/glts/vim-textobj-comment.git
