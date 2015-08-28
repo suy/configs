@@ -560,11 +560,12 @@ let g:syntastic_quiet_messages = {
 " FIXME: Something is wrong here in Vim 7.2.
 nmap <silent> + <Plug>lastnextprevious_forward
 nmap <silent> - <Plug>lastnextprevious_backward
-if exists("g:lastnextprevious#table")
+if stridx(&runtimepath, "lastnextprevious") != -1
 	let g:lastnextprevious#last = 'changelist'
 	call extend(g:lastnextprevious#table,
 	\ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
-	\   'quickfix': {'b': '[q', 'f': ']q'} }
+	\   'quickfix': {'b': '[q', 'f': ']q'} ,
+	\   'loclist':  {'b': '[l', 'f': ']l'} }
 	\)
 endif
 " FIXME: gives an error when resourcing vimrc (wihout using silent). Think about
