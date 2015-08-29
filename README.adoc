@@ -8,6 +8,20 @@ http://drewneil.com/[Drew Neil], who made a great
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/[
 screencast on keeping in sync your Vim configuration with Git and Github].
 
+== Micro Vim plugins
+
+Besides some little things in the `vimrc` file, I started putting some things
+that eventually could grow to a plugin in it's own in the plugin directory. For
+example, `foldcomments.vim` tries to imitate a feature that I've learnt to love
+from http://www.qt.io/ide[Qt Creator]: fold the first comment of a file (because
+it tipically is a copyright notice which might contain lots of repetitive
+information from the same project). Look at them in `dotvim/plugin`.
+
+In other `dotvim` subdirectories there might be some personal or even common
+sense settings. Or plain fixes to the lack of completeness of the file type
+support in Vim. Blame the stupidity of the Vim development model for not sending
+the changes upstream.
+
 == Usage notes
 
 === Set up in a new machine
