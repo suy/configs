@@ -6,5 +6,6 @@ nnoremap ` '
 nnoremap ' `
 inoremap ,; <C-o>A;
 inoremap ,. <C-o>A.
+inoremap ,, <C-o>A,
 inoremap <C-e> <C-o>A
 inoremap <C-a> <C-o>I
