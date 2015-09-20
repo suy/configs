@@ -35,7 +35,11 @@ alias cp='cp -i'
 alias df=$DF' -h -x devtmpfs -x tmpfs -x rootfs'
 
 # I hope I don't repent on this. Open with the browser, or whatever nicely.
-alias o='xdg-open'
+if [ "$(uname)" = "Darwin" ] ; then
+	alias o='open'
+else
+	alias o='xdg-open'
+fi
 
 alias doc='cd /usr/share/doc ; cd'
 
