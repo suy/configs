@@ -232,9 +232,6 @@
 [submodule "dotvim/bundle/colorscheme-tomorrow"]
 	path = dotvim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "dotvim/bundle/quicktask"]
-	path = dotvim/bundle/quicktask
-	url = https://github.com/aaronbieber/quicktask.git
 [submodule "dotvim/bundle/echodoc"]
 	path = dotvim/bundle/echodoc
 	url = https://github.com/Shougo/echodoc.vim.git
