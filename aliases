@@ -2,10 +2,12 @@
 if [ "$(uname)" = "Darwin" ] && type gls > /dev/null 2>&1 ; then
 	LS='gls'
 	DF='gdf'
+	CP='gcp'
 	alias dircolors='gdircolors'
 else
 	LS='ls'
 	DF='df'
+	CP='cp'
 fi
 
 if [ "$TERM" != "dumb" ]; then
@@ -31,7 +33,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias mv='mv -i'
-alias cp='cp -i'
+alias cp=$CP' -i'
 alias df=$DF' -h -x devtmpfs -x tmpfs -x rootfs'
 
 # I hope I don't repent on this. Open with the browser, or whatever nicely.
