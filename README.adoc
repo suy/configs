@@ -142,6 +142,16 @@ Evaluate the following plugins:
   https://github.com/rhysd/vim-operator-surround
 * https://github.com/svermeulen/vim-easyclip
 * https://github.com/lambdalisue/vim-improve-diff
+* https://github.com/fmoralesc/vim-pad
+* https://github.com/chrisbra/Colorizer
+* https://github.com/vim-utils/vim-husk
+
+To rethink a bit the fonts choice, or even the deployment to each installation
+of the fonts, consider putting in a submodule:
+
+* https://github.com/chrissimpkins/codeface
+* https://github.com/chrissimpkins/Hack
+* https://github.com/powerline/fonts
 
 === Other repos/projects to look at (misc notes to self)
 
@@ -151,3 +161,8 @@ Evaluate the following plugins:
 * https://asciinema.org/docs/how-it-works
 * https://github.com/sickill?tab=repositories
 * https://github.com/ManuelSchneid3r/albert
+
+Terminals for Windows:
+
+* https://github.com/babun/babun
+* https://github.com/Maximus5/ConEmu
