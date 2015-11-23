@@ -11,6 +11,20 @@
 " the default unless overriden by LANG (but not on Windows). Go figure.
 set encoding=utf-8
 
+" Set and create specific directories on $HOME and similar to avoid littering
+" the filesystem with Vim specific stuff at the root level. Do this early to
+" allow plugins to be configured in terms of this directory.
+let s:data_dir = has('win32') ? '$APPDATA/Vim' :
+			\ match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' :
+			\ empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
+let s:data_dir = expand(s:data_dir)
+
+if exists("*mkdir")
+	if !isdirectory(s:data_dir)
+		call mkdir(s:data_dir, "p")
+	endif
+endif
+
 " Pathogen is a freaking awesome plugin for managing other plugins where each
 " one is in a directory of it's own, instead of all mixed in the same. This
 " allows to install, remove and update your plugins with lots of ease. You just
@@ -781,26 +795,20 @@ set timeout timeoutlen=1600
 " But not for for key codes. Use a very small value for them.
 set ttimeout ttimeoutlen=50
 
-" Set and create specific directories on $HOME and similar to avoid littering the
-" filesystem with Vim specific stuff.
-let s:dir = has('win32') ? '$APPDATA/Vim' :
-			\ match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' :
-			\ empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-let s:dir = expand(s:dir)
-
+" Ensure the swap and undo directories.
 if exists("*mkdir")
-	if !isdirectory(s:dir . "/undo")
-		call mkdir(s:dir . "/undo", "p")
+	if !isdirectory(s:data_dir . "/undo")
+		call mkdir(s:data_dir . "/undo", "p")
 	endif
-	if !isdirectory(s:dir . "/swap")
-		call mkdir(s:dir . "/swap", "p")
+	if !isdirectory(s:data_dir . "/swap")
+		call mkdir(s:data_dir . "/swap", "p")
 	endif
 endif
 
 " Save the undo history in a persistent file, not just while Vim is running.
 if has('persistent_undo')
 	set undofile
-	let &undodir = s:dir . '/undo,.,/var/tmp,/tmp'
+	let &undodir = s:data_dir . '/undo,.,/var/tmp,/tmp'
 endif
 
 " Double the number of undo levels.
@@ -810,7 +818,7 @@ set undolevels=2000
 " au BufWritePre /tmp/* setlocal noundofile
 
 " Save the swap files on a different directory.
-let &directory = s:dir . '/swap,.,/var/tmp,/tmp'
+let &directory = s:data_dir . '/swap,.,/var/tmp,/tmp'
 
 " Save a lot more history
 set history=200
