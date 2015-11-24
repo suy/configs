@@ -1363,6 +1363,8 @@ inoremap <silent> <S-Tab> <C-p>
 " Neovim's terminal
 if has('nvim')
 	tnoremap <Esc> <C-\><C-n>
+	tnoremap jj <C-\><C-n>
+	tnoremap kk <C-\><C-n>
 endif
 
 " vim:foldmethod=marker:noet:ts=4:sw=4:
