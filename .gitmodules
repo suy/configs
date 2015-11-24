@@ -323,3 +323,6 @@
 [submodule "dotvim/bundle/textobj-comment"]
 	path = dotvim/bundle/textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
+[submodule "dotvim/bundle/gista"]
+	path = dotvim/bundle/gista
+	url = https://github.com/lambdalisue/vim-gista.git

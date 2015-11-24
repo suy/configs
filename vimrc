@@ -38,6 +38,7 @@ runtime bundle/pathogen/autoload/pathogen.vim
 " not convenient, and I use the g:pathogen_disabled variable, that you can
 " manipulate conditionally if you want.
 let g:pathogen_disabled = [
+		\ 'gist',
 		\ 'space']
 
 " Additionally, disable the plugin code of endwise, since I want it available
@@ -175,6 +176,9 @@ let g:gist_detect_filetype = 1   " Detect from file name.
 let g:gist_show_privates = 1     " Show secret gists on listsing.
 let g:gist_post_private = 1      " Post secretly by default.
 let g:gist_get_multiplefile = 1
+
+" Gista.
+let g:gista#directory = s:data_dir . '/gista/'
 
 " }}}
 
