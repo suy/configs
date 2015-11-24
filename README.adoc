@@ -126,7 +126,7 @@ Evaluate the following plugins:
 * https://github.com/junegunn/goyo.vim
 * https://github.com/idanarye/vim-vebugger
 * https://github.com/stefandtw/quickfix-reflector.vim
-* https://github.com/lambdalisue/vim-gista
+* https://github.com/lambdalisue/vim-gita
 * https://github.com/bbchung/clighter
 * https://github.com/nelstrom/vim-textobj-rubyblock
 * https://github.com/tek/vim-textobj-ruby
@@ -145,6 +145,9 @@ Evaluate the following plugins:
 * https://github.com/fmoralesc/vim-pad
 * https://github.com/chrisbra/Colorizer
 * https://github.com/vim-utils/vim-husk
+* https://github.com/Shougo/neopairs.vim
+* https://github.com/ryanoasis/vim-devicons
+* https://github.com/rkitover/vimpager
 
 To rethink a bit the fonts choice, or even the deployment to each installation
 of the fonts, consider putting in a submodule:
