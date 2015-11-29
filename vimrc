@@ -51,6 +51,13 @@ if !has('gui_running')
 	call add(g:pathogen_disabled, 'css-color')
 endif
 
+" TODO: This is just an ugly workaround because I don't want to dig more in what
+" the terminal apps on OS X do differently to suck.
+if !has('gui_running') && has('mac')
+	call add(g:pathogen_disabled, 'indent-line')
+	call add(g:pathogen_disabled, 'airline')
+endif
+
 " Disable UltiSnips if needed to avoid the startup warning.
 if !has('python') && !has('python3') && !has('python/dyn') && !has('python3/dyn')
 	\ && v:version < 704
