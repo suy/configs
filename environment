@@ -47,6 +47,12 @@ if [ -d $HOME/local/gems ] ; then
 	export PATH=$HOME/local/gems/bin:"${PATH}"
 fi
 
+if [ -d $HOME/local/node ] ; then
+	export NPM_CONFIG_PREFIX=$HOME/local/node
+	export npm_config_prefix=$HOME/local/node
+	export PATH=$HOME/local/node/bin:"${PATH}"
+fi
+
 # if [ -x $HOME/.rbenv/bin/rbenv ] ; then
 # 	export PATH=$HOME/.rbenv/bin:"${PATH}"
 # 	eval "$(rbenv init -)"
