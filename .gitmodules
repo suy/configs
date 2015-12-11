@@ -322,3 +322,6 @@
 [submodule "dotvim/bundle/gista"]
 	path = dotvim/bundle/gista
 	url = https://github.com/lambdalisue/vim-gista.git
+[submodule "dotvim/bundle/rhubarb"]
+	path = dotvim/bundle/rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
