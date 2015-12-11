@@ -1203,6 +1203,12 @@ nmap <leader>h :nohlsearch<CR>
 nmap <leader>p "+p
 nmap <leader>P "*p
 
+" Unimpaired used to have `nnoremap <silent> yP :call <SID>setup_paste()<CR>i`
+" and a longer family of mappings. Luckily, `<Plug>unimpairedPaste` exposes that
+" otherwise private function.
+nmap yp <Plug>unimpairedPastea
+nmap yP <Plug>unimpairedPastei
+
 " Toggle the use of cursor column and cursor line
 nmap <silent> <leader><leader>cc :set cursorcolumn!<CR>
 nmap <silent> <leader><leader>cl :set cursorline!<CR>
