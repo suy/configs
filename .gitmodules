@@ -325,3 +325,6 @@
 [submodule "dotvim/bundle/rhubarb"]
 	path = dotvim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "dotvim/bundle/neoyank"]
+	path = dotvim/bundle/neoyank
+	url = https://github.com/Shougo/neoyank.vim.git
