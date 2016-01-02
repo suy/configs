@@ -328,3 +328,6 @@
 [submodule "dotvim/bundle/neoyank"]
 	path = dotvim/bundle/neoyank
 	url = https://github.com/Shougo/neoyank.vim.git
+[submodule "dotvim/bundle/fugitive-gitlab-gbrowse"]
+	path = dotvim/bundle/fugitive-gitlab-gbrowse
+	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
