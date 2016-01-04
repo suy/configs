@@ -33,13 +33,19 @@ endif
 " the pathogen plugin itself from its own directory.
 runtime bundle/pathogen/autoload/pathogen.vim
 
-" You can disable a plugin (but keep the files) if you rename the directory by
-" adding a trailing '~' to it. In my case I use git submodules, so renaming is
-" not convenient, and I use the g:pathogen_disabled variable, that you can
-" manipulate conditionally if you want.
-let g:pathogen_disabled = [
-		\ 'gist',
-		\ 'space']
+" You can disable a plugin (but keep the files around) renaming the directory to
+" a name with a trailing '~'. In my case I use git submodules, so renaming is
+" not convenient. I use the g:pathogen_blacklist variable (with a helper
+" function), to disable plugins conditionally. To disable plugins without
+" changing the configuration, use the $VIMBLACKLIST environment variable.
+function! s:disable(...)
+	for plugin in a:000
+		call add(g:pathogen_blacklist, plugin)
+	endfor
+endfunction
+
+" Kept as a submodule to track them, but not used in the configuration.
+let g:pathogen_blacklist = ['space', 'gist', 'vital', 'marching', 'reunions']
 
 " Additionally, disable the plugin code of endwise, since I want it available
 " in the runtimepath, but not loading any code. This way I can check the source
@@ -48,45 +54,31 @@ let g:loaded_endwise=1
 
 " Disable css-color in the console, because it slows down too much.
 if !has('gui_running')
-	call add(g:pathogen_disabled, 'css-color')
+	call s:disable('css-color')
 endif
 
 " TODO: This is just an ugly workaround because I don't want to dig more in what
 " the terminal apps on OS X do differently to suck.
 if !has('gui_running') && has('mac')
-	call add(g:pathogen_disabled, 'indent-line')
-	call add(g:pathogen_disabled, 'airline')
+	call s:disable('indent-line', 'airline')
 endif
 
 " Disable UltiSnips if needed to avoid the startup warning.
 if !has('python') && !has('python3') && !has('python/dyn') && !has('python3/dyn')
 	\ && v:version < 704
-	call add(g:pathogen_disabled, 'ultisnips')
+	call s:disable('ultisnips')
 endif
 
 " Neocomplete requires some features.
 if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
-	call add(g:pathogen_disabled, 'neocomplete')
-endif
-
-" Likewise for youcompleteme.
-if v:version < 703 || (v:version == 703 && !has('patch584')) || !has('python')
-	call add(g:pathogen_disabled, 'youcompleteme')
+	call s:disable('neocomplete')
 endif
 
 " Temporary tweaks. Just use neocomplete and clang_complete, disable others.
-call add(g:pathogen_disabled, 'youcompleteme')
 if has('win32')
-	call add(g:pathogen_disabled, 'clang_complete')
+	call s:disable('clang_complete')
 endif
 
-call add(g:pathogen_disabled, 'marching')
-call add(g:pathogen_disabled, 'reunions')
-" call add(g:pathogen_disabled, 'neocomplete')
-
-" Disable stuff that I keep as submodule to track it, but is not really used in
-" the configuration for now.
-call add(g:pathogen_disabled, 'vital')
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
