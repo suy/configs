@@ -247,10 +247,8 @@ nmap <silent> <leader>u  :<C-u>execute get([
 " Experiment. :-)
 nmap <silent> cd :<C-u>Unite -buffer-name=browse -no-split directory<Return>
 
-" Customize default sources.
-" Can't use pathogen if no plugins are loaded at all.
-" if !pathogen#is_disabled('unite')
-if stridx(&runtimepath, "bundle/unite") != -1
+" Customize default sources (but check if Unite is there).
+if exists(':Unite')
 	call unite#custom_default_action('buffer', 'goto')
 	call unite#custom_default_action('directory', 'cd')
 	" call unite#filters#matcher_default#use(['matcher_fuzzy'])
