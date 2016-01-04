@@ -573,6 +573,11 @@ let g:syntastic_mode_map =	{ 'mode': 'active',
 							\ 'passive_filetypes': ['xml'] }
 let g:syntastic_quiet_messages = {
 			\ "regex": 'pragma once in main file' }
+if executable('asciidoctor')
+	let g:syntastic_asciidoc_asciidoc_exec='asciidoctor'
+elseif isdirectory($HOME . '/local/gems')
+	let g:syntastic_asciidoc_asciidoc_exec=$HOME . '/local/gems/bin/asciidoctor'
+endif
 
 " Setup for the lastnextprevious plugin.
 " FIXME: Something is wrong here in Vim 7.2.
