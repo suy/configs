@@ -1288,6 +1288,9 @@ onoremap ar a]
 iabbr tODO TODO
 iabbr fIXME FIXME
 iabbr hte the
+if exists(':Abolish')
+	Abolish definetely definitely
+endif
 
 " Function and command for removing (with confirmation) trailing whitespace.
 command! RemoveTrailingWhiteSpace call <SID>RemoveTrailingWhiteSpace()
