@@ -10,6 +10,12 @@ ServerAliveCountMax 3
 # For unite-ssh. Seems safe enough for the remaining use cases.
 ControlMaster auto
 
+# For some hosts I have a more specific key, but I don't want to specify them
+# one by one, so attempt to use a remote host-suffixed key first, and fall back
+# to the usual one.
+IdentityFile ~/.ssh/id_rsa-%h
+IdentityFile ~/.ssh/id_rsa
+
 Host *.debian.org
 	User suy-guest
 
