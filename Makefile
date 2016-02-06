@@ -37,6 +37,8 @@ setup-unix:
 setup-unix-vim: setup-unix
 	@# Just in case I forgot to use --recursive.
 	git submodule update --init
+	git x-submodule-attach
+	git x-submodule-reset
 	git remote set-url --push origin git@github.com:suy/configs.git
 	@#
 	@# Specific module/plugin setup.
