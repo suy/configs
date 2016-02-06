@@ -10,6 +10,7 @@ tags-??
 .netrwhist
 .localrc.vim
 .DS_Store
+*.pro.user*
 CMakeLists.txt.user*
 *.autosave
 .clang_complete
