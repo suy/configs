@@ -547,10 +547,6 @@ let g:neocomplete#force_omni_input_patterns.c =
 let g:neocomplete#force_omni_input_patterns.cpp =
 	\ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
 " For rubycomplete.
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplete#force_omni_input_patterns.ruby =
