@@ -35,6 +35,8 @@ alias ....='cd ../../..'
 alias mv='mv -i'
 alias cp=$CP' -i'
 alias df=$DF' -h -x devtmpfs -x tmpfs -x rootfs'
+# Ideally this would be a git alias instead, but it's run in a subshell.
+alias gcd='cd `git root`'
 
 # I hope I don't repent on this. Open with the browser, or whatever nicely.
 if [ "$(uname)" = "Darwin" ] ; then
