@@ -29,6 +29,7 @@
 	excludesfile = ~/.ignore-patterns
 [merge]
 	defaultToUpstream = 1
+	conflictStyle = diff3
 [branch]
 	autosetuprebase = remote
 [push]
