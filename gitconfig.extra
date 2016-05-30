@@ -60,5 +60,9 @@
 	insteadOf = bb:
 [url "git@gitlab.com:"]
 	insteadOf = gl:
+[filter "lfs"]
+	required = true
+	smudge = git-lfs smudge %f
+	clean = git-lfs clean %f
 
 # vim:set filetype=gitconfig:
