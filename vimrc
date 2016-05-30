@@ -1082,8 +1082,8 @@ nnoremap ZQ <Nop>
 nnoremap ZZ <Nop>
 
 " Make do/dp repeatable.
-nnoremap <silent> dp dp:silent! call repeat#set('dp', 1)<Enter>
-nnoremap <silent> do do:silent! call repeat#set('do', 1)<Enter>
+nnoremap <silent> dp dp:silent! call repeat#set('dp', v:count)<Enter>
+nnoremap <silent> do do:silent! call repeat#set('do', v:count)<Enter>
 
 " Try to be smart: if accidentally you press 'jj' or 'kk' in insert mode, you
 " will be brought back to normal mode. Is also easier to press than <ESC>.
