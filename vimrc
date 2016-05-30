@@ -75,7 +75,7 @@ if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 endif
 
 " Temporary tweaks. Just use neocomplete and clang_complete, disable others.
-if has('win32')
+if has('win32') || !has('python')
 	call s:disable('clang_complete')
 endif
 
