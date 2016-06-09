@@ -33,7 +33,8 @@
 [branch]
 	autosetuprebase = remote
 [push]
-	default = simple
+# Push to whatever is set up as upstream, even with different branch names.
+	default = upstream
 [fetch]
 	prune = 1
 [svn]
