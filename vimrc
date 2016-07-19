@@ -565,8 +565,7 @@ let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_less_checkers = ['lessc']
-let g:syntastic_mode_map =	{ 'mode': 'active',
-							\ 'passive_filetypes': ['xml'] }
+let g:syntastic_mode_map =	{ 'mode': 'passive' }
 let g:syntastic_quiet_messages = {
 			\ "regex": 'pragma once in main file' }
 if executable('asciidoctor')
