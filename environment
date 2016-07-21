@@ -12,7 +12,7 @@ fi
 export LC_COLLATE="C"
 
 # Pretty common unix programs
-export EDITOR=vim
+export EDITOR=vi
 export MANWIDTH=80
 #export CDPATH=.:/usr/share/doc
 export LESS_TERMCAP_mb=$'\E[01;31m'
