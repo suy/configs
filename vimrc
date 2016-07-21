@@ -735,7 +735,7 @@ set shiftround
 set fileformats+=mac
 
 " Syntax highlighting reduced to some reasonable column.
-set synmaxcol=150
+set synmaxcol=250
 
 if has("autocmd")
 	augroup vimrc
