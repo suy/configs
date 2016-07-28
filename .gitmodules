@@ -115,9 +115,6 @@
 [submodule "dotvim/bundle/vimproc"]
 	path = dotvim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
-[submodule "dotvim/bundle/vimshell"]
-	path = dotvim/bundle/vimshell
-	url = https://github.com/Shougo/vimshell.git
 [submodule "dotvim/bundle/localrc"]
 	path = dotvim/bundle/localrc
 	url = https://github.com/thinca/vim-localrc.git
@@ -133,9 +130,6 @@
 [submodule "dotvim/bundle/prettyprint"]
 	path = dotvim/bundle/prettyprint
 	url = https://github.com/thinca/vim-prettyprint.git
-[submodule "dotvim/bundle/singleton"]
-	path = dotvim/bundle/singleton
-	url = https://github.com/thinca/vim-singleton.git
 [submodule "dotvim/bundle/editvar"]
 	path = dotvim/bundle/editvar
 	url = https://github.com/thinca/vim-editvar.git
@@ -160,9 +154,6 @@
 [submodule "dotvim/bundle/vimfiler"]
 	path = dotvim/bundle/vimfiler
 	url = https://github.com/Shougo/vimfiler.git
-[submodule "dotvim/bundle/unite-outline"]
-	path = dotvim/bundle/unite-outline
-	url = https://github.com/Shougo/unite-outline.git
 [submodule "dotvim/bundle/angry"]
 	path = dotvim/bundle/angry
 	url = https://github.com/b4winckler/vim-angry.git
@@ -178,24 +169,9 @@
 [submodule "dotvim/bundle/unite-history"]
 	path = dotvim/bundle/unite-history
 	url = https://github.com/thinca/vim-unite-history.git
-[submodule "dotvim/bundle/dispatch"]
-	path = dotvim/bundle/dispatch
-	url = https://github.com/tpope/vim-dispatch.git
-[submodule "dotvim/bundle/quickrun"]
-	path = dotvim/bundle/quickrun
-	url = https://github.com/thinca/vim-quickrun.git
-[submodule "dotvim/bundle/unite-build"]
-	path = dotvim/bundle/unite-build
-	url = https://github.com/Shougo/unite-build.git
-[submodule "dotvim/bundle/junkfile"]
-	path = dotvim/bundle/junkfile
-	url = https://github.com/Shougo/junkfile.vim.git
 [submodule "dotvim/bundle/neocomplete"]
 	path = dotvim/bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule "dotvim/bundle/unite-help"]
-	path = dotvim/bundle/unite-help
-	url = https://github.com/Shougo/unite-help.git
 [submodule "dotvim/bundle/context-commentstring"]
 	path = dotvim/bundle/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
@@ -208,9 +184,6 @@
 [submodule "dotvim/bundle/airline"]
 	path = dotvim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "dotvim/bundle/unite-ssh"]
-	path = dotvim/bundle/unite-ssh
-	url = https://github.com/Shougo/unite-ssh.git
 [submodule "dotvim/bundle/reunions"]
 	path = dotvim/bundle/reunions
 	url = https://github.com/osyo-manga/vim-reunions
