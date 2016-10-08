@@ -295,3 +295,6 @@
 [submodule "dotvim/bundle/airline-themes"]
 	path = dotvim/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "dotvim/bundle/colorscheme-gruvbox"]
+	path = dotvim/bundle/colorscheme-gruvbox
+	url = https://github.com/morhetz/gruvbox.git

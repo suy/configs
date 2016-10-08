@@ -1003,15 +1003,18 @@ if has("gui_running")
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
+
+	if stridx(&runtimepath, "colorscheme-gruvbox") != -1
+		let g:gruvbox_contrast_dark="hard"
+		let g:gruvbox_contrast_light="hard"
+		colorscheme gruvbox
 	" Solarized thingies.
-	if stridx(&runtimepath, "colorscheme-solarized") != -1
+	elseif stridx(&runtimepath, "colorscheme-solarized") != -1
 		colorscheme solarized
 		" Some solarized changes: listchars and matched parents.
 		highlight SpecialKey guifg=#094757
 		highlight MatchParen gui=reverse guibg=NONE
 		highlight SignColumn guifg=#839496 guibg=#002b36
-	else
-		colorscheme desert
 	endif
 else
 	try
