@@ -1,16 +1,30 @@
+### Common
 *.o
+
+### Qt
 moc_*.cpp
+*.moc
 qrc_*.cpp
 ui_*.h
-*.pyc
+.qmake.stash
+# I think these two are qmake...
+Makefile.Debug
+Makefile.Release
+
+# Qt Creator
+*.pro.user*
+*.autosave
+CMakeLists.txt.user*
+
+### Vim
 tags
 tags-??
 *.swp
-*~
 .netrwhist
-.localrc.vim
-.DS_Store
-*.pro.user*
-CMakeLists.txt.user*
-*.autosave
 .clang_complete
+.localrc.vim
+
+### Others
+*~
+.DS_Store
+*.pyc
