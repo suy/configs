@@ -239,7 +239,6 @@ nmap <silent> <leader>u  :<C-u>execute get([
 	\ "Unite -no-split -buffer-name=files buffer",
 	\ "Unite -no-split -buffer-name=files file_mru",
 	\ "Unite history/command",
-	\ "Unite outline",
 	\ "Unite output:message",
 	\ "Unite grep -keep-focus -no-quit",
 	\ ], v:count)<Return>
@@ -289,9 +288,7 @@ let g:unite_source_menu_menus.unite.candidates = {
 			\ 'grep': 'Unite grep -keep-focus -no-quit',
 			\ 'mapping': 'Unite mapping',
 			\ 'runtimepath': 'Unite runtimepath',
-			\ 'outline': 'Unite outline',
 			\ 'git': 'Unite menu:git',
-			\ 'shell-like': 'Unite menu:shell',
 			\ }
 function g:unite_source_menu_menus.unite.map(key, value) dict
 	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
@@ -302,14 +299,6 @@ function g:unite_source_menu_menus.unite.map(key, value) dict
 				\ 'kind': 'command',
 				\ }
 endfunction
-
-let g:unite_source_menu_menus.shell = {'description': 'Shell-like'}
-let g:unite_source_menu_menus.shell.command_candidates = [
-			\   ['ruby', 'VimShellInteractive ruby'],
-			\   ['irb', 'VimShellInteractive irb'],
-			\   ['re.pl', 'VimShellInteractive re.pl'],
-			\   ['python', 'VimShellInteractive python'],
-			\ ]
 
 let g:unite_source_menu_menus.git = {'description': 'Git commands'}
 let g:unite_source_menu_menus.git.command_candidates = [
@@ -484,13 +473,6 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 " Seems to be a pattern of buffer names that should be ignored.
 " let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionaries for filetypes.
-" let g:neocomplete#sources#dictionary#dictionaries = {
-" 			\ 'default' : '',
-" 			TODO: change vimshell 'home dir'
-" 			\ 'vimshell' : $HOME.'/.vimshell_hist',
-" 			\ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -889,11 +871,7 @@ if exists('+relativenumber')
 endif
 
 " cul: Highlight the line in which the cursor is in. Caution, can be very slow.
-" Also, disable it in the console since it seems problematic with screen or the
-" colorscheme, or whatever.
-if has("gui_running")
 set cursorline
-endif
 
 " Show some chars to denote clearly where there is a tab or trailing space
 set list
