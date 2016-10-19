@@ -17,8 +17,8 @@
 	lg = log --graph \
 		--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
 		--abbrev-commit --date=relative
-	tomerge = log -p --reverse ..@{upstream}
-	topush  = log -p --reverse   @{upstream}..
+	tomerge = log --stat --reverse ..@{upstream}
+	topush  = log --stat --reverse   @{upstream}..
 	root = rev-parse --show-toplevel
 	x-submodule-reset = submodule foreach 'git reset --hard $sha1'
 	x-submodule-attach = "submodule foreach \
