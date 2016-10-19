@@ -575,7 +575,9 @@ endif
 silent! call remove(g:lastnextprevious#table, 'undolist')
 
 " Local configuration file (from the localrc plugin).
-let g:localrc_filename=".localrc.vim"
+let g:localvimrc_name=[".localrc.vim"]
+let g:localvimrc_persistent=2
+let g:localvimrc_persistence_file=s:data_dir . '/local-vimrc'
 
 " Word in word text object.
 let g:textobj_wiw_default_key_mappings_prefix='\'

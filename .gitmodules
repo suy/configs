@@ -115,9 +115,6 @@
 [submodule "dotvim/bundle/vimproc"]
 	path = dotvim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
-[submodule "dotvim/bundle/localrc"]
-	path = dotvim/bundle/localrc
-	url = https://github.com/thinca/vim-localrc.git
 [submodule "dotvim/bundle/ctrlp-commandline"]
 	path = dotvim/bundle/ctrlp-commandline
 	url = https://github.com/suy/vim-ctrlp-commandline.git
@@ -298,3 +295,6 @@
 [submodule "dotvim/bundle/colorscheme-gruvbox"]
 	path = dotvim/bundle/colorscheme-gruvbox
 	url = https://github.com/morhetz/gruvbox.git
+[submodule "dotvim/bundle/localvimrc"]
+	path = dotvim/bundle/localvimrc
+	url = https://github.com/embear/vim-localvimrc.git
