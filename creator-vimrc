@@ -9,3 +9,5 @@ inoremap ,. <C-o>A.
 inoremap ,, <C-o>A,
 inoremap <C-e> <C-o>A
 inoremap <C-a> <C-o>I
+inoremap <C-x>b {}<Left>
+inoremap <C-x>r []<Left>
