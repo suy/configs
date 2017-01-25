@@ -190,9 +190,6 @@
 [submodule "dotvim/bundle/colorscheme-tomorrow"]
 	path = dotvim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "dotvim/bundle/echodoc"]
-	path = dotvim/bundle/echodoc
-	url = https://github.com/Shougo/echodoc.vim.git
 [submodule "dotvim/bundle/vital"]
 	path = dotvim/bundle/vital
 	url = https://github.com/vim-jp/vital.vim.git
@@ -239,10 +236,6 @@
 [submodule "dotvim/bundle/rake"]
 	path = dotvim/bundle/rake
 	url = https://github.com/tpope/vim-rake.git
-[submodule "dotvim/bundle/twiggy"]
-	path = dotvim/bundle/twiggy
-	url = https://github.com/sodapopcan/vim-twiggy.git
-	branch = master
 [submodule "dotvim/bundle/splitjoin"]
 	path = dotvim/bundle/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
