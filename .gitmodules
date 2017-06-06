@@ -246,9 +246,6 @@
 [submodule "dotvim/bundle/lexima"]
 	path = dotvim/bundle/lexima
 	url = https://github.com/cohama/lexima.vim.git
-[submodule "dotvim/bundle/sleuth"]
-	path = dotvim/bundle/sleuth
-	url = https://github.com/tpope/vim-sleuth.git
 [submodule "dotvim/bundle/gnupg"]
 	path = dotvim/bundle/gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
