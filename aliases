@@ -60,4 +60,10 @@ alias apg='apg -m 18 -M sncl -s'
 alias please='last=`fc -ln -1`; \
 	test -x /usr/bin/sudo && sudo -- $last || su -c "$last"'
 
+# Decompress a raw zlib file (like a git object). http://unix.stackexchange.com/a/49066
+zlibd()
+{
+    printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - $@ | gzip -dc
+}
+
 # vim: set filetype=sh:
