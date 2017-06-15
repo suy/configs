@@ -90,6 +90,11 @@ here is it, copied from the Git Wiki:
 
 Or, if you install git-extras, the git remove-submodule command is provided.
 
+== Other important tools to install
+
+* https://github.com/sharkdp/fd
+* https://github.com/BurntSushi/ripgrep
+
 == To do
 
 I still have much to learn, and there is still too much that isn't exactly like
@@ -148,6 +153,11 @@ Evaluate the following plugins:
 * https://github.com/Shougo/neopairs.vim
 * https://github.com/ryanoasis/vim-devicons
 * https://github.com/rkitover/vimpager
+* https://github.com/libclang-vim/libclang-vim
+* https://github.com/jalvesaq/vimcmdline
+* https://github.com/mhinz/vim-lookup
+* https://github.com/kreskij/Repeatable.vim
+* https://github.com/w0rp/ale
 
 To rethink a bit the fonts choice, or even the deployment to each installation
 of the fonts, consider putting in a submodule:
@@ -155,17 +165,24 @@ of the fonts, consider putting in a submodule:
 * https://github.com/chrissimpkins/codeface
 * https://github.com/chrissimpkins/Hack
 * https://github.com/powerline/fonts
+* http://input.fontbureau.com/info/
 
 === Other repos/projects to look at (misc notes to self)
 
 * https://github.com/sickill/bitpocket
 * https://github.com/asciinema/asciinema-cli
 * https://github.com/sickill/git-dude
+* https://github.com/takaaki-kasai/git-foresta
 * https://asciinema.org/docs/how-it-works
 * https://github.com/sickill?tab=repositories
 * https://github.com/ManuelSchneid3r/albert
+* https://github.com/MarcoPon/SeqBox
+* https://github.com/Atoptool/atop
 
 Terminals for Windows:
 
 * https://github.com/babun/babun
 * https://github.com/Maximus5/ConEmu
+
+Notes about how things I'd like to have but I haven't looked at deeply:
+* http://xaizek.github.io/2014-06-22/make-tabs-visible-in-git-diff/
