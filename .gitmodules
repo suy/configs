@@ -4,9 +4,6 @@
 [submodule "dotvim/bundle/colorscheme-molokai"]
 	path = dotvim/bundle/colorscheme-molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "dotvim/bundle/gundo"]
-	path = dotvim/bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "dotvim/bundle/fugitive"]
 	path = dotvim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -288,3 +285,6 @@
 [submodule "dotvim/bundle/localvimrc"]
 	path = dotvim/bundle/localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
+[submodule "dotvim/bundle/undotree"]
+	path = dotvim/bundle/undotree
+	url = https://github.com/mbbill/undotree
