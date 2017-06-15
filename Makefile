@@ -26,9 +26,8 @@ setup-unix:
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 	ln -sf ${PWD}/gemrc ~/.gemrc
-	# Disable this for now, since it can lead to trouble to my fellow coworkers.
-	# test ~/.ssh || mkdir ~/.ssh/
-	# ln -sf ${PWD}/sshconfig ~/.ssh/config
+	test ~/.ssh || mkdir ~/.ssh/
+	ln -sf ${PWD}/sshconfig ~/.ssh/config
 	@# Set the symbolic links for vim, but not the submodules for plugins.
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
@@ -43,13 +42,3 @@ setup-unix-vim: setup-unix
 	@#
 	@# Specific module/plugin setup.
 	make -C dotvim/bundle/vimproc -f make_unix.mak
-	# ln -sf ${PWD}/dotvim/bundle/linepower/config ~/.config/powerline
-	@# ln -sf ${PWD}/powerline/powerline/bindings/vim/ dotvim/bundle/powerline
-
-install-powerline-fonts:
-	# git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
-	mkdir -p ~/.fonts ~/.config/fontconfig/conf.d
-	# For compatibility
-	ln -s ~/.config/fontconfig/conf.d/ ~/.fonts.conf.d
-	ln -sf ${PWD}/powerline/font/PowerlineSymbols.otf ~/.fonts/
-	ln -sf ${PWD}/powerline/font/10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
