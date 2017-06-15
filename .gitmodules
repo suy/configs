@@ -288,3 +288,6 @@
 [submodule "dotvim/bundle/undotree"]
 	path = dotvim/bundle/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "dotvim/bundle/highlightedyank"]
+	path = dotvim/bundle/highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank
