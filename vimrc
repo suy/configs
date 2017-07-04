@@ -829,6 +829,17 @@ endif
 " Some diff options.
 set diffopt=filler,vertical
 
+" Neovim specific tweaks.
+if has('nvim')
+	" Unfortunately, is quite problematic with Konsole.
+	set guicursor=
+	" TODO: No idea how this is supposed to work.
+	set termguicolors
+
+	" Still under test
+	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
+endif
+
 
 "  _   _ _       _     _ _       _     _   _
 " | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
