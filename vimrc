@@ -1023,6 +1023,21 @@ endif
 " Extra space (in pixels) between two lines (GUI only).
 set linespace=2
 
+" TODO: I don't even remember this, but I think this was the logic I wanted, and
+" it only works as it should with my pull request to NeovimQt.
+" Same dance for Neovim-Qt, but at NeovimGuiAttached, or it won't work.
+if has('nvim') && exists('g:GuiLoaded')
+	function! s:NeovimGuiSetup()
+		GuiLinespace 2
+		GuiFont DejaVu Sans Mono:h8
+		call GuiWindowMaximized(1)
+	endfunction
+	augroup neovimguiattached
+		autocmd!
+		autocmd User NeovimGuiAttached call s:NeovimGuiSetup()
+	augroup END
+endif
+
 
 "  ____                      _     _
 " / ___|  ___  __ _ _ __ ___| |__ (_)_ __   __ _
