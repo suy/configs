@@ -116,7 +116,7 @@ endsnippet
 snippet qmain "QXxxApplication main" !b
 #include <${1:QtCore}>
 
-int main(int ${2:argc}, char** ${3:argv})
+int main(${2:int argc}, ${3:char* argv[]})
 {
 	Q${4:Core}Application application(argc, argv);${0}
 	return application.exec();
