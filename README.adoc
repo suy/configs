@@ -158,6 +158,8 @@ Evaluate the following plugins:
 * https://github.com/mhinz/vim-lookup
 * https://github.com/kreskij/Repeatable.vim
 * https://github.com/w0rp/ale
+* https://github.com/bimlas/vim-high
+* https://github.com/AndrewRadev/deleft.vim
 
 To rethink a bit the fonts choice, or even the deployment to each installation
 of the fonts, consider putting in a submodule:

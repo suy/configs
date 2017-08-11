@@ -212,7 +212,7 @@ let g:unite_enable_start_insert=1
 let g:unite_enable_short_source_names=1
 let g:unite_force_overwrite_statusline=0
 let g:unite_source_history_yank_enable=1
-let g:unite_data_directory=expand('~/.local/share/vim/unite')
+let g:unite_data_directory = s:data_dir . '/unite'
 let g:unite_quick_match_table={
 			\ 'a': 0,  'b': 1,  'c': 2,  'd': 3,  'e': 4,  'f': 5,  'g': 6,
 			\ 'h': 7,  'i': 8,  'j': 9,  'k': 10, 'l': 11, 'm': 12,
@@ -574,7 +574,7 @@ endif
 " might not notice it.
 silent! call remove(g:lastnextprevious#table, 'undolist')
 
-" Local configuration file (from the localrc plugin).
+" Local configuration file (for the localvimrc plugin).
 let g:localvimrc_name=[".localrc.vim"]
 let g:localvimrc_persistent=2
 let g:localvimrc_persistence_file=s:data_dir . '/local-vimrc'
