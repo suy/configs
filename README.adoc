@@ -153,6 +153,8 @@ Evaluate the following plugins:
 * https://github.com/kyuhi/vim-emoji-complete
 * https://github.com/vim-jp/vim-cpp
 * https://github.com/chrisbra/vim-diff-enhanced
+* https://github.com/chrisbra/Colorizer
+* https://github.com/chrisbra/NrrwRgn
 * https://github.com/tommcdo/vim-express
 * https://github.com/tommcdo/vim-ninja-feet versus
   https://github.com/thinca/vim-textobj-between
@@ -162,7 +164,6 @@ Evaluate the following plugins:
 * https://github.com/svermeulen/vim-easyclip
 * https://github.com/lambdalisue/vim-improve-diff
 * https://github.com/fmoralesc/vim-pad
-* https://github.com/chrisbra/Colorizer
 * https://github.com/vim-utils/vim-husk
 * https://github.com/Shougo/neopairs.vim
 * https://github.com/ryanoasis/vim-devicons
