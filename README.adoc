@@ -24,6 +24,20 @@ the changes upstream.
 
 == Usage notes
 
+=== Update dictionary files
+
+I always keep forgetting how dictionaries work. The usual place where I find the
+help is the http://vimcasts.org/episodes/spell-checking/[Vimcasts episode on
+spell checking] and the linked article. However, the linked article mentions
+dictionaries in `aff` and `dic` formats, while I just did:
+
+[source,viml]
+----
+:mkspell en /usr/share/dict/american-english
+----
+
+And then moved the `en.utf-8.spl` file to the `spell` subdirectory.
+
 === Set up in a new machine
 
 Get the files and set symbolic links like the following:
