@@ -52,8 +52,6 @@ if [ "$(uname)" = "Linux" ]; then
 	alias grep='grep --color=auto'
 fi
 
-alias clive='clive --format=best'
-
 alias apg='apg -m 18 -M sncl -s'
 
 # Save the command first, otherwise "su" might see "please" instead.
