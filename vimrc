@@ -833,9 +833,6 @@ set diffopt=filler,vertical
 if has('nvim')
 	" Unfortunately, is quite problematic with Konsole.
 	set guicursor=
-	" TODO: No idea how this is supposed to work.
-	set termguicolors
-
 	" Still under test
 	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
 endif
@@ -975,6 +972,10 @@ let g:solarized_contrast='normal'
 let g:solarized_visibility='normal'
 " ...except the trailing whitespace
 let g:solarized_hitrail='1'
+
+if has('+termguicolors') " Both Vim8 and Neovim support this
+	set termguicolors
+endif
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
