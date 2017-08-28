@@ -973,7 +973,7 @@ let g:solarized_visibility='normal'
 " ...except the trailing whitespace
 let g:solarized_hitrail='1'
 
-if has('+termguicolors') " Both Vim8 and Neovim support this
+if has('termguicolors') " Both Vim8 and Neovim support this
 	set termguicolors
 endif
 
