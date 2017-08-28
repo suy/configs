@@ -24,7 +24,9 @@
 	x-submodule-reset = submodule foreach 'git reset --hard $sha1'
 	x-submodule-attach = "submodule foreach \
 		'branch=$(git config -f $toplevel/.gitmodules submodule.$name.branch); \
-		test -z $branch && branch=master; git checkout $branch'"
+		hash=$(git rev-parse HEAD); \
+		test -z $branch && branch=master; \
+		git checkout -B $branch $hash'"
 	x-submodule-behind = !git subdo status -sb | grep --color=auto -B 1 behind
 [core]
 	excludesfile = ~/.ignore-patterns
