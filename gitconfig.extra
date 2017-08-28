@@ -31,6 +31,8 @@
 [merge]
 	defaultToUpstream = 1
 	conflictStyle = diff3
+[rerere]
+    enabled = 1
 [branch]
 	autosetuprebase = remote
 [push]
