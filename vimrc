@@ -818,6 +818,9 @@ set history=200
 set noautoread
 set noautowrite
 
+" Trigger checktime to get updates on file change more often
+au FocusGained * :checktime
+
 " Set Blowfish for encryption method, but only on Vim >=7.3.
 if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
 
