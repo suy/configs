@@ -161,6 +161,7 @@ if executable('fortune')
 endif
 let g:startify_repositories = [ '~/personal/configs']
 autocmd User Startified nnoremap <silent> <buffer> r :<C-u>Startify<Return>
+autocmd User Startified nnoremap <silent> <buffer> G :<C-u>pedit .git/index<Return><C-w>w
 
 " Indent line.
 let g:indentLine_char = '│'
