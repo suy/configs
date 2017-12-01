@@ -1370,11 +1370,71 @@ endfunction
 inoremap <silent> <Tab> <C-R>=<SID>CleverTab()<CR>
 inoremap <silent> <S-Tab> <C-p>
 
+
+"  _______                  _             _
+" |__   __|                (_)           | |
+"   | | ___ _ __ _ __ ___  _ _ __   __ _| |
+"   | |/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
+"   | |  __/ |  | | | | | | | | | | (_| | |
+"   |_|\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
+
+" Sources of inspiration:
+" http://michaelabrahamsen.com/posts/replace-tmux-with-neovim/
+" http://hkupty.github.io/2016/Ditching-TMUX/
+" https://www.reddit.com/r/neovim/comments/6kf7vh/i_have_been_doing_everything_inside_of_neovims/
+" https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9
+
+function! TerminalList() abort
+	let result = []
+	for i in range(1, bufnr("$"))
+		if bufexists(i) && getbufvar(i, '&buftype') == 'terminal'
+			call add(result, i)
+		endif
+	endfor
+	return result
+endfunction
+
+function! TerminalPrevious() abort
+	let list = TerminalList()
+	let current = index(list, bufnr('%'))
+	execute "buffer " . list[ current - 1 ]
+endfunction
+
+function! TerminalNext() abort
+	let list = TerminalList()
+	let current = index(list, bufnr('%'))
+	execute "buffer " . list[ current + 1 ]
+endfunction
+
 " Neovim's terminal
 if has('nvim')
-	tnoremap <Esc> <C-\><C-n>
-	tnoremap jj <C-\><C-n>
-	tnoremap kk <C-\><C-n>
+	" I need to figure out the really comfortable way to escape. Many apps (e.g.
+	" aptitude) use the 'j' key to do something meaningful. The delay when
+	" running interactive apps it's a problem, but typing it's not.
+	tnoremap ,, <C-\><C-n>
+	" tnoremap <Esc> <C-\><C-n>
+	" tnoremap jj <C-\><C-n>
+	" tnoremap kk <C-\><C-n>
+
+	tnoremap <silent> <C-j>c <C-\><C-n>:terminal<Return>
+
+	" Consider this simple buffer change, instead of terminal specific ones.
+	" tnoremap <silent> <C-j>p <C-\><C-n>:bprevious<Return>
+	" tnoremap <silent> <C-j>n <C-\><C-n>:bnext<Return>
+	tnoremap <silent> <C-j>p <C-\><C-n>:call TerminalPrevious()<Return>
+	tnoremap <silent> <C-j>n <C-\><C-n>:call TerminalNext()<Return>
 endif
+
+" Start in 'terminal mode' (i.e. type to the terminal) automatically
+autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" TODO: doesn't work on the first invocation of ':terminal'
+
+" TODO: Features to implement to migrate away from tmux:
+" <prefix>l change to last terminal
+" <prefix>c create a new terminal (DONE!)
+" <prefix>0 jump to terminal 0 (likewise for 1, 2, ...)
+" <prefix>w show the list of terminals to jump to them easily (use Unite buffer?)
+" <prefix>n Go to the next terminal (DONE!)
+" <prefix>p Go to the next terminal (DONE!)
 
 " vim:foldmethod=marker:noet:ts=4:sw=4:
