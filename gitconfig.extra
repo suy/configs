@@ -12,6 +12,7 @@
 	fe = fetch
 	sb = show-branch
 	cp = cherry-pick
+	amend-branch-based-on = "!f() { git rebase -i $(git merge-base HEAD "$1"); }; f"
 	show-merge = "!f() { git diff "$1^" "$1"; }; f"
 	subdo = submodule foreach git
 	wdiff = diff --word-diff=color
@@ -71,4 +72,4 @@
 	smudge = git-lfs smudge %f
 	clean = git-lfs clean %f
 
-# vim:set filetype=gitconfig:
+# vim: filetype=gitconfig:noet
