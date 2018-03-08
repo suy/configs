@@ -167,6 +167,7 @@ Evaluate the following plugins:
 * https://github.com/tek/vim-textobj-ruby
 * https://github.com/tommcdo/vim-express
 * https://github.com/tommcdo/vim-ninja-feet versus https://github.com/thinca/vim-textobj-between
+* https://github.com/tpope/vim-db
 * https://github.com/tpope/vim-git
 * https://github.com/tpope/vim-obsession
 * https://github.com/tpope/vim-tbone
