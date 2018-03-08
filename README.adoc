@@ -128,54 +128,52 @@ tweak in my vimrc. Here are some notes for self reference:
 
 Evaluate the following plugins:
 
-* https://github.com/osyo-manga/vim-precious
+* https://github.com/AndrewRadev/deleft.vim
 * https://github.com/Shougo/context_filetype.vim
-* https://github.com/sheerun/vim-polyglot
-* https://github.com/gorodinskiy/vim-coloresque
-* https://github.com/tpope/vim-obsession
-* https://github.com/tpope/vim-tbone
-* https://github.com/tpope/vim-git
-* https://github.com/jtratner/vim-flavored-markdown
+* https://github.com/Shougo/neopairs.vim
 * https://github.com/Shougo/vinarise.vim
-* https://github.com/szw/vim-ctrlspace
-* https://github.com/osyo-manga/vim-operator-blockwise
-* https://github.com/osyo-manga/vim-watchdogs
-* https://github.com/osyo-manga/vim-brightest
-* https://github.com/wellle/targets.vim
-* https://github.com/junegunn/goyo.vim
-* https://github.com/idanarye/vim-vebugger
-* https://github.com/stefandtw/quickfix-reflector.vim
-* https://github.com/lambdalisue/vim-gita
+* https://github.com/andymass/vim-matchup
 * https://github.com/bbchung/clighter
-* https://github.com/nelstrom/vim-textobj-rubyblock
-* https://github.com/tek/vim-textobj-ruby
-* https://github.com/haya14busa/vim-asterisk
-* https://github.com/kyuhi/vim-emoji-complete
-* https://github.com/vim-jp/vim-cpp
-* https://github.com/chrisbra/vim-diff-enhanced
+* https://github.com/bimlas/vim-high
 * https://github.com/chrisbra/Colorizer
 * https://github.com/chrisbra/NrrwRgn
-* https://github.com/tommcdo/vim-express
-* https://github.com/tommcdo/vim-ninja-feet versus
-  https://github.com/thinca/vim-textobj-between
-* https://github.com/justmao945/vim-clang
-* https://github.com/kana/vim-operator-siege versus
-  https://github.com/rhysd/vim-operator-surround
-* https://github.com/svermeulen/vim-easyclip
-* https://github.com/lambdalisue/vim-improve-diff
+* https://github.com/chrisbra/vim-diff-enhanced
 * https://github.com/fmoralesc/vim-pad
-* https://github.com/vim-utils/vim-husk
-* https://github.com/Shougo/neopairs.vim
-* https://github.com/ryanoasis/vim-devicons
-* https://github.com/rkitover/vimpager
-* https://github.com/libclang-vim/libclang-vim
+* https://github.com/gorodinskiy/vim-coloresque
+* https://github.com/haya14busa/vim-asterisk
+* https://github.com/idanarye/vim-vebugger
 * https://github.com/jalvesaq/vimcmdline
-* https://github.com/mhinz/vim-lookup
+* https://github.com/jtratner/vim-flavored-markdown
+* https://github.com/junegunn/goyo.vim
+* https://github.com/justmao945/vim-clang
+* https://github.com/kana/vim-operator-siege versus https://github.com/rhysd/vim-operator-surround
 * https://github.com/kreskij/Repeatable.vim
+* https://github.com/kyuhi/vim-emoji-complete
+* https://github.com/lambdalisue/vim-gita
+* https://github.com/lambdalisue/vim-improve-diff
+* https://github.com/libclang-vim/libclang-vim
+* https://github.com/mhinz/vim-lookup
+* https://github.com/nelstrom/vim-textobj-rubyblock
+* https://github.com/osyo-manga/vim-brightest
+* https://github.com/osyo-manga/vim-operator-blockwise
+* https://github.com/osyo-manga/vim-precious
+* https://github.com/osyo-manga/vim-watchdogs
+* https://github.com/rkitover/vimpager
+* https://github.com/ryanoasis/vim-devicons
+* https://github.com/sheerun/vim-polyglot
+* https://github.com/stefandtw/quickfix-reflector.vim
+* https://github.com/svermeulen/vim-easyclip
+* https://github.com/szw/vim-ctrlspace
+* https://github.com/tek/vim-textobj-ruby
+* https://github.com/tommcdo/vim-express
+* https://github.com/tommcdo/vim-ninja-feet versus https://github.com/thinca/vim-textobj-between
+* https://github.com/tpope/vim-git
+* https://github.com/tpope/vim-obsession
+* https://github.com/tpope/vim-tbone
+* https://github.com/vim-jp/vim-cpp
+* https://github.com/vim-utils/vim-husk
 * https://github.com/w0rp/ale
-* https://github.com/bimlas/vim-high
-* https://github.com/AndrewRadev/deleft.vim
-* https://github.com/andymass/vim-matchup
+* https://github.com/wellle/targets.vim
 
 To rethink a bit the fonts choice, or even the deployment to each installation
 of the fonts, consider putting in a submodule:
