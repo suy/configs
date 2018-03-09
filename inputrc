@@ -27,3 +27,5 @@ $endif
 # I hate you, Spanish keyboard, for making '{}[]' so difficult to type.
 "\C-xb": "{}\C-b"
 "\C-xr": "[]\C-b"
+# Note to self: bind -p should list all the junk that is bound to something, so
+# I don't accidentally change a default that later I find it's awesome.
