@@ -23,3 +23,7 @@ set menu-complete-display-prefix on
 $if Bash
     Space: magic-space
 $endif
+
+# I hate you, Spanish keyboard, for making '{}[]' so difficult to type.
+"\C-xb": "{}\C-b"
+"\C-xr": "[]\C-b"
