@@ -116,6 +116,16 @@ if has('win32')
 	let $PATH .= ';' . 'C:/Qt/Tools/mingw491_32/bin'
 endif
 
+" Some rushed support for cling
+let $PATH = '/home/alex/local/cling/bin' . ':' . $PATH
+let g:codi#interpreters = {
+	  \ 'cpp': {
+		  \ 'bin': ["/home/alex/local/cling/bin/cling", "-L/home/alex/local/qt-5.6/lib",
+			\ "-lQt5Core", "-I/home/alex/local/qt-5.6/include",
+			\ "-I/home/alex/local/qt-5.6/include/QtCore", "-D__PIC__"],
+		  \ },
+	  \ }
+
 " Enable syntax folding for QML filetype.
 let g:qml_fold = 1
 
