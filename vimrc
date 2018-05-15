@@ -148,11 +148,8 @@ map R <Plug>(operator-replace)
 let g:markdown_folding=1
 
 " vim-grepper
-nmap <leader>g <plug>(Grepper)
-xmap <leader>g <plug>(Grepper)
-cmap <leader>g <plug>(GrepperNext)
-nmap gs        <plug>(GrepperMotion)
-xmap gs        <plug>(GrepperMotion)
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
 
 " Startify features, and arrangement of sections.
 let g:startify_list_order = ['bookmarks', 'dir', 'files']
