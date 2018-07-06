@@ -62,6 +62,8 @@ alias apg='apg -m 18 -M sncl -s'
 alias please='last=`fc -ln -1`; \
 	test -x /usr/bin/sudo && sudo -- $last || su -c "$last"'
 
+alias figlet='figlet -f future'
+
 # Decompress a raw zlib file (like a git object). http://unix.stackexchange.com/a/49066
 zlibd()
 {
