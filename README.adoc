@@ -140,6 +140,7 @@ Evaluate the following plugins:
 * https://github.com/chrisbra/vim-diff-enhanced
 * https://github.com/fmoralesc/vim-pad
 * https://github.com/gorodinskiy/vim-coloresque
+* https://github.com/hackhowtofaq/vim-solargraph
 * https://github.com/haya14busa/vim-asterisk
 * https://github.com/idanarye/vim-vebugger
 * https://github.com/jalvesaq/vimcmdline
