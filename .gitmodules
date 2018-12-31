@@ -291,3 +291,6 @@
 [submodule "dotvim/bundle/highlightedyank"]
 	path = dotvim/bundle/highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank
+[submodule "dotvim/bundle/auto-git-diff"]
+	path = dotvim/bundle/auto-git-diff
+	url = https://github.com/hotwatermorning/auto-git-diff.git
