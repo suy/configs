@@ -60,6 +60,10 @@ else
 	PS1=$PS1'\[\e[0m\]\$ '
 fi
 
+# Simplified prompt, for copy-pasting the console for demos, slides, etc.
+# PS1="\[\e[1;34m\]\w\[\e[0m\]"
+# PS1=$PS1'\[\e[1;35m\]$(__git_ps1 " %s")\[\e[0m\]\$ '
+
 # Additional options for git prompt flags
 case "$(uname)" in
 MINGW*|MSYS*|CYGWIN*)
