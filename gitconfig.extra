@@ -12,6 +12,7 @@
 	fe = fetch
 	sb = show-branch
 	cp = cherry-pick
+	sg = diff --staged
 	amend-branch-based-on = "!f() { git rebase -i $(git merge-base HEAD "$1"); }; f"
 	show-merge = "!f() { git diff "$1^" "$1"; }; f"
 	subdo = submodule foreach git
