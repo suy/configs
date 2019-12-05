@@ -17,6 +17,12 @@ from http://www.qt.io/ide[Qt Creator]: fold the first comment of a file (because
 it tipically is a copyright notice which might contain lots of repetitive
 information from the same project). Look at them in `dotvim/plugin`.
 
+I also have a Neovim-only "remote plugin" written in ruby, which allows to sort
+lines based on a certain "header". Like when a list of items in Asciidoc needs
+to get sorted alphabetically, but each entry spans more than one line. Or when
+you want to sort some blocks of code of `switch`/`case` based only on the line
+containing the `case` (and everything below it should be respected).
+
 In other `dotvim` subdirectories there might be some personal or even common
 sense settings. Or plain fixes to the lack of completeness of the file type
 support in Vim. Blame the stupidity of the Vim development model for not sending
