@@ -21,7 +21,11 @@ I also have a Neovim-only "remote plugin" written in ruby, which allows to sort
 lines based on a certain "header". Like when a list of items in Asciidoc needs
 to get sorted alphabetically, but each entry spans more than one line. Or when
 you want to sort some blocks of code of `switch`/`case` based only on the line
-containing the `case` (and everything below it should be respected).
+containing the `case` (and everything below it should be respected). A somewhat
+valid alternative would be https://github.com/vim-scripts/AdvancedSorters[the
+AdvancedSorters plugin], which is just VimL, but seems a mess to install, with
+two dependencies for such a simple thing (and doesn't seem to be officially on
+Github, Gitlab or any other project management system).
 
 In other `dotvim` subdirectories there might be some personal or even common
 sense settings. Or plain fixes to the lack of completeness of the file type
