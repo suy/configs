@@ -43,7 +43,11 @@ if [ -d $HOME/local/bin ] ; then
 fi
 
 if [ -d $HOME/local/gems ] ; then
+	# Run `gem env` for details.
+	# Where gems will be installed by `gem install --no-user-install`
 	export GEM_HOME=$HOME/local/gems
+	# Locations where gems can be found (by who?).
+	# export GEM_PATH
 	export PATH=$HOME/local/gems/bin:"${PATH}"
 fi
 
@@ -77,4 +81,4 @@ if [ -f $HOME/.environment.local ] ; then
     source $HOME/.environment.local
 fi
 
-# vim:set filetype=sh:
+# vim:set filetype=sh noet:
