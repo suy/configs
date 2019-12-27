@@ -47,6 +47,10 @@ if [ -d $HOME/local/gems ] ; then
 	export PATH=$HOME/local/gems/bin:"${PATH}"
 fi
 
+if [ -d $HOME/local/luarocks/ ] ; then
+    export PATH=$HOME/local/luarocks/bin:"${PATH}"
+fi
+
 if [ -d $HOME/local/node ] ; then
 	export NPM_CONFIG_PREFIX=$HOME/local/node
 	export npm_config_prefix=$HOME/local/node
