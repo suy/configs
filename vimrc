@@ -625,6 +625,14 @@ nnoremap <silent> <Leader>k :let temp=@+ <BAR> let @+=@" <BAR> let @"=temp <BAR>
 "                                                 |___/
 " {{{
 
+" columns: this will set the amount of columns that are considered to exist in
+" the console. You normally don't set this, it comes from the width of the
+" terminal where the editor is working on.
+" This is just a note to self, a reminder, of which option is the one to use
+" when opening a text, written by others, with huge lines, in an editor at full
+" console width.
+" set co=90
+
 " textwidth: break lines when this maximum line length is reached (use 0 to
 " disable). This is sometimes called 'hard breaking', because it inserts an EOL.
 set tw=80
