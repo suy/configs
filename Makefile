@@ -31,6 +31,7 @@ setup-unix:
 	@# Set the symbolic links for vim, but not the submodules for plugins.
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
+	test -L ~/.config/nvim || ln -sf ${PWD}/dotvim ~/.config/nvim
 
 
 setup-unix-vim: setup-unix
