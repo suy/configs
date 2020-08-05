@@ -77,7 +77,7 @@ MINGW*|MSYS*|CYGWIN*)
 	;;
 esac
 
-# export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 
 # source ~/local/configs/powerline/powerline/bindings/bash/powerline.sh
