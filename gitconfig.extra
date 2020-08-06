@@ -13,6 +13,8 @@
 	sb = show-branch
 	cp = cherry-pick
 	sg = diff --staged
+	oneline = log --format=oneline
+	HEAD = log -1 --format=oneline
 	hard-upstream-reset = reset --hard @{u}
 	amend-branch-based-on = "!f() { git rebase -i $(git merge-base HEAD "$1"); }; f"
 	show-merge = "!f() { git diff "$1^" "$1"; }; f"
@@ -32,6 +34,7 @@
 		git checkout -B $branch $hash'"
 	x-submodule-behind = !git subdo status -sb | grep --color=auto -B 1 behind
 [core]
+	editor = nvim
 	excludesfile = ~/.ignore-patterns
 [merge]
 	defaultToUpstream = 1
