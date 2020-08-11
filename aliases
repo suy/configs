@@ -49,14 +49,14 @@ else
 	alias o='xdg-open'
 fi
 
-alias doc='cd /usr/share/doc ; cd'
-
 # Use colors when grepping
 if [ "$(uname)" = "Linux" ]; then
 	alias grep='grep --color=auto'
 fi
 
 alias apg='apg -m 18 -M sncl -s'
+
+alias gdb='gdb -q'
 
 # Save the command first, otherwise "su" might see "please" instead.
 alias please='last=`fc -ln -1`; \
