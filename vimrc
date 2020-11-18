@@ -465,6 +465,8 @@ elseif isdirectory('/usr/lib/llvm-3.4/lib')
 	let g:clang_library_path='/usr/lib/llvm-3.4/lib'
 elseif isdirectory('/usr/lib/llvm-3.6/lib')
 	let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.6.so.1'
+elseif isdirectory('/usr/lib/llvm-10/')
+	let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-10.so.1'
 elseif isdirectory('/Applications/Xcode.app/')
 	let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 endif
