@@ -116,8 +116,11 @@ if has('win32')
 	let $PATH .= ';' . 'C:/Qt/Tools/mingw491_32/bin'
 endif
 
-" Some rushed support for cling
-let $PATH = '/home/alex/local/cling/bin' . ':' . $PATH
+" Some rushed support for cling in codi.vim
+if (isdirectory('/home/alex/local/cling/bin'))
+	let $PATH = '/home/alex/local/cling/bin' . ':' . $PATH
+endif
+
 let g:codi#interpreters = {
 	  \ 'cpp': {
 		  \ 'bin': ["/home/alex/local/cling/bin/cling", "-L/home/alex/local/qt-5.6/lib",
@@ -731,6 +734,11 @@ set shiftround
 "
 " {{{
 
+" Add some usual path directory for me.
+if (isdirectory('/home/alex/local/bin'))
+	let $PATH = '/home/alex/local/bin' . ':' . $PATH
+endif
+
 " Add 'mac' fileformat, because there are still people as silly as v2msoft.com.
 set fileformats+=mac
 
@@ -854,6 +862,20 @@ if has('nvim')
 	set guicursor=
 	" Still under test
 	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
+
+	" My own experiment
+	if exists("##SearchWrapped")
+		augroup experimentalgroup
+			let helper = 'kdialog --passivepopup "Search Wrapped" 1 --title Neovim'
+			let commands = ['kdialog', '--passivepopup', 'Search Wrapped', '1',
+						\ '--title', 'Neovim']
+			" let helper = 'echo happened > /tmp/nvim.txt'
+			autocmd!
+			autocmd SearchWrapped * call jobstart(commands)
+			" autocmd SearchWrapped * call system(helper)
+			" autocmd SearchWrapped * echom 'wrapped'
+		augroup END
+	endif
 endif
 
 
@@ -863,6 +885,9 @@ endif
 " |  _  | | (_| | | | | | | (_| | | | | |_| | | | | (_| |
 " |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|_|_| |_|\__, |
 "          |___/           |___/                   |___/
+
+" Enable highlight of lua, python and ruby in vimscript.
+let g:vimsyn_embed= "lPr"
 
 " Activates syntax highlighting, but keeping current color settings. From the
 " documentation: "If you want Vim to overrule your settings with the
