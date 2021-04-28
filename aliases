@@ -22,9 +22,9 @@ fi
 
 # some more ls aliases
 if [ "$(uname)" = "Linux" ] || type gls > /dev/null 2>&1 ; then
-	alias ll=$LS' -l --time-style=long-iso'
+	alias ll=$LS' -g --time-style=long-iso'
 else
-	alias ll=$LS' -l'
+	alias ll=$LS' -g'
 fi
 alias lh='ll -h'
 alias la='ls -A'
