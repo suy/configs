@@ -1331,6 +1331,7 @@ map Ç }
 " keyboard, because smartinput helps, but not that much with the first char.
 inoremap <C-x>r []<left>
 inoremap <C-x>b {}<left>
+inoremap <C-x>m {{}}<left><left>
 
 " Text objects for 'rectangular' and 'angular' brackets (surround plugin-style).
 onoremap ir i[
