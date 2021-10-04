@@ -92,11 +92,27 @@ xterm*|rxvt*|konsole*)
     ;;
 esac
 
+# Helper function to tell if a program is in PATH or not. Apparently this is the
+# better approach for some arcane reason, though `type` has worked well for me.
+# https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then
+thereis()
+{
+    return $(command -v $1 > /dev/null 2>&1)
+}
+
 if [ -f ~/.aliases ] ; then
+    . ~/.aliases
+fi
+
+if [ -f ~/.aliases.local ] ; then
     . ~/.aliases
 fi
 
 if [ -f ~/.environment ] ; then
     . ~/.environment
+fi
+
+if [ -f ~/.environment.local ] ; then
+    source ~/.environment.local
 fi
 

@@ -1,5 +1,9 @@
+#
+# Start with `ls`, the greatest pain, and more important.
+#
+
 # If on OS X and I have "gls", then I have GNU coreutils.
-if [ "$(uname)" = "Darwin" ] && type gls > /dev/null 2>&1 ; then
+if [ "$(uname)" = "Darwin" ] && thereis gls ; then
 	LS='gls'
 	DF='gdf'
 	CP='gcp'
@@ -13,22 +17,29 @@ fi
 if [ "$TERM" != "dumb" ]; then
 	eval "`dircolors -b`"
 	LS=$LS' --color=auto'
-	alias ls="$LS"
 fi
 
-if [ -x /usr/bin/nvim ] ; then
-    alias vi=nvim
+if thereis lsd ; then
+    LS='lsd'
 fi
 
-# some more ls aliases
-if [ "$(uname)" = "Linux" ] || type gls > /dev/null 2>&1 ; then
-	alias ll=$LS' -g --time-style=long-iso'
+alias ls="$LS"
+
+# Some more ls aliases. Another soup of logic because the lack of
+# a feature of this or that in one implementation or the other.
+if thereis lsd ; then
+    alias ll=$LS' -l'
+    alias l='ls -F'
+elif [ "$(uname)" = "Linux" ] || thereis gls ; then
+    alias ll=$LS' -g --time-style=long-iso'
+    alias l='ls -CF'
 else
-	alias ll=$LS' -g'
+    alias ll=$LS' -g'
+    alias l='ls -CF'
 fi
+
 alias lh='ll -h'
 alias la='ls -A'
-alias l='ls -CF'
 alias lld='ls -ld */'
 
 # Alias of common operations
@@ -54,6 +65,10 @@ if [ "$(uname)" = "Linux" ]; then
 	alias grep='grep --color=auto'
 fi
 
+if [ -x /usr/bin/nvim ] ; then
+    alias vi=nvim
+fi
+
 alias apg='apg -m 18 -M sncl -s'
 
 alias gdb='gdb -q'
@@ -68,6 +83,23 @@ alias figlet='figlet -f future'
 zlibd()
 {
     printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" | cat - $@ | gzip -dc
+}
+
+# Small function to change GIT_DIR and GIT_WORK_TREE at once. Why? Because:
+# https://www.vikingsoftware.com/blog/multiple-git-repositories-in-the-same-tree/
+# https://disperso.net/Git#git_dir_work_tree_uses
+vrepo()
+{
+    # TODO: handle a second argument passing the work tree?
+    if [ $# -gt 0 ]; then
+        # Make absolute
+        path=`(cd "$1" ; pwd)`
+        export GIT_DIR="$path"/.git
+        export GIT_WORK_TREE=$PWD
+    else
+        unset GIT_DIR
+        unset GIT_WORK_TREE
+    fi
 }
 
 # vim: set filetype=sh:
