@@ -113,6 +113,6 @@ if [ -f ~/.environment ] ; then
 fi
 
 if [ -f ~/.environment.local ] ; then
-    source ~/.environment.local
+    . ~/.environment.local
 fi
 
