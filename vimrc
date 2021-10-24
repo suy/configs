@@ -92,7 +92,7 @@ endif
 " This is copied from sensible.vim. There is not any updated matchit version.
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
+	runtime! macros/matchit.vim
 endif
 
 " }}}
@@ -122,12 +122,12 @@ if (isdirectory('/home/alex/local/cling/bin'))
 endif
 
 let g:codi#interpreters = {
-	  \ 'cpp': {
-		  \ 'bin': ["/home/alex/local/cling/bin/cling", "-L/home/alex/local/qt-5.6/lib",
+	\ 'cpp': {
+		\ 'bin': ["/home/alex/local/cling/bin/cling", "-L/home/alex/local/qt-5.6/lib",
 			\ "-lQt5Core", "-I/home/alex/local/qt-5.6/include",
 			\ "-I/home/alex/local/qt-5.6/include/QtCore", "-D__PIC__"],
-		  \ },
-	  \ }
+		\ },
+	\ }
 
 " Enable syntax folding for QML filetype.
 let g:qml_fold = 1
@@ -280,7 +280,7 @@ endif
 " And this for several instructions at the same time:
 " http://akakyouryuu.com/blog/unite%E3%81%8B%E3%82%89vimrepress%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/
 if !exists("g:unite_source_menu_menus")
-    let g:unite_source_menu_menus = {}
+	let g:unite_source_menu_menus = {}
 endif
 " Favourite Unite commands
 let g:unite_source_menu_menus.unite = {'description' : 'Unite invocations'}
@@ -489,7 +489,7 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+	let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -527,7 +527,7 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
 " Patterns for omnicompletion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
@@ -535,7 +535,7 @@ let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\
 
 " *force* patterns for omnicompletion.
 if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
+	let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.c =
 	\ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
@@ -852,7 +852,7 @@ if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
 
 " Save and restore g:UPPERCASE variables in viminfo.
 if !empty(&viminfo)
-  set viminfo^=!
+	set viminfo^=!
 endif
 
 " Some diff options.
