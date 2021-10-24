@@ -769,6 +769,9 @@ if has("autocmd")
 	augroup END
 endif
 
+" For the `fc` (fix command) in bash
+autocmd BufEnter /tmp/bash-fc.* if &filetype == 'sh' | :set tw=0 | endif
+
 " For echodoc.
 set cmdheight=2
 
