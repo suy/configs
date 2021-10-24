@@ -76,9 +76,4 @@ if [ -d $HOME/local/man ] ; then
     export MANPATH=$HOME/local/man:"${MANPATH}"
 fi
 
-# Source another "local" environment file if exists.
-if [ -f $HOME/.environment.local ] ; then
-    source $HOME/.environment.local
-fi
-
 # vim:set filetype=sh noet:
