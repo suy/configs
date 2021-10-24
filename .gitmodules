@@ -92,10 +92,6 @@
 [submodule "dotvim/bundle/ctrlp"]
 	path = dotvim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "dotvim/bundle/ack"]
-	path = dotvim/bundle/ack
-	url = https://github.com/suy/vim-ack.git
-	pushurl = git@github.com:suy/vim-ack.git
 [submodule "dotvim/bundle/lastnextprevious"]
 	path = dotvim/bundle/lastnextprevious
 	url = https://github.com/suy/vim-lastnextprevious.git
@@ -117,9 +113,6 @@
 [submodule "dotvim/bundle/editvar"]
 	path = dotvim/bundle/editvar
 	url = https://github.com/thinca/vim-editvar.git
-[submodule "dotvim/bundle/gitv"]
-	path = dotvim/bundle/gitv
-	url = https://github.com/gregsexton/gitv.git
 [submodule "dotvim/bundle/niceblock"]
 	path = dotvim/bundle/niceblock
 	url = https://github.com/kana/vim-niceblock.git
@@ -202,9 +195,6 @@
 [submodule "dotvim/bundle/endwise"]
 	path = dotvim/bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
-[submodule "dotvim/bundle/agit"]
-	path = dotvim/bundle/agit
-	url = https://github.com/cohama/agit.vim.git
 [submodule "dotvim/bundle/rbenv"]
 	path = dotvim/bundle/rbenv
 	url = https://github.com/tpope/vim-rbenv.git
@@ -214,10 +204,6 @@
 [submodule "dotvim/bundle/rake"]
 	path = dotvim/bundle/rake
 	url = https://github.com/tpope/vim-rake.git
-[submodule "dotvim/bundle/splitjoin"]
-	path = dotvim/bundle/splitjoin
-	url = https://github.com/AndrewRadev/splitjoin.vim.git
-	branch = master
 [submodule "dotvim/bundle/rails"]
 	path = dotvim/bundle/rails
 	url = https://github.com/tpope/vim-rails.git

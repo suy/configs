@@ -308,7 +308,6 @@ let g:unite_source_menu_menus.git.command_candidates = [
 			\ ['git status', 'Gstatus'],
 			\ ['git show', 'Git! show'],
 			\ ['master..trunk', 'Glog master..trunk --'],
-			\ ['gitk', 'Gitv'],
 			\ ]
 "}}}
 "}}}
