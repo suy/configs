@@ -544,22 +544,6 @@ let g:neocomplete#force_omni_input_patterns.ruby =
 
 "}}}
 
-" Check C++ headers too.
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_config_file = '.clang_complete'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_less_checkers = ['lessc']
-let g:syntastic_mode_map =	{ 'mode': 'passive' }
-let g:syntastic_quiet_messages = {
-			\ "regex": 'pragma once in main file' }
-if executable('asciidoctor')
-	let g:syntastic_asciidoc_asciidoc_exec='asciidoctor'
-elseif isdirectory($HOME . '/local/gems')
-	let g:syntastic_asciidoc_asciidoc_exec=$HOME . '/local/gems/bin/asciidoctor'
-endif
-
 " Setup for the lastnextprevious plugin.
 " FIXME: Something is wrong here in Vim 7.2.
 nmap <silent> + <Plug>lastnextprevious_forward
@@ -989,8 +973,6 @@ if !exists('*airline#parts#define_function')
 	if exists('fugitive#statusline')
 		set statusline+=\ %{fugitive#statusline()}
 	endif
-	" Syntastic information
-	"set statusline+=\ %{SyntasticStatuslineFlag()}
 	" Push everything else to the right
 	set statusline+=\ %=
 	" Modified, RO, help, preview, quickfix
