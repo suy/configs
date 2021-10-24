@@ -442,33 +442,7 @@ let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_by_filename = 0
 " }}}
 
-" neocomplete and clang_complete {{{
-let g:clang_snippets=1
-let g:clang_snippets_engine="ultisnips"
-let g:clang_close_preview=1
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-" TODO: this freaking sucks.
-" For backported libclang
-if filereadable('/usr/lib/libclang.so')
-	let g:clang_library_path='/usr/lib/'
-elseif isdirectory('/usr/lib/llvm-3.4/lib')
-	let g:clang_library_path='/usr/lib/llvm-3.4/lib'
-elseif isdirectory('/usr/lib/llvm-3.6/lib')
-	let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-3.6.so.1'
-elseif isdirectory('/usr/lib/llvm-10/')
-	let g:clang_library_path='/usr/lib/x86_64-linux-gnu/libclang-10.so.1'
-elseif isdirectory('/Applications/Xcode.app/')
-	let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-endif
-let g:clang_make_default_keymappings=0
-autocmd FileType cpp nnoremap <buffer> <silent> <C-l> :call g:ClangGotoDeclaration()<CR><Esc>
-
-" For snowdrop, use the same path.
-let g:snowdrop#libclang_directory ='/usr/lib/x86_64-linux-gnu'
-let g:snowdrop#libclang_file='libclang-3.4.so.1'
-let g:snowdrop#debug#enable=1
-
+" neocomplete {{{
 let g:neocomplete#enable_auto_select = 0
 
 let g:neocomplete#auto_completion_start_length=4

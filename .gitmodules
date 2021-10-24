@@ -92,9 +92,6 @@
 [submodule "dotvim/bundle/ctrlp"]
 	path = dotvim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "dotvim/bundle/clang_complete"]
-	path = dotvim/bundle/clang_complete
-	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "dotvim/bundle/ack"]
 	path = dotvim/bundle/ack
 	url = https://github.com/suy/vim-ack.git
@@ -177,9 +174,6 @@
 [submodule "dotvim/bundle/vital"]
 	path = dotvim/bundle/vital
 	url = https://github.com/vim-jp/vital.vim.git
-[submodule "dotvim/bundle/snowdrop"]
-	path = dotvim/bundle/snowdrop
-	url = https://github.com/osyo-manga/vim-snowdrop.git
 [submodule "dotvim/bundle/choosewin"]
 	path = dotvim/bundle/choosewin
 	url = https://github.com/t9md/vim-choosewin.git
