@@ -45,7 +45,7 @@ function! s:disable(...)
 endfunction
 
 " Kept as a submodule to track them, but not used in the configuration.
-let g:pathogen_blacklist = ['space', 'gist', 'vital', 'marching', 'reunions']
+let g:pathogen_blacklist = ['vital']
 
 " Additionally, disable the plugin code of endwise, since I want it available
 " in the runtimepath, but not loading any code. This way I can check the source
@@ -180,15 +180,6 @@ let g:indentLine_char = '┊'
 let g:indentLine_char = '⎸'
 let g:indentLine_first_char = '┃'
 let g:indentLine_fileTypeExclude = ['help']
-
-" Gist.vim
-let g:gist_detect_filetype = 1   " Detect from file name.
-let g:gist_show_privates = 1     " Show secret gists on listsing.
-let g:gist_post_private = 1      " Post secretly by default.
-let g:gist_get_multiplefile = 1
-
-" Gista.
-let g:gista#directory = s:data_dir . '/gista/'
 
 " }}}
 

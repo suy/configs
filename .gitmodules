@@ -34,9 +34,6 @@
 [submodule "dotvim/bundle/repeat"]
 	path = dotvim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "dotvim/bundle/space"]
-	path = dotvim/bundle/space
-	url = https://github.com/spiiph/vim-space
 [submodule "dotvim/bundle/syntastic"]
 	path = dotvim/bundle/syntastic
 	url = https://github.com/suy/syntastic.git
@@ -178,12 +175,6 @@
 [submodule "dotvim/bundle/airline"]
 	path = dotvim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "dotvim/bundle/reunions"]
-	path = dotvim/bundle/reunions
-	url = https://github.com/osyo-manga/vim-reunions
-[submodule "dotvim/bundle/marching"]
-	path = dotvim/bundle/marching
-	url = https://github.com/osyo-manga/vim-marching
 [submodule "dotvim/bundle/colorscheme-tomorrow"]
 	path = dotvim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
@@ -264,9 +255,6 @@
 [submodule "dotvim/bundle/textobj-comment"]
 	path = dotvim/bundle/textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
-[submodule "dotvim/bundle/gista"]
-	path = dotvim/bundle/gista
-	url = https://github.com/lambdalisue/vim-gista.git
 [submodule "dotvim/bundle/rhubarb"]
 	path = dotvim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
