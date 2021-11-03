@@ -53,6 +53,9 @@
 [diff]
 	mnemonicprefix = true
 
+[diff "infinityengine"]
+	textconv = ieparse.py
+
 [url "http://code.qt.io/git/qt/"]
 	insteadOf = qt:
 [url "http://code.qt.io/git/qt-labs/"]
