@@ -143,9 +143,6 @@
 [submodule "dotvim/bundle/unite-history"]
 	path = dotvim/bundle/unite-history
 	url = https://github.com/thinca/vim-unite-history.git
-[submodule "dotvim/bundle/neocomplete"]
-	path = dotvim/bundle/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "dotvim/bundle/context-commentstring"]
 	path = dotvim/bundle/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
