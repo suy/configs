@@ -658,14 +658,11 @@ endif
 " Save the undo history in a persistent file, not just while Vim is running.
 if has('persistent_undo')
 	set undofile
+	set undolevels=2000 " Double the number of undo levels.
 	let &undodir = s:data_dir . '/undo,.,/var/tmp,/tmp'
+	autocmd BufEnter /tmp/* setlocal noundofile
 endif
 
-" Double the number of undo levels.
-set undolevels=2000
-
-" TODO: Consider something to avoid undofiles for useless stuff.
-" au BufWritePre /tmp/* setlocal noundofile
 
 " Save the swap files on a different directory.
 let &directory = s:data_dir . '/swap,.,/var/tmp,/tmp'
