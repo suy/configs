@@ -25,9 +25,6 @@
 [submodule "dotvim/bundle/colorscheme-desert256"]
 	path = dotvim/bundle/colorscheme-desert256
 	url = https://github.com/vim-scripts/desert256.vim.git
-[submodule "dotvim/bundle/css-color"]
-	path = dotvim/bundle/css-color
-	url = https://github.com/skammer/vim-css-color.git
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git

@@ -52,17 +52,6 @@ let g:pathogen_blacklist = ['vital']
 " and the documentation with :Vedit, etc.
 let g:loaded_endwise=1
 
-" Disable css-color in the console, because it slows down too much.
-if !has('gui_running')
-	call s:disable('css-color')
-endif
-
-" TODO: This is just an ugly workaround because I don't want to dig more in what
-" the terminal apps on OS X do differently to suck.
-if !has('gui_running') && has('mac')
-	call s:disable('indent-line', 'airline')
-endif
-
 " Disable UltiSnips if needed to avoid the startup warning.
 if !has('python') && !has('python3') && !has('python/dyn') && !has('python3/dyn')
 	\ && v:version < 704
@@ -73,12 +62,6 @@ endif
 if v:version < 703 || (v:version == 703 && !has('patch885')) || !has('lua')
 	call s:disable('neocomplete')
 endif
-
-" Temporary tweaks. Just use neocomplete and clang_complete, disable others.
-if has('win32') || !has('python')
-	call s:disable('clang_complete')
-endif
-
 
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
@@ -108,26 +91,6 @@ endif
 
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
-
-" All all at once some binary paths on Windows, like git.exe, gcc.exe, etc. For
-" simpler plugin configuration like fugitive, signify, etc.
-if has('win32')
-	let $PATH .= ';' . 'C:/Program Files (x86)/Git/bin'
-	let $PATH .= ';' . 'C:/Qt/Tools/mingw491_32/bin'
-endif
-
-" Some rushed support for cling in codi.vim
-if (isdirectory('/home/alex/local/cling/bin'))
-	let $PATH = '/home/alex/local/cling/bin' . ':' . $PATH
-endif
-
-let g:codi#interpreters = {
-	\ 'cpp': {
-		\ 'bin': ["/home/alex/local/cling/bin/cling", "-L/home/alex/local/qt-5.6/lib",
-			\ "-lQt5Core", "-I/home/alex/local/qt-5.6/include",
-			\ "-I/home/alex/local/qt-5.6/include/QtCore", "-D__PIC__"],
-		\ },
-	\ }
 
 " Enable syntax folding for QML filetype.
 let g:qml_fold = 1
