@@ -169,7 +169,9 @@ let g:startify_repositories = [ '~/personal/configs']
 autocmd User Startified nnoremap <silent> <buffer> r :<C-u>Startify<Return>
 autocmd User Startified nnoremap <silent> <buffer> G :<C-u>G<Return>
 
-" Indent line.
+" Indention decoration (https://github.com/Yggdroot/indentLine for old Vim with
+" conceal or https://github.com/lukas-reineke/indent-blankline.nvim).
+" TODO: use features in the new plugin, and maybe add back the old for Vim 8.
 let g:indentLine_char = '│'
 let g:indentLine_char = '┃'
 let g:indentLine_char = '┊'
@@ -332,6 +334,8 @@ let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#hunks#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='understated'
+" This was chosen conditionally when setting a different colorscheme.
+" let g:airline_theme='powerlineish'
 " }}}
 
 " Submode. "{{{
@@ -876,15 +880,6 @@ if !exists('*airline#parts#define_function')
 	set statusline+=\ %P
 endif
 
-" Some configuration options for solarized that have to be applied previously
-let g:solarized_termcolors='256'
-let g:solarized_italic='1'
-let g:solarized_contrast='normal'
-" Don't highlight the listchars too much...
-let g:solarized_visibility='normal'
-" ...except the trailing whitespace
-let g:solarized_hitrail='1'
-
 if has('termguicolors') " Both Vim8 and Neovim support this
 	set termguicolors
 endif
@@ -893,6 +888,7 @@ endif
 if has("gui_running")
 	if !has('win32') && !has('mac')
 		set guifont=DejaVu\ Sans\ Mono\ 9
+		" TODO: support some kind of ".local" file that overrides this things.
 		if hostname() ==# 'rallo'
 			set guifont=DejaVu\ Sans\ Mono\ 12
 		endif
@@ -907,29 +903,11 @@ if has("gui_running")
 	set guioptions+=LlRrb " Get rid of scrollbars...
 	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
 	set background=dark
-
-	if stridx(&runtimepath, "colorscheme-gruvbox") != -1
-		let g:gruvbox_contrast_dark="hard"
-		let g:gruvbox_contrast_light="hard"
-		colorscheme gruvbox
-	" Solarized thingies.
-	elseif stridx(&runtimepath, "colorscheme-solarized") != -1
-		colorscheme solarized
-		" Some solarized changes: listchars and matched parents.
-		highlight SpecialKey guifg=#094757
-		highlight MatchParen gui=reverse guibg=NONE
-		highlight SignColumn guifg=#839496 guibg=#002b36
-	endif
 else
 	try
-		colorscheme molokai
-		let g:airline_theme='powerlineish'
-		" Make the listchars darker
-		hi SpecialKey ctermfg=240
-		" Indent guides look terrible for now...
-		let g:indent_guides_enable_on_vim_startup=0
+		colorscheme gruvbox8_hard
 	catch
-		colorscheme elflord
+		colorscheme desert
 	endtry
 endif
 
@@ -937,17 +915,20 @@ endif
 set linespace=2
 
 " TODO: I don't even remember this, but I think this was the logic I wanted, and
-" it only works as it should with my pull request to NeovimQt.
-" Same dance for Neovim-Qt, but at NeovimGuiAttached, or it won't work.
+" it only works as it should with my pull request to NeovimQt. I would have to
+" look into the help of nvim-gui-shim, but that suggests ginit.vim.
 if has('nvim') && exists('g:GuiLoaded')
 	function! s:NeovimGuiSetup()
 		GuiLinespace 2
-		GuiFont DejaVu Sans Mono:h8
+		GuiFont DejaVu Sans Mono:h12
 		call GuiWindowMaximized(1)
+		colorscheme solarized8_flat
 	endfunction
 	augroup neovimguiattached
 		autocmd!
 		autocmd User NeovimGuiAttached call s:NeovimGuiSetup()
+		" Doesn't work to detect Neovim-Qt 0.2.15 (triggers on the TUI).
+		" autocmd UIEnter * call s:NeovimGuiSetup()
 	augroup END
 endif
 

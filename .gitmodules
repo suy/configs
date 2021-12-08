@@ -1,6 +1,3 @@
-[submodule "dotvim/bundle/colorscheme-solarized"]
-	path = dotvim/bundle/colorscheme-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "dotvim/bundle/colorscheme-molokai"]
 	path = dotvim/bundle/colorscheme-molokai
 	url = https://github.com/tomasr/molokai.git
@@ -22,9 +19,6 @@
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "dotvim/bundle/colorscheme-desert256"]
-	path = dotvim/bundle/colorscheme-desert256
-	url = https://github.com/vim-scripts/desert256.vim.git
 [submodule "dotvim/bundle/ultisnips"]
 	path = dotvim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
@@ -155,9 +149,6 @@
 [submodule "dotvim/bundle/airline"]
 	path = dotvim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
-[submodule "dotvim/bundle/colorscheme-tomorrow"]
-	path = dotvim/bundle/colorscheme-tomorrow
-	url = https://github.com/chriskempson/vim-tomorrow-theme.git
 [submodule "dotvim/bundle/choosewin"]
 	path = dotvim/bundle/choosewin
 	url = https://github.com/t9md/vim-choosewin.git
@@ -168,9 +159,6 @@
 [submodule "dotvim/bundle/neomru"]
 	path = dotvim/bundle/neomru
 	url = https://github.com/Shougo/neomru.vim.git
-[submodule "dotvim/bundle/indent-line"]
-	path = dotvim/bundle/indent-line
-	url = https://github.com/Yggdroot/indentLine.git
 [submodule "dotvim/bundle/textobj-number"]
 	path = dotvim/bundle/textobj-number
 	url = https://github.com/haya14busa/vim-textobj-number.git
@@ -234,9 +222,6 @@
 [submodule "dotvim/bundle/airline-themes"]
 	path = dotvim/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "dotvim/bundle/colorscheme-gruvbox"]
-	path = dotvim/bundle/colorscheme-gruvbox
-	url = https://github.com/morhetz/gruvbox.git
 [submodule "dotvim/bundle/localvimrc"]
 	path = dotvim/bundle/localvimrc
 	url = https://github.com/embear/vim-localvimrc.git
@@ -252,3 +237,12 @@
 [submodule "dotvim/bundle/lspconfig"]
 	path = dotvim/bundle/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+[submodule "dotvim/pack/colorschemes/opt/gruvbox8"]
+	path = dotvim/pack/colorschemes/opt/gruvbox8
+	url = https://github.com/lifepillar/vim-gruvbox8
+[submodule "dotvim/pack/colorschemes/opt/solarized8"]
+	path = dotvim/pack/colorschemes/opt/solarized8
+	url = https://github.com/lifepillar/vim-solarized8
+[submodule "dotvim/pack/plugins/start/indent-blankline"]
+	path = dotvim/pack/plugins/start/indent-blankline
+	url = https://github.com/lukas-reineke/indent-blankline.nvim
