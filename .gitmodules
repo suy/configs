@@ -158,9 +158,6 @@
 [submodule "dotvim/bundle/colorscheme-tomorrow"]
 	path = dotvim/bundle/colorscheme-tomorrow
 	url = https://github.com/chriskempson/vim-tomorrow-theme.git
-[submodule "dotvim/bundle/vital"]
-	path = dotvim/bundle/vital
-	url = https://github.com/vim-jp/vital.vim.git
 [submodule "dotvim/bundle/choosewin"]
 	path = dotvim/bundle/choosewin
 	url = https://github.com/t9md/vim-choosewin.git
@@ -252,3 +249,6 @@
 [submodule "dotvim/bundle/auto-git-diff"]
 	path = dotvim/bundle/auto-git-diff
 	url = https://github.com/hotwatermorning/auto-git-diff.git
+[submodule "dotvim/bundle/lspconfig"]
+	path = dotvim/bundle/lspconfig
+	url = https://github.com/neovim/nvim-lspconfig

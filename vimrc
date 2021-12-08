@@ -84,6 +84,47 @@ endif
 "                |___/                             |_|
 " {{{
 
+
+" Start with a decent chunk of Lua for some Neovim specific stuff.
+" FIXME: It makes Vim 8 to fail to load vimrc properly.
+lua << END
+local on_lsp_attached = function(client, buffer)
+	-- Skip buffers with special URI, e.g. fugitive://...
+	if vim.api.nvim_buf_get_name(buffer):match "^%a+://" then
+		return
+	end
+
+	-- Use LSP as the handler for omnifunc.
+	--    See `:help omnifunc` and `:help ins-completion` for more information.
+	vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+	-- Use LSP as the handler for formatexpr.
+	--    See `:help formatexpr` for more information.
+	vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+
+	-- For plugins with an `on_attach` callback, call them here. For example:
+	-- require('completion').on_attach()
+
+end
+
+require('lspconfig').clangd.setup({
+	on_attach = on_lsp_attached
+})
+
+local version = vim.version()
+if version.major == 0 and version.minor >= 6 then
+	vim.diagnostic.config({
+	  virtual_text = true,
+	  signs = true, -- default
+	  signs = false,
+	  underline = true, -- default
+	  underline = false,
+	  update_in_insert = false,
+	  severity_sort = false,
+	})
+end
+END
+
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
@@ -91,16 +132,13 @@ let mapleader = ","
 let g:qml_fold = 1
 
 " The most important signify option and I overlooked it for ages. *sigh*
-let g:signify_vcs_list = ['git']
+let g:signify_skip = {'vcs': { 'allow': ['git'] }}
 
 " Several small variable settings for plugins that don't require much. " {{{
 " Vimfiler.
 let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
 autocmd FileType vimfiler nnoremap <buffer> <space> :
-
-" Echodoc.
-let g:echodoc_enable_at_startup = 1
 
 " The operator-replace plugin doesn't map any key, and I only use gR for replace.
 map R <Plug>(operator-replace)
@@ -577,6 +615,9 @@ set fileformats+=mac
 " Syntax highlighting reduced to some reasonable column.
 set synmaxcol=250
 
+" Accelerates saving to swap file and triggering CursorHold.
+set updatetime=500
+
 if has("autocmd")
 	augroup vimrc
 		" Clear all autocommands in the group to avoid defining them multiple
@@ -601,9 +642,6 @@ endif
 
 " For the `fc` (fix command) in bash
 autocmd BufEnter /tmp/bash-fc.* if &filetype == 'sh' | :set tw=0 | endif
-
-" For echodoc.
-set cmdheight=2
 
 " Limit suggestions when spell checking with z=.
 set spellsuggest=best,15
