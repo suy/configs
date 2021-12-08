@@ -116,8 +116,55 @@ Or, if you install git-extras, the git remove-submodule command is provided.
 
 == Other important tools to install
 
+Externally available, typically:
+
 * https://github.com/sharkdp/fd
 * https://github.com/BurntSushi/ripgrep
+* https://github.com/Peltoche/lsd
+
+Packaged:
+
+* aptitude
+* tmux, tmuxinator
+* neovim, neovim-qt
+* git
+* build-essential, clang, cmake
+* icecc, icecc-monitor
+* vlc
+* silversearcher-ag
+
+== LSP setup
+
+- Install nvim-lspconfig
+- Install clangd
+- Make clangd symlink to clangd-12
+- Add `lua require('lspconfig').clangd.setup{}` to vimrc (or a much more
+  involved function that actually makes mappings).
+
+== Modernization and leveraging Neovim
+
+This is like a to-do (which the next section is also about), but more up to date
+with current priorities and moving to Neovim.
+
+- Move more things packages from the pathogen setup, if needed. I need to think
+  about the "conditional" support of some plugins, that with pathogen I'm able
+  to blacklist. Probably the solution is just to put stuff which might be
+  loaded or not on the "opt" directory, then load it normally. Don't assume that
+  stuff in "start" is the new default.
+- Smart input, pairs of characters, etc. Consider smartinput vs lexima vs
+  endwise vs who knows what.
+- See also :help file-change-detect (:help watch-file in Nvim 0.5).
+  (https://github.com/neovim/neovim/issues/1936#issuecomment-964864582).
+- I've found that `packagepath` is huge. There are directories for flatpak and
+  other stuff that is surely not gonna be ever used. Where are this defaults
+  coming from? There are paths that mention KDE and Plasma, so what's the deal
+  with that? I think we just need one for the user, one for the system, plus the
+  two "after"-suffixed ones.
+
+Further reading:
+
+- https://neovim.discourse.group/t/the-300-line-init-lua-challenge/227/15
+- https://github.com/nanotee/nvim-lua-guide
 
 == To do
 
@@ -148,6 +195,7 @@ Evaluate the following plugins:
 * https://github.com/chrisbra/Colorizer
 * https://github.com/chrisbra/NrrwRgn
 * https://github.com/chrisbra/vim-diff-enhanced
+* https://github.com/dbmrq/vim-ditto
 * https://github.com/fmoralesc/vim-pad
 * https://github.com/gorodinskiy/vim-coloresque
 * https://github.com/hackhowtofaq/vim-solargraph
@@ -160,16 +208,20 @@ Evaluate the following plugins:
 * https://github.com/kana/vim-operator-siege versus https://github.com/rhysd/vim-operator-surround
 * https://github.com/kreskij/Repeatable.vim
 * https://github.com/kyuhi/vim-emoji-complete
+* https://github.com/lambdalisue/fern.vim
 * https://github.com/lambdalisue/vim-gita
 * https://github.com/lambdalisue/vim-improve-diff
 * https://github.com/libclang-vim/libclang-vim
+* https://github.com/lukas-reineke/indent-blankline.nvim
 * https://github.com/mhinz/vim-lookup
 * https://github.com/nelstrom/vim-textobj-rubyblock
 * https://github.com/osyo-manga/vim-brightest
 * https://github.com/osyo-manga/vim-operator-blockwise
 * https://github.com/osyo-manga/vim-precious
 * https://github.com/osyo-manga/vim-watchdogs
+* https://github.com/reedes/vim-pencil
 * https://github.com/rkitover/vimpager
+* https://github.com/rockerBOO/awesome-neovim
 * https://github.com/ryanoasis/vim-devicons
 * https://github.com/sheerun/vim-polyglot
 * https://github.com/stefandtw/quickfix-reflector.vim
