@@ -65,6 +65,7 @@ if exists('*pathogen#infect')
 	" Equivalent to :Helptags (which generates the help tags for all plugins),
 	" but better not to run it at startup/reload, since it is too slow.
 	" call pathogen#helptags()
+	" helptags ALL
 endif
 
 " This is copied from sensible.vim. There is not any updated matchit version.
