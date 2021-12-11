@@ -140,6 +140,11 @@ let g:loaded_netrwPlugin = 1
 let g:vimfiler_as_default_explorer = 1
 autocmd FileType vimfiler nnoremap <buffer> <space> :
 
+" Fugitive mappings that restore previous mappings. We make them recursive, so
+" they trigger the new maps, which trigger the right fugitive function.
+autocmd FileType fugitive      nmap <buffer> q gq
+autocmd FileType fugitiveblame nmap <buffer> q gq
+
 " The operator-replace plugin doesn't map any key, and I only use gR for replace.
 map R <Plug>(operator-replace)
 
@@ -178,6 +183,7 @@ let g:indentLine_char = '┊'
 let g:indentLine_char = '⎸'
 let g:indentLine_first_char = '┃'
 let g:indentLine_fileTypeExclude = ['help']
+let g:indentLine_bufTypeExclude = ['terminal', 'nofile']
 
 " }}}
 
