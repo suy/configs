@@ -743,17 +743,13 @@ if has('nvim')
 	" Still under test
 	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
 
-	" My own experiment
+	" My very first feature was merged into Neovim. <3<3<3
 	if exists("##SearchWrapped")
-		augroup experimentalgroup
-			let helper = 'kdialog --passivepopup "Search Wrapped" 1 --title Neovim'
+		augroup searchwrappednotification
 			let commands = ['kdialog', '--passivepopup', 'Search Wrapped', '1',
 						\ '--title', 'Neovim']
-			" let helper = 'echo happened > /tmp/nvim.txt'
 			autocmd!
-			autocmd SearchWrapped * call jobstart(commands)
-			" autocmd SearchWrapped * call system(helper)
-			" autocmd SearchWrapped * echom 'wrapped'
+			autocmd SearchWrapped * if mode() != 'c' | call jobstart(commands) | endif
 		augroup END
 	endif
 endif
