@@ -129,9 +129,6 @@ END
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","
 
-" Enable syntax folding for QML filetype.
-let g:qml_fold = 1
-
 " The most important signify option and I overlooked it for ages. *sigh*
 let g:signify_skip = {'vcs': { 'allow': ['git'] }}
 
