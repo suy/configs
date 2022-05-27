@@ -1,3 +1,4 @@
+# Reminder: use by running `:SortByHeader *` (e.g. for AsciiDoc lists).
 Neovim.plugin do |plug|
   plug.command(:SortByHeader, nargs: 1, range: true) do |nvim, str|
     buffer = nvim.current.buffer
