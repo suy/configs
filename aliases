@@ -49,7 +49,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias mv='mv -i'
 alias cp=$CP' -i'
-alias df=$DF' -h -x devtmpfs -x tmpfs -x rootfs'
+alias df=$DF' -h -x devtmpfs -x tmpfs -x rootfs -x squashfs'
 # Ideally this would be a git alias instead, but it's run in a subshell.
 alias gcd='cd `git root`'
 
