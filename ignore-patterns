@@ -1,5 +1,6 @@
 ### Common
 *.o
+compile_commands.json
 
 ### Qt
 moc_*.cpp
