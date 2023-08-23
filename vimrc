@@ -446,9 +446,8 @@ let g:ctrlp_by_filename = 0
 " }}}
 
 " Setup for the lastnextprevious plugin.
-" FIXME: Something is wrong here in Vim 7.2.
-nmap <silent> + <Plug>lastnextprevious_forward
-nmap <silent> - <Plug>lastnextprevious_backward
+nmap <silent> - <Plug>lastnextprevious_forward
+nmap <silent> + <Plug>lastnextprevious_backward
 if stridx(&runtimepath, "lastnextprevious") != -1
 	let g:lastnextprevious#last = 'changelist'
 	call extend(g:lastnextprevious#table,
