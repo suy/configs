@@ -1,3 +1,5 @@
+# TIP: `bind 'set completion-ignore-case on'` to set options manually.
+
 # Don't beep, use visible feedback.
 set bell-style visible
 
