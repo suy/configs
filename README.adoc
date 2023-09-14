@@ -126,9 +126,10 @@ Packaged:
 
 * aptitude
 * tmux, tmuxinator
-* neovim, neovim-qt
+* neovim, neovim-qt, wl-clipboard, xclip
 * git
-* build-essential, clang, cmake
+* build-essential, clang, cmake, ninja
+* clangd
 * icecc, icecc-monitor
 * vlc
 * silversearcher-ag
