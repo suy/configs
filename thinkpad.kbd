@@ -1,0 +1,73 @@
+#|
+Run this config with
+
+    sudo ~/local/bin/kanata --cfg ~/personal/configs/thinkpad.kbd 
+
+|#
+
+#|
+One defcfg entry may be added, which is used for configuration key-pairs. These
+configurations change kanata's behaviour at a more global level than the other
+configuration entries.
+|#
+
+(defcfg
+  #|
+  This configuration will process all keys pressed inside of kanata, even if
+  they are not mapped in defsrc. This is so that certain actions can activate
+  at the right time for certain input sequences. By default, unmapped keys are
+  not processed through kanata due to a Windows issue related to AltGr. If you
+  use AltGr in your keyboard, you will likely want to follow the simple.kbd
+  file while unmapping lctl and ralt from defsrc.
+  |#
+  process-unmapped-keys yes
+)
+
+
+;; Find which key it is with `evtest`
+(deflocalkeys-linux
+  ñ 39
+)
+
+;; Defines the source of keys to remap. In minimal cases, it will be just caps
+;; lock and escape, for example. In "complete" cases, the whole keyboard.
+(defsrc
+  esc
+  caps
+  a    s    d    f    g    h    j    k    l    ñ
+)
+
+(deflayer default
+  caps
+  @cap
+  @a   @s   @d   @f   g    h    @j   @k   @l   @x
+)
+
+(deflayer arrows
+  _
+  _
+  _    _    _    _    _    left down up   rght _
+)
+
+;; defvar can be used to declare commonly-used values
+(defvar
+  tap-timeout   10
+  hold-timeout  275
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defalias
+  cap (tap-hold $tt $ht esc (layer-toggle arrows))
+  a (tap-hold $tt $ht a lmet)
+  s (tap-hold $tt $ht s lalt)
+  d (tap-hold $tt $ht d lctl)
+  f (tap-hold $tt $ht f lsft)
+
+  j (tap-hold $tt $ht j rsft)
+  k (tap-hold $tt $ht k rctl)
+  l (tap-hold $tt $ht l lalt)
+  x (tap-hold $tt $ht ñ rmet)
+
+  ;;tab (tap-hold $tt $ht tab lctl)
+)
