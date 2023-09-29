@@ -13,7 +13,7 @@ setup-unix:
 	ln -sf ${PWD}/bashrc ~/.bashrc
 	ln -sf ${PWD}/aliases ~/.aliases
 	ln -sf ${PWD}/environment ~/.environment
-	test ~/.kde/ && test -d ~/.kde/env || mkdir -p ~/.kde/env/
+	test -d ~/.kde/ && test -d ~/.kde/env || mkdir -p ~/.kde/env/
 	ln -sf ${PWD}/environment ~/.kde/env/environment.sh
 	@# This config is for git to modify at will, so is only copied. Is where the
 	@# user name and email can be set to each ones values.
@@ -26,12 +26,14 @@ setup-unix:
 	ln -sf ${PWD}/inputrc ~/.inputrc
 	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
 	ln -sf ${PWD}/gemrc ~/.gemrc
-	test ~/.ssh || mkdir ~/.ssh/
+	test -d ~/.ssh || mkdir ~/.ssh/
 	ln -sf ${PWD}/sshconfig ~/.ssh/config
 	@# Set the symbolic links for vim, but not the submodules for plugins.
 	ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
+	test -d ~/.config || mkdir ~/.config
 	test -L ~/.config/nvim || ln -sf ${PWD}/dotvim ~/.config/nvim
+	ln -sf ${PWD}/vimrc ~/.config/nvim
 
 
 setup-unix-vim: setup-unix
@@ -40,6 +42,3 @@ setup-unix-vim: setup-unix
 	git x-submodule-attach
 	git x-submodule-reset
 	git remote set-url --push origin git@github.com:suy/configs.git
-	@#
-	@# Specific module/plugin setup.
-	make -C dotvim/bundle/vimproc -f make_unix.mak
