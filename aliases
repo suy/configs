@@ -65,7 +65,7 @@ if [ "$(uname)" = "Linux" ]; then
 	alias grep='grep --color=auto'
 fi
 
-if [ -x /usr/bin/nvim ] ; then
+if thereis nvim ; then
     alias vi=nvim
 fi
 
