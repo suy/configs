@@ -51,8 +51,14 @@ if [ -d $HOME/local/gems ] ; then
 	export PATH=$HOME/local/gems/bin:"${PATH}"
 fi
 
-if [ -d $HOME/local/luarocks/ ] ; then
-    export PATH=$HOME/local/luarocks/bin:"${PATH}"
+if thereis luarocks ; then
+	# LuaRocks has a convenience to output both a (modified) LUA_PATH and
+	# LUA_CPATH (for DLLs) as well as PATH in shell format to be evaluated.
+	if [ -d $HOME/local/rocks ] ; then
+		eval `luarocks path --tree $HOME/local/rocks`
+	else
+		eval `luarocks path`
+	fi
 fi
 
 if [ -d $HOME/local/node ] ; then
