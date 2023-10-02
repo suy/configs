@@ -348,7 +348,8 @@ let g:submode_timeoutlen=3000
 
 " Configuration for the submode plugin.
 runtime autoload/submode.vim
-if exists('*submode#map') && version > 702
+" FIXME: For some reason submode fails with Neovim 0.8. Figure out what's wrong.
+if exists('*submode#map') && v:lua.vim.version().minor < 8
 	" Submode for resizing the window.
 	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
 	call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
@@ -741,7 +742,7 @@ if has('nvim')
 	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
 
 	" My very first feature was merged into Neovim. <3<3<3
-	if exists("##SearchWrapped")
+	if exists("##SearchWrapped") && has('linux')
 		augroup searchwrappednotification
 			let commands = ['kdialog', '--passivepopup', 'Search Wrapped', '1',
 						\ '--title', 'Neovim']
