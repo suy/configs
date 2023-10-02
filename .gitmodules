@@ -86,9 +86,6 @@
 [submodule "dotvim/bundle/lastnextprevious"]
 	path = dotvim/bundle/lastnextprevious
 	url = https://github.com/suy/vim-lastnextprevious.git
-[submodule "dotvim/bundle/vimproc"]
-	path = dotvim/bundle/vimproc
-	url = https://github.com/Shougo/vimproc.git
 [submodule "dotvim/bundle/ctrlp-commandline"]
 	path = dotvim/bundle/ctrlp-commandline
 	url = https://github.com/suy/vim-ctrlp-commandline.git
