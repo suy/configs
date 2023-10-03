@@ -1316,7 +1316,7 @@ if has('nvim')
 endif
 
 " Start in 'terminal mode' (i.e. type to the terminal) automatically
-autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+" autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " TODO: doesn't work on the first invocation of ':terminal'
 
 " TODO: Features to implement to migrate away from tmux:
