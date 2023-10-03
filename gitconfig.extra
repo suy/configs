@@ -20,6 +20,8 @@
 	show-merge = "!f() { git diff "$1^" "$1"; }; f"
 	subdo = submodule foreach git
 	wdiff = diff --word-diff=color
+	; diff-image = '!f() { cd -- "${GIT_PREFIX:-.}"; GIT_DIFF_IMAGE_ENABLED=1 git diff "$@"; }; f'
+	diff-img = difftool -x 'compare -alpha copy \"$LOCAL\" \"$REMOTE\" png:- | montage -mode concatenate \"$LOCAL\" png:- \"$REMOTE\" png:- | display -title \"$BASE: Local | Diff | Remote\" png:-'
 	lg = log --graph \
 		--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' \
 		--abbrev-commit --date=relative
@@ -79,5 +81,6 @@
 	required = true
 	smudge = git-lfs smudge %f
 	clean = git-lfs clean %f
+	process = git-lfs filter-process
 
 # vim: filetype=gitconfig:noet
