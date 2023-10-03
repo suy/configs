@@ -21,6 +21,12 @@ configuration entries.
   file while unmapping lctl and ralt from defsrc.
   |#
   process-unmapped-keys yes
+
+  ;; This is the same as in the example `kanata.kdb` file, and it's exactly the
+  ;; same device as in my thinkpad. The same example file mentions paths in
+  ;; /dev/input/by-id being supposedly more reliable, but neither the author nor
+  ;; me can find a keyboard there in our computers.
+  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
 )
 
 
