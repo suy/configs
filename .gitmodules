@@ -159,30 +159,15 @@
 [submodule "dotvim/bundle/textobj-number"]
 	path = dotvim/bundle/textobj-number
 	url = https://github.com/haya14busa/vim-textobj-number.git
-[submodule "dotvim/bundle/lion"]
-	path = dotvim/bundle/lion
-	url = https://github.com/tommcdo/vim-lion.git
 [submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
 	path = dotvim/bundle/fugitive-bitbucket-gbrowse
 	url = https://github.com/tommcdo/vim-fubitive.git
-[submodule "dotvim/bundle/projectionist"]
-	path = dotvim/bundle/projectionist
-	url = https://github.com/tpope/vim-projectionist.git
 [submodule "dotvim/bundle/endwise"]
 	path = dotvim/bundle/endwise
 	url = https://github.com/tpope/vim-endwise.git
-[submodule "dotvim/bundle/rbenv"]
-	path = dotvim/bundle/rbenv
-	url = https://github.com/tpope/vim-rbenv.git
 [submodule "dotvim/bundle/bundler"]
 	path = dotvim/bundle/bundler
 	url = https://github.com/tpope/vim-bundler.git
-[submodule "dotvim/bundle/rake"]
-	path = dotvim/bundle/rake
-	url = https://github.com/tpope/vim-rake.git
-[submodule "dotvim/bundle/rails"]
-	path = dotvim/bundle/rails
-	url = https://github.com/tpope/vim-rails.git
 [submodule "dotvim/bundle/lexima"]
 	path = dotvim/bundle/lexima
 	url = https://github.com/cohama/lexima.vim.git
