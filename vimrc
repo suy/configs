@@ -742,6 +742,7 @@ if has('nvim')
 	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
 
 	" My very first feature was merged into Neovim. <3<3<3
+	" https://github.com/neovim/neovim/pull/8487
 	if exists("##SearchWrapped") && has('linux')
 		augroup searchwrappednotification
 			let commands = ['kdialog', '--passivepopup', 'Search Wrapped', '1',
