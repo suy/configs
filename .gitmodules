@@ -234,3 +234,6 @@
 [submodule "dotvim/pack/plugins/opt/plenary"]
 	path = dotvim/pack/plugins/opt/plenary
 	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "dotvim/bundle/infinity-engine"]
+	path = dotvim/bundle/infinity-engine
+	url = https://gitlab.com/moebiusproject/vim-infinity-engine
