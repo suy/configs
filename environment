@@ -5,6 +5,8 @@ if [ ! -z `locale -a | grep es_ES.utf-8` ] ; then
 	export LANG="es_ES.utf-8"
 elif [ ! -z `locale -a | grep C.UTF-8` ] ; then
 	export LANG="C.UTF-8"
+elif [ ! -z `locale -a | grep C.utf8` ] ; then
+	export LANG="C.utf8"
 else
 	export LANG="C"
 fi
