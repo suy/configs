@@ -4,6 +4,7 @@ compile_commands.json
 
 ### Qt
 moc_*.cpp
+moc_predefs.h
 *.moc
 qrc_*.cpp
 ui_*.h
