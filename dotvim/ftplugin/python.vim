@@ -1,1 +1,1 @@
-set formatoptions+=r
+set formatoptions+=ro
