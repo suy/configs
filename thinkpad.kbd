@@ -58,7 +58,7 @@ configuration entries.
 ;; defvar can be used to declare commonly-used values
 (defvar
   tap-timeout   10
-  hold-timeout  275
+  hold-timeout  250
   tt $tap-timeout
   ht $hold-timeout
 )
