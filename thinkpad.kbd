@@ -5,6 +5,33 @@ Run this config with
 
 |#
 
+;; `defvar` allows to declare commonly-used values with a name, so they don't
+;; have to be repeated through the configuration. They are recalled with `$`.
+(defvar
+  tap-timeout   200
+  hold-timeout  250
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+;; `defalias` allows to define a shorthand of a more complex value than a simple
+;; variable. They can be recalled later with `@`. Those aliases have the name of
+;; a key that we want to remap, and the value of what we want them to be
+;; remapped to.
+(defalias
+  cap   (tap-hold $tt $ht esc (layer-toggle arrows))
+  a     (tap-hold $tt $ht a lmet)
+  s     (tap-hold $tt $ht s lalt)
+  d     (tap-hold $tt $ht d lctl)
+  f     (tap-hold $tt $ht f lsft)
+
+  j     (tap-hold $tt $ht j rsft)
+  k     (tap-hold $tt $ht k rctl)
+  l     (tap-hold $tt $ht l lalt)
+  x     (tap-hold $tt $ht ñ rmet)
+)
+
+
 #|
 One defcfg entry may be added, which is used for configuration key-pairs. These
 configurations change kanata's behaviour at a more global level than the other
@@ -37,12 +64,17 @@ configuration entries.
 
 ;; Defines the source of keys to remap. In minimal cases, it will be just caps
 ;; lock and escape, for example. In "complete" cases, the whole keyboard.
+;; In this case, it's mostly just the home row, for home-row-modifiers, plus
+;; escape and caps lock. Remember that how the text is aligned is purely for our
+;; convenience. The definition is just a list, and what matters is the position
+;; on the list (0 for `esc`, 1 for `caps`, etc.).
 (defsrc
   esc
   caps
   a    s    d    f    g    h    j    k    l    ñ
 )
 
+;; The first layer is what is active by default. It can have any name.
 (deflayer default
   caps
   @cap
@@ -53,29 +85,6 @@ configuration entries.
   _
   _
   _    _    _    _    _    left down up   rght _
-)
-
-;; defvar can be used to declare commonly-used values
-(defvar
-  tap-timeout   200
-  hold-timeout  250
-  tt $tap-timeout
-  ht $hold-timeout
-)
-
-(defalias
-  cap (tap-hold $tt $ht esc (layer-toggle arrows))
-  a (tap-hold $tt $ht a lmet)
-  s (tap-hold $tt $ht s lalt)
-  d (tap-hold $tt $ht d lctl)
-  f (tap-hold $tt $ht f lsft)
-
-  j (tap-hold $tt $ht j rsft)
-  k (tap-hold $tt $ht k rctl)
-  l (tap-hold $tt $ht l lalt)
-  x (tap-hold $tt $ht ñ rmet)
-
-  ;;tab (tap-hold $tt $ht tab lctl)
 )
 
 ;; vim: filetype=lisp commentstring=;;%s:
