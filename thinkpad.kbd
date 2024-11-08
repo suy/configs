@@ -70,6 +70,7 @@ configuration entries.
 ;; on the list (0 for `esc`, 1 for `caps`, etc.).
 (defsrc
   esc
+                                u    i    o    p
   caps
   a    s    d    f    g    h    j    k    l    ñ
 )
@@ -77,12 +78,14 @@ configuration entries.
 ;; The first layer is what is active by default. It can have any name.
 (deflayer default
   caps
+                                 u    i    o    p
   @cap
   @a   @s   @d   @f   g    h    @j   @k   @l   @x
 )
 
 (deflayer arrows
   _
+                           home pgdn pgup end
   _
   _    _    _    _    _    left down up   rght _
 )
