@@ -57,7 +57,7 @@ configuration entries.
 
 ;; defvar can be used to declare commonly-used values
 (defvar
-  tap-timeout   10
+  tap-timeout   200
   hold-timeout  250
   tt $tap-timeout
   ht $hold-timeout
@@ -77,3 +77,5 @@ configuration entries.
 
   ;;tab (tap-hold $tt $ht tab lctl)
 )
+
+;; vim: filetype=lisp commentstring=;;%s:
