@@ -204,9 +204,6 @@
 [submodule "dotvim/bundle/airline-themes"]
 	path = dotvim/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "dotvim/bundle/localvimrc"]
-	path = dotvim/bundle/localvimrc
-	url = https://github.com/embear/vim-localvimrc.git
 [submodule "dotvim/bundle/undotree"]
 	path = dotvim/bundle/undotree
 	url = https://github.com/mbbill/undotree
