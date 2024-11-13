@@ -29,6 +29,8 @@ Run this config with
   k     (tap-hold $tt $ht k rctl)
   l     (tap-hold $tt $ht l lalt)
   x     (tap-hold $tt $ht ñ rmet)
+  quot  (tap-hold $tt $ht ' RA-')
+  btik  (tap-hold $tt $ht ` RA-`)
 )
 
 
@@ -60,6 +62,13 @@ configuration entries.
 ;; Find which key it is with `evtest`
 (deflocalkeys-linux
   ñ 39
+  ;; This seemed like necessary, given that this keys are "weird", and not
+  ;; letters, but seems it works regardless. It's only for names not in non-US
+  ;; keyboards, but this is not the case for this ones.
+  ;; Honestly, this makes me wonder if I could have done by using `;` as key
+  ;; name, instead of having to define `ñ`.
+  ;; ' 40
+  ;; ` 41
 )
 
 ;; Defines the source of keys to remap. In minimal cases, it will be just caps
@@ -70,24 +79,24 @@ configuration entries.
 ;; on the list (0 for `esc`, 1 for `caps`, etc.).
 (defsrc
   esc
-                           y    u    i    o
+  `                        y    u    i    o
   caps
-  a    s    d    f    g    h    j    k    l    ñ
+  a    s    d    f    g    h    j    k    l    ñ    '
 )
 
 ;; The first layer is what is active by default. It can have any name.
 (deflayer default
   caps
-                           y    u    i    o
+  @btik                    y    u    i    o
   @cap
-  @a   @s   @d   @f   g    h    @j   @k   @l   @x
+  @a   @s   @d   @f   g    h    @j   @k   @l   @x   @quot
 )
 
 (deflayer arrows
   _
-                           home pgdn pgup end
+  _                        home pgdn pgup end
   _
-  _    _    _    _    _    left down up   rght _
+  _    _    _    _    _    left down up   rght _    _
 )
 
-;; vim: filetype=lisp commentstring=;;%s:
+;; vim: filetype=lisp commentstring=;;%s ts=2 sw=2:
