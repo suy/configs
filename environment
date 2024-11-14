@@ -69,6 +69,10 @@ if [ -d $HOME/local/node ] ; then
 	export PATH=$HOME/local/node/bin:"${PATH}"
 fi
 
+# TODO: I end up with 3 ~/.local/bin directories for some reason. Find why.
+# /etc/skel/.profile contains a rule for this, so this one is redundant in this
+# case. Will need to make a function to see if we can detect the string being
+# there.
 # pip install --user puts it's stuff there. And --target just fails for me.
 if [ -d $HOME/.local/bin ] ; then
     export PATH=$HOME/.local/bin:"${PATH}"
