@@ -8,6 +8,19 @@ http://drewneil.com/[Drew Neil], who made a great
 http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/[
 screencast on keeping in sync your Vim configuration with Git and Github].
 
+WARNING: This configurations, and even this README file is not in its best shape
+right now. Since 2016, I had to work on a quite convoluted C++ project which
+involved too much work to make Vim and its ecosystem work properly. In addition,
+I had some highly time consuming personal and familiar duties, which made things
+worse. Since then, I switched to Neovim (which has a much better, but rapidly
+changing ecosystem), but I did so gradually, and not always being up to date
+with the latest versions (even though I managed to contribute a small feature to
+Neovim myself!). So there is still a lot of legacy in my settings and plugins.
+Even in my notes about the plugins that I want to look into, there is cruft
+pending to be cleaned. Apologies if something is confusing, and don't hesistate
+to ask me questions.
+
+
 == Micro Vim plugins
 
 Besides some little things in the `vimrc` file, I started putting some things
@@ -118,9 +131,12 @@ Or, if you install git-extras, the git remove-submodule command is provided.
 
 Externally available, typically:
 
-* https://github.com/sharkdp/fd
 * https://github.com/BurntSushi/ripgrep
+* https://github.com/Genivia/ugrep
 * https://github.com/Peltoche/lsd
+* https://github.com/dalance/procs
+* https://github.com/nvbn/thefuck
+* https://github.com/sharkdp/fd
 
 Packaged:
 
@@ -187,9 +203,11 @@ tweak in my vimrc. Here are some notes for self reference:
 Evaluate the following plugins:
 
 * https://github.com/AndrewRadev/deleft.vim
+* https://github.com/Iron-E/nvim-libmodal (submode-like)
 * https://github.com/Shougo/context_filetype.vim
 * https://github.com/Shougo/neopairs.vim
 * https://github.com/Shougo/vinarise.vim
+* https://github.com/ThePrimeagen/refactoring.nvim
 * https://github.com/andymass/vim-matchup
 * https://github.com/bbchung/clighter
 * https://github.com/bimlas/vim-high
@@ -197,7 +215,9 @@ Evaluate the following plugins:
 * https://github.com/chrisbra/NrrwRgn
 * https://github.com/chrisbra/vim-diff-enhanced
 * https://github.com/dbmrq/vim-ditto
+* https://github.com/elihunter173/dirbuf.nvim
 * https://github.com/fmoralesc/vim-pad
+* https://github.com/frabjous/knap creating as-you-type previews of LaTeX, markdown, and others
 * https://github.com/gorodinskiy/vim-coloresque
 * https://github.com/hackhowtofaq/vim-solargraph
 * https://github.com/haya14busa/vim-asterisk
@@ -216,6 +236,8 @@ Evaluate the following plugins:
 * https://github.com/lukas-reineke/indent-blankline.nvim
 * https://github.com/mhinz/vim-lookup
 * https://github.com/nelstrom/vim-textobj-rubyblock
+* https://github.com/nvim-lua/kickstart.nvim
+* https://github.com/nvim-tree/nvim-tree.lua
 * https://github.com/osyo-manga/vim-brightest
 * https://github.com/osyo-manga/vim-operator-blockwise
 * https://github.com/osyo-manga/vim-precious
@@ -226,6 +248,7 @@ Evaluate the following plugins:
 * https://github.com/ryanoasis/vim-devicons
 * https://github.com/sheerun/vim-polyglot
 * https://github.com/stefandtw/quickfix-reflector.vim
+* https://github.com/stevearc/oil.nvim
 * https://github.com/svermeulen/vim-easyclip
 * https://github.com/szw/vim-ctrlspace
 * https://github.com/tek/vim-textobj-ruby
@@ -240,6 +263,7 @@ Evaluate the following plugins:
 * https://github.com/vim-utils/vim-husk
 * https://github.com/w0rp/ale
 * https://github.com/wellle/targets.vim
+* https://github.com/wsdjeg/vim-fetch Handle line and column numbers in file names!
 
 To rethink a bit the fonts choice, or even the deployment to each installation
 of the fonts, consider putting in a submodule:
