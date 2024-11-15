@@ -183,6 +183,71 @@ Further reading:
 - https://neovim.discourse.group/t/the-300-line-init-lua-challenge/227/15
 - https://github.com/nanotee/nvim-lua-guide
 
+=== Architecture brainstorm for configuring Neovim in Lua
+
+==== Autocommands and groups
+
+To prevent issues when sourcing again a `.vimrc`, it used to be standard to
+follow a certain pattern:
+
+[source,viml]
+----
+augroup vimrc
+    " Clear all autocommands in the group to avoid defining them multiple
+    " times each time vimrc is reloaded. It has to be only once and at the
+    " beginning of each augroup.
+    autocmd!
+augroup END
+----
+
+Then, to avoid creating multiple autocommand groups, I tucked a few things in
+there that not necessarily made sense together.
+
+In Lua, this is possible to make now:
+
+[source,lua]
+----
+-- Create the group (clearing it empty if exists), and store it a variable (it's
+-- a simple number).
+local augroup_vimrc = vim.api.nvim_create_augroup('vimrc', { clear = true })
+----
+
+This now can be used later on the configuration, like this:
+
+[source,lua]
+----
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking text',
+  group = augroup_vimrc,
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+----
+
+But what if you want to reuse the group from another file? Well, you can recover
+the numerical ID with the same call, just don't clear what was already there:
+
+[source,lua]
+----
+vim.api.nvim_create_augroup('example', { clear = false })
+----
+
+And finally, there is just the option to create the group and the autocommand in
+one go. This is the approach I've seen done in, for example, `kickstart.nvim`.
+
+[source,lua]
+----
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+----
+
+
 == To do
 
 I still have much to learn, and there is still too much that isn't exactly like
