@@ -741,6 +741,9 @@ if has('nvim')
 	" Still under test
 	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
 
+	" :h vim.highlight.on_yank
+	autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout=350})
+
 	" My very first feature was merged into Neovim. <3<3<3
 	" https://github.com/neovim/neovim/pull/8487
 	if exists("##SearchWrapped") && has('linux')
