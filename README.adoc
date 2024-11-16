@@ -185,6 +185,8 @@ Further reading:
 
 === Architecture brainstorm for configuring Neovim in Lua
 
+* https://zignar.net/2022/11/06/structuring-neovim-lua-plugins/[A good refresher
+  on how Vim plugins are structured, and how Lua is involved].
 
 ==== Vim script or legacy values
 
