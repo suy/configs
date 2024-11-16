@@ -137,9 +137,6 @@
 [submodule "dotvim/bundle/context-commentstring"]
 	path = dotvim/bundle/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
-[submodule "dotvim/bundle/textobj-wiw"]
-	path = dotvim/bundle/textobj-wiw
-	url = https://github.com/h1mesuke/textobj-wiw.git
 [submodule "dotvim/bundle/signify"]
 	path = dotvim/bundle/signify
 	url = https://github.com/mhinz/vim-signify.git
