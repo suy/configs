@@ -185,6 +185,24 @@ Further reading:
 
 === Architecture brainstorm for configuring Neovim in Lua
 
+
+==== Vim script or legacy values
+
+* `:h lua-vimscript` (start of the overview)
+* `vim.cmd(":wq")`
+* `vim.fn.strdisplaywidth(vim.o.sbr)` to call a vim script function
+* `:h lua-vim-variables` for the overview
+* `vim.g.foo` for globals (assign to `nil` to `:unlet`)
+* `vim.b.foo` buffer scoped
+* `vim.w.foo` window scoped
+* `vim.t.foo` tab scoped
+* `vim.v.foo` special `v:foo` variables
+* `:h vim.opt` for the lua way to set core variables/settings
+* `vim.o` behave like Vim's `:set` (a "complex" setting like `listchars`, which
+  had to be a comma separated value is a CSV string here as well)
+* `vim.opt` is a more structured approach (has functions like `append()`,
+  `prepend()`, `remove()` and `get()` to manipulate the values easily)
+
 ==== Autocommands and groups
 
 To prevent issues when sourcing again a `.vimrc`, it used to be standard to
