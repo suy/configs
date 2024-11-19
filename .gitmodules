@@ -19,9 +19,6 @@
 [submodule "dotvim/bundle/tabular"]
 	path = dotvim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "dotvim/bundle/ultisnips"]
-	path = dotvim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "dotvim/bundle/repeat"]
 	path = dotvim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
@@ -159,12 +156,6 @@
 [submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
 	path = dotvim/bundle/fugitive-bitbucket-gbrowse
 	url = https://github.com/tommcdo/vim-fubitive.git
-[submodule "dotvim/bundle/endwise"]
-	path = dotvim/bundle/endwise
-	url = https://github.com/tpope/vim-endwise.git
-[submodule "dotvim/bundle/bundler"]
-	path = dotvim/bundle/bundler
-	url = https://github.com/tpope/vim-bundler.git
 [submodule "dotvim/bundle/lexima"]
 	path = dotvim/bundle/lexima
 	url = https://github.com/cohama/lexima.vim.git

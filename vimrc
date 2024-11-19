@@ -44,13 +44,7 @@ function! s:disable(...)
 	endfor
 endfunction
 
-" Kept as a submodule to track them, but not used in the configuration.
-let g:pathogen_blacklist = ['vital']
-
-" Additionally, disable the plugin code of endwise, since I want it available
-" in the runtimepath, but not loading any code. This way I can check the source
-" and the documentation with :Vedit, etc.
-let g:loaded_endwise=1
+let g:pathogen_blacklist = []
 
 " Disable UltiSnips if needed to avoid the startup warning.
 if !has('python') && !has('python3') && !has('python/dyn') && !has('python3/dyn')
@@ -185,28 +179,6 @@ let g:indentLine_bufTypeExclude = ['terminal', 'nofile']
 
 " }}}
 
-" UltiSnips. "{{{
-" Use <C-S>/<C-Q> (unused in insert mode, and in the GUI only) for snippet
-" shortcuts. This way <tab> is a bit more free for fine grained actions.
-if has("gui_running")
-	let g:UltiSnipsExpandTrigger="<C-S>"
-	let g:UltiSnipsListSnippets="<C-Q>"
-else
-	let g:UltiSnipsExpandTrigger=",s"
-	let g:UltiSnipsListSnippets=",q"
-endif
-" These other two are the defaults. Left here as a reminder.
-" let g:UltiSnipsJumpForwardTrigger="<C-J>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-K>"
-" For the snippets themselves to work.
-let g:UltiSnipsSnippetDirectories=["ultisnippets"]
-" The user snippet definition directory, for the :UltiSnipsEdit command.
-if exists('*pathogen#infect')
-	let g:UltiSnipsSnippetsDir=pathogen#split(&rtp)[0] . "/ultisnippets"
-endif
-" }}}
-
-
 
 " Unite. "{{{
 " Unite preferences. "{{{
@@ -314,14 +286,6 @@ let g:unite_source_menu_menus.git.command_candidates = [
 "}}}
 "}}}
 
-" JunkFile "{{{
-let g:junkfile#directory=expand('~/personal/misc')
-" Ideas: remove the default command, and put one/some of my own. Submit a pull
-" request to improve the docs and made it more customizable. For example,
-" JunkfileOpen lets you choose the name of the file, but is always put in %Y/%m
-" directory. Another possibility is using plain Unite to do it, since the
-" sources provided are just fine.
-"}}}
 
 " Airline " {{{
 " TODO: Detect if powerline symbols are available at runtime.
@@ -362,72 +326,6 @@ if exists('*submode#map') && v:lua.vim.version().minor < 8
 endif
 "}}}
 
-" Smartinput. "{{{
-" Smartinput customization. Rules have to be added with define_rule. But for
-" rules to be triggered a mapping is needed. Since the default rules already map
-" some keys to the generic function that looks for a match, one doesn't need to
-" create that map. The exception is if you want to change the default behaviour
-" of a key, like how is done here, where <Space>, if it doesn't expand anything
-" returns a <Space> but preceded with an undo break.
-runtime autoload/smartinput.vim
-if exists('*smartinput#define_rule')
-call smartinput#define_rule({
-\	'at':       '/\%#',
-\	'char':     '*',
-\	'input':    '**/<Left><Left>',
-\	'filetype': ['css', 'c']
-\})
-call smartinput#define_rule({
-\	'at':       '/\*\%#\*/',
-\	'char':     '<Space>',
-\	'input':    '<Space><Space><Left>',
-\	'filetype': ['css', 'c']
-\})
-call smartinput#define_rule({
-\	'at':       '/\* \%# \*/',
-\	'char':     '<BS>',
-\	'input':    '<Del><BS>',
-\	'filetype': ['css', 'c']
-\})
-call smartinput#define_rule({
-\	'at':       '/\*\%#\*/',
-\	'char':     '<BS>',
-\	'input':    '<Del><Del><BS><BS>',
-\	'filetype': ['css', 'c']
-\})
-call smartinput#map_to_trigger('i', '*', '*', '*')
-call smartinput#map_to_trigger('i', '<Space>', '<Space>', '<C-G>u<Space>')
-call smartinput#map_to_trigger('i', '<Return>', '<Return>', '<C-G>u<Return>')
-
-" Additional rules for spaces inside parentheses.
-call smartinput#define_rule({
-\	'at':       '(\%#)',
-\	'char':     '<Space>',
-\	'input':    '<Space><Space><Left>',
-\})
-call smartinput#define_rule({
-\	'at':       '( \%# )',
-\	'char':     '<BS>',
-\	'input':    '<Del><BS>',
-\})
-" Fix some defaults
-call smartinput#define_rule({
-\	'at':       '\s\%#\S',
-\	'char':     '[',
-\	'input':    '[',
-\})
-call smartinput#define_rule({
-\	'at':       '\s\%#\S',
-\	'char':     '(',
-\	'input':    '(',
-\})
-endif
-
-runtime autoload/smartinput_endwise.vim
-if exists('*smartinput_endwise#define_default_rules')
-	call smartinput_endwise#define_default_rules()
-endif
-"}}}
 
 " CtrlP. " {{{
 let g:ctrlp_map = '<C-k>'
@@ -462,14 +360,6 @@ endif
 " Is important that I use it, since otherwise the feature might not work and I
 " might not notice it.
 silent! call remove(g:lastnextprevious#table, 'undolist')
-
-" Local configuration file (for the localvimrc plugin).
-let g:localvimrc_name=[".localrc.vim"]
-let g:localvimrc_persistent=2
-let g:localvimrc_persistence_file=s:data_dir . '/local-vimrc'
-
-" Word in word text object.
-let g:textobj_wiw_default_key_mappings_prefix='\'
 
 " Choosewin
 let g:choosewin_overlay_enable = 1
