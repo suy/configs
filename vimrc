@@ -507,6 +507,15 @@ if (isdirectory('/home/alex/local/bin'))
 	let $PATH = '/home/alex/local/bin' . ':' . $PATH
 endif
 
+" Allow loading configuration files in the current directory. I've read the
+" help, and this seems worth the risk/power tradeoff, as files need to be
+" trusted first, and I only expect to ever run simple files from myself.
+set exrc
+
+" Allow to move the cursor one character beyond the last. This allows to use
+" Return to insert blank lines in between others, without unimpaired's map.
+set virtualedit=onemore
+
 " Add 'mac' fileformat, because there are still people as silly as v2msoft.com.
 set fileformats+=mac
 
