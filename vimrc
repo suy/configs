@@ -79,46 +79,7 @@ endif
 "                |___/                             |_|
 " {{{
 
-
-" Start with a decent chunk of Lua for some Neovim specific stuff.
-" FIXME: It makes Vim 8 to fail to load vimrc properly.
-lua << END
-local on_lsp_attached = function(client, buffer)
-	-- Skip buffers with special URI, e.g. fugitive://...
-	if vim.api.nvim_buf_get_name(buffer):match "^%a+://" then
-		return
-	end
-
-	-- Use LSP as the handler for omnifunc.
-	--    See `:help omnifunc` and `:help ins-completion` for more information.
-	vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-	-- Use LSP as the handler for formatexpr.
-	--    See `:help formatexpr` for more information.
-	vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
-
-	-- For plugins with an `on_attach` callback, call them here. For example:
-	-- require('completion').on_attach()
-
-end
-
-require('lspconfig').clangd.setup({
-	on_attach = on_lsp_attached
-})
-
-local version = vim.version()
-if version.major == 0 and version.minor >= 6 then
-	vim.diagnostic.config({
-	  virtual_text = true,
-	  signs = true, -- default
-	  signs = false,
-	  underline = true, -- default
-	  underline = false,
-	  update_in_insert = false,
-	  severity_sort = false,
-	})
-end
-END
+lua require 'init-lsp'
 
 " Set the map leader early, so we can use it with plugin mappings.
 let mapleader = ","

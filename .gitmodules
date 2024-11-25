@@ -198,8 +198,8 @@
 [submodule "dotvim/bundle/auto-git-diff"]
 	path = dotvim/bundle/auto-git-diff
 	url = https://github.com/hotwatermorning/auto-git-diff.git
-[submodule "dotvim/bundle/lspconfig"]
-	path = dotvim/bundle/lspconfig
+[submodule "dotvim/pack/plugins/start/lspconfig"]
+	path = dotvim/pack/plugins/start/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
 [submodule "dotvim/pack/colorschemes/opt/gruvbox8"]
 	path = dotvim/pack/colorschemes/opt/gruvbox8
