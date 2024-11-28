@@ -46,12 +46,6 @@ endfunction
 
 let g:pathogen_blacklist = []
 
-" Disable UltiSnips if needed to avoid the startup warning.
-if !has('python') && !has('python3') && !has('python/dyn') && !has('python3/dyn')
-	\ && v:version < 704
-	call s:disable('ultisnips')
-endif
-
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
 if exists('*pathogen#infect')
