@@ -113,9 +113,6 @@
 [submodule "dotvim/bundle/rsi"]
 	path = dotvim/bundle/rsi
 	url = https://github.com/tpope/vim-rsi.git
-[submodule "dotvim/bundle/vimfiler"]
-	path = dotvim/bundle/vimfiler
-	url = https://github.com/Shougo/vimfiler.git
 [submodule "dotvim/bundle/angry"]
 	path = dotvim/bundle/angry
 	url = https://github.com/b4winckler/vim-angry.git
@@ -219,3 +216,9 @@
 [submodule "dotvim/bundle/infinity-engine"]
 	path = dotvim/bundle/infinity-engine
 	url = https://gitlab.com/moebiusproject/vim-infinity-engine
+[submodule "dotvim/pack/plugins/start/mini.nvim"]
+    path = dotvim/pack/plugins/start/mini.nvim
+    url = https://github.com/echasnovski/mini.nvim
+[submodule "dotvim/pack/plugins/opt/helpful"]
+	path = dotvim/pack/plugins/opt/helpful
+	url = https://github.com/tweekmonster/helpful.vim

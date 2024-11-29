@@ -73,6 +73,7 @@ endif
 "                |___/                             |_|
 " {{{
 
+lua require 'init-setup-plugins'
 lua require 'init-lsp'
 
 " Set the map leader early, so we can use it with plugin mappings.
@@ -80,12 +81,6 @@ let mapleader = ","
 
 " The most important signify option and I overlooked it for ages. *sigh*
 let g:signify_skip = {'vcs': { 'allow': ['git'] }}
-
-" Several small variable settings for plugins that don't require much. " {{{
-" Vimfiler.
-let g:loaded_netrwPlugin = 1
-let g:vimfiler_as_default_explorer = 1
-autocmd FileType vimfiler nnoremap <buffer> <space> :
 
 " Fugitive mappings that restore previous mappings. We make them recursive, so
 " they trigger the new maps, which trigger the right fugitive function.
