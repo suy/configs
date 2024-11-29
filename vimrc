@@ -825,12 +825,6 @@ set foldopen-=search
 " Note to self: possible key candidates to be remapped as handy operators,
 " since I rarely use them: K, H, L, M, Q, ^Q, ^P, ^N.
 
-" Make Y consistent with C and D.  See :help Y.
-nnoremap Y y$
-
-" Safe net with <C-u>: add an undo-break (see :help i_CTRL-G_u).
-inoremap <C-u> <C-g>u<C-u>
-
 " Like & (repeat last substitute), but repeating the same flags.
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
@@ -900,8 +894,8 @@ nnoremap ` '
 " the cursor, but in the same context (e.g., a function).
 nmap z<space> zczO
 
-" Map C-L (for 'label') as a synonym for for the 'tag' shortcut.
-map <C-L> <C-]>
+" Map <leader>l (for 'label') as a synonym for for the 'tag' shortcut.
+nmap <leader>l <C-]>
 
 " Map the CTRL-F (almost unused in insert mode) to the omnicompletion one
 "imap <C-f> <C-x><C-o>
@@ -937,13 +931,6 @@ nmap <silent> <leader>q :if buflisted(expand('#'))<BAR>b #<BAR>
 
 " Clear and redraw the screen. Usually is C-L, but is mapped to something else.
 nmap <leader>r :redraw!<CR>
-
-" Easily toggle invisible characters (listchars). This is very important for:
-" - Copying with the mouse to another application (if you don't disable them,
-"   will be added to the clipboard, which doesn't make sense).
-" - Making linebreak work, because is a documented limitation that doesn't
-"   work with :set list. :-(
-nmap <silent> <leader>l :<C-u>echoerr 'Use unimpaired: col'<Return>
 
 " Easily hide the highlighting of the search
 nmap <leader>h :nohlsearch<CR>
