@@ -137,6 +137,9 @@ Externally available, typically:
 * https://github.com/dalance/procs
 * https://github.com/nvbn/thefuck
 * https://github.com/sharkdp/fd
+* Nerd Fonts. Add to `~/.local/share/fonts`, config in
+  `~/.config/fontconfig/conf.d/`. Perhaps add to repo here? Also, docs:
+  https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
 
 Packaged:
 
