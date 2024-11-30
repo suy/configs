@@ -46,15 +46,6 @@
 [submodule "dotvim/bundle/eunuch"]
 	path = dotvim/bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "dotvim/bundle/textobj-user"]
-	path = dotvim/bundle/textobj-user
-	url = https://github.com/kana/vim-textobj-user.git
-[submodule "dotvim/bundle/textobj-line"]
-	path = dotvim/bundle/textobj-line
-	url = https://github.com/kana/vim-textobj-line.git
-[submodule "dotvim/bundle/textobj-function"]
-	path = dotvim/bundle/textobj-function
-	url = https://github.com/kana/vim-textobj-function.git
 [submodule "dotvim/bundle/qmake"]
 	path = dotvim/bundle/qmake
 	url = https://github.com/suy/vim-qmake.git
@@ -62,18 +53,6 @@
 [submodule "dotvim/bundle/markdown"]
 	path = dotvim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "dotvim/bundle/textobj-underscore"]
-	path = dotvim/bundle/textobj-underscore
-	url = https://github.com/lucapette/vim-textobj-underscore.git
-[submodule "dotvim/bundle/textobj-entire"]
-	path = dotvim/bundle/textobj-entire
-	url = https://github.com/kana/vim-textobj-entire.git
-[submodule "dotvim/bundle/textobj-syntax"]
-	path = dotvim/bundle/textobj-syntax
-	url = https://github.com/kana/vim-textobj-syntax.git
-[submodule "dotvim/bundle/textobj-diff"]
-	path = dotvim/bundle/textobj-diff
-	url = https://github.com/kana/vim-textobj-diff.git
 [submodule "dotvim/bundle/altr"]
 	path = dotvim/bundle/altr
 	url = https://github.com/kana/vim-altr.git
@@ -110,9 +89,6 @@
 [submodule "dotvim/bundle/rsi"]
 	path = dotvim/bundle/rsi
 	url = https://github.com/tpope/vim-rsi.git
-[submodule "dotvim/bundle/angry"]
-	path = dotvim/bundle/angry
-	url = https://github.com/b4winckler/vim-angry.git
 [submodule "dotvim/bundle/abolish"]
 	path = dotvim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -144,9 +120,6 @@
 [submodule "dotvim/bundle/neomru"]
 	path = dotvim/bundle/neomru
 	url = https://github.com/Shougo/neomru.vim.git
-[submodule "dotvim/bundle/textobj-number"]
-	path = dotvim/bundle/textobj-number
-	url = https://github.com/haya14busa/vim-textobj-number.git
 [submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
 	path = dotvim/bundle/fugitive-bitbucket-gbrowse
 	url = https://github.com/tommcdo/vim-fubitive.git
@@ -171,9 +144,6 @@
 [submodule "dotvim/bundle/grepper"]
 	path = dotvim/bundle/grepper
 	url = http://github.com/mhinz/vim-grepper.git
-[submodule "dotvim/bundle/textobj-comment"]
-	path = dotvim/bundle/textobj-comment
-	url = https://github.com/glts/vim-textobj-comment.git
 [submodule "dotvim/bundle/rhubarb"]
 	path = dotvim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git

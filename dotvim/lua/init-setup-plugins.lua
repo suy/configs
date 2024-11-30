@@ -1,3 +1,35 @@
+--------------------------------------------------------------------------------
+-- Mini.Extra
+--------------------------------------------------------------------------------
+-- Setup this first, as it's a dependency of other Mini plugins. Also set the
+-- global explicitly, so the Lua LSP server doesn't complain about the global.
+MiniExtra = require('mini.extra')
+MiniExtra.setup()
+
+
+--------------------------------------------------------------------------------
+-- Mini.Ai
+--------------------------------------------------------------------------------
+require('mini.ai').setup({
+    custom_textobjects = {
+        e = MiniExtra.gen_ai_spec.buffer(), -- e="entire buffer", like kana's plugin
+        -- D = gen_ai_spec.diagnostic(), -- TODO: consider.
+        i = MiniExtra.gen_ai_spec.indent(),
+        L = MiniExtra.gen_ai_spec.line(),
+        n = MiniExtra.gen_ai_spec.number(),
+    },
+    -- mappings = {
+    --     around_next = 'an',
+    --     inside_next = 'in',
+    --     around_last = 'al',
+    --     inside_last = 'il',
+    --
+    --     goto_left = 'g[',
+    --     goto_right = 'g]',
+    -- },
+})
+
+
 ------------------------------------------------------------------------------
 -- MiniBracketed
 ------------------------------------------------------------------------------
