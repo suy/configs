@@ -17,6 +17,7 @@ Makefile.Release
 *.pro.user*
 *.autosave
 CMakeLists.txt.user*
+.qtc_clangd
 
 ### Vim
 tags
