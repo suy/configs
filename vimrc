@@ -116,17 +116,6 @@ let g:startify_repositories = [ '~/personal/configs']
 autocmd User Startified nnoremap <silent> <buffer> r :<C-u>Startify<Return>
 autocmd User Startified nnoremap <silent> <buffer> G :<C-u>G<Return>
 
-" Indention decoration (https://github.com/Yggdroot/indentLine for old Vim with
-" conceal or https://github.com/lukas-reineke/indent-blankline.nvim).
-" TODO: use features in the new plugin, and maybe add back the old for Vim 8.
-let g:indentLine_char = '│'
-let g:indentLine_char = '┃'
-let g:indentLine_char = '┊'
-let g:indentLine_char = '⎸'
-let g:indentLine_first_char = '┃'
-let g:indentLine_fileTypeExclude = ['help']
-let g:indentLine_bufTypeExclude = ['terminal', 'nofile']
-
 " }}}
 
 
