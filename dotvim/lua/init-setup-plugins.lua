@@ -16,7 +16,7 @@ require('mini.ai').setup({
         -- D = gen_ai_spec.diagnostic(), -- TODO: consider.
         i = MiniExtra.gen_ai_spec.indent(),
         L = MiniExtra.gen_ai_spec.line(),
-        n = MiniExtra.gen_ai_spec.number(),
+        N = MiniExtra.gen_ai_spec.number(),
     },
     -- mappings = {
     --     around_next = 'an',
@@ -53,7 +53,13 @@ require('mini.icons').setup()
 ------------------------------------------------------------------------------
 -- MiniIndentscope
 ------------------------------------------------------------------------------
-require('mini.indentscope').setup()
+-- Changed default character to something better aligned to the left.
+require('mini.indentscope').setup({ symbol = '▎' })
+vim.api.nvim_create_autocmd('TermOpen', {
+    callback = function()
+        vim.b.miniindentscope_disable = true
+    end
+})
 
 
 ------------------------------------------------------------------------------
