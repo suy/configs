@@ -44,6 +44,9 @@ require('mini.ai').setup({
 -- same, but perhaps is worth considering some, like move to next diagnostic (if
 -- the new core mapping is different). Also one to move to a next/prev
 -- indentation, if it complements ai/indentscope.
+-- NB: Unimpaired also provides mappings for toggling options which are *not* on
+-- MiniBracketed, but which are on MiniBasics instead. So both need to be
+-- reviewed at the same time, and check out for missing things.
 
 
 ------------------------------------------------------------------------------
