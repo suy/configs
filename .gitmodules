@@ -165,6 +165,7 @@
 [submodule "dotvim/pack/plugins/start/lspconfig"]
 	path = dotvim/pack/plugins/start/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+	branch = v1.1.0
 [submodule "dotvim/pack/colorschemes/opt/gruvbox8"]
 	path = dotvim/pack/colorschemes/opt/gruvbox8
 	url = https://github.com/lifepillar/vim-gruvbox8
