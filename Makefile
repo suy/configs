@@ -29,11 +29,11 @@ setup-unix:
 	test -d ~/.ssh || mkdir ~/.ssh/
 	ln -sf ${PWD}/sshconfig ~/.ssh/config
 	@# Set the symbolic links for vim, but not the submodules for plugins.
-	ln -sf ${PWD}/vimrc ~/.vimrc
+	# ln -sf ${PWD}/vimrc ~/.vimrc
 	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
 	test -d ~/.config || mkdir ~/.config
 	test -L ~/.config/nvim || ln -sf ${PWD}/dotvim ~/.config/nvim
-	ln -sf ${PWD}/vimrc ~/.config/nvim
+	# ln -sf ${PWD}/vimrc ~/.config/nvim
 	# https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else
 	echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
 
