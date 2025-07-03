@@ -83,3 +83,73 @@ vim.notify = require('mini.notify').make_notify({
     ERROR = { duration = 10000 } -- The default is 5s, so double it.
 })
 
+
+
+------------------------------------------------------------------------------
+-- MiniStatusline
+------------------------------------------------------------------------------
+MiniStatusline = require('mini.statusline')
+MiniStatusline.setup({
+    -- Content of statusline as functions which return statusline string. See
+    -- `:h statusline` and code of default contents (used instead of `nil`).
+    content = {
+        -- Content for active window
+        active = nil,
+        -- Content for inactive window(s)
+        -- inactive = nil,
+        inactive = MiniStatusline.active,
+    },
+
+    -- Whether to use icons by default
+    -- use_icons = true,
+
+    -- Whether to set Vim's settings for statusline (make it always shown)
+    -- set_vim_settings = true,
+    set_vim_settings = false,
+})
+MiniStatusline.section_git = function()
+    -- This is not very pretty... But seems fugitive hardcodes this characters.
+    return vim.fn.FugitiveStatusline()
+end
+
+vim.schedule(function()
+    vim.o.laststatus=3 -- TODO: Not needed if I just set it in the settings
+end)
+
+--------------------------------------------------------------------------------
+-- MiniTabline
+--------------------------------------------------------------------------------
+require('mini.tabline').setup({
+    -- Whether to show file icons (requires 'mini.icons')
+    -- show_icons = true,
+
+    -- Function which formats the tab label
+    -- By default surrounds with space and possibly prepends with icon
+    -- format = nil,
+    format = function(buffer_id, label)
+      local suffix = vim.bo[buffer_id].modified and '+ ' or ''
+      return MiniTabline.default_format(buffer_id, label) .. suffix
+    end,
+
+    -- Whether to set Vim's settings for tabline (make it always shown and
+    -- allow hidden buffers)
+    -- set_vim_settings = true,
+    set_vim_settings = false,
+
+    -- Where to show tabpage section in case of multiple vim tabpages.
+    -- One of 'left', 'right', 'none'.
+    -- tabpage_section = 'left',
+})
+-- TODO: needs to be set on colorscheme change as well. Autocmd?
+vim.schedule(function()
+    vim.o.showtabline = 2 -- Always show tabline
+    -- TODO: doesn't highlight properly which one is active. If 2 are active,
+    -- both are shown the same. Airline also shows path, and changes color when
+    -- modified. There seem to be highlight groups to customize this, but I
+    -- hardly remember how to use them and make it suck less.
+    vim.cmd('hi! link MiniTablineCurrent Title')
+    vim.cmd('hi! link MiniTablineModifiedCurrent Title')
+end)
+
+
+

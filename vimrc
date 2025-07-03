@@ -1,3 +1,5 @@
+lua require 'init-prelude'
+
 "  ____  _             _         _       _ _
 " |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
 " | |_) | | | | |/ _` | | '_ \  | | '_ \| | __|
@@ -225,25 +227,6 @@ let g:unite_source_menu_menus.git.command_candidates = [
 "}}}
 "}}}
 
-
-" Airline " {{{
-" TODO: Detect if powerline symbols are available at runtime.
-" Depends on the fonts-powerline package, so Linux only (and disabled for now).
-if !has('win32') && !has('mac') && 0
-	let g:airline_powerline_fonts=1
-else
-	let g:airline_left_sep = '▶'
-	let g:airline_right_sep = '◀'
-	let g:airline_symbols = {}
-	let g:airline_symbols.linenr = '¶ '
-endif
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='understated'
-" This was chosen conditionally when setting a different colorscheme.
-" let g:airline_theme='powerlineish'
-" }}}
 
 " Submode. "{{{
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
@@ -811,6 +794,8 @@ set foldopen-=search
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
+lua require 'init-mappings'
+
 " Note to self: possible key candidates to be remapped as handy operators,
 " since I rarely use them: K, H, L, M, Q, ^Q, ^P, ^N.
 
@@ -821,10 +806,6 @@ xnoremap & :&&<CR>
 " Don't do dangerous things.
 nnoremap ZQ <Nop>
 nnoremap ZZ <Nop>
-
-" Make do/dp repeatable.
-nnoremap <silent> dp dp:silent! call repeat#set('dp', v:count)<Enter>
-nnoremap <silent> do do:silent! call repeat#set('do', v:count)<Enter>
 
 " Try to be smart: if accidentally you press 'jj' or 'kk' in insert mode, you
 " will be brought back to normal mode. Is also easier to press than <ESC>.
