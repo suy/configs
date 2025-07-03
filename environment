@@ -44,6 +44,10 @@ if [ -d $HOME/local/bin ] ; then
 	export PATH=$HOME/local/bin:"${PATH}"
 fi
 
+if [ -d $HOME/local/pixi ] ; then
+	export PIXI_HOME=$HOME/local/pixi
+fi
+
 if [ -d $HOME/local/gems ] ; then
 	# Run `gem env` for details.
 	# Where gems will be installed by `gem install --no-user-install`
