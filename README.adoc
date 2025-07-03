@@ -291,11 +291,13 @@ tweak in my vimrc. Here are some notes for self reference:
 Evaluate the following plugins:
 
 * https://github.com/AndrewRadev/deleft.vim
+* https://github.com/Goose97/timber.nvim
 * https://github.com/Iron-E/nvim-libmodal (submode-like)
 * https://github.com/Shougo/context_filetype.vim
 * https://github.com/Shougo/neopairs.vim
 * https://github.com/Shougo/vinarise.vim
 * https://github.com/ThePrimeagen/refactoring.nvim
+* https://github.com/andrewferrier/debugprint.nvim
 * https://github.com/andymass/vim-matchup
 * https://github.com/bbchung/clighter
 * https://github.com/bimlas/vim-high
