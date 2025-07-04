@@ -102,10 +102,6 @@ MiniStatusline.setup({
 
     -- Whether to use icons by default
     -- use_icons = true,
-
-    -- Whether to set Vim's settings for statusline (make it always shown)
-    -- set_vim_settings = true,
-    set_vim_settings = false,
 })
 MiniStatusline.section_git = function()
     -- This is not very pretty... But seems fugitive hardcodes this characters.
@@ -113,7 +109,9 @@ MiniStatusline.section_git = function()
 end
 
 vim.schedule(function()
-    vim.o.laststatus=3 -- TODO: Not needed if I just set it in the settings
+    -- TODO: This is needed for this plugin (it needs to be 2 or 3), but it
+    -- should not be done here, Move it to the normal settings.
+    vim.o.laststatus=3
 end)
 
 --------------------------------------------------------------------------------
@@ -131,18 +129,12 @@ require('mini.tabline').setup({
       return MiniTabline.default_format(buffer_id, label) .. suffix
     end,
 
-    -- Whether to set Vim's settings for tabline (make it always shown and
-    -- allow hidden buffers)
-    -- set_vim_settings = true,
-    set_vim_settings = false,
-
     -- Where to show tabpage section in case of multiple vim tabpages.
     -- One of 'left', 'right', 'none'.
     -- tabpage_section = 'left',
 })
 -- TODO: needs to be set on colorscheme change as well. Autocmd?
 vim.schedule(function()
-    vim.o.showtabline = 2 -- Always show tabline
     -- TODO: doesn't highlight properly which one is active. If 2 are active,
     -- both are shown the same. Airline also shows path, and changes color when
     -- modified. There seem to be highlight groups to customize this, but I

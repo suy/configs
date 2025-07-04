@@ -75,6 +75,13 @@ endif
 "                |___/                             |_|
 " {{{
 
+" TODO: The setup of the plugins is fine for now, but if I want to eventually
+" move to an init.lua that is usable standalone, without plugins (e.g. for root
+" user), like this vimrc used to be, I would need to add a check on plugins
+" presence, then call this setup, or fallback to some manual settings. An
+" example of it is the statusline set (far) below. It used to check for Airline,
+" but now it checks for mini.nvim. That setting needs to be moved and grouped
+" with other ones, that are only done so conditionally as fallback.
 lua require 'init-setup-plugins'
 lua require 'init-lsp'
 
@@ -678,8 +685,8 @@ set ruler
 " set statusline +=%1*%4c\ %*             "column number
 " set statusline +=%2*0x%04B\ %*          "character under cursor
 
-" Only use the default statusline setting if Airline is not present.
-if !exists('*airline#parts#define_function')
+" Set a fallback statusline, but only if mini.nvim is not present.
+if !empty(globpath(&packpath, 'pack/plugin/start/mini.nvim', 0, 1))
 	" Clear it first to start fresh each invocation
 	set statusline=
 	" Buffer name with 2 minimum width
