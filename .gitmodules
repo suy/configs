@@ -181,6 +181,7 @@
 [submodule "dotvim/pack/plugins/start/mini.nvim"]
     path = dotvim/pack/plugins/start/mini.nvim
     url = https://github.com/echasnovski/mini.nvim
+    branch = stable
 [submodule "dotvim/pack/plugins/opt/helpful"]
 	path = dotvim/pack/plugins/opt/helpful
 	url = https://github.com/tweekmonster/helpful.vim
