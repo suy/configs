@@ -169,12 +169,6 @@
 [submodule "dotvim/pack/plugins/start/indent-blankline"]
 	path = dotvim/pack/plugins/start/indent-blankline
 	url = https://github.com/lukas-reineke/indent-blankline.nvim
-[submodule "dotvim/pack/plugins/opt/telescope"]
-	path = dotvim/pack/plugins/opt/telescope
-	url = https://github.com/nvim-telescope/telescope.nvim
-[submodule "dotvim/pack/plugins/opt/plenary"]
-	path = dotvim/pack/plugins/opt/plenary
-	url = https://github.com/nvim-lua/plenary.nvim
 [submodule "dotvim/bundle/infinity-engine"]
 	path = dotvim/bundle/infinity-engine
 	url = https://gitlab.com/moebiusproject/vim-infinity-engine
