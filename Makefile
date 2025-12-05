@@ -35,7 +35,7 @@ setup-unix:
 	test -L ~/.config/nvim || ln -sf ${PWD}/dotvim ~/.config/nvim
 	# ln -sf ${PWD}/vimrc ~/.config/nvim
 	# https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else
-	echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
+	@echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
 
 
 setup-unix-vim: setup-unix
