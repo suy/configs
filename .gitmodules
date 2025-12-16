@@ -111,7 +111,7 @@
 	path = dotvim/bundle/choosewin
 	url = https://github.com/t9md/vim-choosewin.git
 [submodule "dotvim/bundle/startify"]
-	path = dotvim/bundle/startify
+	path = dotvim/pack/graveyard/opt/startify
 	url = https://github.com/suy/vim-startify.git
 	branch = repositories
 [submodule "dotvim/bundle/neomru"]
