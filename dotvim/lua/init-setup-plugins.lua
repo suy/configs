@@ -102,6 +102,64 @@ vim.notify = require('mini.notify').make_notify({
 
 
 ------------------------------------------------------------------------------
+-- MiniStarter
+------------------------------------------------------------------------------
+MiniStarter = require('mini.starter')
+local ignorable_files = {
+    'COMMIT_EDITMSG', '.git/index', '/tmp/.+', 'bundle/.+/doc',
+}
+local function filtered_recent_files(current_only)
+    return function()
+        local raw = MiniStarter.sections.recent_files(10, current_only)()
+        local result = {}
+        for _, element in ipairs(raw) do
+            local ignore = false
+            for _, ignorable in ipairs(ignorable_files) do
+                if element.name:match(ignorable) then
+                    ignore = true
+                    break
+                end
+            end
+            if not ignore then
+                table.insert(result, element)
+            end
+        end
+        return result
+    end
+end
+MiniStarter.setup({
+    autoopen = true, -- Turn to false if need to disable it.
+    -- Open file/evaluate action automatically when only one item matches.
+    evaluate_single = true,
+
+    -- Items to be displayed. Should be an array with the following elements:
+    -- - Item: table with <action>, <name>, and <section> keys.
+    -- - Function: should return one of these three categories.
+    -- - Array: elements of these three types (i.e. item, array, function).
+    -- If `nil` (default), default items will be used (see |mini.starter|).
+    items = {
+        MiniStarter.sections.builtin_actions(),
+        filtered_recent_files(true),
+        filtered_recent_files(false),
+    },
+
+    -- Array  of functions to be applied consecutively to initial content.
+    -- Each function should take and return content for 'Starter' buffer (see
+    -- |mini.starter| and |MiniStarter.content| for more details).
+    -- content_hooks = nil,
+    content_hooks = {
+        MiniStarter.gen_hook.adding_bullet(),
+        MiniStarter.gen_hook.indexing('section', { 'Builtin actions' }),
+        MiniStarter.gen_hook.padding(8, 2),
+    },
+
+    -- Whether to disable showing non-error feedback
+    silent = false,
+})
+
+
+
+------------------------------------------------------------------------------
 -- MiniStatusline
 ------------------------------------------------------------------------------
 MiniStatusline = require('mini.statusline')
