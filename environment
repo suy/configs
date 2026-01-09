@@ -46,6 +46,12 @@ fi
 
 if [ -d $HOME/local/pixi ] ; then
 	export PIXI_HOME=$HOME/local/pixi
+	eval "$(pixi completion --shell bash)"
+	for file in $PIXI_HOME/completions/bash/* ; do
+		if [ -e "$file" ] ; then
+			source "$file"
+		fi
+	done
 fi
 
 if [ -d $HOME/local/gems ] ; then
