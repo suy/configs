@@ -92,9 +92,9 @@ vim.api.nvim_create_autocmd('TermOpen', {
 -- MiniNotify
 ------------------------------------------------------------------------------
 require('mini.notify').setup()
--- TODO: make a wrapper function that stores the message in a ring buffer, then
--- passes it to the make_notify function. Then add a function that displays the
--- messages, like :Messages does.
+-- TODO: `:Messages` from Scriptease.vim shows the list of messages. MiniNotify
+-- has `lua MiniNotify.show_history()` that shows in a scratch buffer. Consider
+-- making a command or a key mapping that makes that more convenient.
 vim.notify = require('mini.notify').make_notify({
     ERROR = { duration = 10000 } -- The default is 5s, so double it.
 })
