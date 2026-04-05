@@ -99,6 +99,32 @@ vim.notify = require('mini.notify').make_notify({
     ERROR = { duration = 10000 } -- The default is 5s, so double it.
 })
 
+local reminders = {
+    'Use `lua MiniNotify.show_history()` to see past notifications.',
+    'Text object `ii` matches an indent, `iL` a line',
+    'Text object `iN` matches a number',
+    'Register `"+` pasted with `,p`',
+    'Register `"*` pasted with `,P`',
+    'TODO: Review `[i` and `]i` from MiniIndentscope',
+    'TODO: Review some mappings starting with `<leader>` for cleanup',
+}
+
+math.randomseed(os.time())
+
+local function show_reminder()
+    local reminder = reminders[math.random(#reminders)]
+    local id = MiniNotify.add(reminder, 'INFO')
+    vim.defer_fn(function()
+        MiniNotify.remove(id)
+    end, 5000) -- Visible for 8 seconds.
+end
+
+-- Show once on startup, with half a second delay.
+vim.defer_fn(show_reminder, 500)
+-- Show also one each 15 minutes.
+local delay = 15 * 60 * 1000
+vim.uv.new_timer():start(delay, delay, vim.schedule_wrap(show_reminder))
+
 
 
 ------------------------------------------------------------------------------
