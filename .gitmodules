@@ -153,10 +153,10 @@
 [submodule "dotvim/bundle/auto-git-diff"]
 	path = dotvim/bundle/auto-git-diff
 	url = https://github.com/hotwatermorning/auto-git-diff.git
-[submodule "dotvim/pack/plugins/start/lspconfig"]
-	path = dotvim/pack/plugins/start/lspconfig
+[submodule "dotvim/pack/graveyard/opt/lspconfig"]
+	path = dotvim/pack/graveyard/opt/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
-	branch = v1.1.0
+	branch = v2.7.0
 [submodule "dotvim/pack/colorschemes/opt/gruvbox8"]
 	path = dotvim/pack/colorschemes/opt/gruvbox8
 	url = https://github.com/lifepillar/vim-gruvbox8
