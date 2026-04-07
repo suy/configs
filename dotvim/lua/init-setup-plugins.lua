@@ -129,6 +129,91 @@ vim.uv.new_timer():start(delay, delay, vim.schedule_wrap(show_reminder))
 
 
 ------------------------------------------------------------------------------
+-- MiniPick
+------------------------------------------------------------------------------
+MiniPick = require('mini.pick')
+MiniPick.setup()
+
+local function mini_pick_messages()
+    local messages = vim.split(vim.fn.execute('messages'), '\n', { trimempty = true })
+    MiniPick.start({ source = { items = messages, name = 'Messages' } })
+end
+
+local function mini_pick_command_history()
+    MiniExtra.pickers.history({ scope = ':' })
+end
+
+local function mini_pick_lsp_references()
+    MiniExtra.pickers.lsp({ scope = 'references' })
+end
+
+local function mini_pick_lsp_symbols()
+    MiniExtra.pickers.lsp({ scope = 'workspace_symbol' })
+end
+
+-- The menu picker: a mini.pick interface that lists named actions.
+-- Selecting an entry runs the corresponding picker.
+local function mini_pick_menu()
+    -- List of menu entries in an array, so the order is preserved.
+    local entries = {
+        { 'Files in tree',      function() MiniPick.builtin.files() end },
+        { 'Opened buffers',     function() MiniPick.builtin.buffers() end },
+        { 'Recent files',       function() MiniExtra.pickers.oldfiles() end },
+        { 'Help tags',          function() MiniPick.builtin.help() end },
+        { 'Command history',    mini_pick_command_history },
+        { 'Grep in tree',       function() MiniPick.builtin.grep_live() end },
+        { 'Messages',           mini_pick_messages },
+        { 'LSP diagnostics',    function() MiniExtra.pickers.diagnostic() end },
+        { 'LSP references',     mini_pick_lsp_references },
+        { 'LSP symbols',        mini_pick_lsp_symbols },
+        { 'Neovim options',     function() MiniExtra.pickers.options() end },
+        { 'Key mappings',       function() MiniExtra.pickers.keymaps() end },
+        { 'Marks',              function() MiniExtra.pickers.marks() end },
+        { 'Registers',          function() MiniExtra.pickers.registers() end },
+        { 'Git commits',        function() MiniExtra.pickers.git_commits() end },
+        { 'Git hunks',          function() MiniExtra.pickers.git_hunks({ scope = 'all' }) end },
+    }
+
+    -- MiniPick's `items` is passed as plain strings, so default matching and
+    -- rendering works out of the box. We build another table to map the names
+    -- to their corresponding functions.
+    local names  = vim.tbl_map(function(element) return element[1] end, entries)
+    local functions = {}
+    for _, entry in ipairs(entries) do
+        functions[entry[1]] = entry[2]
+    end
+
+    MiniPick.start({
+        source = {
+            name   = 'Menu',
+            items  = names,
+            choose = function(item)
+                functions[item]()
+            end,
+        },
+    })
+end
+
+-- Invocation trick: use `[count]<leader>y` to invoke one of the following.
+vim.keymap.set('n', '<leader>y', function()
+    local pickers = {
+        [0] = function() MiniPick.builtin.files({ tool = 'git' }) end,
+        [1] = mini_pick_menu,
+        [2] = function() MiniPick.builtin.buffers() end,
+        [3] = function() MiniExtra.pickers.oldfiles() end,
+        [4] = mini_pick_command_history,
+        [5] = mini_pick_messages,
+        [6] = function() MiniPick.builtin.grep_live() end,
+        [7] = function() MiniPick.builtin.help() end,
+        [8] = function() MiniExtra.pickers.diagnostic() end,
+    }
+    pickers[math.min(math.max(0, vim.v.count), #pickers)]()
+end,
+{ silent = true, desc = '[count]<leader>y mini.pick launcher' })
+
+
+
+------------------------------------------------------------------------------
 -- MiniStarter
 ------------------------------------------------------------------------------
 MiniStarter = require('mini.starter')
