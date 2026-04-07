@@ -103,10 +103,11 @@ local reminders = {
     'Use `lua MiniNotify.show_history()` to see past notifications.',
     'Text object `ii` matches an indent, `iL` a line',
     'Text object `iN` matches a number',
-    'Register `"+` pasted with `,p`',
-    'Register `"*` pasted with `,P`',
+    'Register `"+` is pasted with `<leader>p` and holds the clipboard',
+    'Register `"*` is pasted with `<leader>P` and holds the selection',
     'TODO: Review `[i` and `]i` from MiniIndentscope',
     'TODO: Review some mappings starting with `<leader>` for cleanup',
+    'In MiniPick, `<C-e>` edits a history/search/etc',
 }
 
 math.randomseed(os.time())
