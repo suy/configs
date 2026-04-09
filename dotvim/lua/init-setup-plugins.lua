@@ -89,6 +89,32 @@ vim.api.nvim_create_autocmd('TermOpen', {
 
 
 ------------------------------------------------------------------------------
+-- MiniJump2d
+------------------------------------------------------------------------------
+require('mini.jump2d').setup({
+    mappings = { start_jumping = '' },
+    -- labels = 'asdfjkl;ghqwertyuiopzxcvbnm,',
+    labels = 'fjdksla;ghrueiwoqpvncmx.z/',
+    allowed_windows = { current = true, not_current = false, },
+})
+vim.keymap.set({'n', 'x', 'o'}, '<Leader>j', function()
+    MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
+end)
+
+-- Alternative, for reference. Requires a bit of a patch to mini.jump2d. See:
+-- https://github.com/nvim-mini/mini.nvim/discussions/2359
+-- MiniJump2d.setup(vim.tbl_deep_extend('force',
+--     MiniJump2d.builtin_opts.single_character,
+--     {
+--         mappings = { start_jumping = '<Leader>j' },
+--         labels = 'asdfjkl;ghqwertyuiopzxcvbnm,',
+--         allowed_windows = { current = true, not_current = false, },
+--     }
+-- ))
+
+
+
+------------------------------------------------------------------------------
 -- MiniNotify
 ------------------------------------------------------------------------------
 require('mini.notify').setup()

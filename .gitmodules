@@ -171,8 +171,9 @@
 	url = https://gitlab.com/moebiusproject/vim-infinity-engine
 [submodule "dotvim/pack/plugins/start/mini.nvim"]
     path = dotvim/pack/plugins/start/mini.nvim
-    url = https://github.com/echasnovski/mini.nvim
-    branch = stable
+    url = https://github.com/suy/mini.nvim
+    pushurl = git@github.com:suy/mini.nvim.git
+    branch = custom
 [submodule "dotvim/pack/plugins/opt/helpful"]
 	path = dotvim/pack/plugins/opt/helpful
 	url = https://github.com/tweekmonster/helpful.vim
