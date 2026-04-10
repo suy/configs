@@ -129,11 +129,15 @@ local reminders = {
     'Use `lua MiniNotify.show_history()` to see past notifications.',
     'Text object `ii` matches an indent, `iL` a line',
     'Text object `iN` matches a number',
-    'Register `"+` is pasted with `<leader>p` and holds the clipboard',
-    'Register `"*` is pasted with `<leader>P` and holds the selection',
+    'Text object `iq` matches any quote, `ib` any brace',
+    'Text object `if` matches a function call',
+    'Text object `i(` matches without space, `i)` WITH space',
+    '`"+` is the clipboard (mnemonic: "more" => persistent). Pasted with `<leader>p`',
+    '`"*` is the selection (mnemonic: "star" => selection). Pasted with `<leader>P`',
     'TODO: Review `[i` and `]i` from MiniIndentscope',
     'TODO: Review some mappings starting with `<leader>` for cleanup',
     'In MiniPick, `<C-e>` edits a history/search/etc',
+    'While typing a search, `<C-g>` and `<C-t> "move" between matches`',
 }
 
 math.randomseed(os.time())
