@@ -10,7 +10,7 @@
 [submodule "dotvim/bundle/surround"]
 	path = dotvim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "dotvim/bundle/commentary"]
+[submodule "dotvim/pack/graveyard/opt/commentary"]
 	path = dotvim/pack/graveyard/opt/commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "dotvim/bundle/easymotion"]
@@ -98,7 +98,7 @@
 [submodule "dotvim/bundle/unite-history"]
 	path = dotvim/bundle/unite-history
 	url = https://github.com/thinca/vim-unite-history.git
-[submodule "dotvim/bundle/context-commentstring"]
+[submodule "dotvim/pack/graveyard/opt/context-commentstring"]
 	path = dotvim/pack/graveyard/opt/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
 [submodule "dotvim/bundle/signify"]
@@ -107,7 +107,7 @@
 [submodule "dotvim/bundle/choosewin"]
 	path = dotvim/bundle/choosewin
 	url = https://github.com/t9md/vim-choosewin.git
-[submodule "dotvim/bundle/startify"]
+[submodule "dotvim/pack/graveyard/opt/startify"]
 	path = dotvim/pack/graveyard/opt/startify
 	url = https://github.com/suy/vim-startify.git
 	branch = repositories
