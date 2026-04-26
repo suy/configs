@@ -65,9 +65,6 @@
 [submodule "dotvim/bundle/ctrlp-commandline"]
 	path = dotvim/bundle/ctrlp-commandline
 	url = https://github.com/suy/vim-ctrlp-commandline.git
-[submodule "dotvim/bundle/prettyprint"]
-	path = dotvim/bundle/prettyprint
-	url = https://github.com/thinca/vim-prettyprint.git
 [submodule "dotvim/bundle/editvar"]
 	path = dotvim/bundle/editvar
 	url = https://github.com/thinca/vim-editvar.git
