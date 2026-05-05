@@ -1,3 +1,9 @@
+# Source all custom directories that might be specific per machine, user, etc.
+# IMPORTANT: this must be early. If included last, below the `Host` entries,
+# then it would be parsed as a conditional include that only applies if the last
+# `Host` matches!
+Include config.d/*.sshconfig
+
 HashKnownHosts no
 
 # Send application-level requests of response from the server.
@@ -15,6 +21,7 @@ ControlMaster auto
 # to the usual one.
 IdentityFile ~/.ssh/id_rsa-%h
 IdentityFile ~/.ssh/id_rsa
+IdentityFile ~/.ssh/id_ed25519
 
 Host *.debian.org
 	User suy-guest
