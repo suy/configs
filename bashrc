@@ -100,14 +100,7 @@ thereis()
     return $(command -v $1 > /dev/null 2>&1)
 }
 
-if [ -f ~/.aliases ] ; then
-    . ~/.aliases
-fi
-
-if [ -f ~/.aliases.local ] ; then
-    . ~/.aliases
-fi
-
+# Source environment first, so aliases can be decided better on what is found.
 if [ -f ~/.environment ] ; then
     . ~/.environment
 fi
@@ -116,3 +109,10 @@ if [ -f ~/.environment.local ] ; then
     . ~/.environment.local
 fi
 
+if [ -f ~/.aliases ] ; then
+    . ~/.aliases
+fi
+
+if [ -f ~/.aliases.local ] ; then
+    . ~/.aliases.local
+fi
