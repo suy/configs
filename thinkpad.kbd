@@ -1,7 +1,7 @@
 #|
 Run this config with
 
-    sudo ~/local/bin/kanata --cfg ~/personal/configs/thinkpad.kbd 
+    sudo ~/local/bin/kanata --cfg ~/personal/configs/thinkpad.kbd
 
 |#
 
@@ -23,6 +23,9 @@ Run this config with
   a     (tap-hold $tt $ht a lmet)
   s     (tap-hold $tt $ht s lalt)
   d     (tap-hold $tt $ht d lctl)
+  ;; https://github.com/jtroo/kanata/blob/main/docs/config.adoc#tap-hold
+  ;; TODO: review if the variant `tap-hold-release` (or some other variant?)
+  ;; could improve fast typing and shifting uppercase letters.
   f     (tap-hold $tt $ht f lsft)
 
   j     (tap-hold $tt $ht j rsft)
@@ -49,7 +52,11 @@ configuration entries.
   use AltGr in your keyboard, you will likely want to follow the simple.kbd
   file while unmapping lctl and ralt from defsrc.
   |#
-  process-unmapped-keys yes
+  ;; https://github.com/jtroo/kanata/blob/main/docs/config.adoc#windows-only-windows-altgr
+  ;; process-unmapped-keys yes
+  process-unmapped-keys (all-except lctl ralt)
+  ;; windows-altgr add-lctl-release
+  ;; windows-altgr cancel-lctl-press
 
   ;; This is the same as in the example `kanata.kdb` file, and it's exactly the
   ;; same device as in my thinkpad. The same example file mentions paths in
@@ -58,6 +65,16 @@ configuration entries.
   linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
 )
 
+(deflocalkeys-winiov2
+  ñ 186
+  ;; This seemed like necessary, given that this keys are "weird", and not
+  ;; letters, but seems it works regardless. It's only for names not in non-US
+  ;; keyboards, but this is not the case for this ones.
+  ;; Honestly, this makes me wonder if I could have done by using `;` as key
+  ;; name, instead of having to define `ñ`.
+  ;; ' 40
+  ;; ` 41
+)
 
 ;; Find which key it is with `evtest`
 (deflocalkeys-linux
@@ -79,6 +96,7 @@ configuration entries.
 ;; on the list (0 for `esc`, 1 for `caps`, etc.).
 (defsrc
   esc
+  1    2    3    4    5    6    7    8    9    0
   `                        y    u    i    o
   caps
   a    s    d    f    g    h    j    k    l    ñ    '
@@ -87,6 +105,7 @@ configuration entries.
 ;; The first layer is what is active by default. It can have any name.
 (deflayer default
   caps
+  1    2    3    4    5    6    7    8    9    0
   @btik                    y    u    i    o
   @cap
   @a   @s   @d   @f   g    h    @j   @k   @l   @x   @quot
@@ -94,9 +113,10 @@ configuration entries.
 
 (deflayer arrows
   _
+  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10
   _                        home pgdn pgup end
   _
   _    _    _    _    _    left down up   rght _    _
 )
 
-;; vim: filetype=lisp commentstring=;;%s ts=2 sw=2:
+;; vim: filetype=lisp commentstring=;;\ %s ts=2 sw=2:
