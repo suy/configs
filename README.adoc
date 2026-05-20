@@ -136,7 +136,7 @@ Externally available, typically:
 * https://github.com/Peltoche/lsd
 * https://github.com/dalance/procs
 * https://github.com/nvbn/thefuck
-* https://github.com/sharkdp/fd
+* https://github.com/sharkdp/fd (now `fd-find`)
 * Nerd Fonts. Add to `~/.local/share/fonts`, config in
   `~/.config/fontconfig/conf.d/`. Perhaps add to repo here? Also, docs:
   https://www.freedesktop.org/software/fontconfig/fontconfig-user.html
@@ -151,7 +151,7 @@ Packaged:
 * clangd
 * icecc, icecc-monitor
 * vlc
-* silversearcher-ag
+* silversearcher-ag, fd-find
 
 == LSP setup
 
