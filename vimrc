@@ -571,17 +571,6 @@ if has('nvim')
 
 	" :h vim.highlight.on_yank
 	autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout=350})
-
-	" My very first feature was merged into Neovim. <3<3<3
-	" https://github.com/neovim/neovim/pull/8487
-	if exists("##SearchWrapped") && has('linux')
-		augroup searchwrappednotification
-			let commands = ['kdialog', '--passivepopup', 'Search Wrapped', '1',
-						\ '--title', 'Neovim']
-			autocmd!
-			autocmd SearchWrapped * if mode() != 'c' | call jobstart(commands) | endif
-		augroup END
-	endif
 endif
 
 

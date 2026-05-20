@@ -147,7 +147,7 @@ local function show_reminder()
     local id = MiniNotify.add(reminder, 'INFO')
     vim.defer_fn(function()
         MiniNotify.remove(id)
-    end, 5000) -- Visible for 8 seconds.
+    end, 5000) -- Visible for 5 seconds.
 end
 
 -- Show once on startup, with half a second delay.
@@ -155,6 +155,17 @@ vim.defer_fn(show_reminder, 500)
 -- Show also one each 15 minutes.
 local delay = 15 * 60 * 1000
 vim.uv.new_timer():start(delay, delay, vim.schedule_wrap(show_reminder))
+
+-- My very first feature contributed to Neovim. <3<3<3
+-- https://github.com/neovim/neovim/pull/8487
+vim.api.nvim_create_autocmd('SearchWrapped', {
+    callback = function()
+        local id = MiniNotify.add('Search wrapped', 'INFO')
+        vim.defer_fn(function()
+            MiniNotify.remove(id)
+        end, 2000) -- Visible for 2 seconds.
+    end
+})
 
 
 
