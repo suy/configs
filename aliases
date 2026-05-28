@@ -19,6 +19,10 @@ if [ "$TERM" != "dumb" ]; then
 	LS=$LS' --color=auto'
 fi
 
+if ! thereis fd && thereis fdfind ; then
+    alias fd='fdfind'
+fi
+
 if thereis lsd ; then
     LS='lsd'
 fi
