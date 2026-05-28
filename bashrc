@@ -21,12 +21,20 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
+# Helper function to tell if a program is in PATH or not. Apparently this is the
+# better approach for some arcane reason, though `type` has worked well for me.
+# https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then
+thereis()
+{
+    return $(command -v $1 > /dev/null 2>&1)
+}
+
 # Enable the shell completion. Some functions can be used later to set PS1
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 elif [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
-elif type -f brew > /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+elif thereis brew && [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
@@ -91,14 +99,6 @@ xterm*|rxvt*|konsole*)
 *)
     ;;
 esac
-
-# Helper function to tell if a program is in PATH or not. Apparently this is the
-# better approach for some arcane reason, though `type` has worked well for me.
-# https://unix.stackexchange.com/questions/85249/why-not-use-which-what-to-use-then
-thereis()
-{
-    return $(command -v $1 > /dev/null 2>&1)
-}
 
 # Source environment first, so aliases can be decided better on what is found.
 if [ -f ~/.environment ] ; then
