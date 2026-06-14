@@ -26,6 +26,10 @@ $if Bash
     Space: magic-space
 $endif
 
+# Make <Ctrl-Backspace> consistent with "normal" applications. Figured out the
+# character to map with <Ctrl-V><Ctrl-Backspace>, to see what the terminal sees.
+"\C-h": backward-kill-word
+
 # I hate you, Spanish keyboard, for making '{}[]' so difficult to type.
 "\C-xb": "{}\C-b"
 "\C-xr": "[]\C-b"
