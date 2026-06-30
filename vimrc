@@ -85,9 +85,6 @@ endif
 lua require 'init-setup-plugins'
 lua require 'init-lsp'
 
-" Set the map leader early, so we can use it with plugin mappings.
-let mapleader = ","
-
 " The most important signify option and I overlooked it for ages. *sigh*
 let g:signify_skip = {'vcs': { 'allow': ['git'] }}
 
