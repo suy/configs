@@ -17,3 +17,11 @@ Init = {}
 vim.g.mapleader = ','
 vim.g.maplocalleader = '_'
 
+-- TODO: The new loader caches compiled Lua modules for faster startup. Still
+-- marked as unstable/experimental in the docs, so disabled for now.
+-- vim.loader.enable()
+
+-- Autocommand group for things in my config.
+Init.autocmd_group = vim.api.nvim_create_augroup('Init', { clear = true })
+
+
