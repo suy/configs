@@ -559,8 +559,9 @@ if !empty(&viminfo)
 	set viminfo^=!
 endif
 
-" Some diff options.
-set diffopt=filler,vertical
+" Change diff options. Careful don't overwrite the defaults, which include
+" `internal`, which is essential in Windows, as there is no `diff.exe` anymore.
+set diffopt+=vertical
 
 " Neovim specific tweaks.
 if has('nvim')
