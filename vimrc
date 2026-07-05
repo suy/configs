@@ -462,14 +462,6 @@ if has("autocmd")
 		autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 			\ | exe "normal! g`\"" | endif
 
-		" Automatically resize window splits when the application is resized.
-		autocmd VimResized * exe "normal! \<c-w>="
-
-		" Source .vimrc automatically when it is saved.
-		" autocmd BufWritePost *vimrc source $MYVIMRC
-
-		" Set nopaste once insert mode is left, just in case.
-		autocmd InsertLeave * set nopaste
 	augroup END
 endif
 
@@ -506,9 +498,6 @@ set so=3
 
 " Allow the backspace to do useful things (is not the default everywhere)
 set backspace=indent,eol,start
-
-" Set encoding to utf-8 for systems that don't have it by default
-set encoding=utf-8
 
 " Allow more time between keystrokes for some key mappings.
 set timeout timeoutlen=1600
