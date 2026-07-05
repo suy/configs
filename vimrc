@@ -8,11 +8,6 @@ lua require 'init-prelude'
 "                |___/
 " {{{
 
-" Safety net, since sometimes I screwed locale configuration and this file
-" contains some characters outside of ASCII. Also, for whatever reason latin1 is
-" the default unless overriden by LANG (but not on Windows). Go figure.
-set encoding=utf-8
-
 " Set and create specific directories on $HOME and similar to avoid littering
 " the filesystem with Vim specific stuff at the root level. Do this early to
 " allow plugins to be configured in terms of this directory.
