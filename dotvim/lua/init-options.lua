@@ -12,10 +12,12 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 -- Start the search, and apparently move the cursor as you type.
 vim.opt.incsearch = true
--- Highlight search results, but not on startup.
+-- Highlight search results, but not on startup, or config reloads.
 vim.opt.hlsearch = true
 vim.cmd.nohlsearch()
 -- Use global matching in regexes (override adding `/g` back to the search).
 vim.opt.gdefault = true
 -- Don't open folds when searching for a match.
 vim.opt.foldopen:remove('search')
+
+
