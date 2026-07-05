@@ -61,6 +61,10 @@ dictionaries in `aff` and `dic` formats, while I just did:
 
 And then moved the `en.utf-8.spl` file to the `spell` subdirectory.
 
+TODO: Modernization opportunity: a built-in plugin that allows the user to
+download missing spell files. Requires newer Neovim:
+https://neovim.io/doc/user/plugins/#_builtin-plugin%3a-spellfile
+
 === Set up in a new machine
 
 Get the files and set symbolic links like the following:
@@ -191,7 +195,46 @@ Further reading:
 * https://zignar.net/2022/11/06/structuring-neovim-lua-plugins/[A good refresher
   on how Vim plugins are structured, and how Lua is involved].
 
-==== Vim script or legacy values
+
+=== On lazy loading, use of packadd, etc
+
+https://vi.stackexchange.com/questions/20810/how-to-load-vim8-optional-packages-in-vimrc
+
+[quote]
+In other words, the intent of having filetype plug-ins under opt is not to add
+the plug-in on demand. It is to add the plug-in conditionally, based on presence
+of some feature in your system which can be dynamically detected from your
+.vimrc. For instance, you might want to detect whether a node binary exists or
+if eslint is present or similar, and only enable vim-javascript in those cases.
+
+https://github.com/neovim/neovim/issues/35562
+
+[quote]
+Lazy-loading is already supported via autoload/ and lua/. Plugin authors can
+provide "lazy loading" by providing a plugin/<name>.lua file which defines their
+commands and keymappings. This file should be small, and should not eagerly
+require() the rest of your plugin. Commands and mappings should do the
+require(). (P.S.: the code required to do this is THE SAME AMOUNT OF CODE needed
+to configure "lazy loading" in your lazy.nvim config, so avoiding plugin/*.lua
+serves no purpose at all.)
+
+https://github.com/lumen-oss/lz.n
+
+[quote]
+--
+Should I lazy-load plugins?
+
+It should be a plugin author's responsibility to ensure their plugin doesn't
+unnecessarily impact startup time, not yours!
+
+See our "DO's and DONT's" guide for plugin developers. https://github.com/lumen-oss/nvim-best-practices?tab=readme-ov-file#sleeping_bed-lazy-loading
+
+Regardless, the current status quo is horrible, and some authors may not have
+the will or capacity to improve their plugins' startup impact.
+--
+
+
+=== Vim script or legacy values
 
 * `:h lua-vimscript` (start of the overview)
 * `vim.cmd(":wq")`
@@ -208,7 +251,7 @@ Further reading:
 * `vim.opt` is a more structured approach (has functions like `append()`,
   `prepend()`, `remove()` and `get()` to manipulate the values easily)
 
-==== Autocommands and groups
+=== Autocommands and groups
 
 To prevent issues when sourcing again a `.vimrc`, it used to be standard to
 follow a certain pattern:
@@ -290,6 +333,7 @@ tweak in my vimrc. Here are some notes for self reference:
 
 Evaluate the following plugins:
 
+* https://github.com/Prgebish/sigil.nvim Prettify math symbols (and fix movement)
 * https://github.com/brianhuster/live-preview.nvim (preview AsciiDoc as you type)
 * https://github.com/nvimtools/hydra.nvim (submode alternative, maintained fork)
 * https://github.com/AndrewRadev/deleft.vim
