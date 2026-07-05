@@ -1,4 +1,5 @@
 lua require 'init-prelude'
+lua require 'init-options'
 
 "  ____  _             _         _       _ _
 " |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
