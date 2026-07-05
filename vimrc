@@ -752,35 +752,6 @@ if has('nvim') && exists('g:GuiLoaded')
 endif
 
 
-"  ____                      _     _
-" / ___|  ___  __ _ _ __ ___| |__ (_)_ __   __ _
-" \___ \ / _ \/ _` | '__/ __| '_ \| | '_ \ / _` |
-"  ___) |  __/ (_| | | | (__| | | | | | | | (_| |
-" |____/ \___|\__,_|_|  \___|_| |_|_|_| |_|\__, |
-"                                          |___/
-
-" Ignore case in searches unless you specify it explicitly (like /PaTTern).
-set ignorecase
-set smartcase
-
-" Start the search, and apparently move the cursor as you type.
-set incsearch
-
-" Highlight search results, but not on startup.
-set hlsearch
-nohlsearch
-
-" Use global matching by default in regexes (override adding a /g back)
-set gdefault
-
-" Remap the search keys to use the more compatible regular expressions
-"nnoremap / /\v
-"vnoremap / /\v
-
-" Don't open folds when searching for a match, and show match only one
-set foldopen-=search
-
-
 "  _  __                 _
 " | |/ /___ _   _    ___| |__   __ _ _ __   __ _  ___  ___
 " | ' // _ \ | | |  / __| '_ \ / _` | '_ \ / _` |/ _ \/ __|
