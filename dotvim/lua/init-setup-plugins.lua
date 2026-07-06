@@ -132,6 +132,7 @@ local reminders = {
     'Text object `iq` matches any quote, `ib` any brace',
     'Text object `if` matches a function call',
     'Text object `i(` matches without space, `i)` WITH space',
+    'Use <leader>j to use MiniJump2 (instead of EasyMotion)',
     '`"+` is the clipboard (mnemonic: "more" => persistent). Pasted with `<leader>p`',
     '`"*` is the selection (mnemonic: "star" => selection). Pasted with `<leader>P`',
     'TODO: Review `[i` and `]i` from MiniIndentscope',
