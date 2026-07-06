@@ -99,17 +99,17 @@ vim.opt.shiftround = true
 --                                          |___/
 ------------------------------------------------------------------- Searching --
 
--- Ignore case in searches unless you specify it explicitly (like /PaTTern).
+-- ic, scs: Ignores the case, unless search contains mixed case, like `/fooBar`.
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
--- Start the search, and apparently move the cursor as you type.
+-- is: Start the search, and preview where the cursor would move as you type.
 vim.opt.incsearch = true
--- Highlight search results, but not on startup, or config reloads.
+-- hls: Highlight search results, but not on startup, or config reloads.
 vim.opt.hlsearch = true
 vim.cmd.nohlsearch()
--- Use global matching in regexes (override adding `/g` back to the search).
+-- gd: Use global matching in regexes (override adding `/g` back to the search).
 vim.opt.gdefault = true
--- Don't open folds when searching for a match.
+-- fdo: Don't open folds when searching for a match.
 vim.opt.foldopen:remove('search')
 
 
