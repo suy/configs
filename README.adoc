@@ -151,6 +151,7 @@ Packaged:
 * tmux, tmuxinator
 * neovim, neovim-qt, wl-clipboard, xclip
 * git
+* htop, btop (other?)
 * build-essential, clang, cmake, ninja
 * clangd
 * icecc, icecc-monitor
