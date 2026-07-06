@@ -36,11 +36,7 @@ windows:
     - doc:
         - cd ~/
     - run:
-        - cd ~/projects
-    - lib:
-        - cd ~/qt/qt5
-    - build:
-        - cd ~/qt/builds
+        - cd /tmp
   # - editor:
   #     layout: main-vertical
   #     panes:
