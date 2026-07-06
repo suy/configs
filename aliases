@@ -106,4 +106,24 @@ vrepo()
     fi
 }
 
+ssh-agent-helper()
+{
+    if [ -f ~/.ssh/agent.env ]; then
+        source ~/.ssh/agent.env > /dev/null
+        # Check if agent is alive. Signal "0" is actually not a kill signal, but
+        # a check on the process.
+        if ! kill -0 $SSH_AGENT_PID 2>/dev/null; then
+            rm ~/.ssh/agent.env
+        else
+            echo "Found agent running with PID $SSH_AGENT_PID"
+        fi
+    fi
+
+    if [ ! -f ~/.ssh/agent.env ]; then
+        ssh-agent -s > ~/.ssh/agent.env
+        source ~/.ssh/agent.env > /dev/null
+        echo "Started agent, running with PID $SSH_AGENT_PID"
+    fi
+}
+
 # vim: set filetype=sh:
