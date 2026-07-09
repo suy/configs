@@ -1,7 +1,7 @@
 inoremap jj <Esc>
 inoremap kk <Esc>
 nnoremap <Space> :
-nnoremap H :nohl<Return>
+nnoremap <C-l> :nohl<Return>
 nnoremap ` '
 nnoremap ' `
 inoremap ,; <C-o>A;
