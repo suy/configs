@@ -45,6 +45,7 @@ fi
 
 if [ -d $HOME/local/pixi ] ; then
 	export PIXI_HOME=$HOME/local/pixi
+	export PATH=$PIXI_HOME/bin:"${PATH}"
 	eval "$(pixi completion --shell bash)"
 	for file in $PIXI_HOME/completions/bash/* ; do
 		if [ -e "$file" ] ; then
