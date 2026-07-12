@@ -13,12 +13,9 @@
 [submodule "dotvim/pack/graveyard/opt/commentary"]
 	path = dotvim/pack/graveyard/opt/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "dotvim/bundle/easymotion"]
-	path = dotvim/bundle/easymotion
+[submodule "dotvim/pack/graveyard/opt/easymotion"]
+	path = dotvim/pack/graveyard/opt/easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
-[submodule "dotvim/bundle/tabular"]
-	path = dotvim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "dotvim/bundle/repeat"]
 	path = dotvim/bundle/repeat
 	url = https://github.com/tpope/vim-repeat.git
