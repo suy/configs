@@ -181,6 +181,7 @@ local reminders = {
     'TODO: Review some mappings starting with `<leader>` for cleanup',
     'In MiniPick, `<C-e>` edits a history/search/etc',
     'While typing a search, `<C-g>` and `<C-t> "move" between matches`',
+    'MiniPick\'s "live_grep" available in menu and 6<leader>y',
 }
 
 math.randomseed(os.time())

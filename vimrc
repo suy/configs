@@ -92,10 +92,6 @@ map R <Plug>(operator-replace)
 " Enable markdown folding.
 let g:markdown_folding=1
 
-" vim-grepper
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
-
 " Startify features, and arrangement of sections.
 let g:startify_list_order = ['bookmarks', 'dir', 'files']
 let g:startify_list_order = ['bookmarks', 'repositories', 'dir', 'files']
