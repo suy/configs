@@ -87,9 +87,6 @@
 	path = dotvim/pack/graveyard/opt/startify
 	url = https://github.com/suy/vim-startify.git
 	branch = repositories
-[submodule "dotvim/bundle/neomru"]
-	path = dotvim/bundle/neomru
-	url = https://github.com/Shougo/neomru.vim.git
 [submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
 	path = dotvim/bundle/fugitive-bitbucket-gbrowse
 	url = https://github.com/tommcdo/vim-fubitive.git
@@ -111,9 +108,6 @@
 [submodule "dotvim/bundle/rhubarb"]
 	path = dotvim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
-[submodule "dotvim/bundle/neoyank"]
-	path = dotvim/bundle/neoyank
-	url = https://github.com/Shougo/neoyank.vim.git
 [submodule "dotvim/bundle/fugitive-gitlab-gbrowse"]
 	path = dotvim/bundle/fugitive-gitlab-gbrowse
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
