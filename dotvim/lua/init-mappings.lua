@@ -41,3 +41,17 @@ make_repeatable('<C-w>+', 'win_up', function()
     vim.cmd.wincmd '+'
 end)
 
+
+
+-- Diff the current buffer against the file on disk. Adapted from the help docs
+-- (see `:h :DiffOrig`). To help recover file contents when a recovery is made.
+vim.api.nvim_create_user_command('DiffOrig', function()
+    vim.cmd('vertical new')
+    vim.bo.buftype = 'nofile'
+    vim.cmd('read ++edit #')
+    vim.cmd('0d_')
+    vim.cmd('diffthis')
+    vim.cmd('wincmd p')
+    vim.cmd('diffthis')
+end, {})
+

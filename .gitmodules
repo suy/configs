@@ -108,9 +108,6 @@
 [submodule "dotvim/bundle/diff-enhanced"]
 	path = dotvim/bundle/diff-enhanced
 	url = https://github.com/chrisbra/vim-diff-enhanced.git
-[submodule "dotvim/bundle/recover"]
-	path = dotvim/bundle/recover
-	url = https://github.com/chrisbra/Recover.vim.git
 [submodule "dotvim/bundle/rhubarb"]
 	path = dotvim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
