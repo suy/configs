@@ -218,6 +218,7 @@ vim.api.nvim_create_autocmd('SearchWrapped', {
 ------------------------------------------------------------------------------
 MiniPick = require('mini.pick')
 MiniPick.setup()
+require('unilove.pick') -- Auto-registers in MiniPick.registry
 
 local function mini_pick_messages()
     local messages = vim.split(vim.fn.execute('messages'), '\n', { trimempty = true })
@@ -248,6 +249,7 @@ local function mini_pick_menu()
         { 'Command history',    mini_pick_command_history },
         { 'Grep in tree',       function() MiniPick.builtin.grep_live() end },
         { 'Messages',           mini_pick_messages },
+        { 'Unicode codepoints', function() MiniPick.registry.unilove() end },
         { 'LSP diagnostics',    function() MiniExtra.pickers.diagnostic() end },
         { 'LSP references',     mini_pick_lsp_references },
         { 'LSP symbols',        mini_pick_lsp_symbols },
@@ -291,6 +293,7 @@ vim.keymap.set('n', '<leader>y', function()
         [6] = function() MiniPick.builtin.grep_live() end,
         [7] = function() MiniPick.builtin.help() end,
         [8] = function() MiniExtra.pickers.diagnostic() end,
+        [9] = function() MiniPick.registry.unilove() end,
     }
     pickers[math.min(math.max(0, vim.v.count), #pickers)]()
 end,

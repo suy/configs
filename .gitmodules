@@ -56,45 +56,27 @@
 [submodule "dotvim/bundle/altr"]
 	path = dotvim/bundle/altr
 	url = https://github.com/kana/vim-altr.git
-[submodule "dotvim/bundle/ctrlp"]
-	path = dotvim/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule "dotvim/bundle/lastnextprevious"]
 	path = dotvim/bundle/lastnextprevious
 	url = https://github.com/suy/vim-lastnextprevious.git
-[submodule "dotvim/bundle/ctrlp-commandline"]
-	path = dotvim/bundle/ctrlp-commandline
-	url = https://github.com/suy/vim-ctrlp-commandline.git
 [submodule "dotvim/bundle/editvar"]
 	path = dotvim/bundle/editvar
 	url = https://github.com/thinca/vim-editvar.git
 [submodule "dotvim/bundle/niceblock"]
 	path = dotvim/bundle/niceblock
 	url = https://github.com/kana/vim-niceblock.git
-[submodule "dotvim/bundle/ctrlp-unicode"]
-	path = dotvim/bundle/ctrlp-unicode
-	url = https://github.com/suy/vim-ctrlp-unicode.git
 [submodule "dotvim/bundle/scriptease"]
 	path = dotvim/bundle/scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule "dotvim/bundle/unite"]
-	path = dotvim/bundle/unite
-	url = https://github.com/Shougo/unite.vim.git
 [submodule "dotvim/bundle/rsi"]
 	path = dotvim/bundle/rsi
 	url = https://github.com/tpope/vim-rsi.git
 [submodule "dotvim/bundle/abolish"]
 	path = dotvim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "dotvim/bundle/characterize"]
-	path = dotvim/bundle/characterize
-	url = https://github.com/tpope/vim-characterize.git
 [submodule "dotvim/bundle/qml"]
 	path = dotvim/bundle/qml
 	url = https://github.com/peterhoeg/vim-qml.git
-[submodule "dotvim/bundle/unite-history"]
-	path = dotvim/bundle/unite-history
-	url = https://github.com/thinca/vim-unite-history.git
 [submodule "dotvim/pack/graveyard/opt/context-commentstring"]
 	path = dotvim/pack/graveyard/opt/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
@@ -165,3 +147,7 @@
 [submodule "dotvim/pack/plugins/opt/helpful"]
 	path = dotvim/pack/plugins/opt/helpful
 	url = https://github.com/tweekmonster/helpful.vim
+[submodule "dotvim/pack/plugins/start/unilove.nvim"]
+	path = dotvim/pack/plugins/start/unilove.nvim
+	url = https://github.com/suy/unilove.nvim
+	branch = pre-release

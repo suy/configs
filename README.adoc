@@ -197,6 +197,14 @@ Further reading:
   on how Vim plugins are structured, and how Lua is involved].
 
 
+=== Unicode considerations
+
+* https://linux-digest.com/neovim-0-11-revolutionizes-text-rendering-with-advanced-unicode-and-emoji-support
+* https://gist.github.com/kennypete/d7c3eef8fc5d9bf25dbea8fac0f1fa25
+* https://github.com/neovim/neovim/pull/30014
+* https://github.com/neovim/neovim/discussions/32048
+
+
 === On lazy loading, use of packadd, etc
 
 https://vi.stackexchange.com/questions/20810/how-to-load-vim8-optional-packages-in-vimrc

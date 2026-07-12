@@ -114,112 +114,6 @@ autocmd User Startified nnoremap <silent> <buffer> G :<C-u>G<Return>
 " }}}
 
 
-" Unite. "{{{
-" Unite preferences. "{{{
-let g:unite_source_file_mru_time_format=''
-let g:unite_source_file_mru_filename_format = ''
-let g:unite_enable_start_insert=1
-let g:unite_enable_short_source_names=1
-let g:unite_force_overwrite_statusline=0
-let g:unite_source_history_yank_enable=1
-let g:unite_data_directory = s:data_dir . '/unite'
-let g:unite_quick_match_table={
-			\ 'a': 0,  'b': 1,  'c': 2,  'd': 3,  'e': 4,  'f': 5,  'g': 6,
-			\ 'h': 7,  'i': 8,  'j': 9,  'k': 10, 'l': 11, 'm': 12,
-			\ 'n': 13, 'o': 14, 'p': 15, 'q': 16, 'r': 17,
-			\}
-if executable('ag')
-	let g:unite_source_grep_command = 'ag'
-	let g:unite_source_grep_default_opts =
-	\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-	\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-	let g:unite_source_grep_recursive_opt = ''
-elseif executable('ack-grep')
-	let g:unite_source_grep_command='ack-grep'
-	let g:unite_source_grep_default_opts='--no-heading --no-color -a -H'
-	let g:unite_source_grep_recursive_opt=''
-endif
-
-"}}}
-
-" Invocation trick. Use: [count]<leader>u
-nmap <silent> <leader>u  :<C-u>execute get([
-	\ "Unite -no-split -buffer-name=files buffer file_rec/async:! file/new",
-	\ "Unite menu:unite",
-	\ "Unite -no-split -buffer-name=files buffer",
-	\ "Unite -no-split -buffer-name=files file_mru",
-	\ "Unite history/command",
-	\ "Unite output:message",
-	\ "Unite grep -keep-focus -no-quit",
-	\ ], v:count)<Return>
-
-" Experiment. :-)
-nmap <silent> cd :<C-u>Unite -buffer-name=browse -no-split directory<Return>
-
-" Customize default sources (but check if Unite is there).
-if exists(':Unite')
-	call unite#custom_default_action('buffer', 'goto')
-	call unite#custom_default_action('directory', 'cd')
-	" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-	call unite#custom_source('file,file_mru,buffer,file_rec,file_rec/async',
-			\ 'matchers', 'matcher_fuzzy')
-	call unite#custom_source('buffer,file,file_mru,file_rec,file_rec/async',
-			\ 'sorters', 'sorter_rank')
-	call unite#custom_source('file_rec/async,file_rec', 'max_candidates', 0)
-	autocmd FileType unite call s:unite_my_settings()
-	function! s:unite_my_settings() "{{{
-		imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-		nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
-	endfunction "}}}
-endif
-
-" Unite menu definitions. "{{{
-
-" See: http://d.hatena.ne.jp/osyo-manga/20130225/1361794133 (useful map)
-" And this for several instructions at the same time:
-" http://akakyouryuu.com/blog/unite%E3%81%8B%E3%82%89vimrepress%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%BF%E3%81%9F/
-if !exists("g:unite_source_menu_menus")
-	let g:unite_source_menu_menus = {}
-endif
-" Favourite Unite commands
-let g:unite_source_menu_menus.unite = {'description' : 'Unite invocations'}
-let g:unite_source_menu_menus.unite.candidates = {
-			\ 'mixed': 'Unite -no-split -buffer-name=files' .
-				\ ' buffer file_rec/async file_mru file/new',
-			\ 'commands': 'Unite history/command',
-			\ 'process list': 'Unite process',
-			\ 'variable': 'Unite variable',
-			\ 'run': 'Unite launcher',
-			\ 'yank': 'Unite history/yank',
-			\ 'messages': 'Unite -log output:messages',
-			\ 'jump list': 'Unite jump',
-			\ 'change list': 'Unite change',
-			\ 'register': 'Unite register',
-			\ 'grep': 'Unite grep -keep-focus -no-quit',
-			\ 'mapping': 'Unite mapping',
-			\ 'runtimepath': 'Unite runtimepath',
-			\ 'git': 'Unite menu:git',
-			\ }
-function g:unite_source_menu_menus.unite.map(key, value) dict
-	let l:max = max(map(keys(self.candidates), 'len(v:val)'))
-	return {
-				\ 'abbr': unite#util#truncate(a:key, l:max) .'   -- '. a:value,
-				\ 'word': a:key,
-				\ 'action__command': a:value,
-				\ 'kind': 'command',
-				\ }
-endfunction
-
-let g:unite_source_menu_menus.git = {'description': 'Git commands'}
-let g:unite_source_menu_menus.git.command_candidates = [
-			\ ['git diff', 'Git! diff'],
-			\ ['git status', 'Gstatus'],
-			\ ['git show', 'Git! show'],
-			\ ['master..trunk', 'Glog master..trunk --'],
-			\ ]
-"}}}
-"}}}
-
 
 " Submode. "{{{
 " Raise the timeout length in submodes a little bit (default is timeoutlen).
@@ -241,23 +135,6 @@ if exists('*submode#map') && v:lua.vim.version().minor < 8
 endif
 "}}}
 
-
-" CtrlP. " {{{
-let g:ctrlp_map = '<C-k>'
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_user_command = {
-\	'types': {
-\		1: ['.git', 'cd %s && git ls-files'],
-\		2: ['.hg', 'hg --cwd %s locate -I .'],
-\	},
-\	'fallback': 'find %s -type f'
-\}
-let g:ctrlp_extensions = ['mixed', 'quickfix', 'line', 'commandline', 'unicode']
-let g:ctrlp_max_height = 20
-let g:ctrlp_mruf_exclude = '/tmp.*\|/usr/share.*\|.*bundle.*\|.*\.git'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_by_filename = 0
-" }}}
 
 " Setup for the lastnextprevious plugin.
 nmap <silent> - <Plug>lastnextprevious_forward
@@ -714,9 +591,6 @@ nmap <leader>l <C-]>
 " cnoremap <C-F> <Right>
 " cnoremap <C-B> <Left>
 cnoremap <C-J> <C-F>
-
-" Quickly open the command-line CtrlP plugin.
-nmap <C-q> :call ctrlp#init(ctrlp#commandline#id())<Return>
 
 " Mappings for the altr plugin.
 nmap <leader>A <Plug>(altr-back)
