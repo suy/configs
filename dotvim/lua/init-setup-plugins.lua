@@ -1,4 +1,22 @@
 --------------------------------------------------------------------------------
+-- nvim.undotree (built-in since Neovim 0.12)
+--------------------------------------------------------------------------------
+if vim.version() >= vim.version.parse('0.12') then
+    vim.cmd.packadd('nvim.undotree')
+    vim.api.nvim_create_autocmd('FileType', {
+        group = Init.autocmd_group,
+        pattern = 'nvim-undotree',
+        callback = function(args)
+            vim.keymap.set('n', 'q', function()
+                vim.api.nvim_win_close(0, false)
+            end, { buffer = args.buf, silent = true, desc = 'Close undotree' })
+        end,
+    })
+end
+
+
+
+--------------------------------------------------------------------------------
 -- ident-blankline, AKA 'ibl'
 --------------------------------------------------------------------------------
 require('ibl').setup({
@@ -58,6 +76,30 @@ require('mini.ai').setup({
 -- MiniCursorword
 ------------------------------------------------------------------------------
 require('mini.cursorword').setup()
+
+
+
+--------------------------------------------------------------------------------
+-- MiniDiff
+--------------------------------------------------------------------------------
+require('mini.diff').setup({
+    view = {
+        style = 'sign',
+    },
+    mappings = { -- Use an empty string to disable a mapping.
+        -- Apply hunks inside a visual/operator region (default was `gh`).
+        apply = '<leader>dp',
+        -- Reset hunks inside a visual/operator region (default was `gH`)
+        reset = '<leader>do',
+        -- Hunk range textobject to be used as operator (e.g. `=gh`).
+        textobject = '<leader>dh',
+        -- Navigate through hunks like the native ones in diff mode.
+        goto_first = '[C',
+        goto_prev = '[c',
+        goto_next = ']c',
+        goto_last = ']C',
+    },
+})
 
 
 

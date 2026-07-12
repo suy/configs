@@ -98,9 +98,6 @@
 [submodule "dotvim/pack/graveyard/opt/context-commentstring"]
 	path = dotvim/pack/graveyard/opt/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
-[submodule "dotvim/bundle/signify"]
-	path = dotvim/bundle/signify
-	url = https://github.com/mhinz/vim-signify.git
 [submodule "dotvim/bundle/choosewin"]
 	path = dotvim/bundle/choosewin
 	url = https://github.com/t9md/vim-choosewin.git
@@ -144,9 +141,6 @@
 [submodule "dotvim/bundle/fugitive-gitlab-gbrowse"]
 	path = dotvim/bundle/fugitive-gitlab-gbrowse
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
-[submodule "dotvim/bundle/undotree"]
-	path = dotvim/bundle/undotree
-	url = https://github.com/mbbill/undotree
 [submodule "dotvim/bundle/auto-git-diff"]
 	path = dotvim/bundle/auto-git-diff
 	url = https://github.com/hotwatermorning/auto-git-diff.git

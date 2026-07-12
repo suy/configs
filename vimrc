@@ -81,9 +81,6 @@ endif
 lua require 'init-setup-plugins'
 lua require 'init-lsp'
 
-" The most important signify option and I overlooked it for ages. *sigh*
-let g:signify_skip = {'vcs': { 'allow': ['git'] }}
-
 " Fugitive mappings that restore previous mappings. We make them recursive, so
 " they trigger the new maps, which trigger the right fugitive function.
 autocmd FileType fugitive      nmap <buffer> q gq
