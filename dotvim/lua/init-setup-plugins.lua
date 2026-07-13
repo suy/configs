@@ -222,6 +222,22 @@ require('mini.operators').setup({
     },
 })
 
+-- Little hack that seems to work fine, so keep it as an experiment. Notify when
+-- an exchange is in progress, and remind that <C-c> can cancel it.
+local function exchange_in_progress()
+    return vim.fn.maparg('<C-c>', 'n', false, true).desc == 'Stop exchange'
+end
+
+local original_exchange_operator = MiniOperators.exchange
+MiniOperators.exchange = function(mode)
+    local was_in_progress = exchange_in_progress()
+    local result = original_exchange_operator(mode)
+    if not was_in_progress and exchange_in_progress() then
+        vim.notify('Exchange: press <C-c> to cancel', vim.log.levels.INFO)
+    end
+    return result
+end
+
 
 
 ------------------------------------------------------------------------------
