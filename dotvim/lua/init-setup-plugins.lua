@@ -247,6 +247,31 @@ MiniPick = require('mini.pick')
 MiniPick.setup()
 require('unilove.pick') -- Auto-registers in MiniPick.registry
 
+-- Contextual tips: show a random mini.pick usage tip each time a picker opens.
+local mini_pick_tips = {
+    '<S-Tab> toggles information, including mappings',
+    'Mark items with <C-x>, then <M-CR> to act on all of them',
+    '<C-Space> "refines" within current results (it narrows, doesn\'t restart)',
+    '<M-Space> "refines" only the marked items',
+    '<C-a> marks all items at once (toggle)',
+    'Open in split/vsplit/tabpage with <C-s>/<C-v>/<C-q>',
+    '<C-r> followed by a register name pastes it into the query',
+    '<C-b>/<C-f> move the caret within the query line',
+    '<C-g> jumps back to the first match',
+}
+
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniPickStart',
+    callback = function()
+        local tip = mini_pick_tips[math.random(#mini_pick_tips)]
+        local id = MiniNotify.add(tip, 'INFO')
+        vim.defer_fn(function()
+            MiniNotify.remove(id)
+        end, 8000)
+    end,
+    desc = 'Show a random mini.pick tip',
+})
+
 local function mini_pick_messages()
     local messages = vim.split(vim.fn.execute('messages'), '\n', { trimempty = true })
     MiniPick.start({ source = { items = messages, name = 'Messages' } })
