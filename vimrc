@@ -86,9 +86,6 @@ lua require 'init-lsp'
 autocmd FileType fugitive      nmap <buffer> q gq
 autocmd FileType fugitiveblame nmap <buffer> q gq
 
-" The operator-replace plugin doesn't map any key, and I only use gR for replace.
-map R <Plug>(operator-replace)
-
 " Enable markdown folding.
 let g:markdown_folding=1
 

@@ -28,12 +28,6 @@
 [submodule "dotvim/bundle/ragtag"]
 	path = dotvim/bundle/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
-[submodule "dotvim/bundle/operator-user"]
-	path = dotvim/bundle/operator-user
-	url = https://github.com/kana/vim-operator-user.git
-[submodule "dotvim/bundle/operator-replace"]
-	path = dotvim/bundle/operator-replace
-	url = https://github.com/kana/vim-operator-replace.git
 [submodule "dotvim/bundle/submode"]
 	path = dotvim/bundle/submode
 	url = https://github.com/kana/vim-submode.git
@@ -96,9 +90,6 @@
 [submodule "dotvim/bundle/cpp"]
 	path = dotvim/bundle/cpp
 	url = https://github.com/vim-jp/vim-cpp.git
-[submodule "dotvim/bundle/exchange"]
-	path = dotvim/bundle/exchange
-	url = https://github.com/tommcdo/vim-exchange.git
 [submodule "dotvim/bundle/diff-enhanced"]
 	path = dotvim/bundle/diff-enhanced
 	url = https://github.com/chrisbra/vim-diff-enhanced.git
