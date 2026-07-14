@@ -182,6 +182,13 @@ local reminders = {
     'In MiniPick, `<C-e>` edits a history/search/etc',
     'While typing a search, `<C-g>` and `<C-t> "move" between matches`',
     'MiniPick\'s "live_grep" available in menu and 6<leader>y',
+    '`gx` exchanges regions (replaces vim-exchange, which was `cx`)',
+    '`gm` duplicates text: `2gm3aw` makes 2 copies of 3 words',
+    '`g=` evaluates as Lua and replaces with the result',
+    '`gs` sorts: charwise splits on delimiters, linewise as-is',
+    'mini.operators: `2Riw` pastes register contents twice over word',
+    '`<leader>dp` applies a hunk, `<leader>do` resets it',
+    '`<leader>dh` is the hunk textobject for operators',
 }
 
 math.randomseed(os.time())
