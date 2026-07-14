@@ -129,4 +129,3 @@
 [submodule "dotvim/pack/plugins/start/unilove.nvim"]
 	path = dotvim/pack/plugins/start/unilove.nvim
 	url = https://github.com/suy/unilove.nvim
-	branch = pre-release
