@@ -31,6 +31,9 @@ end)
 -- NOTE: Making window resizing repeatable is... a stretch. It helps me
 -- compensate the modes I lost when vim-submode stopped working, but it's an
 -- experiment so far. I should look how to do this with Mini.
+--[[
+-- NOTE (2nd): kept this for now, for reference, but I'm gonna try to use
+-- last-next-previous for this.
 make_repeatable('<C-w><', 'win_left', function()
     vim.cmd.wincmd '<'
 end)
@@ -46,6 +49,7 @@ end)
 make_repeatable('<C-w>+', 'win_up', function()
     vim.cmd.wincmd '+'
 end)
+--]]
 
 vim.keymap.set({'n', 'x'}, 'gy', '"+y', { desc = 'Copy to system clipboard' })
 vim.keymap.set('n',        'gp', '"+p', { desc = 'Paste from system clipboard' })

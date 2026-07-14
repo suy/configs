@@ -113,24 +113,6 @@ if exists('*submode#map') && v:lua.vim.version().minor < 8
 endif
 "}}}
 
-
-" Setup for the lastnextprevious plugin.
-nmap <silent> - <Plug>lastnextprevious_forward
-nmap <silent> + <Plug>lastnextprevious_backward
-if stridx(&runtimepath, "lastnextprevious") != -1
-	let g:lastnextprevious#last = 'changelist'
-	call extend(g:lastnextprevious#table,
-	\ { 'tabcycle': {'b': 'gT', 'f': 'gt'} ,
-	\   'quickfix': {'b': '[q', 'f': ']q'} ,
-	\   'loclist':  {'b': '[l', 'f': ']l'} }
-	\)
-endif
-" FIXME: gives an error when resourcing vimrc (wihout using silent). Think about
-" an API maybe? There is also the problem of the mappings not being removed.
-" Is important that I use it, since otherwise the feature might not work and I
-" might not notice it.
-silent! call remove(g:lastnextprevious#table, 'undolist')
-
 " }}}
 
 
