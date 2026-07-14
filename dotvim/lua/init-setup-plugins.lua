@@ -26,6 +26,16 @@ require('ibl').setup({
 
 
 --------------------------------------------------------------------------------
+-- lastnextprevious
+--------------------------------------------------------------------------------
+require('lastnextprevious').setup()
+vim.keymap.set('n', '-', '<Plug>(lastnextprevious-forward)')
+vim.keymap.set('n', '+', '<Plug>(lastnextprevious-backward)')
+
+
+
+
+--------------------------------------------------------------------------------
 -- Mini.Extra
 --------------------------------------------------------------------------------
 -- Setup this first, as it's a dependency of other Mini plugins. Also set the
