@@ -27,6 +27,12 @@ tags-??
 .clang_complete
 .localrc.vim
 
+### Agentic stuff
+.letta
+.codex
+.agents
+.kilo
+
 ### Others
 *~
 .DS_Store
