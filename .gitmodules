@@ -78,9 +78,6 @@
 	path = dotvim/pack/graveyard/opt/startify
 	url = https://github.com/suy/vim-startify.git
 	branch = repositories
-[submodule "dotvim/bundle/fugitive-bitbucket-gbrowse"]
-	path = dotvim/bundle/fugitive-bitbucket-gbrowse
-	url = https://github.com/tommcdo/vim-fubitive.git
 [submodule "dotvim/bundle/lexima"]
 	path = dotvim/bundle/lexima
 	url = https://github.com/cohama/lexima.vim.git
