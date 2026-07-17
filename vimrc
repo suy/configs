@@ -338,11 +338,6 @@ syntax enable
 " Highlight the opening bracket/parentheses when the closing one is written
 set showmatch
 
-" Use the Error colors for trailing whitespace.
-" match Error /\v\s+$/
-" Alternative idea: highlight bogus whitespace mixtures.
-match Error /\v\t+ +\t+/
-
 
 "
 "    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
