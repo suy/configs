@@ -19,8 +19,8 @@
 [submodule "dotvim/bundle/pathogen"]
 	path = dotvim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "dotvim/bundle/pasta"]
-	path = dotvim/bundle/pasta
+[submodule "dotvim/pack/graveyard/opt/pasta"]
+	path = dotvim/pack/graveyard/opt/pasta
 	url = https://github.com/sickill/vim-pasta.git
 [submodule "dotvim/bundle/ragtag"]
 	path = dotvim/bundle/ragtag
