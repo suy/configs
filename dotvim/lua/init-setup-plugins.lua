@@ -358,6 +358,8 @@ vim.keymap.set('n', '<leader>y', function()
 end,
 { silent = true, desc = '[count]<leader>y mini.pick launcher' })
 
+vim.keymap.set('c', '<C-s>', 'Pick history<Return>')
+
 
 
 ------------------------------------------------------------------------------
