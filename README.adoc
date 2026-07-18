@@ -190,6 +190,7 @@ Further reading:
 
 - https://neovim.discourse.group/t/the-300-line-init-lua-challenge/227/15
 - https://github.com/nanotee/nvim-lua-guide
+- `:h default-mappings`
 
 === Architecture brainstorm for configuring Neovim in Lua
 
