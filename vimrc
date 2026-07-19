@@ -150,11 +150,6 @@ endif
 " might not notice it.
 silent! call remove(g:lastnextprevious#table, 'undolist')
 
-" Choosewin
-let g:choosewin_overlay_enable = 1
-nmap <leader>W <Plug>(choosewin)
-nmap <leader><C-w> <Plug>(choosewin-swap)
-
 " Experiment: swap the contents of the default register and the clipboard.
 nnoremap <silent> <Leader>k :let temp=@+ <BAR> let @+=@" <BAR> let @"=temp <BAR> unlet temp<Return>
 " }}}
