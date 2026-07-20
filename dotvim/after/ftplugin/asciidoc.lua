@@ -46,3 +46,53 @@ local function show_toc()
 end
 
 vim.keymap.set('n', 'gO', show_toc)
+
+
+-- Custom sort function for mini.operators. Sorts list items spanning multiple
+-- lines. Each item starts with an asterisk at the start of the line and may
+-- span continuation lines. Falls back to default sort for charwise regions or
+-- when no asterisks are found.
+local function sort_list_items(content)
+    if content.submode == 'v' then
+        return MiniOperators.default_sort_func(content)
+    end
+
+    local list_pattern = '^%*+%s' -- constant
+    local lines = content.lines
+
+    -- Require the first line to be a list item.
+    if not lines[1]:match(list_pattern) then
+        vim.notify('Selection is not a list item, using default sort', vim.log.levels.INFO)
+        return MiniOperators.default_sort_func(content)
+    end
+
+    -- Group consecutive lines into items, each starting with a bullet.
+    local items = {}
+    local current = nil
+
+    for _, line in ipairs(lines) do
+        if line:match(list_pattern) then
+            current = { line }
+            table.insert(items, current)
+        else
+            table.insert(current, line)
+        end
+    end
+
+    -- Sort items by their first line.
+    table.sort(items, function(one, two)
+        return one[1] < two[1]
+    end)
+
+    -- Flatten sorted items: from arrays of lines into a single array of lines.
+    local result = {}
+    for _, item in ipairs(items) do
+        vim.list_extend(result, item)
+    end
+
+    return result
+end
+
+vim.b.minioperators_config = {
+    sort = { func = sort_list_items },
+}
