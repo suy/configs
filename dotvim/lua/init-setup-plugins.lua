@@ -452,6 +452,7 @@ MiniStarter.setup({
     -- If `nil` (default), default items will be used (see |mini.starter|).
     items = {
         MiniStarter.sections.builtin_actions(),
+        { name = 'Git status', action = 'G', section = 'Builtin actions' },
         recent_repositories,
         filtered_recent_files(true),
         filtered_recent_files(false),
