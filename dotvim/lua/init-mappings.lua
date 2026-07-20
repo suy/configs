@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+-- ┏━┓┏━╸┏┳┓┏━┓┏━┓┏━┓
+-- ┣┳┛┣╸ ┃┃┃┣━┫┣━┛┗━┓
+-- ╹┗╸┗━╸╹ ╹╹ ╹╹  ┗━┛
+---------------------------------------------------------------------- Remaps --
+
 -- A simple helper for the simple cases of repeating something without a motion.
 -- Note the `g@l`: the `l` is the hardcoded motion for the `g@` operator.
 -- See: https://www.vikasraj.dev/blog/vim-dot-repeat
@@ -41,7 +47,29 @@ make_repeatable('<C-w>+', 'win_up', function()
     vim.cmd.wincmd '+'
 end)
 
+vim.keymap.set({'n', 'x'}, 'gy', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set('n',        'gp', '"+p', { desc = 'Paste from system clipboard' })
+vim.keymap.set('n',        'gP', '"+P', { desc = 'Paste from system clipboard' })
 
+
+--------------------------------------------------------------------------------
+-- ┏┳┓┏━┓┏━┓┏━┓
+-- ┃┃┃┣━┫┣━┛┗━┓
+-- ╹ ╹╹ ╹╹  ┗━┛
+------------------------------------------------------------------------ Maps --
+
+vim.keymap.set('n', '<leader>k', function()
+    local temp = vim.fn.getreg('+')
+    vim.fn.setreg('+', vim.fn.getreg('"'))
+    vim.fn.setreg('"', temp)
+end, { desc = 'Swap unnamed register with the clipboard' })
+
+
+--------------------------------------------------------------------------------
+-- ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
+-- ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
+-- ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
+-------------------------------------------------------------------- Commands --
 
 -- Diff the current buffer against the file on disk. Adapted from the help docs
 -- (see `:h :DiffOrig`). To help recover file contents when a recovery is made.

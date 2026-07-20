@@ -131,8 +131,6 @@ endif
 " might not notice it.
 silent! call remove(g:lastnextprevious#table, 'undolist')
 
-" Experiment: swap the contents of the default register and the clipboard.
-nnoremap <silent> <Leader>k :let temp=@+ <BAR> let @+=@" <BAR> let @"=temp <BAR> unlet temp<Return>
 " }}}
 
 
