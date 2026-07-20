@@ -116,3 +116,13 @@
 [submodule "dotvim/pack/plugins/start/unilove.nvim"]
 	path = dotvim/pack/plugins/start/unilove.nvim
 	url = https://github.com/suy/unilove.nvim
+[submodule "lua-language-server-addons/busted"]
+	path = lua-language-server-addons/busted
+	url = https://github.com/suy/busted
+	branch = activate
+[submodule "lua-language-server-addons/luassert"]
+	path = lua-language-server-addons/luassert
+	url = https://github.com/LuaCATS/luassert
+[submodule "lua-language-server-addons/xmake"]
+	path = lua-language-server-addons/xmake
+	url = https://github.com/LelouchHe/xmake-luals-addon

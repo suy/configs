@@ -19,6 +19,23 @@
 -- https://neovim.io/doc/user/news-0.10.html
 -- https://gpanders.com/blog/whats-new-in-neovim-0.10/
 
+
+-- Neovim >=0.11 sets omnifunc, formatexpr, and gr* keymaps automatically via
+-- vim.lsp.enable(). But filetype matching does NOT prevent LSP from attaching
+-- to unwanted buffers. A Lua file opened via fugitive (:Gedit, :Gdiffsplit)
+-- has a `fugitive://` URI but keeps filetype 'lua'. The LspAttach autocmd
+-- filters by URI scheme:
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('lsp_attach', { clear = true }),
+    callback = function(args)
+        local buffer = args.buf
+        if vim.api.nvim_buf_get_name(buffer):match '^%a+://' then
+            vim.lsp.buf_detach_client(buffer, args.data.client_id)
+        end
+    end,
+})
+
+
 -- Disable stuff that I don't want so far. This probably should be done better,
 -- to support a variety of languages/servers/etc.
 vim.diagnostic.config({
@@ -41,6 +58,19 @@ vim.lsp.config('lua_ls', {
             telemetry = { enable = false },
             runtime = {
                 version = 'LuaJIT' -- So far LuaJIT is a safe fallback/"standard".
+            },
+            workspace = {
+                -- `checkThirdParty` and `userThirdParty` should be safe for all
+                -- Lua projects. When `lua_ls` sees patterns specified in either
+                -- addon in the addon directory (e.g. a certain file path or
+                -- `require`), it loads the definitions automatically.
+                checkThirdParty = 'ApplyInMemory',
+                userThirdParty = {
+                    -- Try to resolve the path to the configs repository, then
+                    -- append the subdirectory where the LS addons are.
+                    vim.fs.dirname(vim.fn.resolve(vim.fn.stdpath('config')))
+                        .. '/lua-language-server-addons/',
+                },
             },
         },
     },
