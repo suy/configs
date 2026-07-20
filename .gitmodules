@@ -68,10 +68,6 @@
 [submodule "dotvim/pack/graveyard/opt/context-commentstring"]
 	path = dotvim/pack/graveyard/opt/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
-[submodule "dotvim/pack/graveyard/opt/startify"]
-	path = dotvim/pack/graveyard/opt/startify
-	url = https://github.com/suy/vim-startify.git
-	branch = repositories
 [submodule "dotvim/bundle/lexima"]
 	path = dotvim/bundle/lexima
 	url = https://github.com/cohama/lexima.vim.git

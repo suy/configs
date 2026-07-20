@@ -388,6 +388,55 @@ local function filtered_recent_files(current_only)
         return result
     end
 end
+
+-- A mini.starter section to replicate my ancient vim-startify patch. Derives
+-- recent git repositories from oldfiles, and changes to them, reloading
+-- mini.starter, so you "drill down" into a project, as a form of lightweight
+-- and fully automated session management. Only shown outside repositories.
+local function recent_repositories()
+    -- Check if we are in a git repository by searching for `.git` upwards.
+    local cwd = vim.fn.getcwd()
+    local repos = vim.fs.find('.git', { upward = true, path = cwd, limit = 1 })
+    if #repos > 0 then
+        return {}
+    end
+
+    local seen = {}
+    repos = {}
+    for _, path in ipairs(vim.v.oldfiles) do
+        -- Cap to 9 results for space and key shortcut availability (a1 to a9).
+        if #repos == 9 then
+            break
+        end
+        if vim.fn.filereadable(path) == 1 then
+            local dir = vim.fs.dirname(path)
+            local found = vim.fs.find('.git', { upward = true, path = dir, limit = 1 })
+            if found[1] then
+                local root = vim.fs.dirname(found[1])
+                if not seen[root] then
+                    seen[root] = true
+                    table.insert(repos, root)
+                end
+            end
+        end
+    end
+
+    table.sort(repos)
+
+    local items = {}
+    for _, repo in ipairs(repos) do
+        table.insert(items, {
+            name = vim.fn.fnamemodify(repo, ':~'),
+            action = function()
+                vim.cmd.cd(vim.fn.fnameescape(repo))
+                MiniStarter.refresh()
+            end,
+            section = 'Recent repositories',
+        })
+    end
+    return items
+end
+
 MiniStarter.setup({
     autoopen = true, -- Turn to false if need to disable it.
     -- Open file/evaluate action automatically when only one item matches.
@@ -400,6 +449,7 @@ MiniStarter.setup({
     -- If `nil` (default), default items will be used (see |mini.starter|).
     items = {
         MiniStarter.sections.builtin_actions(),
+        recent_repositories,
         filtered_recent_files(true),
         filtered_recent_files(false),
     },

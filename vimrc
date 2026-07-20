@@ -89,25 +89,6 @@ autocmd FileType fugitiveblame nmap <buffer> q gq
 " Enable markdown folding.
 let g:markdown_folding=1
 
-" Startify features, and arrangement of sections.
-let g:startify_list_order = ['bookmarks', 'dir', 'files']
-let g:startify_list_order = ['bookmarks', 'repositories', 'dir', 'files']
-let g:startify_change_to_vcs_root = 1
-let g:startify_skiplist = [
-	\ 'COMMIT_EDITMSG',
-	\ '.git/index',
-	\ '^/tmp',
-	\ 'bundle/.*/doc',
-	\ ]
-let g:startify_custom_indices = map(range(5,100), 'string(v:val)')
-if executable('fortune')
-	let g:startify_custom_header =
-	\ map(split(system('fortune'), '\n'), '"   ". v:val') + ['','']
-endif
-let g:startify_repositories = [ '~/personal/configs']
-autocmd User Startified nnoremap <silent> <buffer> r :<C-u>Startify<Return>
-autocmd User Startified nnoremap <silent> <buffer> G :<C-u>G<Return>
-
 " }}}
 
 
