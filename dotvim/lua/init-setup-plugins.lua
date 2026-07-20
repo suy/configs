@@ -426,8 +426,6 @@ local function recent_repositories()
         end
     end
 
-    table.sort(repos)
-
     local items = {}
     for _, repo in ipairs(repos) do
         table.insert(items, {
