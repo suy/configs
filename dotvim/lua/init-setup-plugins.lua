@@ -366,22 +366,27 @@ vim.keymap.set('c', '<C-s>', 'Pick history<Return>')
 -- MiniStarter
 ------------------------------------------------------------------------------
 MiniStarter = require('mini.starter')
-local ignorable_files = {
-    'COMMIT_EDITMSG', '.git/index', '/tmp/.+', 'bundle/.+/doc',
-}
+
+-- Helper that matches a name with patterns of file paths to ignore.
+local function ignore_file(name)
+    local ignorable_files = {
+        'COMMIT_EDITMSG', '.git/index', '/tmp/.+', 'bundle/.+/doc',
+    }
+    for _, pattern in ipairs(ignorable_files) do
+        if name:match(pattern) then
+            return true
+        end
+    end
+    return false
+end
+
+-- Filter the default list of MiniStarter.sections.recent_files.
 local function filtered_recent_files(current_only)
     return function()
         local raw = MiniStarter.sections.recent_files(10, current_only)()
         local result = {}
         for _, element in ipairs(raw) do
-            local ignore = false
-            for _, ignorable in ipairs(ignorable_files) do
-                if element.name:match(ignorable) then
-                    ignore = true
-                    break
-                end
-            end
-            if not ignore then
+            if not ignore_file(element.name) then
                 table.insert(result, element)
             end
         end
@@ -408,7 +413,7 @@ local function recent_repositories()
         if #repos == 9 then
             break
         end
-        if vim.fn.filereadable(path) == 1 then
+        if vim.fn.filereadable(path) == 1 and not ignore_file(path) then
             local dir = vim.fs.dirname(path)
             local found = vim.fs.find('.git', { upward = true, path = dir, limit = 1 })
             if found[1] then
