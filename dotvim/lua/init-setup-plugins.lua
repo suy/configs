@@ -202,8 +202,6 @@ local reminders = {
     '`<leader>dh` is the hunk textobject for operators',
 }
 
-math.randomseed(os.time())
-
 local function show_reminder()
     local reminder = reminders[math.random(#reminders)]
     local id = MiniNotify.add(reminder, 'INFO')

@@ -24,4 +24,6 @@ vim.g.maplocalleader = '_'
 -- Autocommand group for things in my config.
 Init.autocmd_group = vim.api.nvim_create_augroup('Init', { clear = true })
 
+-- Start the random seed, just in case.
+math.randomseed(os.time())
 
