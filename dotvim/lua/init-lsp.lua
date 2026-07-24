@@ -53,6 +53,7 @@ vim.lsp.config('lua_ls', {
     filetypes = { 'lua' },
     root_markers = { '.luarc.json', '.luarc.jsonc', '.git' },
     -- Only set "universal" settings. Workspace stuff should be per-project.
+    -- Lua LS settings reference: https://luals.github.io/wiki/settings/
     settings = {
         Lua = {
             telemetry = { enable = false },
@@ -77,23 +78,3 @@ vim.lsp.config('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
---[[
-require('lspconfig').lua_ls.setup {
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT' -- So far LuaJIT is a safe fallback/"standard".
-            },
-            workspace = {
-                library = {
-                    vim.env.VIMRUNTIME,
-                },
-                checkThirdParty = 'ApplyInMemory',
-                userThirdParty = {
-                   vim.fn.expand('~/personal/configs/lua-language-server-addons/')
-                }
-            }
-        }
-    }
-}
---]]
