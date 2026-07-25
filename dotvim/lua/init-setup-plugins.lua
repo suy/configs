@@ -372,6 +372,31 @@ vim.keymap.set('c', '<C-s>', 'Pick history<Return>')
 
 
 ------------------------------------------------------------------------------
+-- MiniSnippets
+------------------------------------------------------------------------------
+MiniSnippets = require('mini.snippets')
+MiniSnippets.setup({
+    snippets = {
+        -- Global snippets (lipsum, etc.) from the config's snippets/ directory.
+        MiniSnippets.gen_loader.from_file('~/.config/nvim/snippets/global.lua'),
+        -- Language-specific snippets. Empty for now, but wired up so adding
+        -- snippets/lua.json or installing friendly-snippets works later.
+        MiniSnippets.gen_loader.from_lang(),
+        -- Dynamic snippets evaluated fresh on each expand.
+        function()
+            return {
+                { prefix = 'now', body = os.date('%FT%T'),
+                  desc = 'Current ISO 8601 date and time' },
+                { prefix = 'nowtz', body = os.date('%FT%T%z'),
+                  desc = 'Current ISO 8601 date and time with timezone' },
+            }
+        end,
+    },
+})
+
+
+
+------------------------------------------------------------------------------
 -- MiniStarter
 ------------------------------------------------------------------------------
 MiniStarter = require('mini.starter')
