@@ -375,7 +375,30 @@ vim.keymap.set('c', '<C-s>', 'Pick history<Return>')
 -- MiniSnippets
 ------------------------------------------------------------------------------
 MiniSnippets = require('mini.snippets')
+
+-- Capture visual selection for use as ${SELECTED} in snippet bodies.
+-- In Visual mode, <C-j> captures the selection, then changes (delete + insert).
+local snippet_selected = ''
+
+vim.keymap.set('x', '<C-j>', function()
+    snippet_selected = table.concat(
+        vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'),
+            { type = vim.fn.mode() }), '\n')
+    vim.api.nvim_feedkeys('c', 'n', false)
+end)
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+    callback = function() snippet_selected = '' end,
+})
+
 MiniSnippets.setup({
+    expand = {
+        insert = function(snippet)
+            local lookup = { SELECTED = snippet_selected }
+            snippet_selected = ''
+            return MiniSnippets.default_insert(snippet, { lookup = lookup })
+        end,
+    },
     snippets = {
         -- Global snippets (lipsum, etc.) from the config's snippets/ directory.
         MiniSnippets.gen_loader.from_file('~/.config/nvim/snippets/global.lua'),
