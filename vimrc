@@ -210,7 +210,6 @@ set history=200
 
 " Better to be noisy than find something unexpected.
 set noautoread
-set noautowrite
 
 " Trigger checktime to get updates on file change more often
 au FocusGained * :checktime
