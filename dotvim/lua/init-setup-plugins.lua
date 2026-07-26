@@ -17,6 +17,39 @@ end
 
 
 --------------------------------------------------------------------------------
+-- Agentic.nvim
+--------------------------------------------------------------------------------
+-- Agent Client Protocol client. Talks to the local Letta App Server
+-- (`letta server --listen ws://127.0.0.1:4500`), which connects to Letta Cloud
+-- for agent state/memory but executes tools locally.
+require('agentic').setup({
+    provider = 'letta-acp',
+    acp_providers = {
+        ['letta-acp'] = {
+            name = 'Letta',
+            command = 'letta-acp',
+            env = {
+                LETTA_ACP_BACKEND = 'remote',
+                LETTA_APP_SERVER_URL = 'ws://127.0.0.1:4500',
+                LETTA_AGENT_ID = 'agent-cdc0c5ea-8e3c-4fb8-b51f-6ab1e0b6cb72',
+            },
+        },
+    },
+})
+
+vim.keymap.set('n', '<leader>at', function() require('agentic').toggle() end,
+    { silent = true, desc = 'Toggle Agentic (ACP) chat' })
+vim.keymap.set('n', '<leader>an', function() require('agentic').new_session() end,
+    { silent = true, desc = 'New Agentic session' })
+vim.keymap.set('n', '<leader>ar', function() require('agentic').restore_session() end,
+    { silent = true, desc = 'Restore Agentic session' })
+vim.keymap.set({ 'n', 'v' },
+    '<leader>aa', function() require('agentic').add_selection_or_file_to_context() end,
+    { silent = true, desc = 'Add file/selection to Agentic context' })
+
+
+
+--------------------------------------------------------------------------------
 -- ident-blankline, AKA 'ibl'
 --------------------------------------------------------------------------------
 require('ibl').setup({

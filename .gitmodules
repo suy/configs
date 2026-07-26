@@ -123,3 +123,6 @@
 [submodule "lua-language-server-addons/xmake"]
 	path = lua-language-server-addons/xmake
 	url = https://github.com/LelouchHe/xmake-luals-addon
+[submodule "dotvim/pack/plugins/start/agentic.nvim"]
+	path = dotvim/pack/plugins/start/agentic.nvim
+	url = https://github.com/carlos-algms/agentic.nvim
