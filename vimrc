@@ -153,10 +153,6 @@ endif
 " trusted first, and I only expect to ever run simple files from myself.
 set exrc
 
-" Allow to move the cursor one character beyond the last. This allows to use
-" Return to insert blank lines in between others, without unimpaired's map.
-set virtualedit=onemore
-
 " Add 'mac' fileformat, because there are still people as silly as v2msoft.com.
 set fileformats+=mac
 
@@ -183,18 +179,9 @@ endif
 " For the `fc` (fix command) in bash
 autocmd BufEnter /tmp/bash-fc.* if &filetype == 'sh' | :set tw=0 | endif
 
-" Limit suggestions when spell checking with z=.
-set spellsuggest=best,15
-
 " Disable autoselection of the visual region to the clipboard.
 set guioptions-=a
 set clipboard-=autoselect
-
-" Don't leave two spaces between two sentences (foo.  Bar) when joining lines
-set nojoinspaces
-
-" Enable modelines
-set modeline
 
 " Show commands as you type them
 set showcmd
@@ -205,14 +192,8 @@ filetype plugin indent on
 " Use visualbell instead of the system beep
 set visualbell
 
-" Allow hidden buffers without that many prompts, but caution when using ':q!'
-set hidden
-
 " scrolloff: Make the text scroll some lines before the cursor reaches the border
 set so=3
-
-" Allow the backspace to do useful things (is not the default everywhere)
-set backspace=indent,eol,start
 
 " Allow more time between keystrokes for some key mappings.
 set timeout timeoutlen=1600
@@ -290,9 +271,6 @@ let g:vimsyn_embed= "lPr"
 " documentation: "If you want Vim to overrule your settings with the
 " defaults, use ':syntax on'".
 syntax enable
-
-" Highlight the opening bracket/parentheses when the closing one is written
-set showmatch
 
 
 "

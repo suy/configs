@@ -30,6 +30,8 @@ vim.opt.breakindentopt = 'sbr'
 -- TODO: review 'formatlistpat' as well.
 -- fo: Format options. See 'fo-table' for the details of what this affects.
 vim.opt.formatoptions:append('j')
+-- js: Don't leave two spaces between sentences (foo.  Bar) when joining lines.
+-- vim.opt.joinspaces = false -- Already the default.
 
 -----
 -- Clarifications. Options which can be confusing, and I'm actively avoiding.
@@ -105,3 +107,30 @@ vim.opt.gdefault = true
 vim.opt.foldopen:remove('search')
 
 
+--------------------------------------------------------------------------------
+-- ┏━╸╺┳┓╻╺┳╸╻┏┓╻┏━╸
+-- ┣╸  ┃┃┃ ┃ ┃┃┗┫┃╺┓
+-- ┗━╸╺┻┛╹ ╹ ╹╹ ╹┗━┛
+--------------------------------------------------------------------- Editing --
+
+-- ve: Allow the cursor to move one character past the end of the line. This
+-- allows inserting blank lines between others in normal mode using <Return>.
+vim.opt.virtualedit = 'onemore'
+-- bs: Allow backspace to delete and be more useful.
+-- vim.opt.backspace = 'indent,eol,start' -- Already the default.
+-- sm: Briefly jump to the matching bracket when one is inserted.
+vim.opt.showmatch = true
+-- hid: Allow buffers to be hidden (e.g. keep modified buffers in background).
+-- vim.opt.hidden = true -- Already the default.
+-- ml: Enable reading modelines.
+-- vim.opt.modeline = true -- Already the default (except root).
+
+
+--------------------------------------------------------------------------------
+-- ┏┳┓╻┏━┓┏━╸
+-- ┃┃┃┃┗━┓┃
+-- ╹ ╹╹┗━┛┗━╸
+------------------------------------------------------------------------ Misc --
+
+-- sps: Limit suggestions when spell checking with z=.
+vim.opt.spellsuggest = 'best,15'
