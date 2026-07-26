@@ -138,3 +138,47 @@ vim.opt.spellsuggest = 'best,15'
 vim.opt.updatetime = 1000
 -- tm: Time between keystrokes for mapped key sequences (default is 1000).
 vim.opt.timeoutlen = 1600
+
+
+--------------------------------------------------------------------------------
+-- ┏━┓┏━┓┏━┓┏━╸┏━┓┏━┓┏━┓┏┓╻┏━╸┏━╸
+-- ┣━┫┣━┛┣━┛┣╸ ┣━┫┣┳┛┣━┫┃┗┫┃  ┣╸
+-- ╹ ╹╹  ╹  ┗━╸╹ ╹╹┗╸╹ ╹╹ ╹┗━╸┗━╸
+------------------------------------------------------------------ Appearance --
+
+-- nu: Show the line number of the cursor line.
+vim.opt.number = true
+-- rnu: Show line numbers relative to the cursor line.
+vim.opt.relativenumber = true
+-- cul: Highlight the line where the cursor is.
+vim.opt.cursorline = true
+-- cc: Use a colored column to mark the textwidh+1 column.
+vim.opt.colorcolumn = { '+1' } -- Accepts a list (+1, +21, etc.).
+-- list: Display special characters in special ways, to make them more obvious.
+vim.opt.list = true
+vim.opt.listchars = {
+    tab = '⇥ ', trail = '␣',
+    -- multispace = '1234567890', -- TODO: I need to play with this... So fun.
+    multispace = '␣',
+    lead = ' ', -- Overrides multispace so indentation doesn't look silly.
+    precedes = '❬', extends = '❭',
+    nbsp = '⨝',
+}
+-- Characters used as a filler for some UI elements, like folds, splits, etc.
+-- TODO: review. I don't think I see them properly.
+vim.opt.fillchars = {
+    vert = '┃',
+    fold = '═',
+    diff = '╱', -- Deleted lines in diff mode.
+    foldopen = '▾',
+    foldclose = '▸',
+    foldsep = '│',
+}
+-- so: Keep at least this many screen lines above/below the cursor.
+vim.opt.scrolloff = 3
+-- vb: Use a visual indication for the "bell" instead of the system beep.
+vim.opt.visualbell = true
+-- TODO: I used to have this enabled for GVim, as it improved the redraw there,
+-- and made possible having `cursorline` enabled at sane speed.
+-- vim.opt.lazyredraw = true
+

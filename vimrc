@@ -183,15 +183,6 @@ set showcmd
 " Use specific plugins and indentation of the filetype
 filetype plugin indent on
 
-" Use visualbell instead of the system beep
-set visualbell
-
-" scrolloff: Make the text scroll some lines before the cursor reaches the border
-set so=3
-
-" But not for for key codes. Use a very small value for them.
-set ttimeout ttimeoutlen=50
-
 " Ensure the swap and undo directories.
 if exists("*mkdir")
 	if !isdirectory(s:data_dir . "/undo")
@@ -270,42 +261,6 @@ syntax enable
 "  / ___ \| |_) | |_) |  __/ (_| | | | (_| | | | | (_|  __/
 " /_/   \_\ .__/| .__/ \___|\__,_|_|  \__,_|_| |_|\___\___|
 "         |_|   |_|
-
-" Seems to speed a lot the redraw on GVim, and makes cursorline usable again.
-set lazyredraw
-
-" Set the characters for statusline (& non current stl), vsplit, fold & diff.
-" TODO: some characters don't work with some colorschemes because use bold, etc.
-" set fillchars=vert:┃,fold:=,diff:·
-set fillchars=vert:┃,fold:═,diff:·
-
-" See the cursor line and the offset with the adjacent lines.
-set number
-if exists('+relativenumber')
-	set relativenumber
-endif
-
-" cul: Highlight the line in which the cursor is in. Caution, can be very slow.
-set cursorline
-
-" Show some chars to denote clearly where there is a tab or trailing space
-set list
-" Boring but 'safe' characters.
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-" TODO: only set this characters in some constrained conditions. But which ones?
-let &listchars = "tab:\u21e5 ,nbsp:\u00b7,extends:\u276d,precedes:\u276c,trail:\u2423"
-
-" This is what sensible.vim uses. I'm not sure that I understand the checks. Why
-" can't be set on win32? See:
-" https://github.com/tpope/vim-sensible/commit/3ffe25ce1d78e884879cc8c26d5a7ea6a14f4d49
-" if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
-" 	let &listchars = "tab:\u21e5 ,trail:\u2423,extends:\u21c9,precedes:\u21c7,nbsp:\u00b7"
-" endif
-
-" colorcolumn: Use a colored column to mark the textwidh+1 column (Vim >=7.3).
-if exists('+colorcolumn')
-	set cc=+1
-endif
 
 " fen: enable folds by default. Can be swiftly disabled with 'zi'.
 set foldenable
