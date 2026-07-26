@@ -134,3 +134,7 @@ vim.opt.showmatch = true
 
 -- sps: Limit suggestions when spell checking with z=.
 vim.opt.spellsuggest = 'best,15'
+-- ut: Make swap file saves and CursorHold trigger faster (default is 4000).
+vim.opt.updatetime = 1000
+-- tm: Time between keystrokes for mapped key sequences (default is 1000).
+vim.opt.timeoutlen = 1600

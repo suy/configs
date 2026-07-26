@@ -153,14 +153,8 @@ endif
 " trusted first, and I only expect to ever run simple files from myself.
 set exrc
 
-" Add 'mac' fileformat, because there are still people as silly as v2msoft.com.
-set fileformats+=mac
-
 " Syntax highlighting reduced to some reasonable column.
 set synmaxcol=250
-
-" Accelerates saving to swap file and triggering CursorHold.
-set updatetime=500
 
 if has("autocmd")
 	augroup vimrc
@@ -194,9 +188,6 @@ set visualbell
 
 " scrolloff: Make the text scroll some lines before the cursor reaches the border
 set so=3
-
-" Allow more time between keystrokes for some key mappings.
-set timeout timeoutlen=1600
 
 " But not for for key codes. Use a very small value for them.
 set ttimeout ttimeoutlen=50
