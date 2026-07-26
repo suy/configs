@@ -21,7 +21,15 @@ local function make_repeatable(from, function_name, function_body)
 end
 
 make_repeatable('dp', 'diff_put', function()
-    vim.cmd('normal! dp')
+    -- The `pcall` is a workaround for some issues with the change tracking with
+    -- LSP. I think it has to do with the fact that I disable LSP for fugitive
+    -- buffers. See the issues/PR (and perhaps others):
+    -- https://github.com/neovim/neovim/issues/36452
+    -- https://github.com/neovim/neovim/issues/37814
+    -- https://github.com/neovim/neovim/pull/40285
+    -- TODO: try at a later time if the refactors recently done land in a stable
+    -- version that I use, and remove the workaround.
+    pcall(vim.cmd, 'normal! dp')
 end)
 
 make_repeatable('do', 'diff_obtain', function()
