@@ -1,4 +1,4 @@
-# Environment variables for the shell and X
+# Environment variables for the shell (or possibly other environments).
 
 # Language
 if [ ! -z `locale -a | grep es_ES.utf-8` ] ; then
