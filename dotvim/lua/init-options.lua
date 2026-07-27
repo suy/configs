@@ -170,6 +170,7 @@ vim.opt.fillchars = {
     vert = '┃',
     fold = '═',
     diff = '╱', -- Deleted lines in diff mode.
+    -- Only used with `foldcolumn > 0`.
     foldopen = '▾',
     foldclose = '▸',
     foldsep = '│',
@@ -181,4 +182,58 @@ vim.opt.visualbell = true
 -- TODO: I used to have this enabled for GVim, as it improved the redraw there,
 -- and made possible having `cursorline` enabled at sane speed.
 -- vim.opt.lazyredraw = true
+-- fen: Enable folds by default. Can be swiftly toggled with `zi` ("invert").
+-- vim.opt.foldenable = true -- Already the default.
+-- fdm: Sets the default folding behaviour. Overridden to `expr` per window
+-- based on file type, e.g. to switch to tree-sitter when possible.
+vim.opt.foldmethod = 'syntax'
+-- fdls: Folds with a higher level than this start closed when opening a buffer.
+vim.opt.foldlevelstart = 4
+-- fdc: Width of the column that displays folding information. It's perhaps more
+-- useful for debugging than for regular use, so disabled by default.
+-- vim.opt.foldcolumn = 0 -- Already the default.
+
+
+--------------------------------------------------------------------------------
+-- ╺┳╸┏━┓┏━╸┏━╸┏━┓╻╺┳╸╺┳╸┏━╸┏━┓
+--  ┃ ┣┳┛┣╸ ┣╸ ┗━┓┃ ┃  ┃ ┣╸ ┣┳┛
+--  ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
+------------------------------------------------------------------ Treesitter --
+
+-- This is more documentation for the future that actual configuration.
+-- Activating Treesitter is already done automatically in Neovim in some file
+-- types. But, if I add more TS plugins, I might need to activate them if they
+-- don't do the same. Also, this documents the workaround for some file types
+-- that still require the legacy syntax for some features. See:
+-- https://github.com/neovim/neovim/pull/32965
+vim.api.nvim_create_autocmd('FileType', {
+    group = Init.autocmd_group,
+    callback = function(options)
+        -- See |FileType| and |nvim_create_autocmd|: the new `filetype` is
+        -- `<amatch>`, which in the callback is passed as `match`.
+        local ok = pcall(vim.treesitter.start, options.buf)
+        if ok then
+            -- Use Treesitter for folding only when fold queries exist for this
+            -- language. Not all parsers ship a folds.scm query (e.g. vimdoc and
+            -- markdown don't), so check before switching from the default
+            -- 'syntax' foldmethod.
+            local parser = vim.treesitter.get_parser(options.buf)
+            if parser then
+                if vim.treesitter.query.get(parser:lang(), 'folds') then
+                    local winid = vim.fn.bufwinid(options.buf)
+                    if winid ~= -1 then
+                        vim.wo[winid].foldmethod = 'expr'
+                        vim.wo[winid].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+                    end
+                end
+            end
+        end
+        -- If a plugin relies on regex syntax highlighting (e.g. vimtex, some
+        -- markdown plugins), re-enable it for that specific filetype only.
+        local filetype = options.match
+        if filetype == 'latex' then
+            vim.bo[options.buf].syntax = 'ON'
+        end
+    end,
+})
 

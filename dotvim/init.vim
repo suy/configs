@@ -86,9 +86,6 @@ lua require 'init-lsp'
 autocmd FileType fugitive      nmap <buffer> q gq
 autocmd FileType fugitiveblame nmap <buffer> q gq
 
-" Enable markdown folding.
-let g:markdown_folding=1
-
 " }}}
 
 
@@ -236,18 +233,6 @@ syntax enable
 "  / ___ \| |_) | |_) |  __/ (_| | | | (_| | | | | (_|  __/
 " /_/   \_\ .__/| .__/ \___|\__,_|_|  \__,_|_| |_|\___\___|
 "         |_|   |_|
-
-" fen: enable folds by default. Can be swiftly disabled with 'zi'.
-set foldenable
-
-" fdm: sets the default folding behaviour.
-set foldmethod=syntax
-
-" fdls: the level of nested folds that will be closed initially.
-set foldlevelstart=4
-
-" foldcolumn: Use a 0 characters wide column to display folding information.
-set fdc=0
 
 " laststatus: Show the statusbar always, not only on last window
 set ls=2
