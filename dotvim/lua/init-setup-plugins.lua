@@ -293,7 +293,20 @@ end
 -- MiniPick
 ------------------------------------------------------------------------------
 MiniPick = require('mini.pick')
-MiniPick.setup()
+MiniPick.setup({
+    mappings = {
+        copy = {
+            char = '<C-y>',
+            func = function()
+                local item = MiniPick.get_picker_matches().current
+                if item then
+                    local text = type(item) == 'string' and item or item.text
+                    vim.fn.setreg('+', text)
+                end
+            end,
+        },
+    },
+})
 require('unilove.pick') -- Auto-registers in MiniPick.registry
 
 -- Contextual tips: show a random mini.pick usage tip each time a picker opens.
