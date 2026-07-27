@@ -1,42 +1,42 @@
+.PHONY: all roger-push-config setup-unix setup-unix-extras
+
 all:
 	@echo "This Makefile isn't intended to build anything."
 	@echo "Run 'make setup-unix' to setup the configuration."
 
-windows-push-vim-config:
-	rsync -av --delete --exclude=.git --exclude=gnupg.vim --exclude-from=ignore-patterns ./dotvim/ /cygdrive/c/vimfiles/
-
 roger-push-config:
 	rsync -avz --delete --exclude=.git --exclude-from=ignore-patterns --exclude=spell ./ roger:./configs
 
-# Setup for "everything" except Vim.
+# Setup for "everything" except the submodules or anything "heavy".
 setup-unix:
-	ln -sf ${PWD}/bashrc ~/.bashrc
-	ln -sf ${PWD}/aliases ~/.aliases
-	ln -sf ${PWD}/environment ~/.environment
-	test -d ~/.kde/ && test -d ~/.kde/env || mkdir -p ~/.kde/env/
-	ln -sf ${PWD}/environment ~/.kde/env/environment.sh
+	ln -sf $(CURDIR)/bashrc ~/.bashrc
+	ln -sf $(CURDIR)/aliases ~/.aliases
+	ln -sf $(CURDIR)/environment ~/.environment
+	@# I don't think this is needed anymore. Kept just in case I regret it later.
+	@# test -d ~/.kde/ && test -d ~/.kde/env || mkdir -p ~/.kde/env/
+	@# ln -sf $(CURDIR)/environment ~/.kde/env/environment.sh
 	@# This config is for git to modify at will, so is only copied. Is where the
 	@# user name and email can be set to each ones values.
-	cp -f ${PWD}/gitconfig ~/.gitconfig
+	cp -f $(CURDIR)/gitconfig ~/.gitconfig
 	@# This is not changed by "git config --global", so it can be under version
 	@# control, and improved by hand like the other files.
-	ln -sf ${PWD}/gitconfig.extra ~/.gitconfig.extra
-	ln -sf ${PWD}/ignore-patterns ~/.ignore-patterns
-	ln -sf ${PWD}/screenrc ~/.screenrc
-	ln -sf ${PWD}/inputrc ~/.inputrc
-	ln -sf ${PWD}/tmux.conf ~/.tmux.conf
-	ln -sf ${PWD}/gemrc ~/.gemrc
+	ln -sf $(CURDIR)/gitconfig.extra ~/.gitconfig.extra
+	ln -sf $(CURDIR)/ignore-patterns ~/.ignore-patterns
+	ln -sf $(CURDIR)/screenrc ~/.screenrc
+	ln -sf $(CURDIR)/inputrc ~/.inputrc
+	ln -sf $(CURDIR)/tmux.conf ~/.tmux.conf
+	ln -sf $(CURDIR)/gemrc ~/.gemrc
 	test -d ~/.ssh || mkdir ~/.ssh/
-	ln -sf ${PWD}/sshconfig ~/.ssh/config
-	@# Set the symbolic links for vim, but not the submodules for plugins.
-	test -L ~/.vim || ln -sf ${PWD}/dotvim ~/.vim
+	test -d ~/.ssh/config.d || mkdir ~/.ssh/config.d
+	ln -sf $(CURDIR)/sshconfig ~/.ssh/config
+	@# Set the symbolic links for Neovim, but not the submodules for plugins.
 	test -d ~/.config || mkdir ~/.config
-	test -L ~/.config/nvim || ln -sf ${PWD}/dotvim ~/.config/nvim
+	test -L ~/.config/nvim || ln -sf $(CURDIR)/dotvim ~/.config/nvim
 	# https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else
 	@echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
 
 
-setup-unix-vim: setup-unix
+setup-unix-extras: setup-unix
 	@# Just in case I forgot to use --recursive.
 	git submodule update --init
 	git x-submodule-attach
