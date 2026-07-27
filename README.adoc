@@ -261,6 +261,21 @@ the will or capacity to improve their plugins' startup impact.
 * `vim.opt` is a more structured approach (has functions like `append()`,
   `prepend()`, `remove()` and `get()` to manipulate the values easily)
 
+All of this are working examples of how to use the new options in a more
+structured way instead of strings:
+
+    lua vim.opt.listchars:append({ trail = '_'})
+    lua vim.opt.listchars:remove('trail')
+    lua vim.opt.listchars:remove({'trail', 'lead'})
+    lua vim.opt.listchars = vim.opt.listchars + { trail = 'x'}
+
+LuaJIT 3.0 gained some syntax extensions (and 2.1 got some backported). Those
+include the "compound operators" like `+=`, so the last line could eventually be
+even become simpler (if Neovim adopts such version and one can assume the risk
+of incompatibility):
+
+    lua vim.opt.listchars += { trail = 'x'}
+
 === Autocommands and groups
 
 To prevent issues when sourcing again a `.vimrc`, it used to be standard to
