@@ -38,9 +38,6 @@
 	path = dotvim/bundle/qmake
 	url = https://github.com/suy/vim-qmake.git
 	pushurl = git@github.com:suy/vim-qmake.git
-[submodule "dotvim/bundle/markdown"]
-	path = dotvim/bundle/markdown
-	url = https://github.com/tpope/vim-markdown.git
 [submodule "dotvim/bundle/altr"]
 	path = dotvim/bundle/altr
 	url = https://github.com/kana/vim-altr.git
