@@ -93,30 +93,6 @@ let g:markdown_folding=1
 
 
 
-" Submode. "{{{
-" Raise the timeout length in submodes a little bit (default is timeoutlen).
-let g:submode_timeoutlen=3000
-
-" Configuration for the submode plugin.
-runtime autoload/submode.vim
-" FIXME: For some reason submode fails with Neovim 0.8. Figure out what's wrong.
-if exists('*submode#map') && v:lua.vim.version().minor < 8
-	" Submode for resizing the window.
-	call submode#enter_with('resize-window', 'n', '', '<C-W>+', '<C-W>+')
-	call submode#enter_with('resize-window', 'n', '', '<C-W>-', '<C-W>-')
-	call submode#enter_with('resize-window', 'n', '', '<C-W>>', '<C-W>>')
-	call submode#enter_with('resize-window', 'n', '', '<C-W><', '<C-W><')
-	call submode#map('resize-window', 'n', '', '+', '<C-W>+')
-	call submode#map('resize-window', 'n', '', '-', '<C-W>-')
-	call submode#map('resize-window', 'n', '', '<', '<C-W><')
-	call submode#map('resize-window', 'n', '', '>', '<C-W>>')
-endif
-"}}}
-
-" }}}
-
-
-
 """
 """ TODO: convert this into a plugin, or find one equivalent.
 """
