@@ -475,6 +475,7 @@ MiniStarter = require('mini.starter')
 -- Helper that matches a name with patterns of file paths to ignore.
 local function ignore_file(name)
     local ignorable_files = {
+        -- TODO: fine tune this, specially once "bundle" is no more.
         'COMMIT_EDITMSG', '.git/index', '/tmp/.+', 'bundle/.+/doc',
     }
     for _, pattern in ipairs(ignorable_files) do
@@ -485,14 +486,18 @@ local function ignore_file(name)
     return false
 end
 
--- Filter the default list of MiniStarter.sections.recent_files.
+-- Filter the default list of `MiniStarter.sections.recent_files`. Request more
+-- than needed, filter out ignorable files, then cap at 9 for easy activation.
 local function filtered_recent_files(current_only)
     return function()
-        local raw = MiniStarter.sections.recent_files(10, current_only)()
+        local raw = MiniStarter.sections.recent_files(15, current_only)()
         local result = {}
         for _, element in ipairs(raw) do
             if not ignore_file(element.name) then
                 table.insert(result, element)
+                if #result == 9 then
+                    break
+                end
             end
         end
         return result
