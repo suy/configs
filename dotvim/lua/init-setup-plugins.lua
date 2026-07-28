@@ -563,6 +563,7 @@ MiniStarter.setup({
     items = {
         MiniStarter.sections.builtin_actions(),
         { name = 'Git status', action = 'G', section = 'Builtin actions' },
+        { name = 'MiniPick menu', action = mini_pick_menu, section = 'Builtin actions' },
         recent_repositories,
         filtered_recent_files(true),
         filtered_recent_files(false),
