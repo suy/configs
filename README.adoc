@@ -358,6 +358,7 @@ tweak in my vimrc. Here are some notes for self reference:
 
 Evaluate the following plugins:
 
+* https://github.com/yuja/tree-sitter-qmljs
 * https://github.com/Prgebish/sigil.nvim Prettify math symbols (and fix movement)
 * https://github.com/brianhuster/live-preview.nvim (preview AsciiDoc as you type)
 * https://github.com/nvimtools/hydra.nvim (submode alternative, maintained fork)
