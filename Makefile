@@ -31,7 +31,7 @@ setup-unix:
 	ln -sf $(CURDIR)/sshconfig ~/.ssh/config
 	@# Set the symbolic links for Neovim, but not the submodules for plugins.
 	test -d ~/.config || mkdir ~/.config
-	test -L ~/.config/nvim || ln -sf $(CURDIR)/dotvim ~/.config/nvim
+	test -L ~/.config/nvim || ln -sf $(CURDIR)/nvim ~/.config/nvim
 	# https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else
 	@echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
 

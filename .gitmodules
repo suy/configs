@@ -1,102 +1,99 @@
-[submodule "dotvim/bundle/fugitive"]
-	path = dotvim/bundle/fugitive
+[submodule "nvim/pack/plugins/start/fugitive"]
+	path = nvim/pack/plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "dotvim/bundle/unimpaired"]
-	path = dotvim/bundle/unimpaired
+[submodule "nvim/pack/plugins/start/unimpaired"]
+	path = nvim/pack/plugins/start/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "dotvim/bundle/surround"]
-	path = dotvim/bundle/surround
+[submodule "nvim/pack/plugins/start/surround"]
+	path = nvim/pack/plugins/start/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "dotvim/pack/graveyard/opt/commentary"]
-	path = dotvim/pack/graveyard/opt/commentary
+[submodule "nvim/pack/graveyard/opt/commentary"]
+	path = nvim/pack/graveyard/opt/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "dotvim/pack/graveyard/opt/easymotion"]
-	path = dotvim/pack/graveyard/opt/easymotion
+[submodule "nvim/pack/graveyard/opt/easymotion"]
+	path = nvim/pack/graveyard/opt/easymotion
 	url = https://github.com/easymotion/vim-easymotion.git
-[submodule "dotvim/bundle/repeat"]
-	path = dotvim/bundle/repeat
+[submodule "nvim/pack/plugins/start/repeat"]
+	path = nvim/pack/plugins/start/repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule "dotvim/bundle/pathogen"]
-	path = dotvim/bundle/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-[submodule "dotvim/pack/graveyard/opt/pasta"]
-	path = dotvim/pack/graveyard/opt/pasta
+[submodule "nvim/pack/graveyard/opt/pasta"]
+	path = nvim/pack/graveyard/opt/pasta
 	url = https://github.com/sickill/vim-pasta.git
-[submodule "dotvim/bundle/ragtag"]
-	path = dotvim/bundle/ragtag
+[submodule "nvim/pack/plugins/start/ragtag"]
+	path = nvim/pack/plugins/start/ragtag
 	url = https://github.com/tpope/vim-ragtag.git
-[submodule "dotvim/bundle/exjumplist"]
-	path = dotvim/bundle/exjumplist
+[submodule "nvim/pack/plugins/start/exjumplist"]
+	path = nvim/pack/plugins/start/exjumplist
 	url = https://github.com/kana/vim-exjumplist.git
-[submodule "dotvim/bundle/eunuch"]
-	path = dotvim/bundle/eunuch
+[submodule "nvim/pack/plugins/start/eunuch"]
+	path = nvim/pack/plugins/start/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "dotvim/bundle/qmake"]
-	path = dotvim/bundle/qmake
+[submodule "nvim/pack/plugins/start/qmake"]
+	path = nvim/pack/plugins/start/qmake
 	url = https://github.com/suy/vim-qmake.git
 	pushurl = git@github.com:suy/vim-qmake.git
-[submodule "dotvim/bundle/altr"]
-	path = dotvim/bundle/altr
+[submodule "nvim/pack/plugins/start/altr"]
+	path = nvim/pack/plugins/start/altr
 	url = https://github.com/kana/vim-altr.git
-[submodule "dotvim/bundle/editvar"]
-	path = dotvim/bundle/editvar
+[submodule "nvim/pack/plugins/start/editvar"]
+	path = nvim/pack/plugins/start/editvar
 	url = https://github.com/thinca/vim-editvar.git
-[submodule "dotvim/bundle/niceblock"]
-	path = dotvim/bundle/niceblock
+[submodule "nvim/pack/plugins/start/niceblock"]
+	path = nvim/pack/plugins/start/niceblock
 	url = https://github.com/kana/vim-niceblock.git
-[submodule "dotvim/bundle/scriptease"]
-	path = dotvim/bundle/scriptease
+[submodule "nvim/pack/plugins/start/scriptease"]
+	path = nvim/pack/plugins/start/scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule "dotvim/bundle/rsi"]
-	path = dotvim/bundle/rsi
+[submodule "nvim/pack/plugins/start/rsi"]
+	path = nvim/pack/plugins/start/rsi
 	url = https://github.com/tpope/vim-rsi.git
-[submodule "dotvim/bundle/abolish"]
-	path = dotvim/bundle/abolish
+[submodule "nvim/pack/plugins/start/abolish"]
+	path = nvim/pack/plugins/start/abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "dotvim/bundle/qml"]
-	path = dotvim/bundle/qml
+[submodule "nvim/pack/plugins/start/qml"]
+	path = nvim/pack/plugins/start/qml
 	url = https://github.com/peterhoeg/vim-qml.git
-[submodule "dotvim/pack/graveyard/opt/context-commentstring"]
-	path = dotvim/pack/graveyard/opt/context-commentstring
+[submodule "nvim/pack/graveyard/opt/context-commentstring"]
+	path = nvim/pack/graveyard/opt/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
-[submodule "dotvim/bundle/lexima"]
-	path = dotvim/bundle/lexima
+[submodule "nvim/pack/plugins/start/lexima"]
+	path = nvim/pack/plugins/start/lexima
 	url = https://github.com/cohama/lexima.vim.git
-[submodule "dotvim/pack/graveyard/opt/diff-enhanced"]
-	path = dotvim/pack/graveyard/opt/diff-enhanced
+[submodule "nvim/pack/graveyard/opt/diff-enhanced"]
+	path = nvim/pack/graveyard/opt/diff-enhanced
 	url = https://github.com/chrisbra/vim-diff-enhanced.git
-[submodule "dotvim/bundle/fugitive-gitlab-gbrowse"]
-	path = dotvim/bundle/fugitive-gitlab-gbrowse
+[submodule "nvim/pack/plugins/start/fugitive-gitlab-gbrowse"]
+	path = nvim/pack/plugins/start/fugitive-gitlab-gbrowse
 	url = https://github.com/shumphrey/fugitive-gitlab.vim.git
-[submodule "dotvim/bundle/auto-git-diff"]
-	path = dotvim/bundle/auto-git-diff
+[submodule "nvim/pack/plugins/start/auto-git-diff"]
+	path = nvim/pack/plugins/start/auto-git-diff
 	url = https://github.com/hotwatermorning/auto-git-diff.git
-[submodule "dotvim/pack/graveyard/opt/lspconfig"]
-	path = dotvim/pack/graveyard/opt/lspconfig
+[submodule "nvim/pack/graveyard/opt/lspconfig"]
+	path = nvim/pack/graveyard/opt/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
 	branch = v2.7.0
-[submodule "dotvim/pack/colorschemes/opt/gruvbox8"]
-	path = dotvim/pack/colorschemes/opt/gruvbox8
+[submodule "nvim/pack/colorschemes/opt/gruvbox8"]
+	path = nvim/pack/colorschemes/opt/gruvbox8
 	url = https://github.com/lifepillar/vim-gruvbox8
-[submodule "dotvim/pack/colorschemes/opt/solarized8"]
-	path = dotvim/pack/colorschemes/opt/solarized8
+[submodule "nvim/pack/colorschemes/opt/solarized8"]
+	path = nvim/pack/colorschemes/opt/solarized8
 	url = https://github.com/lifepillar/vim-solarized8
-[submodule "dotvim/pack/plugins/start/indent-blankline"]
-	path = dotvim/pack/plugins/start/indent-blankline
+[submodule "nvim/pack/plugins/start/indent-blankline"]
+	path = nvim/pack/plugins/start/indent-blankline
 	url = https://github.com/lukas-reineke/indent-blankline.nvim
-[submodule "dotvim/bundle/infinity-engine"]
-	path = dotvim/bundle/infinity-engine
+[submodule "nvim/pack/plugins/start/infinity-engine"]
+	path = nvim/pack/plugins/start/infinity-engine
 	url = https://gitlab.com/moebiusproject/vim-infinity-engine
-[submodule "dotvim/pack/plugins/start/mini.nvim"]
-    path = dotvim/pack/plugins/start/mini.nvim
-    url = https://github.com/suy/mini.nvim
-    pushurl = git@github.com:suy/mini.nvim.git
-    branch = custom
-[submodule "dotvim/pack/plugins/opt/helpful"]
-	path = dotvim/pack/plugins/opt/helpful
+[submodule "nvim/pack/plugins/start/mini.nvim"]
+	path = nvim/pack/plugins/start/mini.nvim
+	url = https://github.com/suy/mini.nvim
+	pushurl = git@github.com:suy/mini.nvim.git
+	branch = custom
+[submodule "nvim/pack/plugins/opt/helpful"]
+	path = nvim/pack/plugins/opt/helpful
 	url = https://github.com/tweekmonster/helpful.vim
-[submodule "dotvim/pack/plugins/start/unilove.nvim"]
-	path = dotvim/pack/plugins/start/unilove.nvim
+[submodule "nvim/pack/plugins/start/unilove.nvim"]
+	path = nvim/pack/plugins/start/unilove.nvim
 	url = https://github.com/suy/unilove.nvim
 	pushurl = git@github.com:suy/unilove.nvim.git
 [submodule "lua-language-server-addons/busted"]
@@ -110,6 +107,6 @@
 [submodule "lua-language-server-addons/xmake"]
 	path = lua-language-server-addons/xmake
 	url = https://github.com/LelouchHe/xmake-luals-addon
-[submodule "dotvim/pack/plugins/start/agentic.nvim"]
-	path = dotvim/pack/plugins/start/agentic.nvim
+[submodule "nvim/pack/plugins/start/agentic.nvim"]
+	path = nvim/pack/plugins/start/agentic.nvim
 	url = https://github.com/carlos-algms/agentic.nvim

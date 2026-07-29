@@ -1,32 +1,3 @@
-"  ____  _             _         _       _ _
-" |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
-" | |_) | | | | |/ _` | | '_ \  | | '_ \| | __|
-" |  __/| | |_| | (_| | | | | | | | | | | | |_
-" |_|   |_|\__,_|\__, |_|_| |_| |_|_| |_|_|\__|
-"                |___/
-" {{{
-
-" Pathogen is a freaking awesome plugin for managing other plugins where each
-" one is in a directory of it's own, instead of all mixed in the same. This
-" allows to install, remove and update your plugins with lots of ease. You just
-" have to put them in a directory that pathogen can find and initialize. By
-" default is '~/.vim/bundle' (or '~\vimfiles\bundle' under windows). First, load
-" the pathogen plugin itself from its own directory.
-runtime bundle/pathogen/autoload/pathogen.vim
-
-" Initialize all the plugins by calling pathogen, but only if it exists, since
-" I might be using this vimrc but without all the runtime files on '~/.vim'.
-if exists('*pathogen#infect')
-	execute pathogen#infect()
-	" Equivalent to :Helptags (which generates the help tags for all plugins),
-	" but better not to run it at startup/reload, since it is too slow.
-	" call pathogen#helptags()
-	" helptags ALL
-endif
-
-" }}}
-
-
 "  ____  _             _                  _
 " |  _ \| |_   _  __ _(_)_ __    ___  ___| |_ _   _ _ __
 " | |_) | | | | |/ _` | | '_ \  / __|/ _ \ __| | | | '_ \

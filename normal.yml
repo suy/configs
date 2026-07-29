@@ -27,7 +27,7 @@ windows:
         - git fetch --recurse-submodules=yes
         - git x-submodule-behind
     - tools:
-        - cd ~/personal/configs/dotvim/bundle/
+        - cd ~/personal/configs/nvim/pack/plugins/
     - misc:
         # - cd ~/personal/misc/
         - cd ~/
