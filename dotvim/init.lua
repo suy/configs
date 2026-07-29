@@ -1,4 +1,39 @@
 --------------------------------------------------------------------------------
+-- ┏━┓┏━┓┏━╸╻  ╻ ╻╺┳┓┏━╸
+-- ┣━┛┣┳┛┣╸ ┃  ┃ ┃ ┃┃┣╸
+-- ╹  ╹┗╸┗━╸┗━╸┗━┛╺┻┛┗━╸
+--------------------------------------------------------------------- Prelude --
+
+-- I call "prelude" anything that has to be done early in the configuration
+-- because is a dependency of something that comes later.
+--
+-- An easy example are the leader keys: global variables that need to be defined
+-- first to be the "prefix" of some mappings. If it gets changed later, the
+-- mappings would have to be redone!
+--
+-- A more complex one is detecting if a certain tool is installed, so the editor
+-- can enable some features conditionally. Likewise with detecting the OS,
+-- external settings (keybard, monitor related), etc.
+
+-- Start the random seed, just in case is not initialized properly natively.
+math.randomseed(os.time())
+
+-- Set the leader variables early, so they can be reliably used in mappings.
+vim.g.mapleader = ','
+vim.g.maplocalleader = '_'
+
+-- TODO: The new loader caches compiled Lua modules for faster startup. Still
+-- marked as unstable/experimental in the docs, so disabled for now.
+-- vim.loader.enable()
+
+-- A global variable reserved as a sort of convenience API for some of the
+-- configuration, like when setting repeatable mappings in `init-mappings.lua`.
+Init = {}
+
+-- Autocommand group for things in my config.
+Init.autocmd_group = vim.api.nvim_create_augroup('Init', { clear = true })
+
+--------------------------------------------------------------------------------
 -- ┏━╸┏━┓┏━┓┏┳┓┏━┓╺┳╸╺┳╸╻┏┓╻┏━╸
 -- ┣╸ ┃ ┃┣┳┛┃┃┃┣━┫ ┃  ┃ ┃┃┗┫┃╺┓
 -- ╹  ┗━┛╹┗╸╹ ╹╹ ╹ ╹  ╹ ╹╹ ╹┗━┛
@@ -237,3 +272,18 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+--------------------------------------------------------------------------------
+-- ┏━┓╺┳╸╻ ╻┏━╸┏━┓
+-- ┃ ┃ ┃ ┣━┫┣╸ ┣┳┛
+-- ┗━┛ ╹ ╹ ╹┗━╸╹┗╸
+----------------------------------------------------------------------- Other --
+
+-- Plugin loading goes in separate files for convenience and because then as
+-- root the loading of them can be isolated. Minor security improvement.
+if vim.uv.getuid() ~= 0 then
+    require 'init-setup-plugins'
+    require 'init-lsp'
+end
+
+-- Source legacy Vim Script from the old `vimrc`.
+vim.cmd.source(vim.fn.stdpath('config') .. '/legacy.vim')

@@ -1,6 +1,3 @@
-lua require 'init-prelude'
-lua require 'init-options'
-
 "  ____  _             _         _       _ _
 " |  _ \| |_   _  __ _(_)_ __   (_)_ __ (_) |_
 " | |_) | | | | |/ _` | | '_ \  | | '_ \| | __|
@@ -8,20 +5,6 @@ lua require 'init-options'
 " |_|   |_|\__,_|\__, |_|_| |_| |_|_| |_|_|\__|
 "                |___/
 " {{{
-
-" Set and create specific directories on $HOME and similar to avoid littering
-" the filesystem with Vim specific stuff at the root level. Do this early to
-" allow plugins to be configured in terms of this directory.
-let s:data_dir = has('win32') ? '$APPDATA/Vim' :
-			\ match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' :
-			\ empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-let s:data_dir = expand(s:data_dir)
-
-if exists("*mkdir")
-	if !isdirectory(s:data_dir)
-		call mkdir(s:data_dir, "p")
-	endif
-endif
 
 " Pathogen is a freaking awesome plugin for managing other plugins where each
 " one is in a directory of it's own, instead of all mixed in the same. This
@@ -31,19 +14,6 @@ endif
 " the pathogen plugin itself from its own directory.
 runtime bundle/pathogen/autoload/pathogen.vim
 
-" You can disable a plugin (but keep the files around) renaming the directory to
-" a name with a trailing '~'. In my case I use git submodules, so renaming is
-" not convenient. I use the g:pathogen_blacklist variable (with a helper
-" function), to disable plugins conditionally. To disable plugins without
-" changing the configuration, use the $VIMBLACKLIST environment variable.
-function! s:disable(...)
-	for plugin in a:000
-		call add(g:pathogen_blacklist, plugin)
-	endfor
-endfunction
-
-let g:pathogen_blacklist = []
-
 " Initialize all the plugins by calling pathogen, but only if it exists, since
 " I might be using this vimrc but without all the runtime files on '~/.vim'.
 if exists('*pathogen#infect')
@@ -52,12 +22,6 @@ if exists('*pathogen#infect')
 	" but better not to run it at startup/reload, since it is too slow.
 	" call pathogen#helptags()
 	" helptags ALL
-endif
-
-" This is copied from sensible.vim. There is not any updated matchit version.
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-	runtime! macros/matchit.vim
 endif
 
 " }}}
@@ -70,16 +34,6 @@ endif
 " |_|   |_|\__,_|\__, |_|_| |_| |___/\___|\__|\__,_| .__/
 "                |___/                             |_|
 " {{{
-
-" TODO: The setup of the plugins is fine for now, but if I want to eventually
-" move to an init.lua that is usable standalone, without plugins (e.g. for root
-" user), like this vimrc used to be, I would need to add a check on plugins
-" presence, then call this setup, or fallback to some manual settings. An
-" example of it is the statusline set (far) below. It used to check for Airline,
-" but now it checks for mini.nvim. That setting needs to be moved and grouped
-" with other ones, that are only done so conditionally as fallback.
-lua require 'init-setup-plugins'
-lua require 'init-lsp'
 
 " Fugitive mappings that restore previous mappings. We make them recursive, so
 " they trigger the new maps, which trigger the right fugitive function.
@@ -156,27 +110,11 @@ set showcmd
 " Use specific plugins and indentation of the filetype
 filetype plugin indent on
 
-" Ensure the swap and undo directories.
-if exists("*mkdir")
-	if !isdirectory(s:data_dir . "/undo")
-		call mkdir(s:data_dir . "/undo", "p")
-	endif
-	if !isdirectory(s:data_dir . "/swap")
-		call mkdir(s:data_dir . "/swap", "p")
-	endif
-endif
-
 " Save the undo history in a persistent file, not just while Vim is running.
 if has('persistent_undo')
 	set undofile
 	set undolevels=2000 " Double the number of undo levels.
-	let &undodir = s:data_dir . '/undo,.,/var/tmp,/tmp'
-	autocmd BufEnter /tmp/* setlocal noundofile
 endif
-
-
-" Save the swap files on a different directory.
-let &directory = s:data_dir . '/swap,.,/var/tmp,/tmp'
 
 " Save a lot more history
 set history=200
