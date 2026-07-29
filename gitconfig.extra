@@ -14,7 +14,7 @@
 	cp = cherry-pick
 	sg = diff --staged
 	oneline = log --format=oneline
-	HEAD = log -1 --format=oneline
+	head = log -1 --format='%C(auto)%H%d %s%nAuthor:    %an %ad%nCommitter: %cn %cd' --date=format:'%Y-%m-%d %H:%M:%S'
 	hard-upstream-reset = reset --hard @{u}
 	amend-branch-based-on = "!f() { git rebase -i $(git merge-base HEAD "$1"); }; f"
 	show-merge = "!f() { git diff "$1^" "$1"; }; f"
