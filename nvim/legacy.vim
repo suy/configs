@@ -165,7 +165,7 @@ set ruler
 " set statusline +=%2*0x%04B\ %*          "character under cursor
 
 " Set a fallback statusline, but only if mini.nvim is not present.
-if !empty(globpath(&packpath, 'pack/plugin/start/mini.nvim', 0, 1))
+if !empty(globpath(&packpath, 'pack/plugins/start/mini.nvim', 0, 1))
 	" Clear it first to start fresh each invocation
 	set statusline=
 	" Buffer name with 2 minimum width
