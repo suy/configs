@@ -11,6 +11,6 @@ local function fold_top_comment()
 end
 
 vim.api.nvim_create_autocmd('BufReadPost', {
-    group = Init.autocmd_group,
+    group = vim.api.nvim_create_augroup('foldcomments', { clear = true }),
     callback = fold_top_comment,
 })
