@@ -72,12 +72,6 @@
 	path = nvim/pack/graveyard/opt/lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
 	branch = v2.7.0
-[submodule "nvim/pack/colorschemes/opt/gruvbox8"]
-	path = nvim/pack/colorschemes/opt/gruvbox8
-	url = https://github.com/lifepillar/vim-gruvbox8
-[submodule "nvim/pack/colorschemes/opt/solarized8"]
-	path = nvim/pack/colorschemes/opt/solarized8
-	url = https://github.com/lifepillar/vim-solarized8
 [submodule "nvim/pack/plugins/start/indent-blankline"]
 	path = nvim/pack/plugins/start/indent-blankline
 	url = https://github.com/lukas-reineke/indent-blankline.nvim
@@ -110,3 +104,6 @@
 [submodule "nvim/pack/plugins/start/agentic.nvim"]
 	path = nvim/pack/plugins/start/agentic.nvim
 	url = https://github.com/carlos-algms/agentic.nvim
+[submodule "nvim/pack/colorschemes/start/catppuccin"]
+	path = nvim/pack/colorschemes/start/catppuccin
+	url = https://github.com/catppuccin/nvim

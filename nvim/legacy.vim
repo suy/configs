@@ -61,54 +61,6 @@ autocmd BufEnter /tmp/bash-fc.* if &filetype == 'sh' | :set tw=0 | endif
 " Trigger checktime to get updates on file change more often
 au FocusGained * :checktime
 
-" Set some things depending on the OS and the presence of a GUI
-if has("gui_running")
-	if !has('win32') && !has('mac')
-		set guifont=DejaVu\ Sans\ Mono\ 9
-		" TODO: support some kind of ".local" file that overrides this things.
-		if hostname() ==# 'rallo'
-			set guifont=DejaVu\ Sans\ Mono\ 12
-		endif
-	elseif has('win32')
-		set guifont=Consolas:h10:cANSI
-		set guifont=DejaVu_Sans_Mono:h10:cANSI
-	else
-		set guifont=DejaVu_Sans_Mono:h13
-	endif
-	set guioptions-=T " Get rid of the toolbar and the menu.
-	set guioptions-=m
-	set guioptions+=LlRrb " Get rid of scrollbars...
-	set guioptions-=LlRrb " ... for some reason requires 2 lines (???)
-	set background=dark
-else
-	try
-		colorscheme gruvbox8_hard
-	catch
-		colorscheme desert
-	endtry
-endif
-
-" Extra space (in pixels) between two lines (GUI only).
-set linespace=2
-
-" TODO: I don't even remember this, but I think this was the logic I wanted, and
-" it only works as it should with my pull request to NeovimQt. I would have to
-" look into the help of nvim-gui-shim, but that suggests ginit.vim.
-if has('nvim') && exists('g:GuiLoaded')
-	function! s:NeovimGuiSetup()
-		GuiLinespace 2
-		GuiFont DejaVu Sans Mono:h12
-		call GuiWindowMaximized(1)
-		colorscheme solarized8_flat
-	endfunction
-	augroup neovimguiattached
-		autocmd!
-		autocmd User NeovimGuiAttached call s:NeovimGuiSetup()
-		" Doesn't work to detect Neovim-Qt 0.2.15 (triggers on the TUI).
-		" autocmd UIEnter * call s:NeovimGuiSetup()
-	augroup END
-endif
-
 
 "  _  __                 _
 " | |/ /___ _   _    ___| |__   __ _ _ __   __ _  ___  ___

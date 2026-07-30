@@ -50,6 +50,44 @@ vim.keymap.set({ 'n', 'v' },
 
 
 --------------------------------------------------------------------------------
+-- Catppuccin colorscheme
+--------------------------------------------------------------------------------
+require('catppuccin').setup({
+    dim_inactive = {
+        enabled = true,
+        shade = 'dark',
+        percentage = 0.25,
+    },
+    auto_integrations = false,
+    integrations = {
+        cmp = false,
+        gitsigns = false,
+        nvimtree = false,
+        notify = false,
+        mini = {
+            enabled = true,
+        },
+    },
+    styles = {
+        comments = {},
+        conditionals = {},
+        miscs = {},
+    },
+    lsp_styles = {
+        virtual_text = {
+            errors = {},
+            hints = {},
+            warnings = {},
+            information = {},
+            ok = {},
+        },
+    },
+})
+vim.cmd.colorscheme('catppuccin-nvim')
+
+
+
+--------------------------------------------------------------------------------
 -- ident-blankline, AKA 'ibl'
 --------------------------------------------------------------------------------
 require('ibl').setup({

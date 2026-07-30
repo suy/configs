@@ -299,9 +299,15 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Plugin loading goes in separate files for convenience and because then as
 -- root the loading of them can be isolated. Minor security improvement.
-if vim.fn.has('windows') == 1 or vim.uv.getuid() ~= 0 then
+if vim.fn.has('win32') == 1 or vim.loop.getuid() ~= 0 then
     require 'init-setup-plugins'
     require 'init-lsp'
+else
+    -- Fall back to a colorscheme which doesn't require a plugin and looks good.
+    -- Try "unokai" first, or fall back to "desert", which is in older versions.
+    if not pcall(vim.cmd.colorscheme, 'unokai') then
+        vim.cmd.colorscheme('desert')
+    end
 end
 
 -- Source legacy Vim Script from the old `vimrc`.
