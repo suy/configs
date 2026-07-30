@@ -280,7 +280,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Plugin loading goes in separate files for convenience and because then as
 -- root the loading of them can be isolated. Minor security improvement.
-if vim.uv.getuid() ~= 0 then
+if vim.fn.has('windows') == 1 or vim.uv.getuid() ~= 0 then
     require 'init-setup-plugins'
     require 'init-lsp'
 end
