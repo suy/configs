@@ -33,6 +33,7 @@ Init = {}
 -- Autocommand group for things in my config.
 Init.autocmd_group = vim.api.nvim_create_augroup('Init', { clear = true })
 
+
 --------------------------------------------------------------------------------
 -- ┏━╸┏━┓┏━┓┏┳┓┏━┓╺┳╸╺┳╸╻┏┓╻┏━╸
 -- ┣╸ ┃ ┃┣┳┛┃┃┃┣━┫ ┃  ┃ ┃┃┗┫┃╺┓
@@ -82,6 +83,7 @@ vim.opt.formatoptions:append('j')
 -- which is the proper one to use, since 'wm' would make line formatting
 -- dependent on the size of the window.
 --vim.opt.wrapmargin = 5
+
 
 --------------------------------------------------------------------------------
 -- ╺┳╸┏━┓┏┓ ┏━┓
@@ -287,6 +289,7 @@ vim.api.nvim_create_autocmd('FileType', {
         end
     end,
 })
+
 
 --------------------------------------------------------------------------------
 -- ┏━┓╺┳╸╻ ╻┏━╸┏━┓
