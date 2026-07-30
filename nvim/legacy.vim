@@ -41,19 +41,6 @@ autocmd FileType fugitiveblame nmap <buffer> q gq
 "
 " {{{
 
-" Add some usual path directory for me.
-if (isdirectory('/home/alex/local/bin'))
-	let $PATH = '/home/alex/local/bin' . ':' . $PATH
-endif
-
-" Allow loading configuration files in the current directory. I've read the
-" help, and this seems worth the risk/power tradeoff, as files need to be
-" trusted first, and I only expect to ever run simple files from myself.
-set exrc
-
-" Syntax highlighting reduced to some reasonable column.
-set synmaxcol=250
-
 if has("autocmd")
 	augroup vimrc
 		" Clear all autocommands in the group to avoid defining them multiple
@@ -71,129 +58,8 @@ endif
 " For the `fc` (fix command) in bash
 autocmd BufEnter /tmp/bash-fc.* if &filetype == 'sh' | :set tw=0 | endif
 
-" Disable autoselection of the visual region to the clipboard.
-set guioptions-=a
-set clipboard-=autoselect
-
-" Show commands as you type them
-set showcmd
-
-" Use specific plugins and indentation of the filetype
-filetype plugin indent on
-
-" Save the undo history in a persistent file, not just while Vim is running.
-if has('persistent_undo')
-	set undofile
-	set undolevels=2000 " Double the number of undo levels.
-endif
-
-" Save a lot more history
-set history=200
-
-" Better to be noisy than find something unexpected.
-set noautoread
-
 " Trigger checktime to get updates on file change more often
 au FocusGained * :checktime
-
-" Set Blowfish for encryption method, but only on Vim >=7.3.
-if has('cryptv') && v:version >= 703 | set cryptmethod=blowfish | endif
-
-" Save and restore g:UPPERCASE variables in viminfo.
-if !empty(&viminfo)
-	set viminfo^=!
-endif
-
-" Change diff options. Careful don't overwrite the defaults, which include
-" `internal`, which is essential in Windows, as there is no `diff.exe` anymore.
-set diffopt+=vertical
-
-" Neovim specific tweaks.
-if has('nvim')
-	" Unfortunately, is quite problematic with Konsole.
-	set guicursor=
-	" Still under test
-	let $VISUAL = "nvr --remote-tab-wait +'set bufhidden=delete'"
-
-	" :h vim.highlight.on_yank
-	autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout=350})
-endif
-
-
-"  _   _ _       _     _ _       _     _   _
-" | | | (_) __ _| |__ | (_) __ _| |__ | |_(_)_ __   __ _
-" | |_| | |/ _` | '_ \| | |/ _` | '_ \| __| | '_ \ / _` |
-" |  _  | | (_| | | | | | | (_| | | | | |_| | | | | (_| |
-" |_| |_|_|\__, |_| |_|_|_|\__, |_| |_|\__|_|_| |_|\__, |
-"          |___/           |___/                   |___/
-
-" Enable highlight of lua, python and ruby in vimscript.
-let g:vimsyn_embed= "lPr"
-
-" Activates syntax highlighting, but keeping current color settings. From the
-" documentation: "If you want Vim to overrule your settings with the
-" defaults, use ':syntax on'".
-syntax enable
-
-
-"
-"    / \   _ __  _ __   ___  __ _ _ __ __ _ _ __   ___ ___
-"   / _ \ | '_ \| '_ \ / _ \/ _` | '__/ _` | '_ \ / __/ _ \
-"  / ___ \| |_) | |_) |  __/ (_| | | | (_| | | | | (_|  __/
-" /_/   \_\ .__/| .__/ \___|\__,_|_|  \__,_|_| |_|\___\___|
-"         |_|   |_|
-
-" laststatus: Show the statusbar always, not only on last window
-set ls=2
-
-" For default statusline.
-set ruler
-
-" Customize the statusbar. The default is something like this (with ruler):
-"set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-" An example using several colors
-" set statusline=
-" set statusline +=%1*\ %n\ %*            "buffer number
-" set statusline +=%5*%{&ff}%*            "file format
-" set statusline +=%3*%y%*                "file type
-" set statusline +=%4*\ %<%F%*            "full path
-" set statusline +=%2*%m%*                "modified flag
-" set statusline +=%1*%=%5l%*             "current line
-" set statusline +=%2*/%L%*               "total lines
-" set statusline +=%1*%4c\ %*             "column number
-" set statusline +=%2*0x%04B\ %*          "character under cursor
-
-" Set a fallback statusline, but only if mini.nvim is not present.
-if !empty(globpath(&packpath, 'pack/plugins/start/mini.nvim', 0, 1))
-	" Clear it first to start fresh each invocation
-	set statusline=
-	" Buffer name with 2 minimum width
-	set statusline+=%2.n
-	" Full path, but truncate the statusbar here if it's too long
-	set statusline+=\ %<%F
-	" a space, User1 color, modified flag, restore color
-	set statusline+=\ %1*%m%*
-	" Git information from fugitive plugin.
-	if exists('fugitive#statusline')
-		set statusline+=\ %{fugitive#statusline()}
-	endif
-	" Push everything else to the right
-	set statusline+=\ %=
-	" Modified, RO, help, preview, quickfix
-	" set statusline+=\ %R%H%W%q " 'q' is not available in 7.2??
-	set statusline+=\ %R%H%W
-	" Filetype in User1 color
-	set statusline+=\ %1*%y%*
-	" Ruler
-	set statusline+=\ %-14.(%l,%c%V%)
-	" Percentage
-	set statusline+=\ %P
-endif
-
-if has('termguicolors') " Both Vim8 and Neovim support this
-	set termguicolors
-endif
 
 " Set some things depending on the OS and the presence of a GUI
 if has("gui_running")
@@ -376,10 +242,6 @@ nmap <leader>B<space> :ls!<CR>:b<space>
 
 " Update the diff highlighting.
 nmap <leader>du :diffupdate<CR>
-
-" Restore original fold settings (FIXME: this duplicates the values from this
-" very same file, and is not variable).
-nmap <leader>fo :set foldmethod=syntax foldlevel=4 foldcolumn=4<Return>
 
 " Substitute what's under the cursor, or current selection.
 " FIXME: escape regex character, like selecting /foo/bar and the slashes are there

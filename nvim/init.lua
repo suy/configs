@@ -162,20 +162,6 @@ vim.opt.showmatch = true
 
 
 --------------------------------------------------------------------------------
--- ┏┳┓╻┏━┓┏━╸
--- ┃┃┃┃┗━┓┃
--- ╹ ╹╹┗━┛┗━╸
------------------------------------------------------------------------- Misc --
-
--- sps: Limit suggestions when spell checking with z=.
-vim.opt.spellsuggest = 'best,15'
--- ut: Make swap file saves and CursorHold trigger faster (default is 4000).
-vim.opt.updatetime = 1000
--- tm: Time between keystrokes for mapped key sequences (default is 1000).
-vim.opt.timeoutlen = 1600
-
-
---------------------------------------------------------------------------------
 -- ┏━┓┏━┓┏━┓┏━╸┏━┓┏━┓┏━┓┏┓╻┏━╸┏━╸
 -- ┣━┫┣━┛┣━┛┣╸ ┣━┫┣┳┛┣━┫┃┗┫┃  ┣╸
 -- ╹ ╹╹  ╹  ┗━╸╹ ╹╹┗╸╹ ╹╹ ╹┗━╸┗━╸
@@ -227,6 +213,36 @@ vim.opt.foldlevelstart = 4
 -- fdc: Width of the column that displays folding information. It's perhaps more
 -- useful for debugging than for regular use, so disabled by default.
 -- vim.opt.foldcolumn = 0 -- Already the default.
+
+
+--------------------------------------------------------------------------------
+-- ┏┳┓╻┏━┓┏━╸
+-- ┃┃┃┃┗━┓┃
+-- ╹ ╹╹┗━┛┗━╸
+------------------------------------------------------------------------ Misc --
+
+-- Allow loading configuration files in the current directory. I've read the
+-- help, and this seems worth the risk/power tradeoff, as files need to be
+-- trusted first, and I only expect to ever run simple files from myself.
+vim.opt.exrc = true
+-- sps: Limit suggestions when spell checking with z=.
+vim.opt.spellsuggest = 'best,15'
+-- smc: Reduce syntax highlight to a reasonable column, for performance.
+vim.opt.synmaxcol=250
+-- ut: Make swap file saves and CursorHold trigger faster (default is 4000).
+vim.opt.updatetime = 1000
+-- tm: Time between keystrokes for mapped key sequences (default is 1000).
+vim.opt.timeoutlen = 1600
+-- ar: Don't auto-open files changed outside, even in unchanged buffers. Better
+-- the editor nagging you and being in control than some unfortunate mistake.
+vim.opt.autoread = false
+-- udf: Save the undo history in a file, so that it persists across restarts.
+vim.opt.undofile = true
+-- ul. Double the number of undo levels.
+vim.opt.undolevels = 2000
+-- Change diff options. Careful don't overwrite the defaults, which include
+-- `internal`, which is essential in Windows, as there is no `diff.exe` anymore.
+vim.opt.diffopt:append('vertical')
 
 
 --------------------------------------------------------------------------------
