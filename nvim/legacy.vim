@@ -281,40 +281,6 @@ function! s:RemoveTrailingWhiteSpace()
 endfunction
 
 
-"   ____                      _      _   _
-"  / ___|___  _ __ ___  _ __ | | ___| |_(_) ___  _ __
-" | |   / _ \| '_ ` _ \| '_ \| |/ _ \ __| |/ _ \| '_ \
-" | |__| (_) | | | | | | |_) | |  __/ |_| | (_) | | | |
-"  \____\___/|_| |_| |_| .__/|_|\___|\__|_|\___/|_| |_|
-"                      |_|
-
-" A moderately simple alternative to the SuperTab plugin.
-function! s:CleverTab()
-	" Use tab for going forward in the pop up menu (pum).
-	if pumvisible()
-		return "\<C-n>"
-	" Check if the cursor is at the beginning of line or after whitespace
-	elseif col('.') == 1 || strpart( getline('.'), 0, col('.')-1 ) =~ '\s$'
-		return "\<Tab>"
-	else
-		" If the previous text looks like a path, use filename completion.
-		if strpart( getline('.'), 0, col('.')-1 ) =~ '/$'
-			return "\<C-x>\<C-f>"
-		" Use omnifunc if available
-		elseif &omnifunc != ''
-			return "\<C-X>\<C-O>"
-		" Otherwise use the dictionary completion
-		elseif &dictionary != ''
-			return "\<C-K>"
-		else
-			return "\<C-P>"
-		endif
-	endif
-endfunction
-inoremap <silent> <Tab> <C-R>=<SID>CleverTab()<CR>
-inoremap <silent> <S-Tab> <C-p>
-
-
 "  _______                 _             _
 " |__   __|               (_)           | |
 "   | | ___ _ __ _ __ ___  _ _ __   __ _| |
