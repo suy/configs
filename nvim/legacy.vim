@@ -5,8 +5,6 @@
 " |_|\_\___|\__, |  \___|_| |_|\__,_|_| |_|\__, |\___||___/
 "           |___/                          |___/
 
-lua require 'init-mappings'
-
 " Note to self: possible key candidates to be remapped as handy operators,
 " since I rarely use them: K, H, L, M, Q, ^Q, ^P, ^N.
 
