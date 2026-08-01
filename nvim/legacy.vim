@@ -85,13 +85,6 @@ nmap <leader>l <C-]>
 " cnoremap <C-B> <Left>
 cnoremap <C-J> <C-F>
 
-" Mappings for the altr plugin.
-nmap <leader>A <Plug>(altr-back)
-nmap <leader>Z <Plug>(altr-forward)
-
-" Shorthand for HTML/XML completion.
-imap <leader>< </<Plug>ragtagHtmlComplete
-
 " Make window management a little bit more easy: map all the C-W <foobar> to
 " <leader>w<foobar>
 nmap <leader>w <C-w>
@@ -136,10 +129,6 @@ xnoremap <leader>S y:%s/<C-R>"//c<left><left>
 
 " Select what was recently 'modified' (changed, yanked or pasted).
 nnoremap <expr> <leader>m "`[" . strpart(getregtype(), 0, 1) . "`]"
-
-" Shortcuts for the exjumplist plugin.
-nmap <Leader>i <Plug>(exjumplist-next-buffer)
-nmap <Leader>o <Plug>(exjumplist-previous-buffer)
 
 " Experiment
 " imap <M-.> <C-X>/ " Doesn't work in qvim...
@@ -196,9 +185,6 @@ onoremap ar a]
 iabbr tODO TODO
 iabbr fIXME FIXME
 iabbr hte the
-if exists(':Abolish')
-	Abolish definetely definitely
-endif
 
 " Function and command for removing (with confirmation) trailing whitespace.
 command! RemoveTrailingWhiteSpace call <SID>RemoveTrailingWhiteSpace()

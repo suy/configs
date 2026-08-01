@@ -17,6 +17,18 @@ end
 
 
 --------------------------------------------------------------------------------
+-- Abolish (vim-abolish)
+--------------------------------------------------------------------------------
+-- Deferred because pack/ plugins are sourced after init.lua.
+vim.schedule(function()
+    if vim.fn.exists(':Abolish') == 2 then
+        vim.cmd('Abolish definetely definitely')
+    end
+end)
+
+
+
+--------------------------------------------------------------------------------
 -- Agentic.nvim
 --------------------------------------------------------------------------------
 -- Agent Client Protocol client. Talks to the local Letta App Server
@@ -46,6 +58,14 @@ vim.keymap.set('n', '<leader>ar', function() require('agentic').restore_session(
 vim.keymap.set({ 'n', 'v' },
     '<leader>aa', function() require('agentic').add_selection_or_file_to_context() end,
     { silent = true, desc = 'Add file/selection to Agentic context' })
+
+
+
+--------------------------------------------------------------------------------
+-- altr
+--------------------------------------------------------------------------------
+vim.keymap.set('n', '<leader>A', '<Plug>(altr-back)', { remap = true })
+vim.keymap.set('n', '<leader>Z', '<Plug>(altr-forward)', { remap = true })
 
 
 
@@ -88,6 +108,14 @@ vim.cmd.colorscheme('catppuccin-nvim')
 
 
 --------------------------------------------------------------------------------
+-- exjumplist
+--------------------------------------------------------------------------------
+vim.keymap.set('n', '<leader>i', '<Plug>(exjumplist-next-buffer)', { remap = true })
+vim.keymap.set('n', '<leader>o', '<Plug>(exjumplist-previous-buffer)', { remap = true })
+
+
+
+--------------------------------------------------------------------------------
 -- ident-blankline, AKA 'ibl'
 --------------------------------------------------------------------------------
 require('ibl').setup({
@@ -104,6 +132,12 @@ lastnextprevious.setup()
 vim.keymap.set('n', '-', lastnextprevious.forward)
 vim.keymap.set('n', '+', lastnextprevious.backward)
 
+
+
+--------------------------------------------------------------------------------
+-- ragtag
+--------------------------------------------------------------------------------
+vim.keymap.set('i', '<leader><', '</<Plug>ragtagHtmlComplete', { remap = true })
 
 
 
