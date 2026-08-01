@@ -30,6 +30,9 @@ vim.g.maplocalleader = '_'
 -- configuration, like when setting repeatable mappings in `init-mappings.lua`.
 Init = {}
 
+-- Whether to load plugins or not. Decide early to taking alternative paths.
+Init.plugins = vim.fn.has('win32') == 1 or vim.loop.getuid() ~= 0
+
 -- Autocommand group for things in my config.
 Init.autocmd_group = vim.api.nvim_create_augroup('Init', { clear = true })
 
@@ -161,6 +164,38 @@ vim.opt.showmatch = true
 -- vim.opt.hidden = true -- Already the default.
 -- ml: Enable reading modelines.
 -- vim.opt.modeline = true -- Already the default (except root).
+
+
+--------------------------------------------------------------------------------
+-- ┏━╸┏━┓┏┳┓┏━┓╻  ┏━╸╺┳╸╻┏━┓┏┓╻
+-- ┃  ┃ ┃┃┃┃┣━┛┃  ┣╸  ┃ ┃┃ ┃┃┗┫
+-- ┗━╸┗━┛╹ ╹╹  ┗━╸┗━╸ ╹ ╹┗━┛╹ ╹
+------------------------------------------------------------------ Completion --
+
+-- wmnu: Activate completion in the command line, via 'wildchar' (`<Tab>`).
+-- vim.opt.wildmenu = true -- Already the default.
+
+-- Only change the command line options if no plugins are loaded, as
+-- mini.cmdline will change the defaults to what's best for its usage.
+-- Complete longest common string, then each full match. Always displays a list.
+if not Init.plugins then
+    vim.opt.wildmode = {'list:longest', 'list:full'}
+end
+
+-- TODO: figure out a solution/workaround. Why not case-insensitive always?
+-- wic: Ignore case in the command line (files and directories only).
+vim.opt.wildignorecase = true
+
+-- wig: Patterns to completely ignore in file name completion.
+vim.opt.wildignore:append({
+    '*.pdf', '*.png', '*.jpg', '*.jpeg', '*.ttf', '*.otf', '*.wav', '*.mp3', '*.ogg'
+})
+
+-- su: Patterns with a lower priority in completion.
+vim.opt.suffixes:append({'.asc', '.cfg'})
+
+-- Behaviour of completion in insert mode (`:h ins-completion`).
+vim.opt.completeopt = {'menuone', 'longest'}
 
 
 --------------------------------------------------------------------------------
@@ -299,7 +334,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Plugin loading goes in separate files for convenience and because then as
 -- root the loading of them can be isolated. Minor security improvement.
-if vim.fn.has('win32') == 1 or vim.loop.getuid() ~= 0 then
+if Init.plugins then
     require 'init-setup-plugins'
     require 'init-lsp'
 else

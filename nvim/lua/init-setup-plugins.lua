@@ -154,6 +154,30 @@ require('mini.ai').setup({
 
 
 
+--------------------------------------------------------------------------------
+-- MiniCmdline
+--------------------------------------------------------------------------------
+require('mini.cmdline').setup({
+    autocomplete = {
+        delay = 500,
+        map_arrows = false,
+    },
+    autocorrect = { enable = false },
+    autopeek = { enable = false },
+})
+-- The default with mini.cmdline is 'noselect,full'. That's OK for many things
+-- where you want the popup to complete for you, but not when you want to
+-- swiftly type something "easy" that lots of habit has taught you that the
+-- first (or only) completion choice is right without looking at it. Like
+-- `:rest<Tab><Enter>` which always produces `:restart` being called. Or
+-- `:gw<Tab>`, which produces fugitive's `:Gw`, which is easier to type for me.
+-- vim.opt.wildmode:remove('noselect') -- This would autoselect wrong things.
+vim.opt.wildmode:prepend('longest') -- Sane balance for my taste.
+-- Fuzzy is cool, but it ends up matching *too much*, and being extra noisy.
+vim.opt.wildoptions:remove('fuzzy')
+
+
+
 ------------------------------------------------------------------------------
 -- MiniCursorword
 ------------------------------------------------------------------------------

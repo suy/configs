@@ -288,24 +288,6 @@ endfunction
 "  \____\___/|_| |_| |_| .__/|_|\___|\__|_|\___/|_| |_|
 "                      |_|
 
-" Activate completion of the command line.
-set wildmenu
-
-" Complete longest common string, then each full match
-set wildmode=list:longest,list:full
-
-" Behaviour of completion 'popup'
-set completeopt=menuone,longest
-
-" suffixes: Patterns with a lower priority in completion.
-set su+=.asc,.cfg
-
-" wildignore: Patterns to completely ignore when completing.
-set wig+=*.pdf,*.png,*.jpg,*.jpeg,*.ttf,*.otf,*.qpf2,*.wav,*.mp3,*.ogg
-
-" Ignore case in the command line.
-if exists('+wildignorecase') | set wildignorecase | endif
-
 " A moderately simple alternative to the SuperTab plugin.
 function! s:CleverTab()
 	" Use tab for going forward in the pop up menu (pum).
