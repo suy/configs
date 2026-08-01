@@ -4,6 +4,15 @@
 -- ╹┗╸┗━╸╹ ╹╹ ╹╹  ┗━┛
 ---------------------------------------------------------------------- Remaps --
 
+-- Close fugitive windows with 'q'. Recursive so it triggers fugitive's 'gq'.
+vim.api.nvim_create_autocmd('FileType', {
+    group = Init.autocmd_group,
+    pattern = { 'fugitive', 'fugitiveblame' },
+    callback = function(args)
+        vim.keymap.set('n', 'q', 'gq', { buffer = args.buf, remap = true })
+    end,
+})
+
 -- A simple helper for the simple cases of repeating something without a motion.
 -- Note the `g@l`: the `l` is the hardcoded motion for the `g@` operator.
 -- See: https://www.vikasraj.dev/blog/vim-dot-repeat

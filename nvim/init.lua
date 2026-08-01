@@ -281,6 +281,34 @@ vim.opt.undolevels = 2000
 -- `internal`, which is essential in Windows, as there is no `diff.exe` anymore.
 vim.opt.diffopt:append('vertical')
 
+-- Jump to the last cursor position when reopening a file.
+vim.api.nvim_create_autocmd('BufReadPost', {
+    group = Init.autocmd_group,
+    callback = function()
+        local mark = vim.fn.line([['"]])
+        if mark > 1 and mark <= vim.fn.line('$') then
+            vim.cmd([[normal! g`"]])
+        end
+    end,
+})
+
+-- For bash's `fc` (fix command): disable text wrapping in the temporary file.
+vim.api.nvim_create_autocmd('BufEnter', {
+    group = Init.autocmd_group,
+    pattern = '/tmp/bash-fc.*',
+    callback = function()
+        if vim.bo.filetype == 'sh' then
+            vim.opt_local.textwidth = 0
+        end
+    end,
+})
+
+-- Detect external file changes when the window gains focus.
+vim.api.nvim_create_autocmd('FocusGained', {
+    group = Init.autocmd_group,
+    command = 'checktime',
+})
+
 
 --------------------------------------------------------------------------------
 -- ╺┳╸┏━┓┏━╸┏━╸┏━┓╻╺┳╸╺┳╸┏━╸┏━┓
