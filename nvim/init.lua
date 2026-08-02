@@ -441,6 +441,18 @@ vim.keymap.set('n', '<leader>k', function()
     vim.fn.setreg('"', temp)
 end, { desc = 'Swap unnamed register with the clipboard' })
 
+--
+-- Terminal.
+--
+
+-- A bunch of alternatives for the terminal escaping, given that the default is
+-- pretty difficult to type. Some are pure experiments, to see what sticks.
+vim.keymap.set('t', ',,', '<C-\\><C-n>', { remap = false })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('t', '<C-v><Esc>', '<Esc>')
+-- <C-q> sends XON, almost never needed in modern terminals.
+vim.keymap.set('t', '<C-q>', '<C-\\><C-n>')
+
 
 --------------------------------------------------------------------------------
 -- ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
@@ -458,6 +470,17 @@ vim.api.nvim_create_user_command('DiffOrig', function()
     vim.cmd('diffthis')
     vim.cmd('wincmd p')
     vim.cmd('diffthis')
+end, {})
+
+-- Remove trailing whitespace (with confirmation), preserving cursor and search.
+vim.api.nvim_create_user_command('RemoveTrailingWhiteSpace', function()
+    local search = vim.fn.getreg('/')
+    local line = vim.fn.line('.')
+    local col = vim.fn.col('.')
+    -- Match spaces, tabs and carriage return (Windows' new line in Unix files).
+    vim.cmd([[%s/[ \t\r]\+$//ce]])
+    vim.fn.setreg('/', search)
+    vim.fn.cursor(line, col)
 end, {})
 
 
