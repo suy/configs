@@ -88,6 +88,14 @@ require('catppuccin').setup({
             enabled = true,
         },
     },
+    -- Make non-current windows even darker, for additional contrast.
+    highlight_overrides = {
+        mocha = function(C)
+            return {
+                NormalNC = { bg = C.crust },
+            }
+        end,
+    },
     styles = {
         comments = {},
         conditionals = {},
