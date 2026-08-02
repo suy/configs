@@ -171,7 +171,7 @@ vim.opt.foldopen:remove('search')
 
 -- ve: Allow the cursor to move one character past the end of the line. This
 -- allows inserting blank lines between others in normal mode using <Return>.
-vim.opt.virtualedit = 'onemore'
+vim.opt.virtualedit = {'onemore', 'block'}
 -- bs: Allow backspace to delete and be more useful.
 -- vim.opt.backspace = 'indent,eol,start' -- Already the default.
 -- sm: Briefly jump to the matching bracket when one is inserted.
