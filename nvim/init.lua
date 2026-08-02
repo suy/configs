@@ -325,6 +325,12 @@ vim.api.nvim_create_autocmd('FocusGained', {
     command = 'checktime',
 })
 
+-- Briefly highlight yanked text. See `:h vim.highlight.on_yank` for more.
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = Init.autocmd_group,
+    callback = function() vim.hl.on_yank({ timeout = 350 }) end,
+})
+
 
 --------------------------------------------------------------------------------
 -- ╺┳╸┏━┓┏━╸┏━╸┏━┓╻╺┳╸╺┳╸┏━╸┏━┓
