@@ -371,10 +371,13 @@ vim.api.nvim_create_autocmd('FileType', {
 
 
 --------------------------------------------------------------------------------
--- ┏━┓┏━╸┏┳┓┏━┓┏━┓┏━┓
--- ┣┳┛┣╸ ┃┃┃┣━┫┣━┛┗━┓
--- ╹┗╸┗━╸╹ ╹╹ ╹╹  ┗━┛
----------------------------------------------------------------------- Remaps --
+-- ┏┳┓┏━┓┏━┓┏━┓╻┏┓╻┏━╸┏━┓
+-- ┃┃┃┣━┫┣━┛┣━┛┃┃┗┫┃╺┓┗━┓
+-- ╹ ╹╹ ╹╹  ╹  ╹╹ ╹┗━┛┗━┛
+-------------------------------------------------------------------- Mappings --
+
+-- Note to self: possible key candidates to be remapped as handy operators,
+-- since I rarely use them: M, Q, ^Q, ^P, ^N.
 
 -- Close fugitive windows with 'q'. Recursive so it triggers fugitive's 'gq'.
 vim.api.nvim_create_autocmd('FileType', {
@@ -429,17 +432,182 @@ vim.keymap.set('n',        'gp', '"+p', { desc = 'Paste from system clipboard' }
 vim.keymap.set('n',        'gP', '"+P', { desc = 'Paste from system clipboard' })
 
 
---------------------------------------------------------------------------------
--- ┏┳┓┏━┓┏━┓┏━┓
--- ┃┃┃┣━┫┣━┛┗━┓
--- ╹ ╹╹ ╹╹  ┗━┛
------------------------------------------------------------------------- Maps --
+-- Like & (repeat last substitute), but repeating the same flags.
+vim.keymap.set({'n', 'x'}, '&', ':&&<CR>', { remap = false })
 
-vim.keymap.set('n', '<leader>k', function()
+-- Don't do dangerous things.
+vim.keymap.set('n', 'ZQ', '<Nop>', { remap = false })
+vim.keymap.set('n', 'ZZ', '<Nop>', { remap = false })
+
+-- Press 'jj' or 'kk' in insert mode to go back to normal mode.
+vim.keymap.set('i', 'jj', '<Esc>', { remap = false })
+vim.keymap.set('i', 'kk', '<Esc>', { remap = false })
+
+-- Swap ' and ` so the useful jump-to-row+column mark is on the easier key.
+vim.keymap.set('n', "'", '`', { remap = false })
+vim.keymap.set('n', '`', "'", { remap = false })
+
+-- Dot command in visual mode (good suggestion, nelstrom).
+vim.keymap.set('x', '.', ':normal .<CR>', { remap = false })
+
+-- <Space> enters command-line mode (easier to press than ':').
+vim.keymap.set({'n', 'x'}, '<Space>', ':', { remap = true })
+
+-- A little trick for opening "local" folds. First close all folds in the
+-- context, then open them recursively. The net result is opening folds not in
+-- the cursor, but in the same context (e.g., a function).
+vim.keymap.set('n', 'z<Space>', 'zczO', { remap = true })
+
+-- Command-line: <C-J> opens the command-line window (like <C-F>).
+vim.keymap.set('c', '<C-J>', '<C-F>', { remap = false })
+
+
+--
+-- Leader mappings which can be roughly seen as "new functionality".
+--
+
+-- Switch to the previous (alternate) buffer.
+vim.keymap.set('n', '<Leader>bb', ':b #<CR>', { remap = true })
+
+-- List buffers, and immediately insert the buffer switching command.
+vim.keymap.set('n', '<Leader>b<Space>', ':ls<CR>:b<Space>', { remap = true })
+vim.keymap.set('n', '<Leader>B<Space>', ':ls!<CR>:b<Space>', { remap = true })
+
+-- Update diff highlighting.
+vim.keymap.set('n', '<Leader>du', ':diffupdate<CR>', { remap = true })
+
+-- TODO: I have not been using this since long. Review if keeping it or drop it.
+-- Toggle automatic formatting ('a' flag in formatoptions).
+vim.keymap.set('n', '<Leader>fa',
+    function()
+        local fo = vim.bo.formatoptions
+        if fo:match('a') then
+            vim.bo.formatoptions = fo:gsub('a', '')
+        else
+            vim.bo.formatoptions = fo .. 'a'
+        end
+        print('Format options: ' .. vim.bo.formatoptions)
+    end,
+    { silent = true }
+)
+
+-- Swap the unnamed register (the default one) with the clipboard.
+vim.keymap.set('n', '<Leader>k', function()
     local temp = vim.fn.getreg('+')
     vim.fn.setreg('+', vim.fn.getreg('"'))
     vim.fn.setreg('"', temp)
 end, { desc = 'Swap unnamed register with the clipboard' })
+
+-- <Leader>l (for 'label') as a synonym for the tag jump shortcut.
+vim.keymap.set('n', '<Leader>l', '<C-]>', { remap = true })
+
+-- <Leader>m: select recently modified text (changed, yanked, or pasted).
+vim.keymap.set('n', '<Leader>m', function()
+    return '`[' .. string.sub(vim.fn.getregtype(), 1, 1) .. '`]'
+end, { expr = true, remap = false })
+
+-- TODO: this perhaps should be deprecated entirely, or rethought how to combine
+-- the best of the remapped `gp`, `gP`, etc. I need the selection register too.
+vim.keymap.set('n', '<Leader>p', function()
+    vim.notify('"+p == gp', vim.log.levels.INFO)
+    vim.cmd('normal! "+p')
+end)
+vim.keymap.set('n', '<Leader>P', function()
+    vim.cmd('normal! "*p')
+end)
+
+-- Convenient shortcut for closing a buffer without closing a window. Switch to
+-- another buffer (the alternate one if listed, otherwise the next), then close.
+vim.keymap.set('n', '<Leader>q', function()
+    if vim.fn.buflisted(vim.fn.expand('#')) ~= 0 then
+        vim.cmd('b #')
+    else
+        vim.cmd('bnext')
+    end
+    vim.cmd('bdelete #')
+end, { silent = true })
+
+-- Substitute word under the cursor (normal) or selection (visual).
+-- FIXME: escape regex characters (e.g. selecting /foo/bar and the slashes are there).
+vim.keymap.set('n', '<Leader>S', ':%s/\\<<C-R><C-w>\\>//c<left><left>', { remap = false })
+vim.keymap.set('x', '<Leader>S', 'y:%s/<C-R>"//c<left><left>', { remap = false })
+
+-- <Leader>w: window management prefix (synonym for <C-w>).
+vim.keymap.set({'n', 'x'}, '<Leader>w', '<C-w>', { remap = true })
+
+-- TODO: it's been ages since I gogle the cursor column. For the cursor line, I
+-- should be using unimpaired, mini.bracketed or whatever.
+-- <Leader><Leader>cc/cl: toggle cursor column/line.
+vim.keymap.set('n', '<Leader><Leader>cc', ':set cursorcolumn!<CR>', { silent = true, remap = true })
+vim.keymap.set('n', '<Leader><Leader>cl', ':set cursorline!<CR>', { silent = true, remap = true })
+
+
+-- Allow Return to do something useful in Normal mode. I really don't remember
+-- why the `buftype == ''` check is necessary, and which buffers it would fix.
+vim.keymap.set('n', '<Return>',
+    function()
+        if vim.bo.buftype == '' then
+            vim.api.nvim_feedkeys('i\r', 'n', false)
+        else
+            vim.api.nvim_feedkeys('\r', 'n', false)
+        end
+    end,
+    { silent = true }
+)
+
+-- Allow easy deletion in normal mode with backspace.
+vim.keymap.set('n', '<Backspace>',
+    function()
+        if vim.fn.col('.') == 1 then
+            vim.cmd('normal! kJl')
+        else
+            vim.cmd('normal! X')
+        end
+    end,
+    { silent = true }
+)
+
+-- TODO: review this. Is it really needed? Very unlikely with mini.surround.
+-- Text objects for square brackets: ir = inside [], ar = around ].
+-- vim.keymap.set('o', 'ir', 'i[', { remap = false })
+-- vim.keymap.set('o', 'ar', 'a]', { remap = false })
+
+
+-- Quickly append some punctuation symbols at the end of the line. Very common
+-- when one ends up inside a function call that the typical completion or
+-- auto-pairs has filled with lots of characters to the right, so first one
+-- needs to jump to the end to type what was wanted. This is more comfortable.
+for _, key in pairs({';', ':', ',', '.', '!', '?'}) do
+    vim.keymap.set('i', ',' .. key, function()
+        local prefix = vim.fn.pumvisible() == 1 and '<C-y>' or ''
+        return prefix .. '<C-o>A' .. key
+    end, { expr = true })
+end
+
+-- Ease typing [] and {} on a Spanish keyboard.
+vim.keymap.set('i', '<C-x>r', '[]<left>', { remap = false })
+vim.keymap.set('i', '<C-x>b', '{}<left>', { remap = false })
+vim.keymap.set('i', '<C-x>m', '{{}}<left><left>', { remap = false })
+
+-- This should change the behaviour of Spanish keys in normal/visual/etc. mode.
+-- However, it has been buggy in my experience, as it only worked on native Vim
+-- actions with brackets (e.g., [c or ]p), but not on sequences mapped by the
+-- user, like the ones provided by unimpaired.vim.
+-- http://groups.google.com/group/vim_use/browse_thread/thread/bda0c89bcdb330d1
+-- Will try to research about it, because it might be a bug to report.
+vim.opt.langmap = 'ñ[,ç],Ñ{,Ç}'
+
+-- The langmap above doesn't work in all situations, but adding the next
+-- mappings to the mix makes the Ñ/Ç keys do what I want, so keep both for now.
+vim.keymap.set('', 'ñ', '[', { remap = true })
+vim.keymap.set('', 'Ñ', '{', { remap = true })
+vim.keymap.set('', 'ç', ']', { remap = true })
+vim.keymap.set('', 'Ç', '}', { remap = true })
+
+-- Insert mode abbreviations for usual typos.
+vim.cmd('iabbrev tODO TODO')
+vim.cmd('iabbrev fIXME FIXME')
+vim.cmd('iabbrev hte the')
 
 --
 -- Terminal.
@@ -503,5 +671,3 @@ else
     end
 end
 
--- Source legacy Vim Script from the old `vimrc`.
-vim.cmd.source(vim.fn.stdpath('config') .. '/legacy.vim')
