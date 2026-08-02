@@ -194,7 +194,6 @@ require('mini.ai').setup({
 require('mini.cmdline').setup({
     autocomplete = {
         delay = 500,
-        map_arrows = false,
     },
     autocorrect = { enable = false },
     autopeek = { enable = false },
