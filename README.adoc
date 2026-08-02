@@ -338,6 +338,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 ----
 
+=== Terminal stuff
+
+Sources of inspiration:
+
+* http://michaelabrahamsen.com/posts/replace-tmux-with-neovim/
+* http://hkupty.github.io/2016/Ditching-TMUX/
+* https://www.reddit.com/r/neovim/comments/6kf7vh/i_have_been_doing_everything_inside_of_neovims/
+* https://medium.com/@garoth/neovim-terminal-usecases-tricks-8961e5ac19b9
+
+
 
 == To do
 
