@@ -36,6 +36,22 @@ Init.plugins = vim.fn.has('win32') == 1 or vim.loop.getuid() ~= 0
 -- Autocommand group for things in my config.
 Init.autocmd_group = vim.api.nvim_create_augroup('Init', { clear = true })
 
+-- A simple helper for the simple cases of repeating something without a motion.
+-- Note the `g@l`: the `l` is the hardcoded motion for the `g@` operator.
+-- See: https://www.vikasraj.dev/blog/vim-dot-repeat
+-- And: https://www.reddit.com/r/neovim/comments/wkqkzf/adding_dotrepeat_to_plugins/
+-- The first link provides the full solution, the second the `g@l` trick.
+Init.make_repeatable = function(from, function_name, function_body)
+    Init[function_name] = function(motion)
+        if motion == nil then
+            vim.o.operatorfunc = 'v:lua.Init.' .. function_name
+            return 'g@l'
+        end
+        function_body()
+    end
+    vim.keymap.set('n', from, Init[function_name], { expr = true })
+end
+
 
 --------------------------------------------------------------------------------
 -- ┏━╸┏━┓┏━┓┏┳┓┏━┓╺┳╸╺┳╸╻┏┓╻┏━╸
@@ -369,23 +385,7 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
--- A simple helper for the simple cases of repeating something without a motion.
--- Note the `g@l`: the `l` is the hardcoded motion for the `g@` operator.
--- See: https://www.vikasraj.dev/blog/vim-dot-repeat
--- And: https://www.reddit.com/r/neovim/comments/wkqkzf/adding_dotrepeat_to_plugins/
--- The first link provides the full solution, the second the `g@l` trick.
-local function make_repeatable(from, function_name, function_body)
-    Init[function_name] = function(motion)
-        if motion == nil then
-            vim.o.operatorfunc = 'v:lua.Init.' .. function_name
-            return 'g@l'
-        end
-        function_body()
-    end
-    vim.keymap.set('n', from, Init[function_name], { expr = true })
-end
-
-make_repeatable('dp', 'diff_put', function()
+Init.make_repeatable('dp', 'diff_put', function()
     -- The `pcall` is a workaround for some issues with the change tracking with
     -- LSP. I think it has to do with the fact that I disable LSP for fugitive
     -- buffers. See the issues/PR (and perhaps others):
@@ -397,7 +397,7 @@ make_repeatable('dp', 'diff_put', function()
     pcall(vim.cmd, 'normal! dp')
 end)
 
-make_repeatable('do', 'diff_obtain', function()
+Init.make_repeatable('do', 'diff_obtain', function()
     vim.cmd('normal! do')
 end)
 
@@ -407,19 +407,19 @@ end)
 --[[
 -- NOTE (2nd): kept this for now, for reference, but I'm gonna try to use
 -- last-next-previous for this.
-make_repeatable('<C-w><', 'win_left', function()
+Init.make_repeatable('<C-w><', 'win_left', function()
     vim.cmd.wincmd '<'
 end)
 
-make_repeatable('<C-w>>', 'win_right', function()
+Init.make_repeatable('<C-w>>', 'win_right', function()
     vim.cmd.wincmd '>'
 end)
 
-make_repeatable('<C-w>-', 'win_down', function()
+Init.make_repeatable('<C-w>-', 'win_down', function()
     vim.cmd.wincmd '-'
 end)
 
-make_repeatable('<C-w>+', 'win_up', function()
+Init.make_repeatable('<C-w>+', 'win_up', function()
     vim.cmd.wincmd '+'
 end)
 --]]
