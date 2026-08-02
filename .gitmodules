@@ -104,6 +104,7 @@
 [submodule "nvim/pack/plugins/start/agentic.nvim"]
 	path = nvim/pack/plugins/start/agentic.nvim
 	url = https://github.com/carlos-algms/agentic.nvim
+	branch = main
 [submodule "nvim/pack/colorschemes/start/catppuccin"]
 	path = nvim/pack/colorschemes/start/catppuccin
 	url = https://github.com/catppuccin/nvim
