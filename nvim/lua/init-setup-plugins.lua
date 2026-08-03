@@ -59,6 +59,19 @@ vim.keymap.set({ 'n', 'v' },
     '<leader>aa', function() require('agentic').add_selection_or_file_to_context() end,
     { silent = true, desc = 'Add file/selection to Agentic context' })
 
+vim.api.nvim_create_autocmd('FileType', {
+    group = Init.autocmd_group,
+    pattern = 'AgenticInput',
+    callback = function()
+        vim.opt.textwidth = 0
+        local options = { buffer = 0, silent = true, desc = 'Better movement' }
+        vim.keymap.set('n', 'j', 'gj', options)
+        vim.keymap.set('n', 'k', 'gk', options)
+        vim.keymap.set('n', 'gj', 'j', options)
+        vim.keymap.set('n', 'gk', 'k', options)
+    end,
+})
+
 
 
 --------------------------------------------------------------------------------
