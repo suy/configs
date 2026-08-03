@@ -249,6 +249,8 @@ vim.opt.fillchars = {
     foldclose = '▸',
     foldsep = '│',
 }
+-- The default border of floating windows. Anything is much better than empty.
+vim.opt.winborder = 'rounded'
 -- so: Keep at least this many screen lines above/below the cursor.
 vim.opt.scrolloff = 3
 -- vb: Use a visual indication for the "bell" instead of the system beep.
