@@ -735,8 +735,8 @@ MiniStatusline.setup({
         -- Content for active window
         active = nil,
         -- Content for inactive window(s)
-        -- inactive = nil,
-        inactive = MiniStatusline.active,
+        inactive = nil,
+        -- inactive = MiniStatusline.active,
     },
 
     -- Whether to use icons by default
@@ -746,12 +746,6 @@ MiniStatusline.section_git = function()
     -- This is not very pretty... But seems fugitive hardcodes this characters.
     return vim.fn.FugitiveStatusline()
 end
-
-vim.schedule(function()
-    -- TODO: This is needed for this plugin (it needs to be 2 or 3), but it
-    -- should not be done here, Move it to the normal settings.
-    vim.o.laststatus=3
-end)
 
 
 
