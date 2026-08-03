@@ -105,7 +105,9 @@ require('catppuccin').setup({
     highlight_overrides = {
         mocha = function(C)
             return {
+                WinSeparator = { fg = C.mauve },
                 NormalNC = { bg = C.crust },
+                LineNrInactive = { fg = C.crust },
             }
         end,
     },
@@ -142,6 +144,12 @@ vim.keymap.set('n', '<leader>o', '<Plug>(exjumplist-previous-buffer)', { remap =
 require('ibl').setup({
     indent = { char = '▎' }, -- It's the default, but make it explicit.
 })
+-- Only activate in the buffer of the active window. Note that this works in
+-- collaboration with `dim_window` in init.lua.
+-- TODO: the config of this plugin both here and in `init.lua` is not too clean.
+require('ibl.hooks').register('ACTIVE', function(buffer)
+    return buffer == vim.api.nvim_win_get_buf(vim.api.nvim_get_current_win())
+end)
 
 
 

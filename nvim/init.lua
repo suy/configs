@@ -335,6 +335,41 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function() vim.hl.on_yank({ timeout = 350 }) end,
 })
 
+-- Change some options in order to make inactive windows less noticeable
+-- compared to the active ones. Note that this is not "perfect" in that if some
+-- options were manually disabled from their defaults, might be enabled back
+-- when re-entering the window. I don't care about this myself.
+local function dim_window(inactive, window)
+    window = window or 0
+    vim.wo[window].cursorline = not inactive
+    vim.wo[window].winhighlight = inactive and 'LineNr:LineNrInactive' or ''
+    -- Get the buffer number now, but refresh later. Otherwise the window might
+    -- not be in sync with what we want, due to how `WinLeave` works.
+    local buffer = vim.api.nvim_win_get_buf(window)
+    vim.schedule(function()
+        require('ibl').refresh(buffer)
+    end)
+end
+vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
+    group = Init.autocmd_group,
+    callback = function() dim_window(false) end,
+})
+vim.api.nvim_create_autocmd('WinLeave', {
+    group = Init.autocmd_group,
+    callback = function() dim_window(true) end,
+})
+vim.api.nvim_create_autocmd('VimEnter', {
+    group = Init.autocmd_group,
+    callback = function()
+        local current = vim.api.nvim_get_current_win()
+        for _, window in ipairs(vim.api.nvim_list_wins()) do
+            if window ~= current then
+                dim_window(true, window)
+            end
+        end
+    end,
+})
+
 
 --------------------------------------------------------------------------------
 -- ╺┳╸┏━┓┏━╸┏━╸┏━┓╻╺┳╸╺┳╸┏━╸┏━┓
