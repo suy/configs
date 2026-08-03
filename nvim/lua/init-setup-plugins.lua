@@ -49,14 +49,14 @@ require('agentic').setup({
     },
 })
 
-vim.keymap.set('n', '<leader>at', function() require('agentic').toggle() end,
+vim.keymap.set('n', '<Leader>at', function() require('agentic').toggle() end,
     { silent = true, desc = 'Toggle Agentic (ACP) chat' })
-vim.keymap.set('n', '<leader>an', function() require('agentic').new_session() end,
+vim.keymap.set('n', '<Leader>an', function() require('agentic').new_session() end,
     { silent = true, desc = 'New Agentic session' })
-vim.keymap.set('n', '<leader>ar', function() require('agentic').restore_session() end,
+vim.keymap.set('n', '<Leader>ar', function() require('agentic').restore_session() end,
     { silent = true, desc = 'Restore Agentic session' })
 vim.keymap.set({ 'n', 'v' },
-    '<leader>aa', function() require('agentic').add_selection_or_file_to_context() end,
+    '<Leader>aa', function() require('agentic').add_selection_or_file_to_context() end,
     { silent = true, desc = 'Add file/selection to Agentic context' })
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -77,8 +77,8 @@ vim.api.nvim_create_autocmd('FileType', {
 --------------------------------------------------------------------------------
 -- altr
 --------------------------------------------------------------------------------
-vim.keymap.set('n', '<leader>A', '<Plug>(altr-back)', { remap = true })
-vim.keymap.set('n', '<leader>Z', '<Plug>(altr-forward)', { remap = true })
+vim.keymap.set('n', '<Leader>A', '<Plug>(altr-back)', { remap = true })
+vim.keymap.set('n', '<Leader>Z', '<Plug>(altr-forward)', { remap = true })
 
 
 
@@ -133,8 +133,8 @@ vim.cmd.colorscheme('catppuccin-nvim')
 --------------------------------------------------------------------------------
 -- exjumplist
 --------------------------------------------------------------------------------
-vim.keymap.set('n', '<leader>i', '<Plug>(exjumplist-next-buffer)', { remap = true })
-vim.keymap.set('n', '<leader>o', '<Plug>(exjumplist-previous-buffer)', { remap = true })
+vim.keymap.set('n', '<Leader>i', '<Plug>(exjumplist-next-buffer)', { remap = true })
+vim.keymap.set('n', '<Leader>o', '<Plug>(exjumplist-previous-buffer)', { remap = true })
 
 
 
@@ -166,7 +166,7 @@ vim.keymap.set('n', '+', lastnextprevious.backward)
 --------------------------------------------------------------------------------
 -- ragtag
 --------------------------------------------------------------------------------
-vim.keymap.set('i', '<leader><', '</<Plug>ragtagHtmlComplete', { remap = true })
+vim.keymap.set('i', '<Leader><', '</<Plug>ragtagHtmlComplete', { remap = true })
 
 
 
@@ -235,7 +235,7 @@ require('mini.cmdline').setup({
 -- where you want the popup to complete for you, but not when you want to
 -- swiftly type something "easy" that lots of habit has taught you that the
 -- first (or only) completion choice is right without looking at it. Like
--- `:rest<Tab><Enter>` which always produces `:restart` being called. Or
+-- `:rest<Tab><CR>` which always produces `:restart` being called. Or
 -- `:gw<Tab>`, which produces fugitive's `:Gw`, which is easier to type for me.
 -- While I should consider abbreviations, I favor the old behavior that I was
 -- used to, so I lean into changing the settings instead. The first try was:
@@ -266,11 +266,11 @@ require('mini.diff').setup({
     },
     mappings = { -- Use an empty string to disable a mapping.
         -- Apply hunks inside a visual/operator region (default was `gh`).
-        apply = '<leader>dp',
+        apply = '<Leader>dp',
         -- Reset hunks inside a visual/operator region (default was `gH`)
-        reset = '<leader>do',
+        reset = '<Leader>do',
         -- Hunk range textobject to be used as operator (e.g. `=gh`).
-        textobject = '<leader>dh',
+        textobject = '<Leader>dh',
         -- Navigate through hunks like the native ones in diff mode.
         goto_first = '[C',
         goto_prev = '[c',
@@ -366,22 +366,22 @@ local reminders = {
     'Text object `if` matches a function call',
     'Text object `i(` matches WITHOUT space (mnemonic: like a function call)',
     'Text object `i)` matches WITH space (like after a closing parenthesis)',
-    'Use <leader>j to use MiniJump2 (instead of EasyMotion)',
-    '`"+` is the clipboard (mnemonic: "more" => persistent). Pasted with `<leader>p`',
-    '`"*` is the selection (mnemonic: "star" => selection). Pasted with `<leader>P`',
+    'Use <Leader>j to use MiniJump2 (instead of EasyMotion)',
+    '`"+` is the clipboard (mnemonic: "more" => persistent). Pasted with `<Leader>p`',
+    '`"*` is the selection (mnemonic: "star" => selection). Pasted with `<Leader>P`',
     'TODO: Review `[i` and `]i` from MiniIndentscope',
-    'TODO: Review some mappings starting with `<leader>` for cleanup',
+    'TODO: Review some mappings starting with `<Leader>` for cleanup',
     'In MiniPick, `<C-e>` edits a history/search/etc',
     'While typing a search, `<C-g>` and `<C-t> "move" between matches`',
     'The `z<Space>` mapping opens "local" folds (e.g. inside function)',
-    'MiniPick\'s "live_grep" available in menu and 6<leader>y',
+    'MiniPick\'s "live_grep" available in menu and 6<Leader>y',
     '`gx` exchanges regions (replaces vim-exchange, which was `cx`)',
     '`gm` duplicates text: `2gm3aw` makes 2 copies of 3 words',
     '`g=` evaluates as Lua and replaces with the result',
     '`gs` sorts: charwise splits on delimiters, linewise as-is',
     'mini.operators: `2Riw` pastes register contents twice over word',
-    '`<leader>dp` applies a hunk, `<leader>do` resets it',
-    '`<leader>dh` is the hunk textobject for operators',
+    '`<Leader>dp` applies a hunk, `<Leader>do` resets it',
+    '`<Leader>dh` is the hunk textobject for operators',
 }
 
 local function show_reminder()
@@ -544,8 +544,8 @@ local function mini_pick_menu()
     })
 end
 
--- Invocation trick: use `[count]<leader>y` to invoke one of the following.
-vim.keymap.set('n', '<leader>y', function()
+-- Invocation trick: use `[count]<Leader>y` to invoke one of the following.
+vim.keymap.set('n', '<Leader>y', function()
     local pickers = {
         [0] = function() MiniPick.builtin.files({ tool = 'git' }) end,
         [1] = mini_pick_menu,
@@ -560,9 +560,9 @@ vim.keymap.set('n', '<leader>y', function()
     }
     pickers[math.min(math.max(0, vim.v.count), #pickers)]()
 end,
-{ silent = true, desc = '[count]<leader>y mini.pick launcher' })
+{ silent = true, desc = '[count]<Leader>y mini.pick launcher' })
 
-vim.keymap.set('c', '<C-s>', 'Pick history<Return>')
+vim.keymap.set('c', '<C-s>', 'Pick history<CR>')
 
 
 

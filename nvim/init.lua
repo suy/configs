@@ -170,7 +170,7 @@ vim.opt.foldopen:remove('search')
 --------------------------------------------------------------------- Editing --
 
 -- ve: Allow the cursor to move one character past the end of the line. This
--- allows inserting blank lines between others in normal mode using <Return>.
+-- allows inserting blank lines between others in normal mode using <CR>.
 vim.opt.virtualedit = {'onemore', 'block'}
 -- bs: Allow backspace to delete and be more useful.
 -- vim.opt.backspace = 'indent,eol,start' -- Already the default.
@@ -504,12 +504,12 @@ vim.keymap.set('c', '<C-J>', '<C-F>', { remap = false })
 
 -- Allow Return to do something useful in Normal mode. Check for `buftype`, and
 -- don't try to insert in any buffer that has it set, as those are special.
-vim.keymap.set('n', '<Return>',
+vim.keymap.set('n', '<CR>',
     function()
         if vim.bo.buftype == '' then -- Normal buffer. See `:h 'buftype'`.
-            vim.cmd('execute "normal! i\\<Return>"')
+            vim.cmd('execute "normal! i\\<CR>"')
         else
-            vim.cmd('execute "normal! \\<Return>"')
+            vim.cmd('execute "normal! \\<CR>"')
         end
     end,
     { silent = true }
@@ -600,8 +600,8 @@ end, { silent = true })
 
 -- Substitute word under the cursor (normal) or selection (visual).
 -- FIXME: escape regex characters (e.g. selecting /foo/bar and the slashes are there).
-vim.keymap.set('n', '<Leader>S', ':%s/\\<<C-R><C-w>\\>//c<left><left>', { remap = false })
-vim.keymap.set('x', '<Leader>S', 'y:%s/<C-R>"//c<left><left>', { remap = false })
+vim.keymap.set('n', '<Leader>S', ':%s/\\<<C-R><C-w>\\>//c<Left><Left>', { remap = false })
+vim.keymap.set('x', '<Leader>S', 'y:%s/<C-R>"//c<Left><Left>', { remap = false })
 
 -- <Leader>w: window management prefix (synonym for <C-w>).
 vim.keymap.set({'n', 'x'}, '<Leader>w', '<C-w>', { remap = true })
@@ -638,9 +638,9 @@ for _, key in pairs({';', ':', ',', '.', '!', '?'}) do
 end
 
 -- Ease typing [] and {} on a Spanish keyboard.
-vim.keymap.set('i', '<C-x>r', '[]<left>', { remap = false })
-vim.keymap.set('i', '<C-x>b', '{}<left>', { remap = false })
-vim.keymap.set('i', '<C-x>m', '{{}}<left><left>', { remap = false })
+vim.keymap.set('i', '<C-x>r', '[]<Left>', { remap = false })
+vim.keymap.set('i', '<C-x>b', '{}<Left>', { remap = false })
+vim.keymap.set('i', '<C-x>m', '{{}}<Left><Left>', { remap = false })
 
 -- Insert mode abbreviations for usual typos.
 vim.cmd('iabbrev tODO TODO')
