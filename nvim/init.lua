@@ -188,6 +188,8 @@ vim.opt.showmatch = true
 -- ┗━╸┗━┛╹ ╹╹  ┗━╸┗━╸ ╹ ╹┗━┛╹ ╹
 ------------------------------------------------------------------ Completion --
 
+-- ph: The maximum number of entries in the to show in the pop up menu.
+vim.opt.pumheight = 15
 -- wmnu: Activate completion in the command line, via 'wildchar' (`<Tab>`).
 -- vim.opt.wildmenu = true -- Already the default.
 
