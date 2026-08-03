@@ -587,14 +587,14 @@ vim.keymap.set('n', '<Leader><Leader>cc', ':set cursorcolumn!<CR>', { silent = t
 vim.keymap.set('n', '<Leader><Leader>cl', ':set cursorline!<CR>', { silent = true, remap = true })
 
 
--- Allow Return to do something useful in Normal mode. I really don't remember
--- why the `buftype == ''` check is necessary, and which buffers it would fix.
+-- Allow Return to do something useful in Normal mode. Check for `buftype`, and
+-- don't try to insert in any buffer that has it set, as those are special.
 vim.keymap.set('n', '<Return>',
     function()
-        if vim.bo.buftype == '' then
-            vim.api.nvim_feedkeys('i\r', 'n', false)
+        if vim.bo.buftype == '' then -- Normal buffer. See `:h 'buftype'`.
+            vim.cmd('execute "normal! i\\<Return>"')
         else
-            vim.api.nvim_feedkeys('\r', 'n', false)
+            vim.cmd('execute "normal! \\<Return>"')
         end
     end,
     { silent = true }
