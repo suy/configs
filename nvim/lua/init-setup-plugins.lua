@@ -214,7 +214,11 @@ require('mini.ai').setup({
 --------------------------------------------------------------------------------
 require('mini.cmdline').setup({
     autocomplete = {
-        delay = 500,
+        -- TODO: investigate the issue with the delay. Causes stuff to be
+        -- auto-selected too often to be usable. Once this setting has been
+        -- verified to work for me, review the `wildmode` settings below.
+        -- delay = 500,
+        map_arrows = true,
     },
     autocorrect = { enable = false },
     autopeek = { enable = false },
@@ -225,8 +229,14 @@ require('mini.cmdline').setup({
 -- first (or only) completion choice is right without looking at it. Like
 -- `:rest<Tab><Enter>` which always produces `:restart` being called. Or
 -- `:gw<Tab>`, which produces fugitive's `:Gw`, which is easier to type for me.
+-- While I should consider abbreviations, I favor the old behavior that I was
+-- used to, so I lean into changing the settings instead. The first try was:
 -- vim.opt.wildmode:remove('noselect') -- This would autoselect wrong things.
-vim.opt.wildmode:prepend('longest') -- Sane balance for my taste.
+-- Then I tried still keeping the defaults with this change:
+-- vim.opt.wildmode:prepend('longest') -- Sane balance for my taste.
+-- However, it still had some corner cases. So I ended up inserting "longest" in
+-- the middle, and resetting the option. At least for now.
+vim.opt.wildmode = {'noselect', 'longest', 'full'}
 -- Fuzzy is cool, but it ends up matching *too much*, and being extra noisy.
 vim.opt.wildoptions:remove('fuzzy')
 
