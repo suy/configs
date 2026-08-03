@@ -484,10 +484,6 @@ vim.keymap.set({'n', 'x'}, '&', ':&&<CR>', { remap = false })
 vim.keymap.set('n', 'ZQ', '<Nop>', { remap = false })
 vim.keymap.set('n', 'ZZ', '<Nop>', { remap = false })
 
--- Press 'jj' or 'kk' in insert mode to go back to normal mode.
-vim.keymap.set('i', 'jj', '<Esc>', { remap = false })
-vim.keymap.set('i', 'kk', '<Esc>', { remap = false })
-
 -- Swap ' and ` so the useful jump-to-row+column mark is on the easier key.
 vim.keymap.set('n', "'", '`', { remap = false })
 vim.keymap.set('n', '`', "'", { remap = false })
@@ -505,6 +501,36 @@ vim.keymap.set('n', 'z<Space>', 'zczO', { remap = true })
 
 -- Command-line: <C-J> opens the command-line window (like <C-F>).
 vim.keymap.set('c', '<C-J>', '<C-F>', { remap = false })
+
+-- Allow Return to do something useful in Normal mode. Check for `buftype`, and
+-- don't try to insert in any buffer that has it set, as those are special.
+vim.keymap.set('n', '<Return>',
+    function()
+        if vim.bo.buftype == '' then -- Normal buffer. See `:h 'buftype'`.
+            vim.cmd('execute "normal! i\\<Return>"')
+        else
+            vim.cmd('execute "normal! \\<Return>"')
+        end
+    end,
+    { silent = true }
+)
+
+-- Allow easy deletion in normal mode with Backspace.
+vim.keymap.set('n', '<Backspace>',
+    function()
+        if vim.fn.col('.') == 1 then
+            vim.cmd('normal! kJl')
+        else
+            vim.cmd('normal! X')
+        end
+    end,
+    { silent = true }
+)
+
+-- TODO: <Tab> in normal mode doesn't do anything (it can be distinguished from
+-- CTRL-I nowadays). What about using it for switching buffer, with <S-Tab> for
+-- going back to the previous? Or navigating through windows? Note that `:h
+-- <Tab>` points out at some limitations.
 
 
 --
@@ -587,36 +613,18 @@ vim.keymap.set('n', '<Leader><Leader>cc', ':set cursorcolumn!<CR>', { silent = t
 vim.keymap.set('n', '<Leader><Leader>cl', ':set cursorline!<CR>', { silent = true, remap = true })
 
 
--- Allow Return to do something useful in Normal mode. Check for `buftype`, and
--- don't try to insert in any buffer that has it set, as those are special.
-vim.keymap.set('n', '<Return>',
-    function()
-        if vim.bo.buftype == '' then -- Normal buffer. See `:h 'buftype'`.
-            vim.cmd('execute "normal! i\\<Return>"')
-        else
-            vim.cmd('execute "normal! \\<Return>"')
-        end
-    end,
-    { silent = true }
-)
-
--- Allow easy deletion in normal mode with backspace.
-vim.keymap.set('n', '<Backspace>',
-    function()
-        if vim.fn.col('.') == 1 then
-            vim.cmd('normal! kJl')
-        else
-            vim.cmd('normal! X')
-        end
-    end,
-    { silent = true }
-)
-
 -- TODO: review this. Is it really needed? Very unlikely with mini.surround.
 -- Text objects for square brackets: ir = inside [], ar = around ].
 -- vim.keymap.set('o', 'ir', 'i[', { remap = false })
 -- vim.keymap.set('o', 'ar', 'a]', { remap = false })
 
+--
+-- Insert mode.
+--
+
+-- Press 'jj' or 'kk' in insert mode to go back to normal mode.
+vim.keymap.set('i', 'jj', '<Esc>', { remap = false })
+vim.keymap.set('i', 'kk', '<Esc>', { remap = false })
 
 -- Quickly append some punctuation symbols at the end of the line. Very common
 -- when one ends up inside a function call that the typical completion or
@@ -634,6 +642,15 @@ vim.keymap.set('i', '<C-x>r', '[]<left>', { remap = false })
 vim.keymap.set('i', '<C-x>b', '{}<left>', { remap = false })
 vim.keymap.set('i', '<C-x>m', '{{}}<left><left>', { remap = false })
 
+-- Insert mode abbreviations for usual typos.
+vim.cmd('iabbrev tODO TODO')
+vim.cmd('iabbrev fIXME FIXME')
+vim.cmd('iabbrev hte the')
+
+--
+-- Lang map and related.
+--
+
 -- This should change the behaviour of Spanish keys in normal/visual/etc. mode.
 -- However, it has been buggy in my experience, as it only worked on native Vim
 -- actions with brackets (e.g., [c or ]p), but not on sequences mapped by the
@@ -648,11 +665,6 @@ vim.keymap.set('', 'ñ', '[', { remap = true })
 vim.keymap.set('', 'Ñ', '{', { remap = true })
 vim.keymap.set('', 'ç', ']', { remap = true })
 vim.keymap.set('', 'Ç', '}', { remap = true })
-
--- Insert mode abbreviations for usual typos.
-vim.cmd('iabbrev tODO TODO')
-vim.cmd('iabbrev fIXME FIXME')
-vim.cmd('iabbrev hte the')
 
 --
 -- Terminal.
