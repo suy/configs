@@ -1,15 +1,14 @@
 -- Simple replacement for the old vim-choosewin. On invocation, it displays a
--- big single-character label on each window, prompting the user to choose one
--- of them in order to jump directly to it. A tiny bit of convenience when one
--- doesn't want to think, count or repeat motions.
+-- big number label on each window. Press the number to jump directly, or any
+-- other key to perform a <C-w> window command (e.g. h/j/k/l to move).
 
--- From `figlet -f future`, with a minor tweak to make all letters 3 by 3.
+-- From `figlet -f future`.
 local label_letters = {
-    '┏━┓┏┓ ┏━╸╺┳┓┏━╸┏━╸┏━╸╻ ╻ ╻  ┏┓',
-    '┣━┫┣┻┓┃   ┃┃┣╸ ┣╸ ┃╺┓┣━┫ ┃   ┃',
-    '╹ ╹┗━┛┗━╸╺┻┛┗━╸╹  ┗━┛╹ ╹ ╹ ┗━┛',
+    '╺┓ ┏━┓┏━┓╻ ╻┏━╸┏━┓┏━┓┏━┓┏━┓',
+    ' ┃ ┏━┛╺━┫┗━┫┗━┓┣━┓  ┃┣━┫┗━┫',
+    '╺┻╸┗━╸┗━┛  ╹┗━┛┗━┛  ╹┗━┛┗━┛',
 }
-local choices = 'ABCDEFGHIJ'
+local choices = '123456789'
 
 local function label_lines(index)
     local start = (index - 1) * 3
@@ -31,6 +30,9 @@ local function window_chooser()
     end
 
     if #windows <= 1 then
+        -- 23 == <C-w>. We need to send the keys this way, because something
+        -- like `:normal` would expect a whole command, not part of it.
+        vim.api.nvim_feedkeys('\23', 'n', false)
         return
     end
 
@@ -84,12 +86,17 @@ local function window_chooser()
         pcall(vim.api.nvim_buf_delete, float.buffer, { force = true })
     end
 
-    if ok and labels[key:upper()] then
-        vim.api.nvim_set_current_win(labels[key:upper()])
+    -- Only single printable ASCII characters are valid <C-w> sub-commands.
+    -- Special keys (arrows, function keys) are multi-byte; Esc and other
+    -- control characters are below the printable range.
+    if ok and labels[key] then
+        vim.api.nvim_set_current_win(labels[key])
+    elseif ok and #key == 1 and key:byte() >= 33 then
+        vim.cmd.wincmd(key)
     end
 end
 
-vim.keymap.set('n', '<leader>W', window_chooser, {
+vim.keymap.set('n', '<leader>w', window_chooser, {
     silent = true,
     desc = 'Choose window',
 })
