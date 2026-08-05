@@ -481,9 +481,10 @@ Init.make_repeatable('<C-w>+', 'win_up', function()
 end)
 --]]
 
-vim.keymap.set({'n', 'x'}, 'gy', '"+y', { desc = 'Copy to system clipboard' })
-vim.keymap.set('n',        'gp', '"+p', { desc = 'Paste from system clipboard' })
-vim.keymap.set('n',        'gP', '"+P', { desc = 'Paste from system clipboard' })
+-- Quick way to access the system clipboard.
+vim.keymap.set({'n', 'x'}, '<Leader>y', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set('n',        '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
+vim.keymap.set('n',        '<Leader>P', '"+P', { desc = 'Paste from system clipboard' })
 
 
 -- Like & (repeat last substitute), but repeating the same flags.
@@ -585,16 +586,6 @@ vim.keymap.set('n', '<Leader>l', '<C-]>', { remap = true })
 vim.keymap.set('n', '<Leader>m', function()
     return '`[' .. string.sub(vim.fn.getregtype(), 1, 1) .. '`]'
 end, { expr = true, remap = false })
-
--- TODO: this perhaps should be deprecated entirely, or rethought how to combine
--- the best of the remapped `gp`, `gP`, etc. I need the selection register too.
-vim.keymap.set('n', '<Leader>p', function()
-    vim.notify('"+p == gp', vim.log.levels.INFO)
-    vim.cmd('normal! "+p')
-end)
-vim.keymap.set('n', '<Leader>P', function()
-    vim.cmd('normal! "*p')
-end)
 
 -- Convenient shortcut for closing a buffer without closing a window. Switch to
 -- another buffer (the alternate one if listed, otherwise the next), then close.
