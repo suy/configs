@@ -436,7 +436,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Close fugitive windows with 'q'. Recursive so it triggers fugitive's 'gq'.
 vim.api.nvim_create_autocmd('FileType', {
     group = Init.autocmd_group,
-    pattern = { 'fugitive', 'fugitiveblame' },
+    pattern = { 'fugitive', 'fugitiveblame', 'git' },
     callback = function(args)
         vim.keymap.set('n', 'q', 'gq', { buffer = args.buf, remap = true })
     end,
