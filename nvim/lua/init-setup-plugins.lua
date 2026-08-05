@@ -108,6 +108,7 @@ require('catppuccin').setup({
                 WinSeparator = { fg = C.mauve },
                 NormalNC = { bg = C.crust },
                 LineNrInactive = { fg = C.crust },
+                gitcommitOverflow = { fg = C.red },
             }
         end,
     },
