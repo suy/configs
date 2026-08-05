@@ -301,6 +301,15 @@ vim.opt.undolevels = 2000
 -- `internal`, which is essential in Windows, as there is no `diff.exe` anymore.
 vim.opt.diffopt:append('vertical')
 
+-- Sync the unnamed register with the selection register (`:h clipboard-x11`).
+-- However, do so only on Linux, where there is a different concept of clipboard
+-- and selection. Clobbering the selection seems fine to me, but doing so with
+-- the clipboard is too much. Additionally, skip setting the clipboard option on
+-- remote sessions, as it would slow things down.
+if vim.fn.has('linux') == 1 and vim.env.SSH_TTY == nil then
+    vim.opt.clipboard = 'unnamed'
+end
+
 -- Jump to the last cursor position when reopening a file.
 vim.api.nvim_create_autocmd('BufReadPost', {
     group = Init.autocmd_group,
