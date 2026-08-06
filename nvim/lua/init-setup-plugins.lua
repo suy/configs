@@ -375,7 +375,7 @@ local reminders = {
     'In MiniPick, `<C-e>` edits a history/search/etc',
     'While typing a search, `<C-g>` and `<C-t> "move" between matches`',
     'The `z<Space>` mapping opens "local" folds (e.g. inside function)',
-    'MiniPick\'s "live_grep" available in menu and 6<Leader>y',
+    'MiniPick\'s "live_grep" available in menu and 6<Leader>g',
     '`gx` exchanges regions (replaces vim-exchange, which was `cx`)',
     '`gm` duplicates text: `2gm3aw` makes 2 copies of 3 words',
     '`g=` evaluates as Lua and replaces with the result',
@@ -545,8 +545,8 @@ local function mini_pick_menu()
     })
 end
 
--- Invocation trick: use `[count]<Leader>y` to invoke one of the following.
-vim.keymap.set('n', '<Leader>y', function()
+-- Invocation trick: use `[count]<Leader>g` to invoke one of the following.
+vim.keymap.set('n', '<Leader>g', function()
     local pickers = {
         [0] = function() MiniPick.builtin.files({ tool = 'git' }) end,
         [1] = mini_pick_menu,
@@ -561,7 +561,7 @@ vim.keymap.set('n', '<Leader>y', function()
     }
     pickers[math.min(math.max(0, vim.v.count), #pickers)]()
 end,
-{ silent = true, desc = '[count]<Leader>y mini.pick launcher' })
+{ silent = true, desc = '[count]<Leader>g mini.pick launcher' })
 
 vim.keymap.set('c', '<C-s>', 'Pick history<CR>')
 
