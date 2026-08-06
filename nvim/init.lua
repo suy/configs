@@ -481,10 +481,53 @@ Init.make_repeatable('<C-w>+', 'win_up', function()
 end)
 --]]
 
--- Quick way to access the system clipboard.
-vim.keymap.set({'n', 'x'}, '<Leader>y', '"+y', { desc = 'Copy to system clipboard' })
-vim.keymap.set('n',        '<Leader>p', '"+p', { desc = 'Paste from system clipboard' })
-vim.keymap.set('n',        '<Leader>P', '"+P', { desc = 'Paste from system clipboard' })
+-- My "ultimate" paste setup. For many years, I've been using the vim-pasta
+-- plugin, not really understanding how it worked, or which cases where fixable
+-- on simpler ways. Then, when trying to reduce my reliance on plugins, and
+-- while trying to understand things better, I ended up realizing that
+-- unimpaired.vim had similar mappings to make pasting better, just that you had
+-- to use them explicitly (like `=p`). I have ended up merging both approaches.
+--
+-- The simpler way to paste with reindenting is mapped by default to the key
+-- that one might expect (`p` and `P` of course). So pasting "does the right
+-- thing" with the usual key, just, a bit improved. And `=p` which was a mapping
+-- provided by unimpaired for pasting with a followup indentation, here it means
+-- "leave it equal, no indent, like the default paste". So a safeguard for
+-- possible cases where/when one might want to avoid the map.
+--
+-- This also leaves `gp` and `gP` untouched, which are mappings that hav a
+-- default behavior, but MiniMax provides for nicer pasting from the clpboard. I
+-- have those convenience mappings as well, but are a few lines below, because I
+-- define them with a `<Leader>` prefix.
+--
+-- There might be bugs, but the functions try to cover the dangerous corner
+-- cases by checking for the register type (linewise vs characterwise), and not
+-- indenting in characterwise pasting.
+--- @param put string 'p' (put after) or 'P' (put before)
+local function paste_plain(put)
+    vim.cmd('normal! ' .. vim.v.count1 .. '"' .. vim.v.register .. put)
+end
+
+--- @param put string 'p' or 'P'
+local function paste_and_reindent(put)
+    paste_plain(put)
+    if vim.fn.getregtype(vim.v.register) == 'V' then
+        vim.cmd("normal! =']")
+    end
+end
+
+-- Smart paste: put and reindent for linewise registers.
+vim.keymap.set('n', 'p', function() paste_and_reindent('p') end,
+    { desc = 'Put and reindent (linewise only)' })
+vim.keymap.set('n', 'P', function() paste_and_reindent('P') end,
+    { desc = 'Put and reindent (linewise only)' })
+
+-- Plain put: escape hatch for when reindent is not wanted. The = prefix is a
+-- mnemonic for "leave the indent equal" (don't change it).
+vim.keymap.set('n', '=p', function() paste_plain('p') end,
+    { desc = 'Plain put (no reindent)' })
+vim.keymap.set('n', '=P', function() paste_plain('P') end,
+    { desc = 'Plain put (no reindent)' })
 
 
 -- Like & (repeat last substitute), but repeating the same flags.
@@ -586,6 +629,11 @@ vim.keymap.set('n', '<Leader>l', '<C-]>', { remap = true })
 vim.keymap.set('n', '<Leader>m', function()
     return '`[' .. string.sub(vim.fn.getregtype(), 1, 1) .. '`]'
 end, { expr = true, remap = false })
+
+-- <Leader>y/p/P: Access the system clipboard with less frustrating typing.
+vim.keymap.set({'n', 'x'}, '<Leader>y', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set('n', '<Leader>p', '"+p', { remap = true, desc = 'Put from clipboard' })
+vim.keymap.set('n', '<Leader>P', '"+P', { remap = true, desc = 'Put from clipboard' })
 
 -- Convenient shortcut for closing a buffer without closing a window. Switch to
 -- another buffer (the alternate one if listed, otherwise the next), then close.
