@@ -77,7 +77,7 @@
 	url = https://github.com/lukas-reineke/indent-blankline.nvim
 [submodule "nvim/pack/plugins/start/infinity-engine"]
 	path = nvim/pack/plugins/start/infinity-engine
-	url = https://gitlab.com/moebiusproject/vim-infinity-engine
+	url = https://gitlab.com/moebiusproject/vim-infinity-engine.git
 [submodule "nvim/pack/plugins/start/mini.nvim"]
 	path = nvim/pack/plugins/start/mini.nvim
 	url = https://github.com/suy/mini.nvim
