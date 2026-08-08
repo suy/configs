@@ -243,13 +243,20 @@ vim.opt.listchars = {
 -- Characters used as a filler for some UI elements, like folds, splits, etc.
 -- TODO: review. I don't think I see them properly.
 vim.opt.fillchars = {
-    vert = '┃',
     fold = '═',
     diff = '╱', -- Deleted lines in diff mode.
     -- Only used with `foldcolumn > 0`.
     foldopen = '▾',
     foldclose = '▸',
     foldsep = '│',
+    -- Not that useful in general due to status line. Use a thicker divider.
+    horiz = '━',
+    horizup = '┻',
+    horizdown = '┳',
+    vert = '┃',
+    vertleft = '┫',
+    vertright = '┣',
+    verthoriz = '╋',
 }
 -- The default border of floating windows. Anything is much better than empty.
 vim.opt.winborder = 'rounded'
@@ -587,6 +594,73 @@ vim.keymap.set('n', '<Backspace>',
 
 
 --
+-- Toggle options with a mapping. In the style of unimpaired and mini.basics.
+-- But this actually much more flexible and customizable. This allows one to
+-- choose which letters change which actions (and skip the rest that you don't
+-- want), as well as write your own tiny function to toggle options to your
+-- taste. Almost deserves to be its own plugin. Almost. Perhaps one day.
+--
+do
+    local function background()
+        vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
+        print('background=' .. vim.o.background)
+    end
+    local function diff()
+        if vim.opt.diff:get() then
+            vim.cmd.diffoff()
+            print(':diffoff')
+        else
+            vim.cmd.diffthis()
+            print(':diffthis')
+        end
+    end
+    -- TODO: look at my notes in the "Formatting" section at the top about
+    -- the values to review about `formatoptions`. That probably should be
+    -- reviewed alongside this function.
+    local function formatoptions()
+        if vim.opt.formatoptions:get().a then
+            vim.opt.formatoptions:remove('a')
+        else
+            vim.opt.formatoptions:append('a')
+        end
+        print('formatoptions=' .. vim.o.formatoptions)
+    end
+    local function virtualedit()
+        if vim.o.virtualedit == 'all' then
+            vim.opt.virtualedit = {'onemore', 'block'}
+        else
+            vim.opt.virtualedit = {'all'}
+        end
+        print('virtualedit=' .. vim.o.virtualedit)
+    end
+
+    ---@type { [1]: string, [2]: string|fun(), [3]: string? }[]
+    local options = {
+        { 'b', background, 'Cycle background between dark and light' },
+        { 'c', 'cursorline' },
+        { 'C', 'cursorcolumn' },
+        { 'd', diff, 'Activate or deactivate diff (`:diffthis`/`:diffoff`)' },
+        { 'f', formatoptions, 'Change `formatoptions` values' },
+        { 'i', 'ignorecase' },
+        { 'n', 'number' },
+        { 'r', 'relativenumber' },
+        { 's', 'spell' },
+        { 'v', virtualedit, 'Cycle `virtualedit` between `all` and `onemore,block`' },
+        { 'w', 'wrap' },
+    }
+    local prefix = 'co'
+    for _, option in ipairs(options) do
+        local key, action, description = option[1], option[2], option[3]
+        if not description then
+            description = ('Toggle `%s`'):format(action)
+            action = ('<Cmd>setlocal %s! %s?<CR>'):format(action, action)
+        end
+        vim.keymap.set('n', prefix .. key, action, { desc = description })
+    end
+end
+
+
+--
 -- Leader mappings which can be roughly seen as "new functionality".
 --
 
@@ -654,12 +728,9 @@ vim.keymap.set('x', '<Leader>S', 'y:%s/<C-R>"//c<Left><Left>', { remap = false }
 -- <Leader>w: window management prefix (synonym for <C-w>).
 vim.keymap.set({'n', 'x'}, '<Leader>w', '<C-w>', { remap = true })
 
--- TODO: it's been ages since I gogle the cursor column. For the cursor line, I
--- should be using unimpaired, mini.bracketed or whatever.
--- <Leader><Leader>cc/cl: toggle cursor column/line.
-vim.keymap.set('n', '<Leader><Leader>cc', ':set cursorcolumn!<CR>', { silent = true, remap = true })
-vim.keymap.set('n', '<Leader><Leader>cl', ':set cursorline!<CR>', { silent = true, remap = true })
-
+--
+-- Operator pending mode
+--
 
 -- TODO: review this. Is it really needed? Very unlikely with mini.surround.
 -- Text objects for square brackets: ir = inside [], ar = around ].
