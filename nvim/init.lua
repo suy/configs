@@ -188,8 +188,6 @@ vim.opt.showmatch = true
 -- ┗━╸┗━┛╹ ╹╹  ┗━╸┗━╸ ╹ ╹┗━┛╹ ╹
 ------------------------------------------------------------------ Completion --
 
--- ph: The maximum number of entries in the to show in the pop up menu.
-vim.opt.pumheight = 15
 -- wmnu: Activate completion in the command line, via 'wildchar' (`<Tab>`).
 -- vim.opt.wildmenu = true -- Already the default.
 
@@ -262,6 +260,10 @@ vim.opt.fillchars = {
 }
 -- The default border of floating windows. Anything is much better than empty.
 vim.opt.winborder = 'rounded'
+-- The border of the pop-up menu
+vim.opt.pumborder = 'single'
+-- ph: The maximum number of entries in the to show in the pop up menu.
+vim.opt.pumheight = 15
 -- so: Keep at least this many screen lines above/below the cursor.
 vim.opt.scrolloff = 3
 -- vb: Use a visual indication for the "bell" instead of the system beep.
