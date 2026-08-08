@@ -213,7 +213,9 @@ vim.opt.wildignore:append({
 vim.opt.suffixes:append({'.asc', '.cfg'})
 
 -- Behaviour of completion in insert mode (`:h ins-completion`).
-vim.opt.completeopt = {'menuone', 'longest'}
+if not Init.plugins then
+    vim.opt.completeopt = {'menuone', 'longest'}
+end
 
 
 --------------------------------------------------------------------------------

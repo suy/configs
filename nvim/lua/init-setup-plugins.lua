@@ -252,6 +252,27 @@ vim.opt.wildoptions:remove('fuzzy')
 
 
 --------------------------------------------------------------------------------
+-- MiniCompletion
+--------------------------------------------------------------------------------
+require('mini.completion').setup({
+    delay = { completion = 1000, info = 500, signature = 500 },
+    window = {
+        info      = { height = 25, width = 80, border = 'rounded' },
+        signature = { height = 25, width = 80, border = 'rounded' },
+    },
+    mappings = {
+        -- FIXME: The defaults are provided by rsi.vim, so we need to be
+        -- somewhat creative at the mapping choices. And not every terminal
+        -- supports everything, it seems. I think something like
+        -- the "multistep" approach should work: if the window is shown, scroll,
+        -- otherwise, move the cursor in insert mode, invoking RSI.
+        scroll_down = '<C-q>',
+        scroll_up = '<C-S-q>',
+    },
+})
+
+
+--------------------------------------------------------------------------------
 -- MiniCursorword
 --------------------------------------------------------------------------------
 require('mini.cursorword').setup()
