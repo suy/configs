@@ -572,7 +572,7 @@ vim.keymap.set('n', '<CR>',
             vim.cmd('execute "normal! \\<CR>"')
         end
     end,
-    { silent = true }
+    { silent = true, desc = 'Normal mode newlines with <CR>' }
 )
 
 -- Allow easy deletion in normal mode with Backspace.
@@ -584,7 +584,7 @@ vim.keymap.set('n', '<Backspace>',
             vim.cmd('normal! X')
         end
     end,
-    { silent = true }
+    { silent = true, desc = 'Normal mode deleting with <Backspace>' }
 )
 
 -- TODO: <Tab> in normal mode doesn't do anything (it can be distinguished from
