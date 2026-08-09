@@ -469,6 +469,10 @@ Init.make_repeatable('do', 'diff_obtain', function()
     vim.cmd('normal! do')
 end)
 
+-- TODO: while I don't plan to keep this mappings long term, check if they can
+-- be made repeatable and with a count. I got it working at some point while I
+-- was implementing something else, but I ended up discarding the changes. This
+-- mappings are good for experimenting other, more complex commands.
 -- NOTE: Making window resizing repeatable is... a stretch. It helps me
 -- compensate the modes I lost when vim-submode stopped working, but it's an
 -- experiment so far. I should look how to do this with Mini.
