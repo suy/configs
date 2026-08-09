@@ -208,13 +208,20 @@ require('mini.ai').setup({
 --------------------------------------------------------------------------------
 -- MiniBracketed
 --------------------------------------------------------------------------------
--- TODO: A lot of overlap with unimpaired, so needs reviewing. Most seems the
--- same, but perhaps is worth considering some, like move to next diagnostic (if
--- the new core mapping is different). Also one to move to a next/prev
--- indentation, if it complements ai/indentscope.
--- NB: Unimpaired also provides mappings for toggling options which are *not* on
--- MiniBracketed, but which are on MiniBasics instead. So both need to be
--- reviewed at the same time, and check out for missing things.
+require('mini.bracketed').setup({
+    -- Disabled because [c/]c are used by mini.diff for hunk navigation.
+    comment = { suffix = '' },
+    -- TODO: study a bit better the pros and cons of this one versus the map
+    -- provided by mini.indentscope. Keep the latter for now.
+    -- indent = { suffix = '' },
+    jump = { suffix = '' }, -- TODO: Unsure what's the difference with CTRL-O
+    oldfile = { suffix = '' }, -- I don't plan to use it. For now at least.
+    -- TODO: The 'undo' target remaps `u` and `<C-R>` to track undo states.
+    -- Disabled just in case, as I don't plant to use it, but worth a review.
+    undo = { suffix = '' },
+    window = { suffix = '' }, -- I don't plan to use it. For now at least.
+    yank = { suffix = '' }, -- I don't plan to use it. For now at least.
+})
 
 
 
