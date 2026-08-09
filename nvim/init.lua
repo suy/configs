@@ -540,6 +540,50 @@ vim.keymap.set('n', '=p', function() paste_plain('p') end,
 vim.keymap.set('n', '=P', function() paste_plain('P') end,
     { desc = 'Plain put (no reindent)' })
 
+-- Move current line up/down with `[e`/`]e`, repeatable with `.` as expected.
+-- All the 4 possible movements (up and down, normal and visual mode) require
+-- tiny different ex commands. This makes it pretty ugly to make them DRY, as it
+-- requires concatenating strings with the arcane ex notation for ranges and
+-- addresses, which obfuscates a bit what they are doing.
+--
+-- The normal mode ones are as simplified as possible, but the visual mode ones
+-- require some extra effort to restore cursor position and the like. Unimpaired
+-- goes beyond that, and even sets/unsets the fold method to manual. It uses the
+-- same helper function for all 4 possible movements. So it seems the normal
+-- mode ones are not "hurt" by doing anything extra. Worth considering a
+-- refactor in the future, but implementing this is tricky and tedious, so I'll
+-- keep what works for now, even though I might need to tweak it in the future.
+Init.make_repeatable('[e', 'move_line_up', function()
+    pcall(vim.cmd, 'move --' .. vim.v.count1)
+end)
+Init.make_repeatable(']e', 'move_line_down', function()
+    pcall(vim.cmd, 'move +' .. vim.v.count1)
+end)
+
+local function move_selection(movement_argument)
+    -- The count needs to be read BEFORE setting the mark, as that normal
+    -- command resets the count to 1, and we would lose its value.
+    local count = vim.v.count1
+    vim.cmd('normal! m`')
+    pcall(vim.cmd([['<,'>move ]] .. movement_argument .. count))
+    vim.cmd('normal! ``')
+end
+Init.move_selection_up = function()
+    move_selection([['<--]])
+end
+Init.move_selection_down = function()
+    move_selection([['>+]])
+end
+
+vim.keymap.set('x', '[e', function()
+    vim.o.operatorfunc = 'v:lua.Init.move_selection_up'
+    return 'g@'
+end, { expr = true, silent = true })
+vim.keymap.set('x', ']e', function()
+    vim.o.operatorfunc = 'v:lua.Init.move_selection_down'
+    return 'g@'
+end, { expr = true, silent = true })
+
 
 -- Like & (repeat last substitute), but repeating the same flags.
 vim.keymap.set({'n', 'x'}, '&', ':&&<CR>', { remap = false })
