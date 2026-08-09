@@ -1,8 +1,8 @@
 [submodule "nvim/pack/plugins/start/fugitive"]
 	path = nvim/pack/plugins/start/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "nvim/pack/plugins/start/unimpaired"]
-	path = nvim/pack/plugins/start/unimpaired
+[submodule "nvim/pack/graveyard/opt/unimpaired"]
+	path = nvim/pack/graveyard/opt/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "nvim/pack/plugins/start/surround"]
 	path = nvim/pack/plugins/start/surround
