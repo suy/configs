@@ -50,9 +50,6 @@
 [submodule "nvim/pack/plugins/start/abolish"]
 	path = nvim/pack/plugins/start/abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule "nvim/pack/plugins/start/qml"]
-	path = nvim/pack/plugins/start/qml
-	url = https://github.com/peterhoeg/vim-qml.git
 [submodule "nvim/pack/graveyard/opt/context-commentstring"]
 	path = nvim/pack/graveyard/opt/context-commentstring
 	url = https://github.com/suy/vim-context-commentstring.git
