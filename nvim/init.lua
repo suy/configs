@@ -241,7 +241,6 @@ vim.opt.listchars = {
     nbsp = '⨝',
 }
 -- Characters used as a filler for some UI elements, like folds, splits, etc.
--- TODO: review. I don't think I see them properly.
 vim.opt.fillchars = {
     fold = '═',
     diff = '╱', -- Deleted lines in diff mode.
@@ -725,21 +724,6 @@ vim.keymap.set('n', '<Leader>B<Space>', ':ls!<CR>:b<Space>', { remap = true })
 
 -- Update diff highlighting.
 vim.keymap.set('n', '<Leader>du', ':diffupdate<CR>', { remap = true })
-
--- TODO: I have not been using this since long. Review if keeping it or drop it.
--- Toggle automatic formatting ('a' flag in formatoptions).
-vim.keymap.set('n', '<Leader>fa',
-    function()
-        local fo = vim.bo.formatoptions
-        if fo:match('a') then
-            vim.bo.formatoptions = fo:gsub('a', '')
-        else
-            vim.bo.formatoptions = fo .. 'a'
-        end
-        print('Format options: ' .. vim.bo.formatoptions)
-    end,
-    { silent = true }
-)
 
 -- Swap the unnamed register (the default one) with the clipboard.
 vim.keymap.set('n', '<Leader>k', function()
