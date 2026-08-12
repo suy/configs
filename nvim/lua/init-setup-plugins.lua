@@ -379,7 +379,8 @@ map_multistep('i', '<S-Tab>', {
 --------------------------------------------------------------------------------
 -- MiniNotify
 --------------------------------------------------------------------------------
-require('mini.notify').setup()
+MiniNotify = require('mini.notify')
+MiniNotify.setup()
 -- TODO: `:Messages` from Scriptease.vim shows the list of messages. MiniNotify
 -- has `lua MiniNotify.show_history()` that shows in a scratch buffer. Consider
 -- making a command or a key mapping that makes that more convenient.
@@ -443,7 +444,8 @@ vim.api.nvim_create_autocmd('SearchWrapped', {
 --------------------------------------------------------------------------------
 -- MiniOperators
 --------------------------------------------------------------------------------
-require('mini.operators').setup({
+MiniOperators = require('mini.operators')
+MiniOperators.setup({
     replace = {
         prefix = 'R',
     },
@@ -789,7 +791,8 @@ end
 --------------------------------------------------------------------------------
 -- MiniTabline
 --------------------------------------------------------------------------------
-require('mini.tabline').setup({
+MiniTabline = require('mini.tabline')
+MiniTabline.setup({
     -- Whether to show file icons (requires 'mini.icons')
     -- show_icons = true,
 
