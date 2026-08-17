@@ -330,6 +330,7 @@ require('mini.icons').setup()
 -- Changed default character to something better aligned to the left.
 require('mini.indentscope').setup({ symbol = '▎' })
 vim.api.nvim_create_autocmd('TermOpen', {
+    group = Init.autocmd_group,
     callback = function()
         vim.b.miniindentscope_disable = true
     end
@@ -431,6 +432,7 @@ vim.uv.new_timer():start(delay, delay, vim.schedule_wrap(show_reminder))
 -- My very first feature contributed to Neovim. <3<3<3
 -- https://github.com/neovim/neovim/pull/8487
 vim.api.nvim_create_autocmd('SearchWrapped', {
+    group = Init.autocmd_group,
     callback = function()
         local id = MiniNotify.add('Search wrapped', 'INFO')
         vim.defer_fn(function()
@@ -503,6 +505,7 @@ local mini_pick_tips = {
 }
 
 vim.api.nvim_create_autocmd('User', {
+    group = Init.autocmd_group,
     pattern = 'MiniPickStart',
     callback = function()
         local tip = mini_pick_tips[math.random(#mini_pick_tips)]
@@ -614,6 +617,7 @@ vim.keymap.set('x', '<C-j>', function()
 end)
 
 vim.api.nvim_create_autocmd('InsertLeave', {
+    group = Init.autocmd_group,
     callback = function() snippet_selected = '' end,
 })
 
