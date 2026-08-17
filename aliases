@@ -78,6 +78,8 @@ alias apg='apg -m 18 -M sncl -s'
 
 alias gdb='gdb -q'
 
+alias date='date -R'
+
 # Save the command first, otherwise "su" might see "please" instead.
 alias please='last=`fc -ln -1`; \
 	test -x /usr/bin/sudo && sudo -- $last || su -c "$last"'
