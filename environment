@@ -2,13 +2,13 @@
 
 # Language
 if [ ! -z `locale -a | grep es_ES.utf-8` ] ; then
-	export LANG="es_ES.utf-8"
+    export LANG="es_ES.utf-8"
 elif [ ! -z `locale -a | grep C.UTF-8` ] ; then
-	export LANG="C.UTF-8"
+    export LANG="C.UTF-8"
 elif [ ! -z `locale -a | grep C.utf8` ] ; then
-	export LANG="C.utf8"
+    export LANG="C.utf8"
 else
-	export LANG="C"
+    export LANG="C"
 fi
 
 export LC_COLLATE="C"
@@ -40,43 +40,43 @@ export CYGWIN=winsymlinks:nativestrict
 # PATH, and PATH-like environment
 #
 if [ -d $HOME/local/bin ] ; then
-	export PATH=$HOME/local/bin:"${PATH}"
+    export PATH=$HOME/local/bin:"${PATH}"
 fi
 
 if [ -d $HOME/local/pixi ] ; then
-	export PIXI_HOME=$HOME/local/pixi
-	export PATH=$PIXI_HOME/bin:"${PATH}"
-	eval "$(pixi completion --shell bash)"
-	for file in $PIXI_HOME/completions/bash/* ; do
-		if [ -e "$file" ] ; then
-			source "$file"
-		fi
-	done
+    export PIXI_HOME=$HOME/local/pixi
+    export PATH=$PIXI_HOME/bin:"${PATH}"
+    eval "$(pixi completion --shell bash)"
+    for file in $PIXI_HOME/completions/bash/* ; do
+        if [ -e "$file" ] ; then
+            source "$file"
+        fi
+    done
 fi
 
 if [ -d $HOME/local/gems ] ; then
-	# Run `gem env` for details.
-	# Where gems will be installed by `gem install --no-user-install`
-	export GEM_HOME=$HOME/local/gems
-	# Locations where gems can be found (by who?).
-	# export GEM_PATH
-	export PATH=$HOME/local/gems/bin:"${PATH}"
+    # Run `gem env` for details.
+    # Where gems will be installed by `gem install --no-user-install`
+    export GEM_HOME=$HOME/local/gems
+    # Locations where gems can be found (by who?).
+    # export GEM_PATH
+    export PATH=$HOME/local/gems/bin:"${PATH}"
 fi
 
 if thereis luarocks ; then
-	# LuaRocks has a convenience to output both a (modified) LUA_PATH and
-	# LUA_CPATH (for DLLs) as well as PATH in shell format to be evaluated.
-	if [ -d $HOME/local/rocks ] ; then
-		eval `luarocks path --tree $HOME/local/rocks`
-	else
-		eval `luarocks path`
-	fi
+    # LuaRocks has a convenience to output both a (modified) LUA_PATH and
+    # LUA_CPATH (for DLLs) as well as PATH in shell format to be evaluated.
+    if [ -d $HOME/local/rocks ] ; then
+        eval `luarocks path --tree $HOME/local/rocks`
+    else
+        eval `luarocks path`
+    fi
 fi
 
 if [ -d $HOME/local/node ] ; then
-	export NPM_CONFIG_PREFIX=$HOME/local/node
-	export npm_config_prefix=$HOME/local/node
-	export PATH=$HOME/local/node/bin:"${PATH}"
+    export NPM_CONFIG_PREFIX=$HOME/local/node
+    export npm_config_prefix=$HOME/local/node
+    export PATH=$HOME/local/node/bin:"${PATH}"
 fi
 
 # TODO: I end up with 3 ~/.local/bin directories for some reason. Find why.
@@ -89,8 +89,8 @@ if [ -d $HOME/.local/bin ] ; then
 fi
 
 # if [ -x $HOME/.rbenv/bin/rbenv ] ; then
-# 	export PATH=$HOME/.rbenv/bin:"${PATH}"
-# 	eval "$(rbenv init -)"
+#     export PATH=$HOME/.rbenv/bin:"${PATH}"
+#     eval "$(rbenv init -)"
 # fi
 
 
@@ -98,4 +98,4 @@ if [ -d $HOME/local/man ] ; then
     export MANPATH=$HOME/local/man:"${MANPATH}"
 fi
 
-# vim:set filetype=sh noet:
+# vim:set filetype=sh:

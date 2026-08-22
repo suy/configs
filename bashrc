@@ -63,9 +63,9 @@ $connection_color\u@\h\[\e[0m\] \
 \[\e[1;34m\]\w\[\e[0m\]"
 # Check if __git_ps1 exists.
 if type -t __git_ps1 > /dev/null ; then
-	PS1=$PS1'\[\e[1;35m\]$(__git_ps1 " %s")\[\e[0m\]\$ '
+    PS1=$PS1'\[\e[1;35m\]$(__git_ps1 " %s")\[\e[0m\]\$ '
 else
-	PS1=$PS1'\[\e[0m\]\$ '
+    PS1=$PS1'\[\e[0m\]\$ '
 fi
 
 # Simplified prompt, for copy-pasting the console for demos, slides, etc.
@@ -75,14 +75,14 @@ fi
 # Additional options for git prompt flags
 case "$(uname)" in
 MINGW*|MSYS*|CYGWIN*)
-	# alias git='git.cmd'
-	# source '/cygdrive/c/Archivos de programa/Git/etc/git-completion.bash'
-	;;
+    # alias git='git.cmd'
+    # source '/cygdrive/c/Archivos de programa/Git/etc/git-completion.bash'
+    ;;
 *)
-	# Don't do this on Cygwin, since is slow.
-	export GIT_PS1_SHOWDIRTYSTATE=1
-	export GIT_PS1_SHOWUPSTREAM=auto
-	;;
+    # Don't do this on Cygwin, since is slow.
+    export GIT_PS1_SHOWDIRTYSTATE=1
+    export GIT_PS1_SHOWUPSTREAM=auto
+    ;;
 esac
 
 export GIT_PS1_SHOWSTASHSTATE=1

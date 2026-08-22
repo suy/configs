@@ -4,19 +4,19 @@
 
 # If on OS X and I have "gls", then I have GNU coreutils.
 if [ "$(uname)" = "Darwin" ] && thereis gls ; then
-	LS='gls'
-	DF='gdf'
-	CP='gcp'
-	alias dircolors='gdircolors'
+    LS='gls'
+    DF='gdf'
+    CP='gcp'
+    alias dircolors='gdircolors'
 else
-	LS='ls'
-	DF='df'
-	CP='cp'
+    LS='ls'
+    DF='df'
+    CP='cp'
 fi
 
 if [ "$TERM" != "dumb" ]; then
-	eval "`dircolors -b`"
-	LS=$LS' --color=auto'
+    eval "`dircolors -b`"
+    LS=$LS' --color=auto'
 fi
 
 if ! thereis fd && thereis fdfind ; then
@@ -60,14 +60,14 @@ alias gcd='cd `git root`'
 
 # I hope I don't repent on this. Open with the browser, or whatever nicely.
 if [ "$(uname)" = "Darwin" ] ; then
-	alias o='open'
+    alias o='open'
 else
-	alias o='xdg-open'
+    alias o='xdg-open'
 fi
 
 # Use colors when grepping
 if [ "$(uname)" = "Linux" ]; then
-	alias grep='grep --color=auto'
+    alias grep='grep --color=auto'
 fi
 
 if thereis nvim ; then
@@ -82,7 +82,7 @@ alias date='date -R'
 
 # Save the command first, otherwise "su" might see "please" instead.
 alias please='last=`fc -ln -1`; \
-	test -x /usr/bin/sudo && sudo -- $last || su -c "$last"'
+    test -x /usr/bin/sudo && sudo -- $last || su -c "$last"'
 
 alias figlet='figlet -f future'
 
