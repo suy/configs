@@ -129,4 +129,81 @@ ssh-agent-helper()
     fi
 }
 
+# Completion for "git subtree". git-completion.bash does not provide it, but
+# its dispatcher calls any _git_subtree() function defined by the time
+# completion runs, so this is all the wiring that it takes... or almost.
+# See the completion.commands entry in `.gitconfig.extra` for details.
+# https://soderstrom-rikard.github.io/git/autocompletion-for-custom-git-commands.html
+_git_subtree()
+{
+    local subcommands='add merge split pull push'
+    local subcommand=
+    local arguments=0
+    local word
+    local i
+
+    # Find the subcommand, and count the positional arguments after it.
+    for ((i = 2; i < COMP_CWORD; i++)); do
+        word=${COMP_WORDS[i]}
+        case "$word" in
+            # Options that take their value in the next word.
+            -P|--prefix|-b|--branch|-m|--message|--annotate|--onto)
+                i=$((i + 1))
+                ;;
+            -*)
+                ;;
+            add|merge|split|pull|push)
+                subcommand=$word
+                ;;
+            *)
+                arguments=$((arguments + 1))
+                ;;
+        esac
+    done
+
+    if [ -z "$subcommand" ]; then
+        case "$cur" in
+            -*)
+                __gitcomp '--quiet --debug --prefix='
+                ;;
+            *)
+                __gitcomp "$subcommands"
+                ;;
+        esac
+        return
+    fi
+
+    case "$cur" in
+        -*)
+            case "$subcommand" in
+                add|merge|pull)
+                    __gitcomp '--quiet --debug --prefix= --squash --message='
+                    ;;
+                split)
+                    __gitcomp '--quiet --debug --prefix= --annotate= --branch= --ignore-joins --onto= --rejoin --squash'
+                    ;;
+                push)
+                    __gitcomp '--quiet --debug --prefix= --annotate= --branch= --ignore-joins --onto= --rejoin --squash --message='
+                    ;;
+            esac
+            ;;
+        *)
+            # Complete commits for the first argument of "add" (repository
+            # form aside), "merge" and "split"; remotes for "pull" and "push".
+            case "$subcommand" in
+                add|merge|split)
+                    if [ "$arguments" -eq 0 ]; then
+                        __gitcomp "$(__git_refs)"
+                    fi
+                    ;;
+                pull|push)
+                    if [ "$arguments" -eq 0 ]; then
+                        __gitcomp "$(__git_remotes)"
+                    fi
+                    ;;
+            esac
+            ;;
+    esac
+}
+
 # vim: set filetype=sh:

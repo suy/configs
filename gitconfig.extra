@@ -38,6 +38,17 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.ignore-patterns
+
+# The `git-subtree` script lives in the /usr/lib/git-core directory, which is
+# not in PATH (though is still found by the `git` binary as a subcommand). The
+# shell completion script finds commands to autocomplete with:
+# $ git --list-cmds=list-mainporcelain,others,nohelpers,alias,list-complete,config
+# That won't find commands like `git subtree` unless explicitly listed in the
+# config. So, do add it. That won't add completion for `git subtree` alone, but
+# that's why I have a `_git_subtree` completion function in my ~/.aliases.
+[completion]
+	commands = subtree
+
 [merge]
 	defaultToUpstream = 1
 	conflictStyle = diff3
