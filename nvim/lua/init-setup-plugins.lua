@@ -382,15 +382,14 @@ map_multistep('i', '<S-Tab>', {
 --------------------------------------------------------------------------------
 MiniNotify = require('mini.notify')
 MiniNotify.setup()
--- TODO: `:Messages` from Scriptease.vim shows the list of messages. MiniNotify
--- has `lua MiniNotify.show_history()` that shows in a scratch buffer. Consider
--- making a command or a key mapping that makes that more convenient.
+-- Show all past notifications, like `:Messages` from Scriptease.vim.
+vim.api.nvim_create_user_command('Notifications', MiniNotify.show_history, {})
 vim.notify = require('mini.notify').make_notify({
     ERROR = { duration = 10000 } -- The default is 5s, so double it.
 })
 
 local reminders = {
-    'Use `lua MiniNotify.show_history()` to see past notifications.',
+    'Use `:Notifications` to see past notifications.',
     'Text object `ii` matches an indent, `iL` a line',
     'Text object `iN` matches a number',
     'Text object `iq` matches any quote, `ib` any brace',
