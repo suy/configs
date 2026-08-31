@@ -151,12 +151,12 @@ Packaged:
 * tmux, tmuxinator
 * neovim, neovim-qt, wl-clipboard, xclip
 * git
+* silversearcher-ag, fd-find, ripgrep
 * htop, btop (other?)
 * build-essential, clang, cmake, ninja
 * clangd
 * icecc, icecc-monitor
 * vlc
-* silversearcher-ag, fd-find
 
 == LSP setup
 
