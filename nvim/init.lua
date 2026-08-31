@@ -322,6 +322,15 @@ if vim.fn.has('linux') == 1 and vim.env.SSH_TTY == nil then
     vim.opt.clipboard = 'unnamed'
 end
 
+-- My very first feature contributed to Neovim. <3<3<3
+-- https://github.com/neovim/neovim/pull/8487
+vim.api.nvim_create_autocmd('SearchWrapped', {
+    group = Init.autocmd_group,
+    callback = function()
+        vim.notify('Search wrapped')
+    end
+})
+
 -- Jump to the last cursor position when reopening a file.
 vim.api.nvim_create_autocmd('BufReadPost', {
     group = Init.autocmd_group,

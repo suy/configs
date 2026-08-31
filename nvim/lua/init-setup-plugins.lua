@@ -428,18 +428,6 @@ vim.defer_fn(show_reminder, 500)
 local delay = 15 * 60 * 1000
 vim.uv.new_timer():start(delay, delay, vim.schedule_wrap(show_reminder))
 
--- My very first feature contributed to Neovim. <3<3<3
--- https://github.com/neovim/neovim/pull/8487
-vim.api.nvim_create_autocmd('SearchWrapped', {
-    group = Init.autocmd_group,
-    callback = function()
-        local id = MiniNotify.add('Search wrapped', 'INFO')
-        vim.defer_fn(function()
-            MiniNotify.remove(id)
-        end, 2000) -- Visible for 2 seconds.
-    end
-})
-
 
 
 --------------------------------------------------------------------------------
