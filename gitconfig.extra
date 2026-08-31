@@ -83,6 +83,10 @@
 	insteadOf = gh:
 [url "git@github.com:"]
 	pushInsteadOf = gh:
+	# TODO: verify that pushing works over SSH with this rewrite, then remove
+	# the now redundant pieces: the pushurl entries in .gitmodules, and the
+	# "git remote set-url --push" line in the Makefile.
+	pushInsteadOf = https://github.com/
 
 [url "git@bitbucket.org:"]
 	insteadOf = bb:
