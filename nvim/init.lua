@@ -259,8 +259,10 @@ vim.opt.fillchars = {
 }
 -- The default border of floating windows. Anything is much better than empty.
 vim.opt.winborder = 'rounded'
--- The border of the pop-up menu
-vim.opt.pumborder = 'single'
+-- The border of the pop-up menu. New in 0.12.
+if vim.fn.exists('&pumborder') > 0 then
+    vim.opt.pumborder = 'single'
+end
 -- ph: The maximum number of entries in the to show in the pop up menu.
 vim.opt.pumheight = 15
 -- so: Keep at least this many screen lines above/below the cursor.
@@ -348,7 +350,7 @@ vim.api.nvim_create_autocmd('FocusGained', {
     command = 'checktime',
 })
 
--- Briefly highlight yanked text. See `:h vim.highlight.on_yank` for more.
+-- Briefly highlight yanked text. See `:h vim.hl.on_yank` for more.
 vim.api.nvim_create_autocmd('TextYankPost', {
     group = Init.autocmd_group,
     callback = function() vim.hl.on_yank({ timeout = 350 }) end,
@@ -366,7 +368,9 @@ local function dim_window(inactive, window)
     -- not be in sync with what we want, due to how `WinLeave` works.
     local buffer = vim.api.nvim_win_get_buf(window)
     vim.schedule(function()
-        require('ibl').refresh(buffer)
+        if Init.plugins then
+            require('ibl').refresh(buffer)
+        end
     end)
 end
 vim.api.nvim_create_autocmd({'WinEnter', 'BufEnter'}, {
