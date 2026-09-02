@@ -32,6 +32,10 @@ setup-unix:
 	@# Set the symbolic links for Neovim, but not the submodules for plugins.
 	test -d ~/.config || mkdir ~/.config
 	test -L ~/.config/nvim || ln -sf $(CURDIR)/nvim ~/.config/nvim
+	test -d ~/.config/tmuxinator || mkdir ~/.config/tmuxinator
+	test -f ~/.config/tmuxinator/normal.yml || cp normal.yml ~/.config/tmuxinator
+	test -d ~/.letta/mods || mkdir -p ~/.letta/mods
+	cp $(CURDIR)/misc/letta/mods/statusline.tsx ~/.letta/mods/statusline.tsx
 	# https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else
 	@echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
 
