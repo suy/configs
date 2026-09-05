@@ -1,0 +1,37 @@
+From: Alejandro Exojo Piqueras <suy@badopi.org>
+Subject: [PATCH] Add CSI u support for Ctrl+Backspace word deletion
+
+PasteAwareTextInput already has word deletion logic (deletePreviousWord),
+but it only triggers on legacy sequences: ESC+DEL (Alt+Backspace), ESC+BS,
+and Ctrl+W (\x17).
+
+Terminals using the CSI u encoding (Kitty keyboard protocol) send
+"\x1B[127;5u" for Ctrl+Backspace (DEL code + Ctrl modifier), or
+"\x1B[8;5u" (BS code + Ctrl modifier). These sequences are not matched,
+so Ctrl+Backspace falls through to the TextInput child component, which
+ignores the Ctrl modifier and deletes a single character.
+
+Add the CSI u sequences to the raw input handler so Ctrl+Backspace
+triggers deletePreviousWord(), matching the behavior of Ctrl+W and
+Alt+Backspace.
+
+This was tested with Konsole (custom keytab sending "\E[127;5u") through
+tmux with `extended-keys always`.
+
+--- a/src/cli/components/PasteAwareTextInput.tsx
++++ b/src/cli/components/PasteAwareTextInput.tsx
+@@ -xxx,xxx +xxx,xxx @@
+       // Forward delete: handled by parent's raw input handler
+       if (sequence === "\x1B[3~" || /^\x1b\[3;\d+~$/.test(sequence)) {
+         ...
+       }
++      // CSI u format for Ctrl+Backspace (e.g. from Konsole keytab)
++      if (sequence === "\x1B[127;5u" || sequence === "\x1B[8;5u") {
++        deletePreviousWord();
++        return;
++      }
+       // Alt+Backspace (ESC+DEL), Alt+Backspace variant (ESC+BS), Ctrl+W
+       if (sequence === "\x1B\x7f" || sequence === "\x1B\b" || sequence === "\x17") {
+         deletePreviousWord();
+         return;
+       }

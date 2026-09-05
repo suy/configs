@@ -1,0 +1,133 @@
+= Terminal modified keys (Shift+Enter, Ctrl+Backspace)
+
+Making modified keys work consistently across terminal applications requires
+cooperation from three layers: the terminal emulator, tmux, and each
+application.
+
+== Problem
+
+Terminals send identical byte sequences for plain and modified keys. Plain
+Return and Shift+Return both produce `\r`. Plain Backspace and Ctrl+Backspace
+both produce `\x7f`. Applications can't tell them apart.
+
+== Solution: CSI u encoding
+
+The CSI u format (part of the Kitty keyboard protocol) encodes the key code
+and modifier flags separately: `ESC[code;modifier u`.
+
+|===
+|Key |CSI u sequence |Code |Modifier
+
+|Shift+Return |`\E[13;2u` |13 (CR) |2 (Shift)
+|Ctrl+Backspace |`\E[127;5u` |127 (DEL) |5 (Ctrl)
+|===
+
+Modifier numbers: 2=Shift, 3=Alt, 4=Shift+Alt, 5=Ctrl, 6=Shift+Ctrl,
+7=Alt+Ctrl, 8=Shift+Alt+Ctrl. The formula is `1 + modifier_bitmask` where
+Shift=1, Alt=2, Ctrl=4.
+
+NOTE: Konsole uses `\x7f` (DEL, code 127) for the Backspace key, not `\x08`
+(BS, code 8). That's why Ctrl+Backspace uses code 127, not 8.
+
+== Layer 1: Konsole keytab
+
+Custom keytab at `~/.local/share/konsole/custom.keytab`. Select it in
+Settings → Edit Current Profile → Keyboard.
+
+Two entries added to the default keytab:
+
+```
+key Backspace+Ctrl : "\E[127;5u"
+key Backspace-Ctrl : "\x7f"
+key Return+Shift   : "\E[13;2u"
+```
+
+The `-Ctrl` / `-Shift` entries ensure the unmodified keys keep their default
+behavior (the `+` variant takes precedence when the modifier is held).
+
+== Layer 2: tmux
+
+tmux normalizes key sequences by default, stripping modifier information.
+Two settings in `tmux.conf`:
+
+```
+set-option -s extended-keys always
+set-option -as terminal-features 'xterm*:extkeys'
+```
+
+`extended-keys always` — forward extended key sequences to all panes
+unconditionally.
+
+`terminal-features 'xterm*:extkeys'` — tell tmux the outer terminal supports
+extended keys, so tmux knows to parse CSI u sequences it receives.
+
+Reload with `prefix + r`.
+
+== Layer 3: Application configuration
+
+=== Bash (readline)
+
+`~/.inputrc`:
+
+```
+"\e[127;5u": backward-kill-word
+```
+
+Reload with `bind -f ~/.inputrc` or a new shell.
+
+=== Neovim
+
+In `init.lua` (insert mode):
+
+```lua
+vim.keymap.set('i', '<C-BS>', '<C-W>', { desc = 'Delete previous word' })
+```
+
+Neovim 0.12 parses CSI u natively. `<C-BS>` maps correctly to code 127
+because Neovim knows the terminal uses DEL for the Backspace key.
+
+Reload with `:restart`.
+
+=== Letta Code CLI
+
+Letta Code has word deletion (`deletePreviousWord()`) but doesn't match the
+CSI u sequence for Ctrl+Backspace in its trigger list. It only fires on
+`\x17` (Ctrl+W), `\E\x7f` (Alt+Backspace), and `\E\b` (Alt+Backspace variant).
+
+Local patch at `patches/letta-code-ctrl-backspace.patch` adds the CSI u
+sequences to the raw input handler. The patch is overwritten on each Letta
+Code update — reapply after updating.
+
+Shift+Enter works out of the box (Letta Code already handles `\E[13;2u`).
+
+Ctrl+W also works out of the box for word deletion.
+
+== Windows Terminal (not yet configured)
+
+For the work machine, add to the `"actions"` array in `settings.json`:
+
+```json
+{
+    "command": { "action": "sendInput", "input": "\u001b[13;2u" },
+    "keys": "shift+enter"
+},
+{
+    "command": { "action": "sendInput", "input": "\u001b[127;5u" },
+    "keys": "ctrl+backspace"
+}
+```
+
+== Debugging
+
+In Neovim, `Ctrl-V` followed by the key shows the raw byte sequence the
+terminal receives. If both plain and modified keys show the same bytes, the
+terminal or tmux is not forwarding the CSI u sequence.
+
+Set `LETTA_DEBUG_KEYS=1` to see parsed key info from Letta Code's input
+handler on stderr.
+
+== References
+
+* Kitty keyboard protocol: https://sw.kovidgoyal.net/kitty/keyboard-protocol/
+* tmux `extended-keys`: `man tmux` (`extended-keys` option)
+* Konsole keytab format: https://docs.kde.org/stable5/en/konsole/konsole/keytab.html
