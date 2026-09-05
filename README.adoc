@@ -169,7 +169,7 @@ Packaged:
 * aptitude
 * tmux, tmuxinator
 * neovim, neovim-qt, wl-clipboard, xclip
-* git
+* git, tree
 * silversearcher-ag, fd-find, ripgrep
 * htop, btop (other?)
 * build-essential, clang, cmake, ninja
