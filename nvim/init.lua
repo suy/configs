@@ -371,6 +371,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- when re-entering the window. I don't care about this myself.
 local function dim_window(inactive, window)
     window = window or 0
+    -- Do nothing on floating windows: they manage their own look, and setting
+    -- `winhighlight` here would wipe entries added by plugins (this broke
+    -- `mini.files`, which aborts with errors when its highlights disappear).
+    if vim.api.nvim_win_get_config(window).relative ~= '' then
+        return
+    end
     vim.wo[window].cursorline = not inactive
     vim.wo[window].winhighlight = inactive and 'LineNr:LineNrInactive' or ''
     -- Get the buffer number now, but refresh later. Otherwise the window might
