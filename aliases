@@ -74,6 +74,16 @@ if thereis nvim ; then
     alias vi=nvim
 fi
 
+# Open files in the parent instance when inside a nvim terminal. The check for
+# the `1` file descriptor is to protect headless runs (e.g. CI, agent, etc.).
+if [ -n "$NVIM" ] && [ -t 1 ]; then
+    nvim()
+    {
+        [ $# -eq 0 ] && { echo "Already inside 'nvim'"; return; }
+        command nvim --server "$NVIM" --remote "$@"
+    }
+fi
+
 alias apg='apg -m 18 -M sncl -s'
 
 alias gdb='gdb -q'
