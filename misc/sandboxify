@@ -1,0 +1,224 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# sandboxify: run a command inside a bubblewrap sandbox.
+#
+# Usage: sandboxify PROFILE[,PROFILE...] PROJECT_DIR [COMMAND...]
+#
+# With no COMMAND, starts an interactive bash (for testing the sandbox).
+#
+# The command (intended to be an only somewhat trusted program like an agent)
+# runs in PROJECT_DIR with read-write access to that directory (but with `.git`
+# read-only), so it can read the files there, and see nothing else important
+# from $HOME. Profiles can be combined with a comma: their mounts are unioned,
+# and a path listed read-write by any profile is read-write in the combination.
+# Sandbox access composes by intersection when sandboxify runs inside another
+# sandboxify: an inner invocation can only narrow what the outer one granted.
+
+# Per-agent configuration. Adding an agent is data entry, not scripting:
+# read_only and read_write are lists of paths (~/ is expanded) that become
+# --ro-bind-try / --bind-try mounts. Everything shared by all profiles
+# lives in sandbox_arguments below.
+PROFILES = {
+  # Bare sandbox for manual testing: system dirs plus the context trees.
+  'shell' => {},
+
+  # ~/.letta holds agent state and memory, and is itself a git repository,
+  # so it needs read-write without any .git restriction. To let the Letta
+  # harness dispatch other sandboxed agents, combine profiles:
+  #   sandboxify letta,opencode PROJECT ...
+  'letta' => {
+    read_write: ['~/.letta'],
+  },
+
+  'opencode' => {
+    read_only: ['~/.config/opencode'],
+    read_write: [
+      '~/.local/share/opencode',
+      '~/.local/state/opencode',
+      '~/.cache/opencode',
+    ],
+  },
+}.freeze
+
+# Environment variables worth passing across --clearenv, when they are set.
+PASSTHROUGH_ENVIRONMENT = ['TERM', 'LANG', 'LC_ALL'].freeze
+
+# Merge several profiles into one: concatenate the path lists, drop
+# duplicates, and let read_write win where a path is listed in both
+# (a path writable through one profile stays writable).
+def combine_profiles(names)
+  combined = { read_only: [], read_write: [] }
+
+  names.each do |name|
+    profile = PROFILES.fetch(name)
+    combined[:read_only] += profile.fetch(:read_only, [])
+    combined[:read_write] += profile.fetch(:read_write, [])
+  end
+
+  # Array subtraction (a - b) removes b's elements from a, so paths that
+  # ended up read-write drop out of the read-only list.
+  combined[:read_only] = (combined[:read_only] - combined[:read_write]).uniq
+  combined[:read_write] = combined[:read_write].uniq
+  combined
+end
+
+# Turn a list of paths into bwrap arguments: flag, source, destination.
+# Source and destination are always the same path here (paths keep their
+# real location inside the sandbox). File.expand_path resolves '~/'.
+def bind_arguments(paths, flag)
+  arguments = []
+  paths.each do |path|
+    directory = File.expand_path(path)
+    arguments.push(flag, directory, directory)
+  end
+  arguments
+end
+
+def profile_arguments(profile)
+  # fetch(:key, []) returns the list, or an empty list when the profile
+  # omits that key. Array addition (+) concatenates.
+  bind_arguments(profile.fetch(:read_only, []), '--ro-bind-try') +
+    bind_arguments(profile.fetch(:read_write, []), '--bind-try')
+end
+
+# Re-set a few environment variables after --clearenv, but only the ones
+# that actually exist in our environment.
+def environment_arguments
+  arguments = []
+  PASSTHROUGH_ENVIRONMENT.each do |name|
+    value = ENV[name]
+    arguments.push('--setenv', name, value) if value
+  end
+  arguments
+end
+
+def sandbox_arguments(project_directory, profile, interactive)
+  home = Dir.home
+
+  [
+    # Namespace isolation. Network stays shared: agents need their APIs.
+    '--unshare-pid', '--unshare-uts', '--unshare-ipc',
+    '--share-net', '--die-with-parent',
+    # --new-session detaches the sandbox from our terminal (setsid), which
+    # blocks TIOCSTI terminal injection from the sandboxed process, at the
+    # cost of job control. Only the interactive testing shell keeps the
+    # terminal; agent commands always detach.
+    *(interactive ? [] : ['--new-session']),
+
+    # Clean environment; pass through only what agents need to function.
+    '--clearenv',
+    '--setenv', 'HOME', home,
+    '--setenv', 'PATH', ENV.fetch('PATH'),
+    # The * expands an array in place, as if its elements were written here.
+    *environment_arguments,
+
+    # Base system, read-only.
+    '--ro-bind', '/usr', '/usr',
+    '--ro-bind', '/etc', '/etc',
+    '--ro-bind', '/lib', '/lib',
+    '--ro-bind-try', '/lib64', '/lib64',
+    '--ro-bind-try', '/bin', '/bin',
+    '--ro-bind-try', '/sbin', '/sbin',
+    '--ro-bind-try', '/sys', '/sys',
+    # Runtime state (DNS through systemd-resolved lives here).
+    '--ro-bind', '/run', '/run',
+    '--dev', '/dev',
+    '--proc', '/proc',
+    '--tmpfs', '/tmp',
+
+    # Context trees, read-only.
+    '--ro-bind-try', "#{home}/personal/configs", "#{home}/personal/configs",
+    '--ro-bind-try', "#{home}/projects", "#{home}/projects",
+    '--ro-bind-try', "#{home}/local", "#{home}/local",
+
+    # Git global config chain, read-only: the deployed ~/.gitconfig (copied
+    # from personal/configs by the Makefile), the ~/.gitconfig.extra it
+    # includes, and the ~/.ignore-patterns that core.excludesfile points at.
+    # Bound at their host paths so git inside reads exactly what git outside
+    # reads (aliases, ignores); -try keeps machines without the deployment
+    # working.
+    '--ro-bind-try', "#{home}/.gitconfig", "#{home}/.gitconfig",
+    '--ro-bind-try', "#{home}/.gitconfig.extra", "#{home}/.gitconfig.extra",
+    '--ro-bind-try', "#{home}/.ignore-patterns", "#{home}/.ignore-patterns",
+
+    # Per-agent mounts from the profile.
+    *profile_arguments(profile),
+
+    # Working tree read-write, .git read-only. Order matters: these come
+    # after the context trees so they take precedence for their subtree.
+    '--bind', project_directory, project_directory,
+    '--ro-bind-try', "#{project_directory}/.git", "#{project_directory}/.git",
+    '--chdir', project_directory,
+  ]
+end
+
+def usage
+  [
+    'Usage: sandboxify PROFILE[,PROFILE...] PROJECT_DIR [COMMAND...]',
+    "Profiles: #{(PROFILES.keys + ['all']).join(', ')}",
+  ].join("\n")
+end
+
+if ARGV.length < 2
+  abort usage
+end
+
+# The first argument may name several profiles: 'letta,opencode'.
+# split(',') breaks the string apart; map(&:strip) removes surrounding
+# spaces, so 'letta, opencode' also works.
+# split(',', -1): the -1 keeps trailing empty strings, which split drops
+# by default — so 'letta,' is an error, not a silent 'letta'.
+profile_names = ARGV[0].split(',', -1).map(&:strip)
+
+# ',' splits to an empty list, and 'letta,' to one with an empty name —
+# both would otherwise run a bare (shell-like) sandbox without warning.
+if profile_names.empty? || profile_names.any?(&:empty?)
+  abort "sandboxify: missing or empty profile name in: #{ARGV[0]}"
+end
+
+# The special name 'all' expands to every profile at once, so new agents
+# join it automatically — for the days when one agent touching another
+# agent's state is not a concern.
+if profile_names.include?('all')
+  profile_names = PROFILES.keys
+end
+
+project_directory_argument = ARGV[1]
+
+# ARGV.drop(2): everything after the project directory is the command.
+command = ARGV.drop(2)
+
+# No command means an interactive bash for testing — the one case that
+# benefits from keeping our terminal session (job control). Everything
+# else runs detached; see sandbox_arguments.
+interactive = command.empty?
+
+command = ['bash'] if command.empty?
+
+profile_names.each do |name|
+  unless PROFILES.key?(name)
+    abort "sandboxify: unknown profile: #{name} (known: #{PROFILES.keys.join(', ')})"
+  end
+end
+
+profile = combine_profiles(profile_names)
+
+begin
+  project_directory = File.realpath(project_directory_argument)
+rescue Errno::ENOENT, Errno::ENOTDIR
+  abort "sandboxify: no such directory: #{project_directory_argument}"
+end
+
+if project_directory == Dir.home
+  abort 'sandboxify: refusing to use $HOME as the project directory'
+end
+
+arguments = ['bwrap']
+arguments += sandbox_arguments(project_directory, profile, interactive)
+arguments.push('--')
+arguments += command
+
+# exec replaces this process with bwrap; the * passes the array as
+# separate arguments (no shell involved, so no quoting issues).
+exec(*arguments)
