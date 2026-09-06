@@ -123,6 +123,9 @@ def sandbox_arguments(project_directory, profile, interactive)
     '--ro-bind-try', '/sys', '/sys',
     # Runtime state (DNS through systemd-resolved lives here).
     '--ro-bind', '/run', '/run',
+    # In WSL, `/etc/resolv.conf` is a symlink outside of the usual directories.
+    # Mount only the destination of the symlink, so we don't expose everything.
+    '--ro-bind-try', '/mnt/wsl/resolv.conf', '/mnt/wsl/resolv.conf',
     '--dev', '/dev',
     '--proc', '/proc',
     '--tmpfs', '/tmp',
