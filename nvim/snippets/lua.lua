@@ -3,16 +3,7 @@ return {
         prefix = 'f',
         desc = 'function (anonymous)',
         body = {
-            'function(${1})',
-            '    ${SELECTED}$0',
-            'end',
-        },
-    },
-    {
-        prefix = 'fu',
-        desc = 'function (local)',
-        body = {
-            'local function ${1:name}(${2})',
+            '${1:local }function ${2:name}(${3})',
             '    ${SELECTED}$0',
             'end',
         },

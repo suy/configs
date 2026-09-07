@@ -640,6 +640,141 @@ MiniSnippets.setup({
     },
 })
 
+-- What follows are tricks to make to make mini.snippets a bit more like
+-- UltiSnips, specifically its ability to leave you in `:h Select-mode`, which
+-- allows to quickly remove a placeholder by just pressing backspace, instead of
+-- having to type a "dummy" character, then immediately remove it.
+--
+-- I appreciate this because it allows me to, for example, have just an `f`
+-- snippet for Lua where both the `local` and the name of the function are
+-- optional, and easy to remove, so I can make both local named functions and
+-- anonymous functions with the same snippet.
+--
+-- This is emulated here by mapping and unmapping the `<BS>` key on the
+-- `MiniSnippetsSessionStart` and `MiniSnippetsSessionStop` events respectively.
+-- If mapped, `<BS>` deletes the placeholder when it is untouched since the
+-- jump, the way a Select-mode selection would behave, but in Insert-mode.
+--
+-- There is one more tricky detail: I use the lexima.vim plugin to automatically
+-- insert pairs and other tokens. That maps the backspace in insert mode, so the
+-- function that I map here needs to still fall-back to lexima's function to not
+-- break its functionality.
+
+local function snippet_placeholder_text(nodes)
+    local parts = {}
+    for _, node in ipairs(nodes) do
+        if node.text ~= nil then
+            table.insert(parts, node.text)
+        end
+        if node.placeholder ~= nil then
+            table.insert(parts, snippet_placeholder_text(node.placeholder))
+        end
+    end
+    return table.concat(parts)
+end
+
+-- Find the reference node (first in traversal order) of a tabstop.
+local function snippet_find_tabstop(nodes, tabstop)
+    for _, node in ipairs(nodes) do
+        if node.tabstop == tabstop then
+            return node
+        end
+        if node.placeholder ~= nil then
+            local found = snippet_find_tabstop(node.placeholder, tabstop)
+            if found ~= nil then
+                return found
+            end
+        end
+    end
+    return nil
+end
+
+-- Range of the current tabstop's placeholder when the cursor is at its start
+-- and it is still "pristine" (the buffer text equals the placeholder).
+local function snippet_pristine_placeholder_range()
+    local session = MiniSnippets.session.get()
+    if session == nil or session.buf_id ~= vim.api.nvim_get_current_buf() then
+        return nil
+    end
+    local node = snippet_find_tabstop(session.nodes, session.cur_tabstop)
+    if node == nil then
+        return nil
+    end
+    local text = snippet_placeholder_text(node.placeholder or {})
+    if text == '' then
+        return nil
+    end
+    local mark = vim.api.nvim_buf_get_extmark_by_id(
+        session.buf_id, session.ns_id, node.extmark_id, { details = true }
+    )
+    if mark[1] == -1 then
+        return nil
+    end
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    if cursor[1] ~= mark[1] + 1 or cursor[2] ~= mark[2] then
+        return nil
+    end
+    local lines = vim.api.nvim_buf_get_text(
+        session.buf_id, mark[1], mark[2], mark[3].end_row, mark[3].end_col, {}
+    )
+    if table.concat(lines, '\n') ~= text then
+        return nil
+    end
+    return { session.buf_id, mark[1], mark[2], mark[3].end_row, mark[3].end_col }
+end
+
+-- <BS> during a snippet session: delete the pristine placeholder of the current
+-- tabstop, or fall back to lexima's own <BS> handling, which this buffer-local
+-- mapping shadows while the session is active.
+local function snippet_backspace()
+    local range = snippet_pristine_placeholder_range()
+    if range ~= nil then
+        vim.api.nvim_buf_set_text(range[1], range[2], range[3], range[4], range[5], {})
+        return
+    end
+    vim.api.nvim_feedkeys(vim.fn['lexima#expand']('<BS>', 'i'), 'n', false)
+end
+
+-- Install the <BS> override in the buffers where snippet sessions run, so
+-- lexima's global mapping is untouched everywhere else.
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniSnippetsSessionStart',
+    callback = function()
+        local session = MiniSnippets.session.get()
+        local current_buffer = vim.api.nvim_get_current_buf()
+        if session == nil or session.buf_id ~= current_buffer then
+            return
+        end
+        vim.keymap.set('i', '<BS>', snippet_backspace, {
+            buffer = session.buf_id,
+            silent = true,
+            desc = 'Delete pristine placeholder, else lexima backspace',
+        })
+    end,
+})
+
+-- The stop event fires before the session is popped, so check afterwards if the
+-- mapping is still needed (nested sessions may remain in the buffer).
+vim.api.nvim_create_autocmd('User', {
+    pattern = 'MiniSnippetsSessionStop',
+    callback = function()
+        local session = MiniSnippets.session.get()
+        if session == nil then
+            return
+        end
+        local buf_id = session.buf_id
+        vim.schedule(function()
+            local remaining = MiniSnippets.session.get(true) or {}
+            for _, other in ipairs(remaining) do
+                if other.buf_id == buf_id then
+                    return
+                end
+            end
+            pcall(vim.api.nvim_buf_del_keymap, buf_id, 'i', '<BS>')
+        end)
+    end,
+})
+
 
 
 --------------------------------------------------------------------------------
