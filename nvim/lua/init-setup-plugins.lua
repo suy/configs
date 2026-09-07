@@ -592,28 +592,34 @@ vim.keymap.set('c', '<C-s>', 'Pick history<CR>')
 --------------------------------------------------------------------------------
 MiniSnippets = require('mini.snippets')
 
--- Capture visual selection for use as ${SELECTED} in snippet bodies.
--- In Visual mode, <C-j> captures the selection, then changes (delete + insert).
-local snippet_selected = ''
+-- Capture visual selection for use as `${SELECTED}` in snippet bodies. Works by
+-- mapping `<C-j>` in Visual mode, which first stores the selection in a
+-- variable, then performs `c` to delete the selection and enter Insert mode.
+local snippet_selection = ''
 
 vim.keymap.set('x', '<C-j>', function()
-    snippet_selected = table.concat(
-        vim.fn.getregion(vim.fn.getpos('v'), vim.fn.getpos('.'),
-            { type = vim.fn.mode() }), '\n')
+    local position1, position2 = vim.fn.getpos('v'), vim.fn.getpos('.')
+    local text = vim.fn.getregion(position1, position2, { type = vim.fn.mode() })
+    -- Save the selection for later, during expansion.
+    snippet_selection = table.concat(text, '\n')
     vim.api.nvim_feedkeys('c', 'n', false)
 end)
 
+-- TODO: reconsider removing this autocommand in the future. With it, cutting
+-- some text to show in the next snippet expansion, but then briefly exiting
+-- insert mode to move to some other location where one wants to expand the
+-- snippet, ends up losing the selection, which sort of defeates the purpose.
 vim.api.nvim_create_autocmd('InsertLeave', {
     group = Init.autocmd_group,
-    callback = function() snippet_selected = '' end,
+    callback = function() snippet_selection = '' end,
 })
 
 MiniSnippets.setup({
     expand = {
         insert = function(snippet)
-            local lookup = { SELECTED = snippet_selected }
-            snippet_selected = ''
-            return MiniSnippets.default_insert(snippet, { lookup = lookup })
+            local data = { SELECTED = snippet_selection }
+            snippet_selection = ''
+            return MiniSnippets.default_insert(snippet, { lookup = data })
         end,
     },
     snippets = {
