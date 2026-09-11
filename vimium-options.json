@@ -1,0 +1,18 @@
+{
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://typ.ing/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://monkeytype.com/*"
+    }
+  ],
+  "keyMappings": "# Insert your preferred key mappings here.\n# map <Insert> enterInsertMode\nmap <insert> passNextKey\nmap Yf LinkHints.activateMode action=focus",
+  "settingsVersion": "2.4.2"
+}
