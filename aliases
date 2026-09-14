@@ -76,11 +76,25 @@ fi
 
 # Open files in the parent instance when inside a nvim terminal. The check for
 # the `1` file descriptor is to protect headless runs (e.g. CI, agent, etc.).
-if [ -n "$NVIM" ] && [ -t 1 ]; then
+# Also skips the azul socket: there $NVIM points at the azul daemon socket
+# (/tmp/azul-$UID/<session>), and we want a real nvim instance.
+if [ -n "$NVIM" ] && [ -t 1 ] && [[ "$NVIM" != /tmp/azul-* ]]; then
     nvim()
     {
         [ $# -eq 0 ] && { echo "Already inside 'nvim'"; return; }
-        command nvim --server "$NVIM" --remote "$@"
+        # The server resolves relative paths against its own working directory,
+        # so absolutize each argument with the shell's $PWD. Absolute arguments
+        # pass through untouched. Note that --remote takes no options anyway:
+        # anything option-looking (e.g. -d) is taken as a file name.
+        local arguments=()
+        local argument
+        for argument in "$@"; do
+            case "$argument" in
+                /*) arguments+=("$argument") ;;
+                *) arguments+=("$PWD/$argument") ;;
+            esac
+        done
+        command nvim --server "$NVIM" --remote "${arguments[@]}"
     }
 fi
 
