@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Discord: keyboard mute / mark-read for current server
 // @namespace   suy.discord-server-keys
-// @version     0.4.0
+// @version     0.4.1
 // @description Alt+Shift+M opens a menu to mute the current server for a chosen duration (Discord's five defaults plus 2, 3 and 7 days). Alt+Shift+R marks the current server as read. Keys are matched by physical position (event.code), so they are layout independent.
 // @author      Alejandro Exojo Piqueras
 // @match       https://discord.com/channels/*
@@ -34,7 +34,7 @@
   const LOG_PREFIX = '[discord-server-keys]';
   const API = '/api/v9';
 
-  console.info(`${LOG_PREFIX} v0.4.0 attached (REST mode)`);
+  console.info(`${LOG_PREFIX} v0.4.1 attached (REST mode)`);
 
   // ---------------------------------------------------------------- webpack
   // Capture the bundle's require by pushing a fake chunk. Used ONLY to find
@@ -184,15 +184,20 @@
       showToast(mute ? 'Mute failed' : 'Unmute failed', true);
       return;
     }
-    // Server round-trip before claiming success: the UI itself follows the
-    // gateway push, so a 2xx plus a confirming GET is the honest signal.
+    // Server confirmation before claiming success. The PATCH response
+    // echoes the updated settings; if it does not, poll the GET — user
+    // settings propagate with a short delay, and an immediate GET can still
+    // answer the old value (observed as a false "did not stick").
     let verified = !mute; // unmute: 2xx is confirmation enough
     if (mute) {
-      const check = await api('GET', `/users/@me/guilds/${guildId}/settings`);
-      if (check && check.ok) {
-        try {
-          verified = (await check.json()).muted === true;
-        } catch { verified = false; }
+      const sleep = (ms) => new Promise((resolve) => { window.setTimeout(resolve, ms); });
+      try { verified = (await patched.json()).muted === true; } catch { }
+      for (let attempt = 0; !verified && attempt < 3; attempt++) {
+        await sleep(700);
+        const check = await api('GET', `/users/@me/guilds/${guildId}/settings`);
+        if (check && check.ok) {
+          try { verified = (await check.json()).muted === true; } catch { }
+        }
       }
     }
     if (!verified) {
