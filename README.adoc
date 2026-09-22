@@ -83,6 +83,20 @@ The recommended way is to use the provided Makefile. I always do:
 But you can choose which ones to get. I used to have a `setup-windows`, but I no
 longer use Windows that much.
 
+[NOTE]
+====
+There are some last-moment tweaks which I prefer to do manually because are
+pretty minor and hard to do (nicely) automatically. One, is changing the
+https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else[annoying
+Ctrl-P shortcut in Docker].
+
+The other is doing `git config --global credential.helper "/mnt/c/Program\
+Files/Git/mingw64/bin/git-credential-manager.exe"` on Linux WSL machines.
+Assuming that one has Git for Windows installed, which is likely. As advised
+https://github.com/git-ecosystem/git-credential-manager/blob/5096ba583de6e1d4853dbb0ad646913080f3f518/docs/wsl.md[in
+GCM's documentation].
+====
+
 
 === The two files for configuring Git
 

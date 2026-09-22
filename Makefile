@@ -36,8 +36,6 @@ setup-unix:
 	test -f ~/.config/tmuxinator/normal.yml || cp normal.yml ~/.config/tmuxinator
 	test -d ~/.letta/mods || mkdir -p ~/.letta/mods
 	cp $(CURDIR)/misc/letta/mods/statusline.tsx ~/.letta/mods/statusline.tsx
-	# https://stackoverflow.com/questions/20828657/docker-change-ctrlp-to-something-else
-	@echo 'Remember to add "detachKeys": "ctrl-z,z" to ~/.docker/config.json'
 
 
 setup-unix-extras: setup-unix
