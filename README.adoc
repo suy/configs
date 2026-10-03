@@ -181,9 +181,9 @@ Externally available, typically:
 Packaged:
 
 * aptitude
+* git, git-lfs, git-delta, git-subrepo (then setup configs!)
 * tmux, tmuxinator
-* neovim, neovim-qt, wl-clipboard, xclip
-* git, tree
+* neovim, neovim-qt, wl-clipboard, xclip, tree
 * silversearcher-ag, fd-find, ripgrep
 * htop, btop (other?)
 * build-essential, clang, cmake, ninja
