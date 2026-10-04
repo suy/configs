@@ -98,4 +98,11 @@
 	clean = git-lfs clean %f
 	process = git-lfs filter-process
 
+[delta]
+	; export DELTA_FEATURES=+side-by-side # activate
+	; export DELTA_FEATURES=+             # deactivate
+	side-by-side = true
+	; line-numbers = true
+	navigate = true
+
 # vim: filetype=gitconfig:noet
