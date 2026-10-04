@@ -535,7 +535,9 @@ end)
 --
 -- There might be bugs, but the functions try to cover the dangerous corner
 -- cases by checking for the register type (linewise vs characterwise), and not
--- indenting in characterwise pasting.
+-- indenting in characterwise pasting. Special buffers (terminals, quickfix,
+-- and the like) are special-cased too: in terminal buffers the `put` gets
+-- forwarded to the job, but reindenting an unmodifiable buffer would error out.
 --- @param put string 'p' (put after) or 'P' (put before)
 local function paste_plain(put)
     vim.cmd('normal! ' .. vim.v.count1 .. '"' .. vim.v.register .. put)
@@ -544,7 +546,8 @@ end
 --- @param put string 'p' or 'P'
 local function paste_and_reindent(put)
     paste_plain(put)
-    if vim.fn.getregtype(vim.v.register) == 'V' then
+    -- Only reindent in normal buffers. See `:h 'buftype'`.
+    if vim.bo.buftype == '' and vim.fn.getregtype(vim.v.register) == 'V' then
         vim.cmd("normal! =']")
     end
 end
