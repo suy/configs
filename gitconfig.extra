@@ -51,7 +51,7 @@
 
 [merge]
 	defaultToUpstream = 1
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [rerere]
     enabled = 1
 [branch]
