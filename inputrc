@@ -28,7 +28,11 @@ $endif
 
 # Make <Ctrl-Backspace> consistent with "normal" applications. Figured out the
 # character to map with <Ctrl-V><Ctrl-Backspace>, to see what the terminal sees.
-"\C-h": backward-kill-word
+# "\C-h": backward-kill-word
+# And the updated recipe for modern terminals supporting CSI u encoding: map CSI
+# (the `\e[`) followed by `<codepoint>;<modifier>u` to `backward-kill-word`.
+"\e[127;5u": backward-kill-word
+
 
 # I hate you, Spanish keyboard, for making '{}[]' so difficult to type.
 "\C-xb": "{}\C-b"

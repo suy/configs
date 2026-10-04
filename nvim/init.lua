@@ -800,6 +800,12 @@ vim.keymap.set({'n', 'x'}, '<Leader>w', '<C-w>', { remap = true })
 vim.keymap.set('i', 'jj', '<Esc>', { remap = false })
 vim.keymap.set('i', 'kk', '<Esc>', { remap = false })
 
+-- Delete previous word like in most desktop apps. I have been using C-w for
+-- ages very happily, but when I got used to C-BS in other apps, I end up
+-- accidentally closing a tab when wanting to delete a word. Since it's easier
+-- to bend Neovim or Bash than the other apps in the world, I'll do the former.
+vim.keymap.set('i', '<C-BS>', '<C-w>', { desc = 'Delete word like in desktop apps' })
+
 -- Quickly append some punctuation symbols at the end of the line. Very common
 -- when one ends up inside a function call that the typical completion or
 -- auto-pairs has filled with lots of characters to the right, so first one
