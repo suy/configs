@@ -42,7 +42,10 @@ PROFILES = {
 }.freeze
 
 # Environment variables worth passing across --clearenv, when they are set.
-PASSTHROUGH_ENVIRONMENT = ['TERM', 'LANG', 'LC_ALL'].freeze
+PASSTHROUGH_ENVIRONMENT = [
+  'PIXI_HOME', 'GEM_HOME', 'GEM_PATH', 'NPM_CONFIG_PREFIX',
+  'TERM', 'LANG', 'LC_ALL'
+].freeze
 
 # Merge several profiles into one: concatenate the path lists, drop
 # duplicates, and let read_write win where a path is listed in both
@@ -110,6 +113,7 @@ def sandbox_arguments(project_directory, profile, interactive)
     '--clearenv',
     '--setenv', 'HOME', home,
     '--setenv', 'PATH', ENV.fetch('PATH'),
+    '--setenv', 'SANDBOXIFY', '1',
     # The * expands an array in place, as if its elements were written here.
     *environment_arguments,
 
