@@ -334,7 +334,17 @@ vim.api.nvim_create_autocmd('SearchWrapped', {
 -- Jump to the last cursor position when reopening a file.
 vim.api.nvim_create_autocmd('BufReadPost', {
     group = Init.autocmd_group,
-    callback = function()
+    callback = function(event)
+        local excluded = {
+            "COMMIT_EDITMSG$",
+        }
+        local filename = vim.api.nvim_buf_get_name(event.buf)
+        for _, pattern in ipairs(excluded) do
+            if filename:match(pattern) then
+                return
+            end
+        end
+
         local mark = vim.fn.line([['"]])
         if mark > 1 and mark <= vim.fn.line('$') then
             vim.cmd([[normal! g`"]])
