@@ -331,6 +331,81 @@ vim.api.nvim_create_autocmd('SearchWrapped', {
     end
 })
 
+-- Tricks to ask before a quit command exits Neovim, if a terminal is open.
+-- `CmdlineLeave` can abort the command before Neovim executes it. The command
+-- line is still readable at this point, so it can be parsed to know if it is
+-- one of the quit commands. Note that `v:event.abort` is mutable only from
+-- false to true, and must be assigned from Vimscript, not Lua.
+vim.api.nvim_create_autocmd('CmdlineLeave', {
+    group = Init.autocmd_group,
+    callback = function()
+        if vim.v.event.cmdtype ~= ':' or vim.v.char ~= '\r' then
+            return
+        end
+
+        local quit_commands = {
+            cquit = true,
+            qall = true,
+            quit = true,
+            wq = true,
+            wqall = true,
+        }
+
+        -- Return whether a "quitting" command is going to exit Neovim. Most of
+        -- those commands *always* exit (e.g. `qa`). For `quit` and `wq`,
+        -- exiting happens only when the window they close is the last normal
+        -- window. This allows to close a window normally.
+        local function command_exits_neovim(command)
+            if command ~= 'quit' and command ~= 'wq' then
+                return true
+            end
+            -- Decide based on how many normal (non-floating) windows are.
+            local normal_windows = 0
+            for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
+                for _, window in ipairs(vim.api.nvim_tabpage_list_wins(tabpage)) do
+                    if vim.api.nvim_win_get_config(window).relative == '' then
+                        normal_windows = normal_windows + 1
+                        if normal_windows > 1 then
+                            return false
+                        end
+                    end
+                end
+            end
+            return normal_windows == 1
+        end
+
+        local function is_terminal_buffer(buffer)
+            return vim.api.nvim_buf_is_valid(buffer) and
+                   vim.api.nvim_buf_get_option(buffer, 'buftype') == 'terminal'
+        end
+
+        local function is_terminal_open()
+            for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+                if is_terminal_buffer(buffer) then
+                    return true
+                end
+            end
+            return false
+        end
+
+        local parsed, command = pcall(vim.api.nvim_parse_cmd, vim.fn.getcmdline(), {})
+        if not parsed or
+           not quit_commands[command.cmd] or
+           command.bang or
+           not command_exits_neovim(command.cmd) or
+           not is_terminal_open()
+        then
+            return
+        end
+
+        local choice = vim.fn.confirm('Exit Neovim? There is a terminal running',
+                                      '&Yes\n&No', 2)
+        if choice ~= 1 then
+            vim.cmd('let v:event.abort = v:true')
+        end
+    end,
+})
+
 -- Jump to the last cursor position when reopening a file.
 vim.api.nvim_create_autocmd('BufReadPost', {
     group = Init.autocmd_group,
