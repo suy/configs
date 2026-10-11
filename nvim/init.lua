@@ -547,6 +547,14 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Note to self: possible key candidates to be remapped as handy operators,
 -- since I rarely use them: M, Q, ^Q, ^P, ^N.
 
+-- Little experiment to see if I can get used to `cl` instead of `s`.
+vim.keymap.set('n', 's', function()
+    vim.notify('Try to use `cl` to see if we can use `s` for surrounding')
+    -- `:normal! cl` can't be used because it always goes back to normal mode,
+    -- even if the normal command would end up in insert mode.
+    vim.api.nvim_feedkeys('cl', 'm', false)
+end, { silent = true, desc = 'Try to learn to use `cl` instead of `s`' })
+
 -- Close fugitive windows with 'q'. Recursive so it triggers fugitive's 'gq'.
 vim.api.nvim_create_autocmd('FileType', {
     group = Init.autocmd_group,
