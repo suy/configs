@@ -16,11 +16,16 @@ ServerAliveCountMax 3
 # For unite-ssh. Seems safe enough for the remaining use cases.
 ControlMaster auto
 
-# For some hosts I have a more specific key, but I don't want to specify them
-# one by one, so attempt to use a remote host-suffixed key first, and fall back
-# to the usual one.
-IdentityFile ~/.ssh/id_rsa-%h
-IdentityFile ~/.ssh/id_rsa
+# I no longer use this, but I used to have a more specific key for some hosts,
+# and this allows to match first a key with the host in its name, then fall back
+# to a key with a default name. Adjust to the name of the new types of keys.
+# IdentityFile ~/.ssh/id_rsa-%h
+# IdentityFile ~/.ssh/id_rsa
+
+# Automatically add a key to the ssh-agent, when used, without `ssh-add`.
+AddKeysToAgent yes
+
+# The only key in use these days.
 IdentityFile ~/.ssh/id_ed25519
 
 Host *.debian.org
