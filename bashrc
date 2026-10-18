@@ -29,6 +29,18 @@ thereis()
     return $(command -v $1 > /dev/null 2>&1)
 }
 
+# Prepend a directory to PATH, unless it is already present, so its idempotent.
+# Helpful to prevent duplicated entries, given that a multiplexer session starts
+# a shell within a shell, which causes configuration files to be read twice.
+path_prepend()
+{
+    case ":$PATH:" in
+        *":$1:"*) return ;;
+    esac
+    PATH="$1${PATH:+:$PATH}"
+    export PATH
+}
+
 # Enable the shell completion. Some functions can be used later to set PS1
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion

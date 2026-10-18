@@ -40,12 +40,12 @@ export CYGWIN=winsymlinks:nativestrict
 # PATH, and PATH-like environment
 #
 if [ -d $HOME/local/bin ] ; then
-    export PATH=$HOME/local/bin:"${PATH}"
+    path_prepend "$HOME/local/bin"
 fi
 
 if [ -d $HOME/local/pixi ] ; then
     export PIXI_HOME=$HOME/local/pixi
-    export PATH=$PIXI_HOME/bin:"${PATH}"
+    path_prepend "$PIXI_HOME/bin"
     eval "$(pixi completion --shell bash)"
     for file in $PIXI_HOME/completions/bash/* ; do
         if [ -e "$file" ] ; then
@@ -60,7 +60,7 @@ if [ -d $HOME/local/gems ] ; then
     export GEM_HOME=$HOME/local/gems
     # Locations where gems can be found (by who?).
     # export GEM_PATH
-    export PATH=$HOME/local/gems/bin:"${PATH}"
+    path_prepend "$HOME/local/gems/bin"
 fi
 
 if thereis luarocks ; then
@@ -75,16 +75,16 @@ fi
 
 if [ -d $HOME/local/node ] ; then
     export NPM_CONFIG_PREFIX=$HOME/local/node
-    export PATH=$HOME/local/node/bin:"${PATH}"
+    path_prepend "$HOME/local/node/bin"
 fi
 
-# TODO: I end up with 3 ~/.local/bin directories for some reason. Find why.
-# /etc/skel/.profile contains a rule for this, so this one is redundant in this
-# case. Will need to make a function to see if we can detect the string being
-# there.
-# pip install --user puts it's stuff there. And --target just fails for me.
+# I've never been able to tame Python properly to put stuff in a proper place
+# (unless I'm using Pixi, that is), so add this somewhat generic directory which
+# for me it's only Python crap, because `pip install --user` puts it's stuff
+# there, and `--target` just fails for me.
+# NB: `/etc/skel/.profile` also does this, but the function prevents duplicates.
 if [ -d $HOME/.local/bin ] ; then
-    export PATH=$HOME/.local/bin:"${PATH}"
+    path_prepend "$HOME/.local/bin"
 fi
 
 # if [ -x $HOME/.rbenv/bin/rbenv ] ; then
