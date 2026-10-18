@@ -1,11 +1,15 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'shellwords' # Array#shelljoin, for the --dry-run output.
+
 # sandboxify: run a command inside a bubblewrap sandbox.
 #
-# Usage: sandboxify PROFILE[,PROFILE...] PROJECT_DIR [COMMAND...]
+# Usage: sandboxify [--dry-run|-n] PROFILE[,PROFILE...] PROJECT_DIR [COMMAND...]
 #
 # With no COMMAND, starts an interactive bash (for testing the sandbox).
+# With --dry-run (short form -n) as the first argument, prints the bwrap
+# command it would run (shell-quoted, pasteable) instead of running it.
 #
 # The command (intended to be an only somewhat trusted program like an agent)
 # runs in PROJECT_DIR with read-write access to that directory (but with `.git`
@@ -17,8 +21,10 @@
 
 # Per-agent configuration. Adding an agent is data entry, not scripting:
 # read_only and read_write are lists of paths (~/ is expanded) that become
-# --ro-bind-try / --bind-try mounts. Everything shared by all profiles
-# lives in sandbox_arguments below.
+# --ro-bind / --bind mounts — required, not -try: requesting a profile is
+# an explicit opt-in, so a missing directory fails the run instead of
+# silently sending the agent's writes to the discarded tmpfs. The -try
+# variants stay for the machine-dependent paths in sandbox_arguments.
 PROFILES = {
   # Bare sandbox for manual testing: system dirs plus the context trees.
   'shell' => {},
@@ -29,6 +35,14 @@ PROFILES = {
   #   sandboxify letta,opencode PROJECT ...
   'letta' => {
     read_write: ['~/.letta'],
+  },
+
+  # Paths defined in the environment file, as are not standard for pi.
+  'pi' => {
+    read_write: [
+      '~/.config/pi',
+      '~/.local/state/pi/sessions',
+    ],
   },
 
   'opencode' => {
@@ -44,6 +58,7 @@ PROFILES = {
 # Environment variables worth passing across --clearenv, when they are set.
 PASSTHROUGH_ENVIRONMENT = [
   'PIXI_HOME', 'GEM_HOME', 'GEM_PATH', 'NPM_CONFIG_PREFIX',
+  'PI_CODING_AGENT_DIR', 'PI_CODING_AGENT_SESSION_DIR',
   'TERM', 'LANG', 'LC_ALL'
 ].freeze
 
@@ -81,8 +96,8 @@ end
 def profile_arguments(profile)
   # fetch(:key, []) returns the list, or an empty list when the profile
   # omits that key. Array addition (+) concatenates.
-  bind_arguments(profile.fetch(:read_only, []), '--ro-bind-try') +
-    bind_arguments(profile.fetch(:read_write, []), '--bind-try')
+  bind_arguments(profile.fetch(:read_only, []), '--ro-bind') +
+    bind_arguments(profile.fetch(:read_write, []), '--bind')
 end
 
 # Re-set a few environment variables after --clearenv, but only the ones
@@ -162,7 +177,7 @@ end
 
 def usage
   [
-    'Usage: sandboxify PROFILE[,PROFILE...] PROJECT_DIR [COMMAND...]',
+    'Usage: sandboxify [--dry-run|-n] PROFILE[,PROFILE...] PROJECT_DIR [COMMAND...]',
     "Profiles: #{(PROFILES.keys + ['all']).join(', ')}",
   ].join("\n")
 end
@@ -170,6 +185,11 @@ end
 if ARGV.length < 2
   abort usage
 end
+
+# --dry-run / -n is only recognized as the FIRST argument, so any flags
+# meant for the command itself (after PROJECT_DIR) pass through untouched.
+dry_run = ['--dry-run', '-n'].include?(ARGV.first)
+ARGV.shift if dry_run
 
 # The first argument may name several profiles: 'letta,opencode'.
 # split(',') breaks the string apart; map(&:strip) removes surrounding
@@ -226,6 +246,12 @@ arguments += sandbox_arguments(project_directory, profile, interactive)
 arguments.push('--')
 arguments += command
 
-# exec replaces this process with bwrap; the * passes the array as
-# separate arguments (no shell involved, so no quoting issues).
-exec(*arguments)
+if dry_run
+  # shelljoin quotes arguments as a shell would, so the printed line can
+  # be pasted and run by hand for further debugging.
+  puts arguments.shelljoin
+else
+  # exec replaces this process with bwrap; the * passes the array as
+  # separate arguments (no shell involved, so no quoting issues).
+  exec(*arguments)
+end

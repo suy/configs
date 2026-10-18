@@ -97,4 +97,11 @@ if [ -d $HOME/local/man ] ; then
     export MANPATH=$HOME/local/man:"${MANPATH}"
 fi
 
+# pi almost hardcodes ~/.pi and has no XDG support, on purpose. See:
+# https://github.com/earendil-works/pi/issues/534
+# https://github.com/earendil-works/pi/issues/2870#issuecomment-4192185219
+# https://github.com/earendil-works/pi/pull/256
+export PI_CODING_AGENT_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/pi"
+export PI_CODING_AGENT_SESSION_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/pi/sessions"
+
 # vim:set filetype=sh:
