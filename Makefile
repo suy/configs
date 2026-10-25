@@ -36,7 +36,10 @@ setup-unix:
 	test -f ~/.config/tmuxinator/normal.yml || cp normal.yml ~/.config/tmuxinator
 	test -d ~/.letta/mods || mkdir -p ~/.letta/mods
 	cp $(CURDIR)/misc/letta/mods/statusline.tsx ~/.letta/mods/statusline.tsx
-
+	@if [ -f /etc/wsl.conf ]; then \
+		echo "WSL detected. For GUI apps remember to set up the keyboard"; \
+		echo "layout. See the notes at: https://disperso.net/Miscellaneous#wsl"; \
+	fi
 
 setup-unix-extras: setup-unix
 	@# Just in case I forgot to use --recursive.

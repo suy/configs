@@ -36,6 +36,12 @@ export DEBSIGN_KEYID=0x0B8B0BC2
 KDE_NO_IPV6=true
 export CYGWIN=winsymlinks:nativestrict
 
+# I. Hate. Windows. https://disperso.net/miscellaneous#wsl
+if [ -f /etc/wsl.conf ] ; then
+    export QT_QPA_PLATFORM=xcb # Qt applications.
+    export GDK_BACKEND=x11     # GTK applications.
+fi
+
 #
 # PATH, and PATH-like environment
 #
