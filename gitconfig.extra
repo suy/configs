@@ -38,6 +38,8 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.ignore-patterns
+[init]
+	defaultBranch = master
 
 # The `git-subtree` script lives in the /usr/lib/git-core directory, which is
 # not in PATH (though is still found by the `git` binary as a subcommand). The
