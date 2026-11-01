@@ -59,7 +59,7 @@ PROFILES = {
 PASSTHROUGH_ENVIRONMENT = [
   'PIXI_HOME', 'GEM_HOME', 'GEM_PATH', 'NPM_CONFIG_PREFIX',
   'PI_CODING_AGENT_DIR', 'PI_CODING_AGENT_SESSION_DIR',
-  'TERM', 'LANG', 'LC_ALL'
+  'TERM', 'LANG', 'LC_ALL', 'EDITOR'
 ].freeze
 
 # Merge several profiles into one: concatenate the path lists, drop
