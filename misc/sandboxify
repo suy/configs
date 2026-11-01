@@ -57,7 +57,7 @@ PROFILES = {
 
 # Environment variables worth passing across --clearenv, when they are set.
 PASSTHROUGH_ENVIRONMENT = [
-  'PIXI_HOME', 'GEM_HOME', 'GEM_PATH', 'NPM_CONFIG_PREFIX',
+  'PIXI_HOME', 'GEM_HOME', 'GEM_PATH', 'NPM_CONFIG_PREFIX', 'LUA_PATH', 'LUA_CPATH',
   'PI_CODING_AGENT_DIR', 'PI_CODING_AGENT_SESSION_DIR',
   'TERM', 'LANG', 'LC_ALL', 'EDITOR'
 ].freeze
