@@ -72,6 +72,7 @@ fi
 if thereis luarocks ; then
     # LuaRocks has a convenience to output both a (modified) LUA_PATH and
     # LUA_CPATH (for DLLs) as well as PATH in shell format to be evaluated.
+    # Remember to `luarocks install --tree ~/local/rocks` (and *not* `--local`).
     if [ -d $HOME/local/rocks ] ; then
         eval `luarocks path --tree $HOME/local/rocks`
     else
