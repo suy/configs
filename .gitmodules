@@ -105,3 +105,7 @@
 [submodule "nvim/pack/colorschemes/start/catppuccin"]
 	path = nvim/pack/colorschemes/start/catppuccin
 	url = https://github.com/catppuccin/nvim
+[submodule "lua-language-server-addons/luaunit"]
+	path = lua-language-server-addons/luaunit
+	url = https://github.com/suy/luaunit
+	branch = extras
